@@ -10,11 +10,13 @@ public class OllamaChatExample {
   public static void main(String[] args) {
     // The model name to use (e.g., "orca-mini", "mistral", "llama2", "codellama", "phi", or
     // "tinyllama")
-    String modelName = "orca-mini";
+    String modelName = "llama";
+    // String modelVersion = "latest";
+    String modelVersion = "3.1";
 
     // Create and start the Ollama container
     OllamaContainer ollama =
-        new OllamaContainer(DockerImageName.parse("langchain4j/ollama-" + modelName + ":latest")
+        new OllamaContainer(DockerImageName.parse("langchain4j/ollama-" + modelName + ":" + modelVersion)
             .asCompatibleSubstituteFor("ollama/ollama"));
     ollama.start();
 
