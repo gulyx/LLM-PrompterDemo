@@ -1,0 +1,22 @@
+Gulyx  — Oggi alle 11:43
+Hi, I am following the example reported here: https://docs.langchain4j.dev/integrations/language-models/ollama/ but when i run "mvn clean compile" the build process fails. The first error that is reported says: "[ERROR] ... :[5,33] package org.testcontainers.ollama does not exist"
+
+LangChain4j — Oggi alle 12:29
+Hi, good catch, thank you! It should be:
+
+<dependency>
+    <groupId>org.testcontainers</groupId>
+    <artifactId>ollama</artifactId>
+    <version>1.19.1</version>
+</dependency>
+If you have Ollama installed, you do not need testcontainers, you can just do:
+
+OllamaChatModel ollamaChatModel = OllamaChatModel.builder()
+    .baseUrl("http://localhost:11434")
+    .modelName("llama3.1")
+    .temperature(0.8)
+    .timeout(Duration.ofSeconds(60))
+    .build();
+
+LangChain4j — Oggi alle 12:37
+Here is an example of running Ollama with testconteiners: https://github.com/langchain4j/langchain4j/blob/main/langchain4j-ollama/src/test/java/dev/langchain4j/model/ollama/OllamaChatModelIT.java
