@@ -4,20 +4,15 @@ import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
 
 import java.time.Duration;
-    
+
+// import it.cnr.iasi.saks.langchain4j.ollama-examples.utils;
+
 public class OllamaChatExample {
 
- /**
-     * If you have Ollama running locally,
-     * please set the OLLAMA_BASE_URL environment variable (e.g., http://localhost:11434).
-     * If you do not set the OLLAMA_BASE_URL environment variable,
-     * Testcontainers will download and start Ollama Docker container.
-     * It might take a few minutes.
-     */
 
    public static void main(String[] args) {
    
-    System.setProperty("OLLAMA_BASE_URL", "http://localhost:11434");
+    String OLLAMA_BASE_URL = "http://localhost:11434";
        
      // The model name to use (e.g., "orca-mini", "mistral", "llama2", "codellama", "phi", or
      // "tinyllama")
@@ -27,7 +22,7 @@ public class OllamaChatExample {
 
      // Build the ChatLanguageModel
      OllamaChatModel model = OllamaChatModel.builder()
-	                       .baseUrl("ollama")
+	                       .baseUrl(OLLAMA_BASE_URL)
 	                       .modelName(modelName)
 	                       .temperature(0.8)
 	                       .timeout(Duration.ofSeconds(300))
