@@ -1,6 +1,9 @@
 package it.cnr.iasi.saks.llmPrompterDemo;
 
-import dev.langchain4j.model.chat.ChatLanguageModel;
+// This interaction model is not supported anymore.
+// In order to use it, enable older versions of langchain4j, like ver. 0.35
+// import dev.langchain4j.model.chat.ChatLanguageModel;
+
 import dev.langchain4j.model.ollama.OllamaChatModel;
 
 import java.time.Duration;
@@ -10,7 +13,8 @@ public class OllamaChatExample {
    public static void main(String[] args) {
      // The model name to use (e.g., "orca-mini", "mistral", "llama2", "codellama", "phi", or
      // "tinyllama")
-     String modelName = "llama3.1";
+//     String modelName = "llama3.1";
+     String modelName = "llama3.2";
      String modelVersion = "latest";
      // String modelVersion = "3.1";
 
@@ -22,11 +26,18 @@ public class OllamaChatExample {
 	                       .timeout(Duration.ofSeconds(300))
 	                       .build();
      
- 
-     // Example usage
-//     String answer = model.generate("Provide 3 short bullet points explaining why Java is awesome");
-     String answer = model.generate("What is your Name?");
-     System.out.println(answer);
+
+     // Example usage -- This interaction model is not supported anymore. In order to use it, enable older versions of langchain4j, like ver. 0.35
+//     String answer = model.generate("What is your Name?");
+//     System.out.println(answer);
+//     answer = model.generate("Provide 3 short bullet points explaining why Java is awesome");
+//     System.out.println(answer);
+
+// Possibly the current way to interact with Ollama
+     String answer2 = model.chat("Provide a bullet list with 3 items on forunes");
+     System.out.println(answer2);
    }
 
+     // Stop the Ollama container
+    //        ollama.stop();
 }
