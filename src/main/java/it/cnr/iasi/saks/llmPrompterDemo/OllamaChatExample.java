@@ -44,6 +44,4 @@ public class OllamaChatExample {
      System.out.println(answer2);
    }
 
-     // Stop the Ollama container
-    //        ollama.stop();
 }
