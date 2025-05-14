@@ -27,7 +27,9 @@ public class GenerationDriverOllama {
 			Prompter p = new DescriptionOnlyPrompter(id, 5, llm);
 			
 			String prompt = p.composePrompt();
+			System.out.println("Querying LLM for id:" + id + " ...");
 			p.queryLLM(prompt);
+			System.out.println("... done");
 			try {
 				p.saveCurrentResponse();
 			} catch (IOException e) {
