@@ -1,0 +1,2 @@
+Input: s = "eccbbbbdec"
+Output: [10]

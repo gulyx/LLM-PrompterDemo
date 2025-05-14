@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<string> validStrings(int n) {
+        vector<string> vec = {"0", "1"};
+        for (int i = 2; i <= n; i++) {
+            // Create a temporary vector to hold the new strings of length i
+            vector<string> v;
+            // Process each string from the previous length
+            for (string s : vec) {
+                // Append "1" to the current string to generate a new valid string
+                v.push_back(s + "1");
+                // If the last character of the current string is "1", append "0" to avoid two consecutive "1"s
+                if (s.back() == '1') v.push_back(s + "0");
+            }
+            // Update vec to be the new list of valid strings for the current length
+            vec = v;
+        }
+        return vec;
+    }
+};

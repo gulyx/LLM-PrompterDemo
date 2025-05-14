@@ -1,0 +1,41 @@
+class Solution {
+//time - O(n * log(m+n)), space - O(m+n)
+    public int[] processQueries(int[] queries, int m) {
+        int n = queries.length;
+        int[] ans = new int[n];
+        int[] indexes = new int[m + 1];
+        BIT bit = new BIT(n + m + 1); //reserve place for n moves
+        for (int i = 1; i <= m; i++) { //initial state
+            indexes[i] = n + i; //save index for number. Index will change after moving number
+            bit.insert(indexes[i], 1); //new number's adding prefix one (one position)
+        }
+        for (int i = 0; i < queries.length; i++){
+            int index = indexes[queries[i]];
+            indexes[queries[i]] = n - i; //save new index
+            ans[i] = bit.getPrefix(index);
+            bit.insert(index, -1); // remove number from BIT by prev index (position contribution of this number)
+            bit.insert(indexes[queries[i]], 1); //add number on first place with new index
+        }
+        return ans;
+    }
+    
+    class BIT {
+        private final int arr[];
+        public BIT(int capacity) {
+            this.arr = new int[capacity];
+        }
+
+        public void insert(int i, int value) {
+            for (; i < arr.length; i += i & -i)
+                arr[i] += value;
+        }
+
+        public int getPrefix(int i) {
+            int sum = 0;
+            i--; //don't calculate current step contribution
+            for (; i > 0; i -= i & -i)
+                sum += arr[i];
+            return sum; 
+        }
+    }
+} 

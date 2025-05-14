@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int minSteps(string s, string t) {
+        map<char, int> mp1;
+        map<char, int> mp2;
+
+        // Count frequency of each character in s
+        for (int i = 0; i < s.size(); i++) {
+            mp1[s[i]]++;
+        }
+
+        // Count frequency of each character in t
+        for (int i = 0; i < t.size(); i++) {
+            mp2[t[i]]++;
+        }
+
+        int ans = 0;
+        // Compare character frequencies
+        for (auto ele : mp1) {
+            // If s has more of a character than t, we need to remove the extra
+            if (ele.second > mp2[ele.first]) {
+                ans += abs(ele.second - mp2[ele.first]);
+            }
+        }
+
+        return ans;
+    }
+};

@@ -1,0 +1,2 @@
+Input: board = [[1,2,3],[4,0,5]]
+Output: 1

@@ -1,0 +1,2 @@
+Input: s = "zzazz"
+Output: 0

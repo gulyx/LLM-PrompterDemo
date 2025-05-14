@@ -1,0 +1,2 @@
+Input: s = "bab", t = "aba"
+Output: 1

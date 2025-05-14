@@ -1,0 +1,2 @@
+Input: n = 3, k = 9
+Output: "cab"

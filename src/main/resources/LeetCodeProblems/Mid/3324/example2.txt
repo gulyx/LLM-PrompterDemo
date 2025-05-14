@@ -1,0 +1,3 @@
+Input: target = "he"
+
+Output: ["a","b","c","d","e","f","g","h","ha","hb","hc","hd","he"]

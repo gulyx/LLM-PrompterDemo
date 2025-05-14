@@ -1,0 +1,2 @@
+Input: s = "ssssss"
+Output: 6

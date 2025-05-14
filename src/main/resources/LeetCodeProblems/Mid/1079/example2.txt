@@ -1,0 +1,2 @@
+Input: tiles = "AAABBC"
+Output: 188

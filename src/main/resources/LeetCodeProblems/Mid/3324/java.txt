@@ -1,0 +1,19 @@
+class Solution {
+    public List<String> stringSequence(String target) {
+        List<String> result = new ArrayList<>();
+        StringBuilder screen = new StringBuilder();
+        
+        for (char targetChar : target.toCharArray()) {
+            screen.append('a');
+            result.add(screen.toString());
+            
+            char currentChar = 'a';
+            while (currentChar != targetChar) {
+                currentChar = currentChar == 'z' ? 'a' : (char) (currentChar + 1);
+                screen.setCharAt(screen.length() - 1, currentChar);
+                result.add(screen.toString());
+            }
+        }
+        return result;
+    }
+}

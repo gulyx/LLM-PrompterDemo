@@ -1,0 +1,2 @@
+Input: derived = [1,0]
+Output: false

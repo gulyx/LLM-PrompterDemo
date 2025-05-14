@@ -1,0 +1,2 @@
+Input: pattern = "DDD"
+Output: "4321"

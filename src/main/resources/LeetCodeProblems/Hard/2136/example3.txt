@@ -1,0 +1,2 @@
+Input: plantTime = [1], growTime = [1]
+Output: 2

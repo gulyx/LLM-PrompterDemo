@@ -1,0 +1,17 @@
+class Solution {
+    private List<String> ans;
+
+    private void f(int prev, StringBuilder str, int n) {
+        if (str.length() == n) {
+            ans.add(str.toString());
+            return;
+        }
+        str.append('1');
+        f(1, str, n);
+        str.deleteCharAt(str.length() - 1);
+        if (prev == 1) {
+            str.append('0');
+            f(0, str, n);
+            str.deleteCharAt(str.length() - 1);
+        } 
+    }

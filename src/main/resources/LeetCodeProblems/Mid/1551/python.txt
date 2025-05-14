@@ -1,0 +1,8 @@
+class Solution:
+    def minOperations(self, n: int) -> int:
+
+        median = (n//2)*2 + 1
+        count = 0
+        for num in range(n):
+            count += abs(2*num + 1 -median)
+        return  count//2

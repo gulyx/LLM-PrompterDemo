@@ -1,0 +1,2 @@
+Input: n = 6, k = 5
+Output: 1

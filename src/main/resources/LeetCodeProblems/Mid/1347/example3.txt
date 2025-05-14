@@ -1,0 +1,2 @@
+Input: s = "anagram", t = "mangaar"
+Output: 0

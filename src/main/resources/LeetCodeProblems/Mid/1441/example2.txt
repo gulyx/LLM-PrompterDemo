@@ -1,0 +1,2 @@
+Input: target = [1,2,3], n = 3
+Output: ["Push","Push","Push"]

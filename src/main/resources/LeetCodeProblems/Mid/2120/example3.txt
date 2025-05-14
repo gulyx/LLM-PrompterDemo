@@ -1,0 +1,2 @@
+Input: n = 1, startPos = [0,0], s = "LRUD"
+Output: [0,0,0,0]

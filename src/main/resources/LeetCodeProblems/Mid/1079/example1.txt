@@ -1,0 +1,2 @@
+Input: tiles = "AAB"
+Output: 8

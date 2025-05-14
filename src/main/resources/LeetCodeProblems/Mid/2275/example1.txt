@@ -1,0 +1,2 @@
+Input: candidates = [16,17,71,62,12,24,14]
+Output: 4

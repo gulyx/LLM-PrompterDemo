@@ -1,0 +1,2 @@
+Input: queries = [4,1,2,2], m = 4
+Output: [3,1,2,0]

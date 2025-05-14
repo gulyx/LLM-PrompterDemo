@@ -1,0 +1,42 @@
+// 2 ms. 74.36%
+class Solution {
+    private static final int[][] dir = {{-1, 0}, {0, -1}, {0, 0}, {0, 1}, {1, 0}};
+    public int minFlips(int[][] mat) {
+        int m = mat.length, n = mat[0].length, start = 0;
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+                start |= mat[i][j] << (i * n + j);
+            }
+        }
+        if(start == 0) return 0;
+        boolean[] visited = new boolean[1 << (m * n)];
+        Deque<Integer> Q = new LinkedList<>();
+        visited[start] = true;
+        Q.add(start);
+        int res = 0;
+        while(!Q.isEmpty()) {
+            res++;
+            int size = Q.size();
+            while(size-- > 0) {
+                int cur = Q.poll();
+                for(int i = 0; i < m; i++) {
+                    for(int j = 0; j < n; j++) {
+                        int next = cur;
+                        for(int[] d: dir) {
+                            int x = i + d[0], y = j + d[1];
+                            if(x >= 0 && x < m && y >= 0 && y < n) {
+                                next ^= 1 << (x * n + y);
+                            }
+                        }
+                        if(!visited[next]) {
+                            if(next == 0) return res;
+                            visited[next] = true;
+                            Q.add(next);
+                        }
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+}

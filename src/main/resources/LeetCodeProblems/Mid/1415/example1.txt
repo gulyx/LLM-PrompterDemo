@@ -1,0 +1,2 @@
+Input: n = 1, k = 3
+Output: "c"

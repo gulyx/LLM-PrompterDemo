@@ -1,0 +1,11 @@
+def canSeePersonsCount(self, heights: List[int]) -> List[int]:
+        n, stk = len(heights), []
+        ans = [0] * n
+        for i, h in enumerate(reversed(heights)):
+            while stk and h > stk[-1]:
+                stk.pop()
+                ans[i] += 1
+            if stk:
+                ans[i] += 1
+            stk.append(h)
+        return ans[:: -1]

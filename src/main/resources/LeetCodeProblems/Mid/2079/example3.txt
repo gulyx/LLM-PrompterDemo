@@ -1,0 +1,2 @@
+Input: plants = [7,7,7,7,7,7,7], capacity = 8
+Output: 49

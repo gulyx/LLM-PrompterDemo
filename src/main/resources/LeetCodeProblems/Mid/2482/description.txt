@@ -1,0 +1,15 @@
+You are given a 0-indexed "m x n" binary matrix "grid".
+
+A 0-indexed "m x n" difference matrix "diff" is created with the following procedure:
+
+Let the number of ones in the "iᵗʰ" row be "onesRowᵢ".
+
+Let the number of ones in the "jᵗʰ" column be "onesColⱼ".
+
+Let the number of zeros in the "iᵗʰ" row be "zerosRowᵢ".
+
+Let the number of zeros in the "jᵗʰ" column be "zerosColⱼ".
+
+"diff[i][j] = onesRowᵢ + onesColⱼ - zerosRowᵢ - zerosColⱼ"
+
+Return the difference matrix "diff".

@@ -1,0 +1,2 @@
+Input: s = "mxz", k = 3
+Output: "i"

@@ -1,0 +1,2 @@
+Input: root1 = [1,null,8], root2 = [8,1]
+Output: [1,1,8,8]

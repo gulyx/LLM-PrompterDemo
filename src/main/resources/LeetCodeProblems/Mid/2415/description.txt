@@ -1,0 +1,4 @@
+Given the "root" of a "perfect" binary tree, reverse the node values at each "odd" level of the tree.
+Return the root of the reversed tree.
+A binary tree is "perfect" if all parent nodes have two children and all leaves are on the same level.
+The "level" of a node is the number of edges along the path between it and the root node.

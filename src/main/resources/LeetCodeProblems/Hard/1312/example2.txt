@@ -1,0 +1,2 @@
+Input: s = "mbadm"
+Output: 2

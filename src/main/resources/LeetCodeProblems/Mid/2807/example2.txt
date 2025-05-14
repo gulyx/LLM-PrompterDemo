@@ -1,0 +1,2 @@
+Input: head = [7]
+Output: [7]

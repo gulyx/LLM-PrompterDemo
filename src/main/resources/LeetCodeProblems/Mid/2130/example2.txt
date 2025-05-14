@@ -1,0 +1,2 @@
+Input: head = [4,2,2,3]
+Output: 7

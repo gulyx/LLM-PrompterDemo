@@ -1,0 +1,32 @@
+class MyCalendarThree:
+
+    def __init__(self):
+        self.maxOverlaps = 1
+        self.bookings = []
+
+    def checkOverlaps_boundryCount(self):
+        '''
+        Boundary Count : or timestamp as I like to call it
+        O(N log N)
+        '''
+        lst = []
+        for start, end in self.bookings:
+            lst.append((start, +1))
+            lst.append((end, -1))
+        lst.sort()
+        
+        overlaps = 0
+        for b in lst:
+            overlaps += b[1]
+            self.maxOverlaps = max(self.maxOverlaps, overlaps) # --- NOTE [1]
+        return self.maxOverlaps
+		
+ def book(self, start: int, end: int) -> int:
+       self.bookings.append((start, end))
+       return self.checkOverlaps_boundryCount() # --- Approach 1 : boundary count
+       # return self.checkOverlaps_heap() # --------- Approach 2 : sort + heap => number of rooms needed
+
+    # NOTE [1]
+    # if there was a limit on the overlaps (like in My Calender I & II) -> we could have used a local overlaps counter and simply break when th e number of overlaps exceeds limit
+    # however, in this problme because we have no limit -> we cannot afford to use a single counter because eventually the total sum = 0 when we finish traversing the entire list lst (an equal number of +1, -1)
+    # that's why we have to have another global counter (maxOverlaps) and keep updating it with every iteration -> because we want to capture the number of overlpas

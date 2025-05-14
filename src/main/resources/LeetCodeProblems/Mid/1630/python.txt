@@ -1,0 +1,9 @@
+class Solution:
+    def checkArithmeticSubarrays(self, nums: List[int], l: List[int], r: List[int]) -> List[bool]:
+        result = []
+        for start, end in zip(l, r):
+            sub = sorted(nums[start:end+1])
+            diff = sub[1] - sub[0]
+            is_arithmetic = all(sub[i] - sub[i - 1] == diff for i in range(2, len(sub)))
+            result.append(is_arithmetic)
+        return result

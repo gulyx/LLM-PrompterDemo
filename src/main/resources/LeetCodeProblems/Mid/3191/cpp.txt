@@ -1,0 +1,9 @@
+while (i0 < n - 2) {
+    i0 = find(nums.begin() + i0 + 1, nums.end(), 0) - nums.begin();
+    if (i0 >= n - 2)
+        break; // If no 0 is found or we are at the end
+    // no need to flip nums[i0]
+    nums[i0 + 1] = !nums[i0 + 1];// flip
+    nums[i0 + 2] = !nums[i0 + 2];// flip
+    op++;
+}

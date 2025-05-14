@@ -1,0 +1,2 @@
+Input: deck = [1,1000]
+Output: [1,1000]

@@ -1,0 +1,2 @@
+Input: garbage = ["MMM","PGM","GP"], travel = [3,10]
+Output: 37

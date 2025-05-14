@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> canSeePersonsCount(vector<int>& h) {
+
+        int size=h.size();
+        vector<int> ans(size,0);
+        stack<int> st;
+        st.push(h[size-1]);
+
+        for(int i=size-2;i>=0;i--){
+
+            int num=0;
+
+            while(!st.empty() && st.top()<h[i]){
+                st.pop();
+                num++;
+            }
+
+            if(!st.empty()){
+                num++;
+            }
+
+            st.push(h[i]);
+            ans[i]=num;
+
+        }
+
+        return ans;
+
+    }
+};

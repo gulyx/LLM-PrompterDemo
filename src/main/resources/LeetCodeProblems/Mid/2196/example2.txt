@@ -1,0 +1,2 @@
+Input: descriptions = [[1,2,1],[2,3,0],[3,4,1]]
+Output: [1,2,null,null,3,4]

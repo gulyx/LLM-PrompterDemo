@@ -1,0 +1,2 @@
+Input: s = "leetcode", t = "practice"
+Output: 5
