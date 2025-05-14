@@ -1,4 +1,4 @@
-package utils;
+package it.cnr.iasi.saks.langchain4j.utils;
 
 import com.github.dockerjava.api.command.InspectContainerResponse;
 import org.slf4j.Logger;

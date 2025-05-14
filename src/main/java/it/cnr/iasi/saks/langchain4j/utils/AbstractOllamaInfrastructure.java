@@ -1,8 +1,8 @@
-package utils;
+package it.cnr.iasi.saks.langchain4j.utils;
 
 import static dev.langchain4j.internal.Utils.isNullOrEmpty;
-import static utils.OllamaImage.LLAMA_3_1;
-import static utils.OllamaImage.localOllamaImage;
+import static it.cnr.iasi.saks.langchain4j.utils.OllamaImage.LLAMA_3_1;
+import static it.cnr.iasi.saks.langchain4j.utils.OllamaImage.localOllamaImage;
 
 public class AbstractOllamaInfrastructure {
 
