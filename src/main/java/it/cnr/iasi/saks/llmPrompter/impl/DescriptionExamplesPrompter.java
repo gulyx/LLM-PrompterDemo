@@ -54,9 +54,11 @@ public class DescriptionExamplesPrompter extends Prompter {
 		prompt = prompt.concat("\n" + this.description);
 
 		String examplesList="";
-		for (int i = 0; i < this.examples.size(); i++) {
-			examplesList = examplesList.concat("\n" + TAG_EXAMPLE.replace("XX", Integer.toString(i)));
-			examplesList = examplesList.concat("\n" + this.examples.get(i));
+		int count = 0;
+		for (String example : this.examples) {
+			count++;
+			examplesList = examplesList.concat("\n" + TAG_EXAMPLE.replace("XX", Integer.toString(count)));
+			examplesList = examplesList.concat("\n" + example);			
 		}
 		prompt = prompt.concat(examplesList);
 
