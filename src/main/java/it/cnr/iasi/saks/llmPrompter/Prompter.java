@@ -36,6 +36,8 @@ public abstract class Prompter {
 	private static final String PROBLEMS_PATH_HARD = PROBLEMS_PATH + "/Hard";
 	private static final String PROBLEMS_PATH_MID = PROBLEMS_PATH + "/Mid";
 	
+	protected static final String TARGET_PACKAGE ="it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen";
+			
 	private static final String DESCRIPTION_FILENAME = "description.txt";
 	private static final String CPP_FILENAME = "cpp.txt";
 	private static final String JAVA_FILENAME = "java.txt";
