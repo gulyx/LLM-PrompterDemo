@@ -29,20 +29,27 @@ public class DescriptionExamplesPrompter extends Prompter {
 
 	public DescriptionExamplesPrompter(String problemID) {
 		super(problemID);
+
+		this.loadDescription();
+		this.loadExamples();
 	}
 
 	public DescriptionExamplesPrompter(String problemID, int numberOfTests) {
 		super(problemID, numberOfTests);
+
+		this.loadDescription();
+		this.loadExamples();
 	}
 
 	public DescriptionExamplesPrompter(String problemID, int numberOfTests, ChatModel llm) {
 		super(problemID, numberOfTests, llm);
+
+		this.loadDescription();
+		this.loadExamples();
 	}
 
 	@Override
 	public String composePrompt() {
-		this.loadDescription();
-
 		// You may improve this by looking at this example:
 		// https://github.com/langchain4j/langchain4j-examples/blob/8c6870202e7c9be333ec50e04397042bd65d5d69/tutorials/src/main/java/_03_PromptTemplate.java#L28
 		String testFileName = this.problemID + "_" + SUFFIX;
@@ -54,7 +61,6 @@ public class DescriptionExamplesPrompter extends Prompter {
 
 		prompt = prompt.concat("\n" + this.description);
 
-		this.loadExamples();
 		String examplesList = "";
 		int count = 0;
 		for (String example : this.examples) {
