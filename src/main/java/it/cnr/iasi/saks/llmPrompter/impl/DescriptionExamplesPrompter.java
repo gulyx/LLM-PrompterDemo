@@ -55,9 +55,9 @@ public class DescriptionExamplesPrompter extends Prompter {
 		String testFileName = this.problemID + "_" + SUFFIX;
 		String prompt = "As a professional Software Tester, generate a complete Junit class test file (named "
 				+ testFileName + " in the package " + TARGET_PACKAGE + ") with " + this.numberOfTests
-				+ " different JUnit tests for the following description in natural language with examples. Give back only the Junit test class, no other informations. Each example is introduced by the keyword "
+				+ " different JUnit tests for the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword "
 				+ TAG_EXAMPLE
-				+ " (where XX is a number), and it is composed by an input tuple and an expected output.  Here is the description: ";
+				+ " (where XX is a number), and it is composed by an input tuple and an expected output. Give back only the Junit test class, no other informations.  Here is the description: ";
 
 		prompt = prompt.concat("\n" + this.description);
 
