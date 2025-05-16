@@ -53,6 +53,8 @@ public abstract class Prompter {
 	private static final String PROBLEMS_PATH_HARD = PROBLEMS_PATH + "/Hard";
 	private static final String PROBLEMS_PATH_MID = PROBLEMS_PATH + "/Mid";
 	
+	private static final String PROMPT_LABEL = "PROMPT";
+
 	protected static final String TARGET_PACKAGE ="it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen";
 			
 	private static final String DESCRIPTION_FILENAME = "description.txt";
@@ -99,7 +101,7 @@ public abstract class Prompter {
 
 	protected void savePrompt(String prompt, String suffix) throws IOException {
 		String tempDirPath = System.getProperty("java.io.tmpdir");
-		String responsePath = tempDirPath + "/" + this.problemID + "_" + prompt + "_" + suffix;
+		String responsePath = tempDirPath + "/" + this.problemID + "_" + PROMPT_LABEL + "_" + suffix;
 		
 		FileWriter fw = new FileWriter(responsePath, false);
 //		fw.append(this.response).flush();
