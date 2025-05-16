@@ -89,6 +89,7 @@ public abstract class Prompter {
 	}
 	
 	public abstract String composePrompt();
+	public abstract void savePrompt(String prompt) throws IOException;
 	public abstract void saveCurrentResponse() throws IOException;
 	
 	public String queryLLM(String prompt) {		
@@ -96,6 +97,16 @@ public abstract class Prompter {
 		return this.response;
 	}
 
+	protected void savePrompt(String prompt, String suffix) throws IOException {
+		String tempDirPath = System.getProperty("java.io.tmpdir");
+		String responsePath = tempDirPath + "/" + this.problemID + "_" + prompt + "_" + suffix;
+		
+		FileWriter fw = new FileWriter(responsePath, false);
+//		fw.append(this.response).flush();
+		fw.write(prompt);
+		fw.close();
+	}
+	
 	protected void saveCurrentResponse(String suffix) throws IOException {
 		String tempDirPath = System.getProperty("java.io.tmpdir");
 		String responsePath = tempDirPath + "/" + this.problemID + "_" + suffix;

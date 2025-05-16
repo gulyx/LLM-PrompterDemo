@@ -74,6 +74,11 @@ public class DescriptionExamplesPrompter extends Prompter {
 	}
 
 	@Override
+	public void savePrompt(String prompt) throws IOException {
+		this.savePrompt(prompt, SUFFIX);
+	}
+
+	@Override
 	public void saveCurrentResponse() throws IOException {
 		this.saveCurrentResponse(SUFFIX);
 	}

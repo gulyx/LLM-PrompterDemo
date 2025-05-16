@@ -50,6 +50,7 @@ public class GenerationDriverOllama {
 			p.queryLLM(prompt);
 			System.out.println("... done");
 			try {
+				p.savePrompt(prompt);
 				p.saveCurrentResponse();
 			} catch (IOException e) {
 				e.printStackTrace();
