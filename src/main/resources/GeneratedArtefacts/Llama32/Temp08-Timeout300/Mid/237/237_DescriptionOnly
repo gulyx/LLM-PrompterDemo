@@ -1,0 +1,112 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.*;
+
+public class LinkedListNode {
+    int val;
+    LinkedListNode next;
+    LinkedListNode(int x) { val = x; }
+}
+
+public class LinkedList {
+
+}
+
+public class Solution {
+    public static void main(String[] args) {
+        // create linked list for testing
+        LinkedListNode head = new LinkedListNode(4);
+        LinkedListNode node1 = new LinkedListNode(1);
+        LinkedListNode node2 = new LinkedListNode(3);
+        LinkedListNode node3 = new LinkedListNode(2);
+
+        head.next = node1;
+        node1.next = node2;
+        node2.next = node3;
+
+        LinkedList linkedList = new LinkedList();
+        LinkedListNode current = head;
+
+        while (current != null) {
+            linkedList.add(current.val);
+            current = current.next;
+        }
+
+        int targetVal = 3;
+        LinkedList solution = deleteNode(head, targetVal);
+
+        // print the list after deleting a node
+        System.out.println("Values in the list: " + linkedList.get());
+    }
+
+    public static class LinkedList {
+        private List<Integer> values;
+
+        public void add(int val) {
+            this.values.add(val);
+        }
+
+        public List get() {
+            return new ArrayList<>(values);
+        }
+    }
+
+    public static LinkedList deleteNode(LinkedListNode head, int val) {
+        if (head == null) { return new LinkedList(); }
+
+        if (head.val == val) {
+            LinkedList linkedList = new LinkedList();
+            while (head.next != null) {
+                linkedList.add(head.next.val);
+                head = head.next;
+            }
+            linkedList.add(head.val);
+
+            return linkedList;
+        } else {
+            LinkedList currentList = new LinkedList();
+
+            LinkedListNode current = head;
+
+            while (current.next != null && current.next.val != val) {
+                currentList.add(current.next.val);
+                current = current.next;
+            }
+
+            if (current.next != null) { // found node to delete
+                LinkedList listBeforeDelete = currentList.get();
+                LinkedList listAfterDelete = new LinkedList();
+
+                while (current.next != null && current.next.val != val) {
+                    listAfterDelete.add(current.next.val);
+                    current = current.next;
+                }
+
+                if (current.next != null) { // found node to delete
+                    current.next = current.next.next;
+
+                    return createList(listBeforeDelete.get(), current.next != null ? current.next.val : -1);
+                }
+            }
+
+            return createList(currentList.get(), head.val);
+
+        }
+    }
+
+    public static LinkedList createList(List<Integer> list, Integer tail) {
+        LinkedListNode head = new LinkedListNode(list.get(0));
+        LinkedListNode current = head;
+
+        for (int i = 1; i < list.size(); ++i) {
+            current.next = new LinkedListNode(list.get(i));
+            current = current.next;
+        }
+
+        if (tail != null) { // append tail
+            current.next = new LinkedListNode(tail);
+        }
+
+        return head;
+    }
+}

@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
+
+public class 1980_DescriptionOnly {
+    @Test
+    public void testReturnBinaryString() {
+        String[] nums = {"10", "11"};
+        assertEquals("00", getDescriptiveString(nums));
+    }
+
+    @Test
+    public void testSingleElementArray() {
+        String[] nums = {"01"};
+        assertEquals("10", getDescriptiveString(nums));
+    }
+
+    @Test
+   public void testAllZeros() {
+        String[] nums = {"0000", "1111"};
+        assertEquals("1010", getDescriptiveString(nums));
+    }
+
+    @Test
+    public void testEmptyArray() {
+        String[] nums = {};
+        assertEquals("00", getDescriptiveString(nums));
+    }
+
+    @Test
+    public void testNullArray() {
+        assertThrows(NullPointerException.class, () -> getDescriptiveString(null));
+    }
+}

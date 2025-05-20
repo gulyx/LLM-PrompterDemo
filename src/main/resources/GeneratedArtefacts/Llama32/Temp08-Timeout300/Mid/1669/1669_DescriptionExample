@@ -1,0 +1,66 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.List;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+public class SolutionTest {
+
+    private Solution solution = new Solution();
+
+    @Test
+    public void test1() {
+        List<Integer> list1 = List.of(10, 1, 13, 6, 9, 5);
+        int a = 3;
+        int b = 4;
+        List<Integer> list2 = List.of(1000000, 1000001, 1000002);
+
+        List<Integer> result = solution.removeNodes(list1, a - 1, b - 1, list2);
+        assertEquals(List.of(0, 1, 1000000, 1000001, 1000002, 1000003, 1000004, 6), result);
+    }
+
+    @Test
+    public void test2() {
+        List<Integer> list1 = List.of(10, 1, 13, 6, 9, 5);
+        int a = 2;
+        int b = 3;
+        List<Integer> list2 = List.of(1000000, 1000001, 1000002);
+
+        List<Integer> result = solution.removeNodes(list1, a - 1, b - 1, list2);
+        assertEquals(List.of(10, 1, 1000000, 1000001, 1000002), result);
+    }
+
+    @Test
+    public void test3() {
+        List<Integer> list1 = List.of(10, 1, 13, 6, 9, 5);
+        int a = 1;
+        int b = 2;
+        List<Integer> list2 = List.of(1000000, 1000001, 1000002);
+
+        List<Integer> result = solution.removeNodes(list1, a - 1, b - 1, list2);
+        assertEquals(List.of(10, 13, 6, 9, 5, 1000000), result);
+    }
+
+    @Test
+    public void test4() {
+        List<Integer> list1 = List.of(10, 1, 13, 6, 9, 5);
+        int a = 0;
+        int b = 1;
+        List<Integer> list2 = List.of(1000000, 1000001, 1000002);
+
+        List<Integer> result = solution.removeNodes(list1, a - 1, b - 1, list2);
+        assertEquals(List.of(10, 13, 6, 9, 5, 1000000), result);
+    }
+
+    @Test
+    public void test5() {
+        List<Integer> list1 = List.of(10, 1, 13, 6, 9, 5);
+        int a = 0;
+        int b = 0;
+        List<Integer> list2 = List.of(1000000, 1000001, 1000002);
+
+        List<Integer> result = solution.removeNodes(list1, a - 1, b - 1, list2);
+        assertEquals(List.of(10, 1, 13, 6, 9, 5), result);
+    }
+}
+```

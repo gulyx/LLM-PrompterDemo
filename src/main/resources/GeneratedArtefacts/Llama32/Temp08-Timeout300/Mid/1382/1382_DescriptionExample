@@ -1,0 +1,49 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1382_DescriptionExample {
+
+    public TreeNode balanceBST(TreeNode root) {
+        int[] values = inOrderTraversal(root);
+        return buildBalancedTree(values, 0, values.length - 1);
+    }
+
+    private int[] inOrderTraversal(TreeNode root) {
+        if (root == null) {
+            return new int[0];
+        }
+        int[] leftValues = inOrderTraversal(root.left);
+        int[] rightValues = inOrderTraversal(root.right);
+        int[] result = new int[leftValues.length + rightValues.length];
+        System.arraycopy(leftValues, 0, result, 0, leftValues.length);
+        System.arraycopy(rightValues, 0, result, leftValues.length, rightValues.length);
+        return result;
+    }
+
+    private TreeNode buildBalancedTree(int[] values, int start, int end) {
+        if (start > end) {
+            return null;
+        }
+        int mid = start + (end - start) / 2;
+        TreeNode node = new TreeNode(values[mid]);
+        node.left = buildBalancedTree(values, start, mid - 1);
+        node.right = buildBalancedTree(values, mid + 1, end);
+        return node;
+    }
+
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode() {}
+    TreeNode(int val) { this.val = val; }
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}

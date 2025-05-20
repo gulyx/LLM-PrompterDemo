@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+public class DescriptionOnly {
+
+    @Test
+    public void test_1x1_matrix() {
+        int[][] matrix = {{1}};
+        int actual = countSquares(matrix);
+        int expected = 0;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_2x2_matrix() {
+        int[][] matrix = {{1, 1}, {1, 1}};
+        int actual = countSquares(matrix);
+        int expected = 1;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_3x3_matrix() {
+        int[][] matrix = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+        int actual = countSquares(matrix);
+        int expected = 9;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_4x4_matrix() {
+        int[][] matrix = {{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}};
+        int actual = countSquares(matrix);
+        int expected = 16;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_5x5_matrix() {
+        int[][] matrix = {{1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}};
+        int actual = countSquares(matrix);
+        int expected = 25;
+        assertEquals(expected, actual);
+    }
+}

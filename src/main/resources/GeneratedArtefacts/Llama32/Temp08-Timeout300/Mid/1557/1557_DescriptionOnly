@@ -1,0 +1,70 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import java.util.*;
+
+public class '1557_DescriptionOnly' {
+
+    @Test
+    public void test1() {
+        int[][] edges = {{0, 1}, {1, 2}, {2, 3}};
+        List<Integer> result = findSmallestSetOfVertices(edges);
+        System.out.println(result); // [0, 1, 2, 3]
+    }
+
+    @Test
+    public void test2() {
+        int[][] edges = {};
+        List<Integer> result = findSmallestSetOfVertices(edges);
+        assert result.size() == 0;
+    }
+
+    @Test
+    public void test3() {
+        int[][] edges = {{1}, {2}};
+        List<Integer> result = findSmallestSetOfVertices(edges);
+        System.out.println(result); // [1, 2]
+    }
+
+    @Test
+    public void test4() {
+        int[][] edges = {{0}, {1}};
+        List<Integer> result = findSmallestSetOfVertices(edges);
+        assert result.size() == 1;
+    }
+
+    @Test
+    public void test5() {
+        int[][] edges = {};
+        List<Integer> result = findSmallestSetOfVertices(edges);
+        System.out.println(result); // [0]
+    }
+}
+
+private List<Integer> findSmallestSetOfVertices(int[][] edges) {
+        List<Integer> vertexVisited = new ArrayList<>();
+        Set<Integer> visited = new HashSet<>();
+
+        for (int[] edge : edges) {
+            visited.add(edge[1]);
+        }
+
+        int startVertex = 0;
+        while (!visited.contains(startVertex)) {
+            if (!vertexVisited.isEmpty()) {
+                startVertex = vertexVisited.remove(vertexVisited.size() - 1);
+            } else {
+                startVertex = 0;
+            }
+            vertexVisited.add(startVertex);
+            visited.add(startVertex);
+
+            for (int[] edge : edges) {
+                if (edge[0] == startVertex && !visited.contains(edge[1])) {
+                    visited.add(edge[1]);
+                }
+            }
+        }
+
+        return new ArrayList<>(visited);
+    }

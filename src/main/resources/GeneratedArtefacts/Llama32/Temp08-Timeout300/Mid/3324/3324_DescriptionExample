@@ -1,0 +1,67 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.jupiter.api.Test;
+import java.util.*;
+
+public class DescriptionExample {
+
+    public List<String> findAndReplacePattern(String target) {
+        List<String> res = new ArrayList<>();
+        for (char t : target.toCharArray()) {
+            int i = 0, j = 0;
+            String cur1 = "", cur2 = "";
+            while (i < t - 'a' || j < target.length() - t) {
+                if (i < t - 'a') cur1 += 'a';
+                if (j >= target.length() - t) break;
+                if (cur1.equals(String.valueOf(target.charAt(j + t - 1)))) {
+                    i++;
+                    cur2 += 'a';
+                } else if (cur2.equals(String.valueOf(target.charAt(j + t - 1)) - 1)) {
+                    j++;
+                    cur1 += 'a';
+                } else {
+                    break;
+                }
+            }
+            res.add(cur1);
+        }
+        return res;
+    }
+
+    @Test
+    public void test_1() {
+        List<String> result = findAndReplacePattern("abc");
+        Set<String> expectedSet = new HashSet<>(Arrays.asList("a", "aa", "ab", "aba", "abb", "abc"));
+        assertEquals(expectedSet, result);
+    }
+
+    @Test
+    public void test_2() {
+        List<String> result = findAndReplacePattern("he");
+        Set<String> expectedSet = new HashSet<>(Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "ha", "hb", "hc", "hd", "he"));
+        assertEquals(expectedSet, result);
+    }
+
+    @Test
+    public void test_3() {
+        List<String> result = findAndReplacePattern("ababbb");
+        Set<String> expectedSet = new HashSet<>(Arrays.asList("aabbabaabbbbb"));
+        assertEquals(expectedSet, result);
+    }
+
+    @Test
+    public void test_4() {
+        List<String> result = findAndReplacePattern("abcabcabc");
+        Set<String> expectedSet = new HashSet<>(Arrays.asList("aaaaaaabbaaacbcbccabdbdaca", "bbaabbbaacbbcabdcacba"));
+        assertEquals(expectedSet, result);
+    }
+
+    @Test
+    public void test_5() {
+        List<String> result = findAndReplacePattern("");
+        Set<String> expectedSet = new HashSet<>();
+        assertEquals(expectedSet, result);
+    }
+}
+```

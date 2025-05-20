@@ -1,0 +1,66 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class DescriptionOnly {
+
+    @Test
+    public void testMinimumOperationsForXor() {
+        int[] nums = {2, 3, 1};
+        int k = 4;
+        assertEquals(4, min_operations_for_xor(nums, k));
+    }
+
+    @Test
+    public void testMaximumOperationsForXor() {
+        int[] nums = {2, 3, 6, 5};
+        int k = 7;
+        assertEquals(8, min_operations_for_xor(nums, k));
+    }
+
+    @Test
+    public void testMinimumOperationsForZero() {
+        int[] nums = {0, 1, 2};
+        int k = 0;
+        assertEquals(0, min_operations_for_xor(nums, k));
+    }
+
+    @Test
+    public void testMaximumOperationsForKEqualsToNumsLength() {
+        int[] nums = {1, 2, 3};
+        int k = 3;
+        assertEquals(6, min_operations_for_xor(nums, k));
+    }
+
+    @Test
+    public void testMinimumOperationsForAllZeroes() {
+        int[] nums = {0, 0, 0};
+        int k = 1;
+        assertEquals(2, min_operations_for_xor(nums, k));
+    }
+}
+
+class Solution {
+
+    public static int min_operations_for_xor(int[] nums, int k) {
+        int xor = 0;
+        for (int num : nums) {
+            xor ^= num;
+        }
+
+        return find_bit_count_to_reach_target(xor ^ k);
+    }
+
+    private static int find_bit_count_to_reach_target(int target) {
+        if (target == 0) return 0;
+
+        int bitCount = 0;
+        while (target != 0) {
+            bitCount += target & 1;
+            target >>= 1;
+        }
+        return bitCount;
+    }
+
+}

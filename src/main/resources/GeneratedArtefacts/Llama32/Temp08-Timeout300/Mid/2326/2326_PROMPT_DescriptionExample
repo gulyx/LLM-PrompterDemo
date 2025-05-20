@@ -1,0 +1,11 @@
+As a professional Software Tester, generate a complete Junit class test file (name the class as :'2326_DescriptionExample', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description: 
+You are given two integers "m" and "n", which represent the dimensions of a matrix.
+
+You are also given the "head" of a linked list of integers.
+
+Generate an "m x n" matrix that contains the integers in the linked list presented in spiral order (clockwise), starting from the top-left of the matrix. If there are remaining empty spaces, fill them with "-1".
+
+Return the generated matrix.
+[--Example 1--]
+Input: m = 3, n = 5, head = [3,0,2,6,8,1,7,9,4,2,5,5,0]
+Output: [[0,1,2,-1]]

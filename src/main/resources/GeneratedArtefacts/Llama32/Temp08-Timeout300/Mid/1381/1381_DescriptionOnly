@@ -1,0 +1,62 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class CustomStack {
+
+    @Test
+    public void testPush(){
+        CustomStack s = new CustomStack(2);
+        s.push(1);
+        s.push(2);
+        s.push(3);
+        assertEquals(-1, s.pop());
+        assertEquals(2, s.pop());
+        assertEquals(1, s.pop());
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            s.push(4);
+        });
+    }
+
+    @Test
+    public void testPop(){
+        CustomStack s = new CustomStack(3);
+        for (int i=0;i<10; i++){
+            s.push(i);
+        }
+        int[] actual = new int[s.size()];
+        int j = 0;
+        while(!s.isEmpty()) {
+            actual[j++] = s.pop();
+        }
+        assertArrayEquals(new int[]{9,8,7,6,5,4,3,2,1}, actual);
+    }
+
+    @Test
+    public void testPopWithIncrement() {
+        CustomStack s = new CustomStack(3);
+        for (int i=0;i<10; i++){
+            s.push(i);
+        }
+        int[] actual = new int[s.size()];
+        int j = 0;
+        while(!s.isEmpty()) {
+            actual[j++] = s.pop();
+        }
+        assertArrayEquals(new int[]{8,7,6,5,4,3,2,1}, actual);
+    }
+
+    @Test
+    public void testPushAndPop(){
+        CustomStack s = new CustomStack(2);
+        s.push(1);
+        assertEquals(-1, s.pop());
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testPushAboveMaxSize() {
+        CustomStack s = new CustomStack(0);
+        s.push(3);
+    }
+}

@@ -1,0 +1,190 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.*;
+
+public class DescriptionOnly {
+    public List<String> findDifferentString(String target) {
+        Set<String> set = new HashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        queue.add("");
+        set.add("");
+        while (!queue.isEmpty()) {
+            String s = queue.poll();
+            if (s.equals(target)) {
+                break;
+            }
+            for (int i = 0; i < target.length(); i++) {
+                String newS = s + target.charAt(i);
+                set.add(newS);
+                queue.add(newS);
+            }
+        }
+        List<String> res = new ArrayList<>(set);
+        return res;
+    }
+
+    public List<String> findAllDifferentString(String target) {
+        Set<String> set = new HashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        queue.add("");
+        set.add("");
+        while (!queue.isEmpty()) {
+            String s = queue.poll();
+            for (int i = 0; i < target.length(); i++) {
+                StringBuilder sb = new StringBuilder(s);
+                if (sb.charAt(sb.length() - 1) != target.charAt(i)) {
+                    sb.append(target.charAt(i));
+                    set.add(sb.toString());
+                    queue.add(sb.toString());
+                }
+            }
+        }
+        List<String> res = new ArrayList<>(set);
+        return res;
+    }
+
+    public List<String> findStrings(String target) {
+        Queue<String> queue = new LinkedList<>();
+        Set<String> set = new HashSet<>();
+        String prev = "";
+        set.add(prev);
+        queue.add(prev);
+        while (!queue.isEmpty()) {
+            String s = queue.poll();
+            if (s.equals(target)) {
+                break;
+            }
+            for (int i = 0; i < target.length(); i++) {
+                StringBuilder sb = new StringBuilder(s);
+                if (sb.charAt(sb.length() - 1) == 'z') {
+                    sb.setCharAt(sb.length() - 1, 'a');
+                } else {
+                    sb.setCharAt(sb.length() - 1, (char)(sb.charAt(sb.length() - 1) + 1));
+                }
+                String newS = sb.toString();
+                if (!set.contains(newS)) {
+                    set.add(newS);
+                    queue.add(newS);
+                }
+            }
+        }
+        List<String> res = new ArrayList<>(set);
+        return res;
+    }
+
+    public List<String> findStrings2(String target) {
+        Set<String> set = new HashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        String prev = "";
+        set.add(prev);
+        queue.add(prev);
+        while (!queue.isEmpty()) {
+            String s = queue.poll();
+            if (s.equals(target)) {
+                break;
+            }
+            for (int i = 0; i < target.length(); i++) {
+                StringBuilder sb = new StringBuilder(s);
+                if (sb.charAt(sb.length() - 1) == 'z') {
+                    sb.setCharAt(sb.length() - 1, 'a');
+                } else {
+                    sb.setCharAt(sb.length() - 1, (char)(sb.charAt(sb.length() - 1) + 1));
+                }
+                String newS = sb.toString();
+                if (!set.contains(newS)) {
+                    set.add(newS);
+                    queue.add(newS);
+                }
+            }
+        }
+        List<String> res = new ArrayList<>(set);
+        return res;
+    }
+
+    public List<String> findStrings3(String target) {
+        Set<String> set = new HashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        String prev = "";
+        set.add(prev);
+        queue.add(prev);
+        while (!queue.isEmpty()) {
+            String s = queue.poll();
+            if (s.equals(target)) {
+                break;
+            }
+            for (int i = 0; i < target.length(); i++) {
+                StringBuilder sb = new StringBuilder(s);
+                if (sb.charAt(sb.length() - 1) == 'z') {
+                    sb.setCharAt(sb.length() - 1, 'a');
+                } else {
+                    sb.setCharAt(sb.length() - 1, (char)(sb.charAt(sb.length() - 1) + 1));
+                }
+                String newS = sb.toString();
+                if (!set.contains(newS)) {
+                    set.add(newS);
+                    queue.add(newS);
+                }
+            }
+        }
+        List<String> res = new ArrayList<>(set);
+        return res;
+    }
+
+    public List<String> findStrings4(String target) {
+        Set<String> set = new HashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        String prev = "";
+        set.add(prev);
+        queue.add(prev);
+        while (!queue.isEmpty()) {
+            String s = queue.poll();
+            if (s.equals(target)) {
+                break;
+            }
+            for (int i = 0; i < target.length(); i++) {
+                StringBuilder sb = new StringBuilder(s);
+                if (sb.charAt(sb.length() - 1) == 'z') {
+                    sb.setCharAt(sb.length() - 1, 'a');
+                } else {
+                    sb.setCharAt(sb.length() - 1, (char)(sb.charAt(sb.length() - 1) + 1));
+                }
+                String newS = sb.toString();
+                if (!set.contains(newS)) {
+                    set.add(newS);
+                    queue.add(newS);
+                }
+            }
+        }
+        List<String> res = new ArrayList<>(set);
+        return res;
+    }
+
+    public List<String> findStrings5(String target) {
+        Set<String> set = new HashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        String prev = "";
+        set.add(prev);
+        queue.add(prev);
+        while (!queue.isEmpty()) {
+            String s = queue.poll();
+            if (s.equals(target)) {
+                break;
+            }
+            for (int i = 0; i < target.length(); i++) {
+                StringBuilder sb = new StringBuilder(s);
+                if (sb.charAt(sb.length() - 1) == 'z') {
+                    sb.setCharAt(sb.length() - 1, 'a');
+                } else {
+                    sb.setCharAt(sb.length() - 1, (char)(sb.charAt(sb.length() - 1) + 1));
+                }
+                String newS = sb.toString();
+                if (!set.contains(newS)) {
+                    set.add(newS);
+                    queue.add(newS);
+                }
+            }
+        }
+        List<String> res = new ArrayList<>(set);
+        return res;
+    }
+}

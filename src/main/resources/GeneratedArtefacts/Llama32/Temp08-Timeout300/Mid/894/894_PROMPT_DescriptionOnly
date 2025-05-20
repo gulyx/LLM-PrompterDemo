@@ -1,0 +1,6 @@
+As a professional Software Tester, generate a complete Junit class test file (name the class as :'894_DescriptionOnly', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
+Given an integer "n", return a list of all possible full binary trees with "n" nodes. Each node of each tree in the answer must have "Node.val == 0."
+
+Each element of the answer is the root node of one possible tree. You may return the final list of trees in any order.
+
+A full binary tree is a binary tree where each node has exactly "0" or "2" children.

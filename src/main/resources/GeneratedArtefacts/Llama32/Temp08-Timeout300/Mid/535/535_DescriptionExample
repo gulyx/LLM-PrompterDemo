@@ -1,0 +1,49 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 535_DescriptionExample {
+
+    public String encode(String longUrl) {
+        return "http://tinyurl.com/" + Long.toString(System.currentTimeMillis()) + longUrl;
+    }
+
+    @Test
+    public void testEncode() {
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = encode(longUrl);
+        assertEquals(longUrl, shortUrl.substring(31));
+    }
+
+    public String decode(String shortUrl) {
+        int index = 31;
+        return shortUrl.substring(index + System.currentTimeMillis());
+    }
+
+    @Test
+    public void testDecode() {
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = encode(longUrl);
+        assertEquals(longUrl, decode(shortUrl));
+    }
+    
+    @Test 
+    public void testDecodeDifferentInstance() {
+       String longUrl = "https://leetcode.com/problems/design-tinyurl";
+       String shortUrl = encode(longUrl);
+       String decodedUrl = decode(shortUrl);
+       assertEquals(longUrl, decodedUrl);
+    }
+
+    @Test 
+    public void testEncodeDifferentLongUrl() {
+        String longUrl1 = "https://leetcode.com/problems/design-tinyurl";
+        String longUrl2 = "https://www.google.com";
+        String shortUrl1 = encode(longUrl1);
+        String shortUrl2 = encode(longUrl2);
+        assertEquals(shortUrl1.substring(31), shortUrl2.substring(31));
+    }
+}
+```

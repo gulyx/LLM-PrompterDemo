@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class 654_DescriptionOnly {
+
+    public static void main(String[] args) {
+        Node root = buildMaxTree(new int[]{3,2,1});
+        System.out.println(root.val);
+        System.out.println(root.left.val);
+        System.out.println(root.right.val);
+    }
+
+    public static Node buildMaxTree(int[] nums) {
+       if(nums.length == 0){
+           return null;
+       }
+       int max = Integer.MIN_VALUE;
+       for(int i : nums){
+           max = Math.max(max,i);
+       }
+       return new Node(max,buildMaxTree(Arrays.copyOfRange(nums,0,max)),buildMaxTree(Arrays.copyOfRange(nums,max+1,nums.length)));
+    }
+
+    public static class Node {
+        int val;
+        Node left;
+        Node right;
+
+        Node(int x) {
+            val = x;
+        }
+
+        Node(int val, Node left, Node right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+}

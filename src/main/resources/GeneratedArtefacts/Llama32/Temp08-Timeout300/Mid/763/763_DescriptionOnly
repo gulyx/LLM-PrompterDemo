@@ -1,0 +1,54 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnly {
+    public int[] partitionLabels(String s) {
+        int lastVisibleIdx = -1, endOfWord = 0;
+        int[] res = new int[s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            endOfWord = Math.max(endOfWord, lastVisibleIdx);
+            lastVisibleIdx = s.indexOf(s.substring(i), endOfWord + 1) != -1 ? i : lastVisibleIdx;
+            res[i] = lastVisibleIdx;
+        }
+        return res;
+    }
+
+    @Test
+    public void testPartitionLabels_Example() {
+        int[] expected = {2,3};
+        int[] result = partitionLabels("ababcc");
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testPartitionLabels_BadPartition1() {
+        int[] expected = {};
+        int[] result = partitionLabels("aba");
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testPartitionLabels_BadPartition2() {
+        int[] expected = {1};
+        int[] result = partitionLabels("ab");
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testPartitionLabels_EmptyString() {
+        int[] expected = {};
+        int[] result = partitionLabels("");
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testPartitionLabels_SingleCharacter() {
+        int[] expected = {1};
+        int[] result = partitionLabels("a");
+        assertArrayEquals(expected, result);
+    }
+}
+```

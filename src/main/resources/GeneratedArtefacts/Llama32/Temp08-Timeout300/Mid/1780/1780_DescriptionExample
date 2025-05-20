@@ -1,0 +1,44 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1780_DescriptionExample {
+
+    public boolean checkPowersOfThree(int n) {
+        int[] powers = {1,3,9,27,81,243};
+        for (int power : powers) {
+            if (n == power || n - power >= 0 && checkPowersOfThree(n-power)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Test
+    public void testCheckPowersOfThree1() {
+        assertTrue(checkPowersOfThree(12));
+    }
+
+    @Test
+    public void testCheckPowersOfThree2() {
+        assertTrue(checkPowersOfThree(91));
+    }
+
+    @Test
+    public void testCheckPowersOfThree3() {
+        assertFalse(checkPowersOfThree(21));
+    }
+
+    @Test
+    public void testCheckPowersOfThree4() {
+        assertTrue(checkPowersOfThree(5));
+    }
+
+    @Test
+    public void testCheckPowersOfThree5() {
+        assertTrue(checkPowersOfThree(3));
+    }
+}
+```

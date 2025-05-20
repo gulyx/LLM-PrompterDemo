@@ -1,0 +1,30 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DescriptionOnly {
+    public List<Integer> getAllElementFromTwoTrees(TreeNode root1, TreeNode root2) {
+        List<Integer> result = new ArrayList<>();
+        getElements(root1, result);
+        getElements(root2, result);
+        return result;
+    }
+
+    private void getElements(TreeNode node, List<Integer> result) {
+        if (node == null) return;
+
+        getElements(node.left, result);
+        result.add(node.val);
+        getElements(node.right, result);
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
+```

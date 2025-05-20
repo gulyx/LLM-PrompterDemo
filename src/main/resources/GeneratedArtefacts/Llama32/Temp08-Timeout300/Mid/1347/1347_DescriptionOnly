@@ -1,0 +1,51 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.HashMap;
+import java.util.Map;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class Main {
+
+    @Test
+    public void minStepsToAnagram() {
+        String s = "abc";
+        String t = "bac";
+        int result = minSteps(s, t);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void singleCharDiff() {
+        String s = "a";
+        String t = "b";
+        int result = minSteps(s, t);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void noChangesNeeded() {
+        String s = "abcd";
+        String t = "abcd";
+        int result = minSteps(s, t);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void allCharsDifferent() {
+        String s = "abcde";
+        String t = "fghij";
+        int result = minSteps(s, t);
+        assertEquals(5, result);
+    }
+
+    @Test
+    public void equalLengthNoChanges() {
+        String s = "abcd";
+        String t = "abdc";
+        int result = minSteps(s, t);
+        assertEquals(0, result);
+    }
+}
+```

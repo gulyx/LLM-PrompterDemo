@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2551_DescriptionOnly {
+
+    @Test
+    public void testMaxMinScore() {
+        int[] weights = {1,2,3};
+        int k = 2;
+        assertEquals(12, solve(weights, k));
+    }
+
+    @Test
+    public void testAllInOne() {
+        int[] weights = {10, 20, 30};
+        int k = 1;
+        assertEquals(60, solve(weights, k));
+    }
+
+    @Test
+    public void testAllDifferent() {
+        int[] weights = {1000000, 2000000, 3000000};
+        int k = 3;
+        assertEquals(9000036L, solve(weights, k));
+    }
+
+    @Test
+    public void testOneBag() {
+        int[] weights = {1,2,3};
+        int k = 1;
+        assertEquals(12, solve(weights, k));
+    }
+
+    @Test
+    public void testEmptyArray() {
+        int[] weights = {};
+        int k = 1;
+        assertEquals(0, solve(weights, k));
+    }
+    
+}

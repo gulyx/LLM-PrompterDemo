@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExample {
+
+    @Test
+    public void testMaxEqualRowsAfterFlips() {
+        int[][] matrix = {{0, 1}, {1, 1}};
+        assertEquals(1, maxEqualRowsAfterFlips(matrix));
+    }
+
+    @Test
+    public void testMaxEqualRowsAfterFlips2() {
+        int[][] matrix = {{0, 1}, {1, 0}};
+        assertEquals(2, maxEqualRowsAfterFlips(matrix));
+    }
+
+    @Test
+    public void testMaxEqualRowsAfterFlips3() {
+        int[][] matrix = {{0, 0, 0}, {0, 0, 1}, {1, 1, 0}};
+        assertEquals(2, maxEqualRowsAfterFlips(matrix));
+    }
+
+    @Test
+    public void testMaxEqualRowsAfterFlips4() {
+        int[][] matrix = {{0, 0}, {0, 0}};
+        assertEquals(2, maxEqualRowsAfterFlips(matrix));
+    }
+
+    @Test
+    public void testMaxEqualRowsAfterFlips5() {
+        int[][] matrix = {{0, 1, 1}, {0, 1, 0}, {1, 1, 0}};
+        assertEquals(1, maxEqualRowsAfterFlips(matrix));
+    }
+}

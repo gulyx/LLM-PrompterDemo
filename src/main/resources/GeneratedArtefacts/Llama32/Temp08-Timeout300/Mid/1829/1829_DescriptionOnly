@@ -1,0 +1,63 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1829_DescriptionOnly {
+
+    @Test
+    public void test1() {
+        int[] nums = {0, 3, 7};
+        int maximumBit = 2;
+        int[][] answer = new int[3][];
+        answer = solve(nums, maximumBit);
+        for(int i=0; i<answer.length;i++){
+            System.out.println("answer[" +i+ "]="+answer[i]);
+        }
+    }
+
+    @Test
+    public void test2() {
+        int[] nums = {1};
+        int maximumBit = 3;
+        int[][] answer = new int[1][];
+        answer = solve(nums, maximumBit);
+        for(int i=0; i<answer.length;i++){
+            System.out.println("answer[" +i+ "]="+answer[i]);
+        }
+    }
+
+    @Test
+    public void test3() {
+        int[] nums = {2,4,7};
+        int maximumBit = 3;
+        int[][] answer = new int[3][];
+        answer = solve(nums, maximumBit);
+        for(int i=0; i<answer.length;i++){
+            System.out.println("answer[" +i+ "]="+answer[i]);
+        }
+    }
+
+    @Test
+    public void test4() {
+        int[] nums = {1};
+        int maximumBit = 2;
+        int[][] answer = new int[1][];
+        answer = solve(nums, maximumBit);
+        for(int i=0; i<answer.length;i++){
+            System.out.println("answer[" +i+ "]="+answer[i]);
+        }
+    }
+
+    @Test
+    public void test5() {
+        int[] nums = {2};
+        int maximumBit = 1;
+        int[][] answer = new int[1][];
+        answer = solve(nums, maximumBit);
+        for(int i=0; i<answer.length;i++){
+            System.out.println("answer[" +i+ "]="+answer[i]);
+        }
+    }
+
+}

@@ -1,0 +1,51 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class Solution {
+
+    @Test
+    public void test_example_0() {
+        int n = 5;
+        int k = 2;
+        assertEquals(3, gameWinner(n, k));
+    }
+
+    @Test
+    public void test_example_1() {
+        int n = 6;
+        int k = 5;
+        assertEquals(1, gameWinner(n, k));
+    }
+
+    @Test
+    public void test_example_2() {
+        int n = 10;
+        int k = 4;
+        assertEquals(3, gameWinner(n, k));
+    }
+
+    @Test
+    public void test_example_3() {
+        int n = 1;
+        int k = 1;
+        assertEquals(1, gameWinner(n, k));
+    }
+
+    @Test
+    public void test_example_4() {
+        int n = 500;
+        int k = 500;
+        assertEquals(1, gameWinner(n, k));
+    }
+}
+
+public class Solution {
+
+    public int gameWinner(int n, int k) {
+        return (n - 1 + k - 1) % n + 1;
+    }
+}
+```

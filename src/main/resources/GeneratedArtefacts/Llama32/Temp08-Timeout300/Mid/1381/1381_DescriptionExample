@@ -1,0 +1,108 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class CustomStack {
+    private int maxSize;
+    private int[] stack;
+    private int index = 0;
+
+    public CustomStack(int maxSize) {
+        this.maxSize = maxSize;
+        this.stack = new int[maxSize];
+    }
+
+    public void push(int x) {
+        if (index < maxSize) {
+            stack[index++] = x;
+        }
+    }
+
+    public int pop() {
+        if(index > 0){
+        return stack[--index];}
+        else{
+            return -1;}
+    }
+
+    public void inc(int k, int val) {
+        for (int i = 0; i < Math.min(k, index); i++) {
+            stack[i] += val;
+        }
+    }
+
+}
+
+public class TestCustomStack {
+
+    @Test
+    public void testPush() {
+        CustomStack customStack = new CustomStack(3);
+        customStack.push(1);
+        customStack.push(2);
+        assertEquals(2, customStack.pop());
+    }
+
+    @Test
+    public void testPopEmpty() {
+        CustomStack customStack = new CustomStack(3);
+        assertEquals(-1, customStack.pop());
+    }
+
+    @Test
+    public void testPushAndPop() {
+        CustomStack customStack = new CustomStack(3);
+        customStack.push(1);
+        customStack.push(2);
+        assertEquals(2, customStack.pop());
+    }
+
+    @Test
+    public void testIncrementOnFullStack() {
+        CustomStack customStack = new CustomStack(3);
+        for (int i = 0; i < 10; i++) {
+            customStack.push(i);
+        }
+        customStack.inc(5, 100);
+        assertEquals(101, customStack.pop());
+    }
+
+    @Test
+    public void testIncrementOnPartialStack() {
+        CustomStack customStack = new CustomStack(3);
+        for (int i = 0; i < 8; i++) {
+            customStack.push(i);
+        }
+        customStack.inc(5, 100);
+        assertEquals(101, customStack.pop());
+    }
+
+    @Test
+    public void testCustomStackSequence() {
+        CustomStack customStack = new CustomStack(3);
+        String[] sequence = {"CustomStack", "push", "push", "pop", "push", "push", "push",
+                "increment", "increment", "pop", "pop", "pop", "pop"};
+        int[] inputs = {new int[]{3}, new int[]{1}, new int[]{2}, new int[]{} ,new int[]{2}, new int[]{3}, new int[]{4}, new int[]{5, 100}, new int[]{2, 100}, new int[]{}, new int[] {},new int[]{}};
+        for (int i = 0; i < sequence.length; i++) {
+            switch (sequence[i]) {
+                case "CustomStack":
+                    customStack = new CustomStack(inputs[i][0]);
+                    break;
+                case "push":
+                    customStack.push(inputs[i][0]);
+                    break;
+                case "pop":
+                    assertEquals(-1, customStack.pop());
+                    break;
+                case "increment":
+                    customStack.inc(inputs[i][0], inputs[i][1]);
+                    break;
+            }
+        }
+        assertArrayEquals(new int[]{null, null, null, 2, null, null, null, null, null, 103, 202, 201, -1}, customStack.stack);
+    }
+
+}
+```
