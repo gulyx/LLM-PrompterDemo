@@ -1,0 +1,101 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import java.util.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testAllPaths() {
+        List<List<Integer>> graph = Arrays.asList(
+            Arrays.asList(1, 2),
+            Arrays.asList(3),
+            Arrays.asList(3),
+            Arrays.asList()
+        );
+        List<List<Integer>> result = new ArrayList<>();
+        allPaths(graph, 0, new ArrayList<>(), result);
+        assertEquals(result, expectedAllPaths(graph));
+    }
+
+    @Test
+    public void testAllPaths2() {
+        List<List<Integer>> graph = Arrays.asList(
+            Arrays.asList(4, 3, 1),
+            Arrays.asList(3, 2, 4),
+            Arrays.asList(3),
+            Arrays.asList(4),
+            Arrays.asList()
+        );
+        List<List<Integer>> result = new ArrayList<>();
+        allPaths(graph, 0, new ArrayList<>(), result);
+        assertEquals(result, expectedAllPaths(graph));
+    }
+
+    @Test
+    public void testEmptyGraph() {
+        List<List<Integer>> graph = Arrays.asList();
+        List<List<Integer>> result = new ArrayList<>();
+        allPaths(graph, 0, new ArrayList<>(), result);
+        assertEquals(result, Collections.emptyList());
+    }
+
+    @Test
+    public void testSingleNode() {
+        List<List<Integer>> graph = Arrays.asList(
+            Arrays.asList(1),
+            Collections.emptyList(),
+            Collections.emptyList(),
+            Collections.emptyList()
+        );
+        List<List<Integer>> result = new ArrayList<>();
+        allPaths(graph, 0, new ArrayList<>(), result);
+        assertEquals(result, expectedAllPaths(graph));
+    }
+
+    @Test
+    public void testNodeWithNoEdge() {
+        List<List<Integer>> graph = Arrays.asList(
+            Collections.emptyList(),
+            Collections.emptyList(),
+            Collections.emptyList(),
+            Collections.emptyList()
+        );
+        List<List<Integer>> result = new ArrayList<>();
+        allPaths(graph, 0, new ArrayList<>(), result);
+        assertEquals(result, expectedAllPaths(graph));
+    }
+
+    private static List<List<Integer>> expectedAllPaths(List<List<Integer>> graph) {
+        List<List<Integer>> result = new ArrayList<>();
+        dfs(result, graph, 0, new ArrayList<>());
+        return result;
+    }
+
+    private static void allPaths(List<List<Integer>> graph, int node, List<Integer> path, List<List<Integer>> result) {
+        path.add(node);
+        if (node == graph.size() - 1) {
+            result.add(new ArrayList<>(path));
+        } else {
+            for (int next : graph.get(node)) {
+                allPaths(graph, next, path, result);
+            }
+        }
+        path.remove(path.size() - 1);
+    }
+
+    private static void dfs(List<List<Integer>> result, List<List<Integer>> graph, int node, List<Integer> path) {
+        if (node == graph.size() - 1) {
+            result.add(new ArrayList<>(path));
+        } else {
+            for (int next : graph.get(node)) {
+                path.add(next);
+                dfs(result, graph, next, path);
+                path.remove(path.size() - 1);
+            }
+        }
+    }
+
+}
+```

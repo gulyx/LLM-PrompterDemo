@@ -1,0 +1,78 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2698_DescriptionOnlyTest {
+
+    @Test
+    public void testPunishmentNumber_1() {
+        int n = 1;
+        int result = punishmentNumber(n);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testPunishmentNumber_10() {
+        int n = 10;
+        int result = punishmentNumber(n);
+        assertEquals(143, result);
+    }
+
+    @Test
+    public void testPunishmentNumber_1000() {
+        int n = 1000;
+        int result = punishmentNumber(n);
+        assertEquals(25000000, result);
+    }
+
+    @Test
+    public void testPunishmentNumber_MultiplePartitions() {
+        int n = 12;
+        int result = punishmentNumber(n);
+        assertEquals(479), result;
+    }
+
+    @Test
+    public void testPunishmentNumber_SinglePartition() {
+        int n = 1;
+        int result = punishmentNumber(n);
+        assertEquals(0, result);
+    }
+}
+
+int punishmentNumber(int n) {
+    return punishmentNumberHelper(n, 1, new boolean[n]);
+}
+
+int punishmentNumberHelper(int n, int i, boolean[] used) {
+    if (i * i > n || n < i) {
+        return 0;
+    }
+
+    if (used[i]) {
+        return punishmentNumberHelper(n, i + 1, used);
+    }
+
+    for (int j = i; j <= n; j++) {
+        int sum = 0;
+
+        while (j * j >= i && sum < i) {
+            sum += j;
+            if (sum == i) {
+                return punishmentNumberHelper(n, j + 1, used) + (i - sum) * i;
+            }
+            if (used[j]) {
+                break;
+            }
+
+            used[j] = true;
+        }
+
+        for (int k = j; k >= i; k--) {
+            used[k] = false;
+        }
+    }
+
+    return punishmentNumberHelper(n, i + 1, used);
+}

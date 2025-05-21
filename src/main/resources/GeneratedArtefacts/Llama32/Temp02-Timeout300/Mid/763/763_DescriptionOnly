@@ -1,0 +1,64 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.*;
+
+public class DescriptionOnlyTest {
+
+    @Test
+    public void testPartitionString() {
+        String s = "ababcc";
+        int[] result = partitionLabel(s);
+        assertEquals(2, result.length);
+        assertTrue(result[0] == 2 && result[1] == 2);
+    }
+
+    @Test
+    public void testPartitionStringInvalid() {
+        String s = "aba";
+        int[] result = partitionLabel(s);
+        assertEquals(1, result.length);
+        assertTrue(result[0] == 3);
+    }
+
+    @Test
+    public void testPartitionStringEmpty() {
+        String s = "";
+        int[] result = partitionLabel(s);
+        assertEquals(0, result.length);
+    }
+
+    @Test
+    public void testPartitionStringSingleChar() {
+        String s = "a";
+        int[] result = partitionLabel(s);
+        assertEquals(1, result.length);
+        assertTrue(result[0] == 1);
+    }
+
+    @Test
+    public void testPartitionStringMultipleChars() {
+        String s = "abcde";
+        int[] result = partitionLabel(s);
+        assertEquals(5, result.length);
+        assertTrue(result[0] == 1 && result[1] == 2 && result[2] == 3 && result[3] == 4 && result[4] == 1);
+    }
+}
+
+public class Solution {
+    public int[] partitionLabel(String s) {
+        List<Integer> result = new ArrayList<>();
+        int start = 0;
+        for (int end = 0; end < s.length(); end++) {
+            if (s.charAt(end) != s.charAt(start)) {
+                result.add(end - start + 1);
+                start = end + 1;
+            }
+        }
+        result.add(s.length() - start);
+        return new int[result.size()];
+    }
+}
+```

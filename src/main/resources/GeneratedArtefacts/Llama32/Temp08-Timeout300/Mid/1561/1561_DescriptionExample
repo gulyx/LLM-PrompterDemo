@@ -1,0 +1,53 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testMaxCoins() {
+        int[] piles = {2, 4, 1, 2, 7, 8};
+        assertEquals(9, maxCoins(piles));
+    }
+
+    @Test
+    public void testMaxCoins_2() {
+        int[] piles = {2, 4, 5};
+        assertEquals(4, maxCoins(piles));
+    }
+
+    @Test
+    public void testMaxCoins_3() {
+        int[] piles = {9, 8, 7, 6, 5, 1, 2, 3, 4};
+        assertEquals(18, maxCoins(piles));
+    }
+
+    @Test
+    public void testMaxCoins_4() {
+        int[] piles = {10, 15, 20, 30};
+        assertEquals(60, maxCoins(piles));
+    }
+
+    @Test
+    public void testMaxCoins_5() {
+        int[] piles = {1, 2, 3, 4, 5};
+        assertEquals(9, maxCoins(piles));
+    }
+}
+
+public class Solution {
+    public int maxCoins(int[] piles) {
+        if (piles.length == 0)
+            return 0;
+        
+        int n = piles.length / 3;
+        int coins = 0;
+        for (int i = 1; i <= n; i++) {
+            coins += piles[2 * i - 1];
+        }
+        return coins;
+    }
+}
+```

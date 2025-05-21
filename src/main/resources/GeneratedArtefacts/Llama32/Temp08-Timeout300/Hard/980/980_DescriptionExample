@@ -1,0 +1,27 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void test_1() {
+        int[][] grid = {{1, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 2, -1}};
+        assertEquals(2, Solution.solve(grid));
+    }
+
+    @Test
+    public void test_2() {
+        int[][] grid = {{1, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 2}};
+        assertEquals(4, Solution.solve(grid));
+    }
+
+    @Test
+    public void test_3() {
+        int[][] grid = {{0, 1}, {2, 0}};
+        assertEquals(0, Solution.solve(grid));
+    }
+}
+```

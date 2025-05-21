@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
+
+public class 1312_DescriptionOnlyTest {
+
+    @Test
+    public void testMinStepsPalindrome() {
+        String s = "ab";
+        int minSteps = minStepsPalindrome(s);
+        assertEquals(1, minSteps);
+    }
+
+    @Test
+    public void testMinStepsPalindrome_2() {
+        String s = "aabb";
+        int minSteps = minStepsPalindrome(s);
+        assertEquals(0, minSteps);
+    }
+
+    @Test
+    public void testMinStepsPalindrome_3() {
+        String s = "abcba";
+        int minSteps = minStepsPalindrome(s);
+        assertEquals(0, minSteps);
+    }
+
+    @Test
+    public void testMinStepsPalindrome_4() {
+        String s = "abccba";
+        int minSteps = minStepsPalindrome(s);
+        assertEquals(1, minSteps);
+    }
+
+    @Test
+    public void testMinStepsPalindrome_5() {
+        String s = "abcdcba";
+        int minSteps = minStepsPalindrome(s);
+        assertEquals(0, minSteps);
+    }
+}

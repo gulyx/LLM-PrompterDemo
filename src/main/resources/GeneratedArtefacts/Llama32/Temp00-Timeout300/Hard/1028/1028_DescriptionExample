@@ -1,0 +1,77 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testRecoverTree() {
+        String traversal = "1-2--3--4-5--6--7";
+        TreeNode root = recoverTree(traversal);
+        assertEquals(1, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(5, root.right.val);
+        assertEquals(3, root.right.left.val);
+        assertEquals(4, root.right.right.val);
+        assertEquals(6, root.right.right.right.val);
+        assertEquals(7, root.right.right.right.right.val);
+    }
+
+    @Test
+    public void testRecoverTree2() {
+        String traversal = "1-2--3---4-5--6---7";
+        TreeNode root = recoverTree(traversal);
+        assertEquals(1, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(null, root.right);
+        assertEquals(5, root.left.right.val);
+        assertEquals(null, root.left.right.left);
+        assertEquals(3, root.right.val);
+        assertEquals(null, root.right.left);
+        assertEquals(null, root.right.right);
+        assertEquals(4, root.right.right.right.val);
+        assertEquals(6, root.right.right.right.right.val);
+        assertEquals(7, root.right.right.right.right.right.val);
+    }
+
+    @Test
+    public void testRecoverTree3() {
+        String traversal = "1-401--349---90--88";
+        TreeNode root = recoverTree(traversal);
+        assertEquals(1, root.val);
+        assertEquals(null, root.left);
+        assertEquals(401, root.right.val);
+        assertEquals(null, root.right.left);
+        assertEquals(349, root.right.right.val);
+        assertEquals(88, root.right.right.right.val);
+        assertEquals(90, root.right.right.right.left.val);
+    }
+
+    private TreeNode recoverTree(String traversal) {
+        String[] nodes = traversal.split("-");
+        return recoverTree(nodes, 0);
+    }
+
+    private TreeNode recoverTree(String[] nodes, int index) {
+        if (index >= nodes.length) {
+            return null;
+        }
+        TreeNode node = new TreeNode(Integer.parseInt(nodes[index]));
+        node.left = recoverTree(nodes, index + 1);
+        node.right = recoverTree(nodes, index + 2);
+        return node;
+    }
+
+    private static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        public TreeNode(int val) {
+            this.val = val;
+        }
+    }
+}
+```

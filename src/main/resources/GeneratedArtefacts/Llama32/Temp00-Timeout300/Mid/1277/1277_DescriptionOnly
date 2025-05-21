@@ -1,0 +1,41 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+
+public class DescriptionOnlyTest {
+
+    @Test
+    public void testMatrixWithAllOnes() {
+        int[][] matrix = {{1, 1}, {1, 1}};
+        assertEquals(4, countSquares(matrix));
+    }
+
+    @Test
+    public void testMatrixWithNoOnes() {
+        int[][] matrix = {{0, 0}, {0, 0}};
+        assertEquals(0, countSquares(matrix));
+    }
+
+    @Test
+    public void testMatrixWithOneZero() {
+        int[][] matrix = {{1, 0}, {1, 1}};
+        assertEquals(2, countSquares(matrix));
+    }
+
+    @Test
+    public void testMatrixWithMultipleZeros() {
+        int[][] matrix = {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
+        assertEquals(7, countSquares(matrix));
+    }
+
+    @Test
+    public void testEmptyMatrix() {
+        int[][] matrix = {};
+        assertTrue(countSquares(matrix) == 0);
+    }
+}
+```

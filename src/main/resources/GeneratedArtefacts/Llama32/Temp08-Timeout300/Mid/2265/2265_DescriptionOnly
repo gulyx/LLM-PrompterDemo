@@ -1,0 +1,84 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class 2265_DescriptionOnlyTest {
+
+    public static void main(String[] args) {
+        org.junit.runner.JUnitCore.main("it.cnr.iasi.saks.llmPrompter.leetCodeDemo(gen).2265_DescriptionOnlyTest");
+    }
+
+    public static int averageOfSubtree(TreeNode root) {
+        return dfs(root, 0);
+    }
+ 
+    public static int dfs(TreeNode node, int sum) {
+    	if(node == null)
+    		return 0;
+    	int left = dfs(node.left, sum + node.val);
+    	int right = dfs(node.right, sum + node.val);
+
+    	Map<Integer, Integer> map = new HashMap<>();
+    	map.put(sum, map.getOrDefault(sum, 0)+1);
+    	sum = (int) Math.round((sum + node.val) / ((float)node.val));
+    	return map.get(sum) * left + map.getOrDefault(sum, 0) * right;
+    }
+ 
+    @Test
+	public void test_averageOfSubtree() {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(5);
+        root.right = new TreeNode(2);
+        root.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(4);
+        root.left.left.left = new TreeNode(0);
+
+        assertEquals(1,  averageOfSubtree(root));
+
+    }
+ 
+    @Test
+	public void test_averageOfSubtree_2() {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(5);
+        root.right = new TreeNode(2);
+        root.right.right = new TreeNode(0);
+
+        assertEquals(1,  averageOfSubtree(root));
+ 
+    }
+ 
+    @Test
+	public void test_averageOfSubtree_3() {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(5);
+        root.right = new TreeNode(2);
+
+        assertEquals(2,  averageOfSubtree(root));
+ 
+    }
+ 
+    @Test
+	public void test_averageOfSubtree_4() {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(5);
+        root.right = new TreeNode(2);
+        root.left.left = new TreeNode(1);
+
+        assertEquals(2,  averageOfSubtree(root));
+ 
+    }
+ 
+    @Test
+	public void test_averageOfSubtree_5() {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(5);
+        root.right = new TreeNode(2);
+        root.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(4);
+
+        assertEquals(2,  averageOfSubtree(root));
+ 
+    }
+}

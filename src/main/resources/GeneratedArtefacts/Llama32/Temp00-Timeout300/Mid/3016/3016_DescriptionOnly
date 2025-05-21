@@ -1,0 +1,50 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionOnlyTest {
+
+    @Test
+    public void testPushesForWord() {
+        String word = "abc";
+        int expected = 3;
+        assertEquals(expected, pushes(word));
+    }
+
+    @Test
+    public void testPushesForWord2() {
+        String word = "aabbcc";
+        int expected = 6;
+        assertEquals(expected, pushes(word));
+    }
+
+    @Test
+    public void testPushesForWord3() {
+        String word = "abcde";
+        int expected = 5;
+        assertEquals(expected, pushes(word));
+    }
+
+    @Test
+    public void testPushesForWord4() {
+        String word = "aabbccdd";
+        int expected = 8;
+        assertEquals(expected, pushes(word));
+    }
+
+    @Test
+    public void testPushesForWord5() {
+        String word = "abcdeffgghh";
+        int expected = 11;
+        assertEquals(expected, pushes(word));
+    }
+}
+
+public class Solution {
+
+    public int pushes(String word) {
+        // implement your solution here
+    }
+
+}

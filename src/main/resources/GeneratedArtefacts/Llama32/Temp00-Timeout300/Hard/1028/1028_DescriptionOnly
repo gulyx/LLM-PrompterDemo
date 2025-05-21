@@ -1,0 +1,53 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class 1028_DescriptionOnlyTest {
+
+    @Test
+    public void testRecoverTree() {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(9);
+        root.right = new TreeNode(20);
+        root.right.left = new TreeNode(15);
+        root.right.right = new TreeNode(7);
+
+        String traversal = "3 9 20 15 7";
+        TreeNode recoveredRoot = recoverFromPreorder(traversal);
+        assertEquals(root, recoveredRoot);
+    }
+
+    @Test
+    public void testRecoverTree_WithOneNode() {
+        TreeNode root = new TreeNode(1);
+        String traversal = "1";
+        TreeNode recoveredRoot = recoverFromPreorder(traversal);
+        assertEquals(root, recoveredRoot);
+    }
+
+    @Test
+    public void testRecoverTree_EmptyTraversal() {
+        String traversal = "";
+        TreeNode recoveredRoot = recoverFromPreorder(traversal);
+        assertNull(recoveredRoot);
+    }
+
+    @Test
+    public void testRecoverTree_WithMultipleNodes() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        String traversal = "1 2 3";
+        TreeNode recoveredRoot = recoverFromPreorder(traversal);
+        assertEquals(root, recoveredRoot);
+    }
+
+    @Test
+    public void testRecoverTree_WithLargeNumber() {
+        TreeNode root = new TreeNode(1000000000);
+        root.left = new TreeNode(999999999);
+        String traversal = "1000000000 999999999";
+        TreeNode recoveredRoot = recoverFromPreorder(traversal);
+        assertEquals(root, recoveredRoot);
+    }
+}

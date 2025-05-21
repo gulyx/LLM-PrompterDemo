@@ -1,0 +1,52 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import java.util.*;
+
+public class 51_DescriptionOnlyTest {
+
+    @Test
+    public void testNQueens1() {
+        int n = 4;
+        List<List<String>> result = new Solution().solveNQueens(n);
+        assertEquals(2, result.size());
+        assertTrue(result.contains(new ArrayList<>(Arrays.asList(
+                "Q..",
+                "...Q",
+                "...Q",
+                "Q..")));
+        assertTrue(result.contains(new ArrayList<>(Arrays.asList(
+                "..Q",
+                "Q...",
+                "...Q",
+                "....")));
+    }
+
+    @Test
+    public void testNQueens2() {
+        int n = 5;
+        List<List<String>> result = new Solution().solveNQueens(n);
+        assertEquals(10, result.size());
+    }
+
+    @Test
+    public void testNQueens3() {
+        int n = 6;
+        List<List<String>> result = new Solution().solveNQueens(n);
+        assertEquals(4, result.size());
+    }
+
+    @Test
+    public void testNQueens4() {
+        int n = 7;
+        List<List<String>> result = new Solution().solveNQueens(n);
+        assertEquals(40, result.size());
+    }
+
+    @Test
+    public void testNQueens5() {
+        int n = 8;
+        List<List<String>> result = new Solution().solveNQueens(n);
+        assertEquals(92, result.size());
+    }
+}

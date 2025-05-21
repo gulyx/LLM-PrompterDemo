@@ -1,0 +1,89 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 732_DescriptionExampleTest {
+
+    @Test
+    public void test_1() {
+        MyCalendarThree obj = new MyCalendarThree();
+        int[] result = obj.book(10, 20);
+        assertEquals(1, result[0]);
+    }
+
+    @Test
+    public void test_2() {
+        MyCalendarThree obj = new MyCalendarThree();
+        int[] result = obj.book(50, 60);
+        assertEquals(1, result[0]);
+    }
+
+    @Test
+    public void test_3() {
+        MyCalendarThree obj = new MyCalendarThree();
+        int[] result = obj.book(10, 40);
+        assertEquals(2, result[0]);
+    }
+
+    @Test
+    public void test_4() {
+        MyCalendarThree obj = new MyCalendarThree();
+        int[] result = obj.book(5, 15);
+        assertEquals(3, result[0]);
+    }
+
+    @Test
+    public void test_5() {
+        MyCalendarThree obj = new MyCalendarThree();
+        int[] result = obj.book(25, 55);
+        assertEquals(3, result[0]);
+    }
+}
+
+class MyCalendarThree {
+
+    private int[][] events;
+
+    public MyCalendarThree() {
+        events = new int[0][2];
+    }
+
+    public int book(int startTime, int endTime) {
+        int[] newEvent = {startTime, endTime};
+        events = addEvent(events, newEvent);
+        return findKBooking();
+    }
+
+    private int[][] addEvent(int[][] events, int[] newEvent) {
+        int[][] result = new int[events.length + 1][2];
+        System.arraycopy(events, 0, result, 0, events.length);
+        result[events.length] = newEvent;
+        return result;
+    }
+
+    private int findKBooking() {
+        int k = 0;
+        for (int i = 0; i < events.length - 1; i++) {
+            for (int j = i + 1; j < events.length; j++) {
+                if (hasIntersection(events[i], events[j])) {
+                    k++;
+                }
+            }
+        }
+        return k;
+    }
+
+    private boolean hasIntersection(int[] a, int[] b) {
+        int startA = a[0];
+        int endA = a[1];
+        int startB = b[0];
+        int endB = b[1];
+
+        if (startA < endB && startB < endA) {
+            return true;
+        }
+        return false;
+    }
+
+}

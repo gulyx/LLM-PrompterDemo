@@ -1,0 +1,78 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testHappyString() {
+        int n = 1;
+        int k = 3;
+        String result = "c";
+        assertEquals(result, happyString(n, k));
+    }
+
+    @Test
+    public void testEmptyResult() {
+        int n = 1;
+        int k = 4;
+        String result = "";
+        assertEquals(result, happyString(n, k));
+    }
+
+    @Test
+    public void testHappyStringLength3() {
+        int n = 3;
+        int k = 9;
+        String result = "cab";
+        assertEquals(result, happyString(n, k));
+    }
+
+    @Test
+    public void testHappyStringLength4() {
+        int n = 4;
+        int k = 1;
+        String result = "abbaccc";
+        assertEquals(result, happyString(n, k));
+    }
+
+    @Test
+    public void testHappyStringLength5() {
+        int n = 5;
+        int k = 10;
+        String result = "bbbaaccaccccbdcceeeeedcba";
+        assertEquals(result, happyString(n, k));
+    }
+}
+
+public class Solution {
+
+    public String happyString(int n, int k) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            char c = 'a' + (i % 3);
+            sb.append(c);
+        }
+
+        List<String> list = new ArrayList<>();
+        generate(list, sb.toString(), 1);
+
+        if (k > list.size()) return "";
+        else return list.get(k - 1);
+    }
+
+    private void generate(List<String> list, String str, int index) {
+        if (index == str.length() + 1) {
+            list.add(str);
+            return;
+        }
+        for (char c = 'a'; c <= 'c'; c++) {
+            str += c;
+            generate(list, str, index + 1);
+            str = str.substring(0, str.length() - 1);
+        }
+    }
+}
+```

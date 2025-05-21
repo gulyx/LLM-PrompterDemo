@@ -1,0 +1,49 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertArrayEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testSortStudentsByScore() {
+        int[][] score = {{10,6,9,1},{7,5,11,2},{4,8,3,15}};
+        int k = 2;
+        int[][] expected = {{7,5,11,2},{10,6,9,1},{4,8,3,15}};
+        assertArrayEquals(expected, sortStudentsByScore(score, k));
+    }
+
+    @Test
+    public void testSortStudentsByScore_K_0() {
+        int[][] score = {{3,4},{5,6}};
+        int k = 0;
+        int[][] expected = {{5,6},{3,4}};
+        assertArrayEquals(expected, sortStudentsByScore(score, k));
+    }
+
+    @Test
+    public void testSortStudentsByScore_K_1() {
+        int[][] score = {{10,6,9,1},{7,5,11,2},{4,8,3,15}};
+        int k = 1;
+        int[][] expected = {{7,5,11,2},{10,6,9,1},{4,8,3,15}};
+        assertArrayEquals(expected, sortStudentsByScore(score, k));
+    }
+
+    @Test
+    public void testSortStudentsByScore_K_2() {
+        int[][] score = {{3,4},{5,6}};
+        int k = 2;
+        int[][] expected = {{5,6},{3,4}};
+        assertArrayEquals(expected, sortStudentsByScore(score, k));
+    }
+
+    @Test
+    public void testSortStudentsByScore_K_3() {
+        int[][] score = {{10,6,9,1},{7,5,11,2},{4,8,3,15}};
+        int k = 3;
+        int[][] expected = {{4,8,3,15},{7,5,11,2},{10,6,9,1}};
+        assertArrayEquals(expected, sortStudentsByScore(score, k));
+    }
+}
+```

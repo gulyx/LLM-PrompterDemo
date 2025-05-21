@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testExample1() {
+        String s = "zzazz";
+        assertEquals(0, minOperations(s));
+    }
+
+    @Test
+    public void testExample2() {
+        String s = "mbadm";
+        assertEquals(2, minOperations(s));
+    }
+
+    @Test
+    public void testExample3() {
+        String s = "leetcode";
+        assertEquals(5, minOperations(s));
+    }
+
+    @Test
+    public void testEmptyString() {
+        String s = "";
+        assertEquals(0, minOperations(s));
+    }
+
+    @Test
+    public void testSingleCharacter() {
+        String s = "a";
+        assertEquals(0, minOperations(s));
+    }
+}

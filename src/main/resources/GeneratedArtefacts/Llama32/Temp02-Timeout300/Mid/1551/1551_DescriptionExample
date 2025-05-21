@@ -1,0 +1,49 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testMinOperations() {
+        int n = 3;
+        int expectedOutput = 2;
+        int actualOutput = minOperations(n);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testMinOperations_6() {
+        int n = 6;
+        int expectedOutput = 9;
+        int actualOutput = minOperations(n);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testMinOperations_1() {
+        int n = 1;
+        int expectedOutput = 0;
+        int actualOutput = minOperations(n);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testMinOperations_2() {
+        int n = 2;
+        int expectedOutput = 1;
+        int actualOutput = minOperations(n);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testMinOperations_1000() {
+        int n = 1000;
+        long expectedOutput = (long) Math.ceil((double)n / 2);
+        long actualOutput = minOperations(n);
+        assertEquals(expectedOutput, actualOutput);
+    }
+}
+```

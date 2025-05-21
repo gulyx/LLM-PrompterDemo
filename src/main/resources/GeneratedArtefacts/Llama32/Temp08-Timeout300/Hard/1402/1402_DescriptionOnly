@@ -1,0 +1,49 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SolutionTest {
+
+    @Test
+    public void test1() {
+        int[] satisfaction = {2, 5, -3};
+        int n = satisfaction.length;
+        int result = new Solution().maxSatisfaction(satisfaction);
+        assertEquals(7, result);
+    }
+
+    @Test
+    public void test2() {
+        int[] satisfaction = {-10,-5,0,-15};
+        int n = satisfaction.length;
+        int result = new Solution().maxSatisfaction(satisfaction);
+        assertEquals(-20, result);
+    }
+
+    @Test
+    public void test3() {
+        int[] satisfaction = {2,1,-1};
+        int n = satisfaction.length;
+        int result = new Solution().maxSatisfaction(satisfaction);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void test4() {
+        int[] satisfaction = {-5,-7,1,5,0,3};
+        int n = satisfaction.length;
+        int result = new Solution().maxSatisfaction(satisfaction);
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void test5() {
+        int[] satisfaction = {10,-2,-2,4,8,8};
+        int n = satisfaction.length;
+        int result = new Solution().maxSatisfaction(satisfaction);
+        assertEquals(34, result);
+    }
+}
+```

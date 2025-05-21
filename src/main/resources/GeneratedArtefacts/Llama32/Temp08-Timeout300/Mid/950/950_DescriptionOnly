@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 950_DescriptionOnlyTest {
+
+    @Test
+    public void test_1() {
+        int[] result = deckDescriptionOnly(new int[]{1,2,3,4,5});
+        assertArrayEquals(result, new int[]{1,5,4,3,2});
+    }
+
+    @Test
+    public void test_2() {
+        int[] result = deckDescriptionOnly(new int[]{6, 7,8,9,10});
+        assertArrayEquals(result, new int[]{6,10,7,9,8});
+    }
+
+    @Test
+    public void test_3() {
+        int[] result = deckDescriptionOnly(new int[]{1,2,3,4,5,6,7,8,9,10});
+        assertArrayEquals(result, new int[]{1,10,2,9,3,8,4,7,5,6});
+    }
+
+    @Test
+    public void test_4() {
+        int[] result = deckDescriptionOnly(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15});
+        assertArrayEquals(result, new int[]{1,15,2,14,3,13,4,12,5,11,6,10,7,9,8});
+    }
+
+    @Test
+    public void test_5() {
+        int[] result = deckDescriptionOnly(new int[]{16,17,18,19,20});
+        assertArrayEquals(result, new int[]{16,20,17,19,18});
+    }
+}

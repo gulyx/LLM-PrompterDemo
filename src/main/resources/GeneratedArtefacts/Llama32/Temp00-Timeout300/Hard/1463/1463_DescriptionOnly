@@ -1,0 +1,38 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
+
+public class DescriptionOnlyTest {
+
+    @Test
+    public void test1() {
+        int[][] grid = {{3, 0, 1}, {2, 0, 4}, {6, 5, 3}};
+        assertEquals(12, maxCherries(grid));
+    }
+
+    @Test
+    public void test2() {
+        int[][] grid = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+        assertEquals(4, maxCherries(grid));
+    }
+
+    @Test
+    public void test3() {
+        int[][] grid = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+        assertEquals(0, maxCherries(grid));
+    }
+
+    @Test
+    public void test4() {
+        int[][] grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        assertEquals(45, maxCherries(grid));
+    }
+
+    @Test
+    public void test5() {
+        int[][] grid = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+        assertEquals(0, maxCherries(grid));
+    }
+}

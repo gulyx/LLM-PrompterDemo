@@ -1,0 +1,54 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void test_1() {
+        String s = "abacaba";
+        assertEquals(4, numUniqueSubstrings(s));
+    }
+
+    @Test
+    public void test_2() {
+        String s = "ssssss";
+        assertEquals(6, numUniqueSubstrings(s));
+    }
+
+    @Test
+    public void test_3() {
+        String s = "";
+        assertEquals(0, numUniqueSubstrings(s));
+    }
+
+    @Test
+    public void test_4() {
+        String s = "a";
+        assertEquals(1, numUniqueSubstrings(s));
+    }
+
+    @Test
+    public void test_5() {
+        String s = "abc";
+        assertEquals(3, numUniqueSubstrings(s));
+    }
+}
+
+public class Main {
+
+    public static int numUniqueSubstrings(String s) {
+        boolean[] seen = new boolean[26];
+        int count = 0;
+        for (char c : s.toCharArray()) {
+            if (!seen[c - 'a']) {
+                count++;
+                seen[c - 'a'] = true;
+            }
+        }
+        return count;
+    }
+}
+```

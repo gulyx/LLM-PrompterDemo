@@ -1,0 +1,51 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class 2120_DescriptionOnlyTest {
+
+    @Test
+    public void test1() {
+        int n = 2;
+        int[] startPos = {0, 0};
+        String s = "DR";
+        int[][] answer = solution(n, startPos, s);
+        assertEquals(new int[]{3}, answer[0]);
+    }
+
+    @Test
+    public void test2() {
+        int n = 4;
+        int[] startPos = {1, 1};
+        String s = "LURD";
+        int[][] answer = solution(n, startPos, s);
+        assertEquals(new int[]{6}, answer[0]);
+    }
+
+    @Test
+    public void test3() {
+        int n = 5;
+        int[] startPos = {2, 2};
+        String s = "DRDL";
+        int[][] answer = solution(n, startPos, s);
+        assertEquals(new int[]{4}, answer[0]);
+    }
+
+    @Test
+    public void test4() {
+        int n = 3;
+        int[] startPos = {1, 1};
+        String s = "LUR";
+        int[][] answer = solution(n, startPos, s);
+        assertEquals(new int[]{2}, answer[0]);
+    }
+
+    @Test
+    public void test5() {
+        int n = 6;
+        int[] startPos = {3, 3};
+        String s = "UUURRRDDDL";
+        int[][] answer = solution(n, startPos, s);
+        assertEquals(new int[]{10}, answer[0]);
+    }
+}

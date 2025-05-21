@@ -1,0 +1,78 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 2785_DescriptionExampleTest {
+
+    @Test
+    public void test1() {
+        String s = "lEetcOde";
+        String t = "lEOtcede";
+        assertEquals(t, permuteString(s));
+    }
+
+    @Test
+    public void test2() {
+        String s = "lYmpH";
+        String t = "lYmpH";
+        assertEquals(t, permuteString(s));
+    }
+
+    @Test
+    public void test3() {
+        String s = "aabbcc";
+        String t = "aaabbbccc";
+        assertEquals(t, permuteString(s));
+    }
+
+    @Test
+    public void test4() {
+        String s = "abcde";
+        String t = "abcde";
+        assertEquals(t, permuteString(s));
+    }
+
+    @Test
+    public void test5() {
+        String s = "AEIOUaeiou";
+        String t = "aEIoUaeiou";
+        assertEquals(t, permuteString(s));
+    }
+}
+
+public class Solution {
+
+    public String permuteString(String s) {
+        char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+        int n = s.length();
+        int[] vowelCounts = new int[5];
+        for (char c : s.toCharArray()) {
+            if (isVowel(c)) {
+                vowelCounts[vowels.indexOf(Character.toLowerCase(c))]++;
+            }
+        }
+
+        char[] result = new char[n];
+        int vowelIndex = 0;
+        for (int i = 0; i < n; i++) {
+            if (isVowel(s.charAt(i))) {
+                while (vowelCounts[vowelIndex] == 0) {
+                    vowelIndex++;
+                }
+                result[i] = vowels[vowelIndex];
+                vowelCounts[vowelIndex]--;
+            } else {
+                result[i] = s.charAt(i);
+            }
+        }
+
+        return new String(result);
+    }
+
+    private boolean isVowel(char c) {
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+    }
+}
+```

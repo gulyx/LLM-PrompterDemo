@@ -1,0 +1,86 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testConstructBinaryTree() {
+        int[][] descriptions = {{20,15,1},{20,17,0},{50,20,1},{50,80,0},{80,19,1}};
+        TreeNode root = Solution.constructBinaryTree(descriptions);
+        // assert root != null;
+    }
+
+    @Test
+    public void testConstructBinaryTree_2() {
+        int[][] descriptions = {{1,2,1},{2,3,0},{3,4,1}};
+        TreeNode root = Solution.constructBinaryTree(descriptions);
+        // assert root != null;
+    }
+
+    @Test
+    public void testConstructBinaryTree_3() {
+        int[][] descriptions = {};
+        TreeNode root = Solution.constructBinaryTree(descriptions);
+        // assert root == null;
+    }
+
+    @Test
+    public void testConstructBinaryTree_4() {
+        int[][] descriptions = {{20,15,1},{20,17,0}};
+        TreeNode root = Solution.constructBinaryTree(descriptions);
+        // assert root != null;
+    }
+
+    @Test
+    public void testConstructBinaryTree_5() {
+        int[][] descriptions = {{50,80,0},{80,19,1}};
+        TreeNode root = Solution.constructBinaryTree(descriptions);
+        // assert root != null;
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
+
+public class Solution {
+
+    public TreeNode constructBinaryTree(int[][] descriptions) {
+        if (descriptions.length == 0) return null;
+
+        Map<Integer, Integer> parentToChild = new HashMap<>();
+        Map<Integer, Integer> childToParent = new HashMap<>();
+
+        for (int[] description : descriptions) {
+            int parent = description[0];
+            int child = description[1];
+            int isLeft = description[2];
+
+            if (isLeft == 1) {
+                parentToChild.put(parent, child);
+            } else {
+                childToParent.put(child, parent);
+            }
+        }
+
+        return constructBinaryTreeHelper(1, parentToChild, childToParent);
+    }
+
+    private TreeNode constructBinaryTreeHelper(int nodeValue, Map<Integer, Integer> parentToChild, Map<Integer, Integer> childToParent) {
+        if (!parentToChild.containsKey(nodeValue)) return null;
+
+        int child = parentToChild.get(nodeValue);
+
+        TreeNode left = constructBinaryTreeHelper(childToParent.getOrDefault(child, -1), parentToChild, childToParent);
+        TreeNode right = constructBinaryTreeHelper(childToParent.getOrDefault(-child, -1), parentToChild, childToParent);
+
+        return new TreeNode(nodeValue).left(left).right(right);
+    }
+}
+```

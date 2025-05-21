@@ -1,0 +1,56 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.HashSet;
+
+public class DescriptionOnlyTest {
+
+    @Test
+    public void testMinStepsPalindromes() {
+        String s = "racecar";
+        int minSteps = minSteps(s);
+        assertEquals(0, minSteps);
+    }
+
+    @Test
+    public void testMinStepsNotPalindrome() {
+        String s = "abc";
+        int minSteps = minSteps(s);
+        assertEquals(2, minSteps);
+    }
+
+    @Test
+    public void testMinStepsSingleChar() {
+        String s = "a";
+        int minSteps = minSteps(s);
+        assertEquals(0, minSteps);
+    }
+
+    @Test
+    public void testMinStepsPalindromeWithLetters() {
+        String s = "abba";
+        int minSteps = minSteps(s);
+        assertEquals(0, minSteps);
+    }
+
+    @Test
+    public void testMinStepsPalindromeWithDiffChars() {
+        String s = "aabbccdd";
+        int minSteps = minSteps(s);
+        assertEquals(4, minSteps);
+    }
+}
+
+public class Solution {
+
+    public static int minSteps(String s) {
+        HashSet<Character> charSet = new HashSet<>();
+        for (char c: s.toCharArray()) {
+            charSet.add(c);
+        }
+        return charSet.size() - 1;
+    }
+}
+```

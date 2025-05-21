@@ -1,0 +1,83 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2130_DescriptionOnlyTest {
+
+    public ListNode getMiddle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head.next;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
+    }
+
+    @Test
+    public void testGetMiddle() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+
+        ListNode middle = getMiddle(head);
+        assertEquals(3, middle.val);
+    }
+
+    @Test
+    public void testGetMiddleEmpty() {
+        ListNode head = null;
+
+        ListNode middle = getMiddle(head);
+        assertNull(middle);
+    }
+
+    @Test
+    public void testGetMiddleSingle() {
+        ListNode head = new ListNode(1);
+
+        ListNode middle = getMiddle(head);
+        assertEquals(1, middle.val);
+    }
+
+    @Test
+    public void testTwinSum() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+
+        ListNode twinSum = getTwinSum(head);
+        assertEquals(5, twinSum);
+    }
+
+    @Test
+    public void testTwinSumNoTwins() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+
+        ListNode twinSum = getTwinSum(head);
+        assertEquals(0, twinSum);
+    }
+
+    private int getTwinSum(ListNode head) {
+        ListNode middle = getMiddle(head);
+        int maxTwinSum = 0;
+
+        while (middle != null && middle.next != null) {
+            int twinSum = middle.val + middle.next.val;
+            if (twinSum > maxTwinSum) {
+                maxTwinSum = twinSum;
+            }
+
+            middle = middle.next.next;
+        }
+
+        return maxTwinSum;
+    }
+}

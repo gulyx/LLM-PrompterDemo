@@ -1,0 +1,52 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2317_DescriptionOnlyTest {
+
+    @Test
+    public void test1() {
+        int[] nums = {3,4,6};
+        assertEquals(7, maxXor(nums));
+    }
+
+    @Test
+    public void test2() {
+        int[] nums = {5, 3, 1, 8};
+        assertEquals(15, maxXor(nums));
+    }
+
+    @Test
+    public void test3() {
+        int[] nums = {10,20,30,40};
+        assertEquals(60, maxXor(nums));
+    }
+
+    @Test
+    public void test4() {
+        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        assertEquals(15, maxXor(nums));
+    }
+
+    @Test
+    public void test5() {
+        int[] nums = {1000000000, 2000000000, 3000000000, 4000000000, 5000000000, 6000000000, 7000000000, 8000000000, 9000000000, 10000000000};
+        assertEquals(4294967295, maxXor(nums));
+    }
+
+}
+
+private int maxXor(int[] nums) {
+        int maxXor = 0;
+        for (int num : nums)
+            maxXor ^= num;
+
+        int result = maxXor;
+        while (maxXor != 0)
+        {
+            maxXor &= result ^ maxXor;
+            result ^= maxXor;
+        }
+        return result;
+    }

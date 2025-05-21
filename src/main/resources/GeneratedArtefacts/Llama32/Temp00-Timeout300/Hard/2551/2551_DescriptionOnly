@@ -1,0 +1,85 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2551_DescriptionOnlyTest {
+
+    @Test
+    public void testMaxMinScore() {
+        int[] weights = {2,3,4};
+        int k = 2;
+        assertEquals(12, maxMinScore(weights, k));
+    }
+
+    @Test
+    public void testMaxMinScore_2() {
+        int[] weights = {1,1,1,1,1,1,1,1,1,1};
+        int k = 5;
+        assertEquals(0, maxMinScore(weights, k));
+    }
+
+    @Test
+    public void testMaxMinScore_3() {
+        int[] weights = {10,20,30,40,50};
+        int k = 2;
+        assertEquals(90, maxMinScore(weights, k));
+    }
+
+    @Test
+    public void testMaxMinScore_4() {
+        int[] weights = {1,1000,10000,1000000};
+        int k = 3;
+        assertEquals(1010020, maxMinScore(weights, k));
+    }
+
+    @Test
+    public void testMaxMinScore_5() {
+        int[] weights = {2,4,6,8,10};
+        int k = 1;
+        assertEquals(220, maxMinScore(weights, k));
+    }
+}
+
+public class Solution {
+
+    public int maxMinScore(int[] weights, int k) {
+        int n = weights.length;
+        long[][] dp = new long[n+1][k+1];
+        for (int i=0; i<=n; i++) {
+            Arrays.fill(dp[i], Long.MAX_VALUE);
+        }
+        dp[0][0] = 0;
+
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=k; j++) {
+                long minCost = Long.MAX_VALUE;
+                int left = i-1, right = n-1;
+                while (left < right) {
+                    int mid = (left+right)/2;
+                    if (weights[i-1] + weights[mid] <= weights[right]) {
+                        right = mid;
+                    } else {
+                        left = mid+1;
+                    }
+                }
+
+                minCost = Math.min(minCost, dp[left][j] + weights[i-1] + weights[n-1]);
+                minCost = Math.min(minCost, dp[right][j] + weights[i-1] + weights[0]);
+
+                if (i == n) {
+                    minCost = Math.min(minCost, dp[i-1][j] + weights[i-1] + weights[0]);
+                }
+
+                dp[i][j] = minCost;
+            }
+        }
+
+        long maxScore = Long.MIN_VALUE;
+        for (int i=0; i<k; i++) {
+            maxScore = Math.max(maxScore, dp[n][i]);
+        }
+
+        return (int)(maxScore - dp[0][0]);
+    }
+}

@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class 2317_DescriptionOnlyTest {
+
+    @Test
+    public void test1() {
+        int[] nums = {3, 4, 5};
+        assertEquals(15, maxXOR(nums));
+    }
+
+    @Test
+    public void test2() {
+        int[] nums = {10, 20, 30};
+        assertEquals(60, maxXOR(nums));
+    }
+
+    @Test
+    public void test3() {
+        int[] nums = {7, 12, 33, 5, 2};
+        assertEquals(43, maxXOR(nums));
+    }
+
+    @Test
+    public void test4() {
+        int[] nums = {1, 2, 3, 4, 5};
+        assertEquals(15, maxXOR(nums));
+    }
+
+    @Test
+    public void test5() {
+        int[] nums = {0, 1, 2, 3, 4};
+        assertEquals(15, maxXOR(nums));
+    }
+}

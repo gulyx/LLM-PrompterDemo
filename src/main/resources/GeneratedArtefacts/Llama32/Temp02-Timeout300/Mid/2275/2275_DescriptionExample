@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testBitwiseAnd() {
+        int[] nums = {16,17,71,62,12,24,14};
+        assertEquals(4, bitwiseAnd(nums));
+    }
+
+    @Test
+    public void testBitwiseAnd2() {
+        int[] nums = {8,8};
+        assertEquals(2, bitwiseAnd(nums));
+    }
+
+    @Test
+    public void testBitwiseAnd3() {
+        int[] nums = {1,5,3};
+        assertEquals(1, bitwiseAnd(nums));
+    }
+
+    @Test
+    public void testBitwiseAnd4() {
+        int[] nums = {7};
+        assertEquals(7, bitwiseAnd(nums));
+    }
+
+    @Test
+    public void testBitwiseAnd5() {
+        int[] nums = {0,1,2,3,4,5,6,7,8,9};
+        assertEquals(0, bitwiseAnd(nums));
+    }
+}
+
+public class Solution {
+
+    public int bitwiseAnd(int[] candidates) {
+        int result = 0;
+        for (int num : candidates) {
+            result &= num;
+        }
+        return result;
+    }
+}
+```

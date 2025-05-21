@@ -1,0 +1,44 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testWateringPlants_Example1() {
+        int[] plants = {2, 2, 3, 3};
+        int capacity = 5;
+        assertEquals(14, wateringPlants(plants, capacity));
+    }
+
+    @Test
+    public void testWateringPlants_Example2() {
+        int[] plants = {1, 1, 1, 4, 2, 3};
+        int capacity = 4;
+        assertEquals(30, wateringPlants(plants, capacity));
+    }
+
+    @Test
+    public void testWateringPlants_Example3() {
+        int[] plants = {7, 7, 7, 7, 7, 7, 7};
+        int capacity = 8;
+        assertEquals(49, wateringPlants(plants, capacity));
+    }
+
+    @Test
+    public void testWateringPlants_EmptyArray() {
+        int[] plants = {};
+        int capacity = 5;
+        assertEquals(0, wateringPlants(plants, capacity));
+    }
+
+    @Test
+    public void testWateringPlants_SingleElementArray() {
+        int[] plants = {3};
+        int capacity = 5;
+        assertEquals(4, wateringPlants(plants, capacity));
+    }
+}
+```

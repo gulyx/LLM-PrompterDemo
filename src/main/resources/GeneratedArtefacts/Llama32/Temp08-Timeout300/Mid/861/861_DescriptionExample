@@ -1,0 +1,75 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class861_DescriptionExampleTest {
+
+    @Test
+    public void testScore() {
+        int[][] grid = {{0, 0, 1, 1}, {1, 0, 1, 0}, {1, 1, 0, 0}};
+        assertEquals(39, score(grid));
+    }
+
+    @Test
+    public void testOneElementScore() {
+        int[][] grid = {{0}};
+        assertEquals(1, score(grid));
+    }
+
+    @Test
+    public void testTwoElementsScore() {
+        int[][] grid = {{0, 1}, {1, 0}};
+        assertEquals(2, score(grid));
+    }
+
+    @Test
+    public void testNoZerosScore() {
+        int[][] grid = {{1, 1, 1, 1}};
+        assertEquals(15, score(grid));
+    }
+
+    @Test
+    public void testAllZerosScore() {
+        int[][] grid = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+        assertEquals(4, score(grid));
+    }
+}
+
+public class Main {
+    public static int score(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int[] rowSum = new int[m];
+        int[] colSum = new int[n];
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                rowSum[i] += grid[i][j];
+                colSum[j] += grid[i][j];
+            }
+        }
+
+        int res = 0;
+
+        for (int x : rowSum) {
+            if (x != 0) {
+                res += x;
+            } else {
+                break;
+            }
+        }
+
+        for (int y : colSum) {
+            if (y != 0) {
+                res += y;
+            } else {
+                break;
+            }
+        }
+
+        return res;
+    }
+}
+```

@@ -1,0 +1,37 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void test_2392_DescriptionExampleTest() {
+        int[][] rowConditions = {{1, 2}, {3, 2}};
+        int[][] colConditions = {{2, 1}, {3, 2}};
+        int k = 3;
+        int[][] result = new DescriptionExample().solve(k, rowConditions, colConditions);
+        assertArrayEquals(new int[]{3, 0, 0}, result[0]);
+        assertArrayEquals(new int[]{0, 0, 1}, result[1]);
+        assertArrayEquals(new int[]{0, 2, 0}, result[2]);
+    }
+
+    @Test
+    public void test_2392_DescriptionExampleTest_2() {
+        int[][] rowConditions = {{1, 2}, {2, 3}, {3, 1}, {2, 3}};
+        int[][] colConditions = {{2, 1}};
+        int k = 3;
+        int[][] result = new DescriptionExample().solve(k, rowConditions, colConditions);
+        assertArrayEquals(new int[0][] ,result);
+    }
+
+}
+
+class DescriptionExample {
+    public int[][] solve(int k, int[][] rowConditions, int[][] colConditions) {
+        // implement your logic here
+        return new int[0][];
+    }
+}
+```

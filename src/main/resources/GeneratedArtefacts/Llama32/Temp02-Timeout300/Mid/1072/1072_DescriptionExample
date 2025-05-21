@@ -1,0 +1,64 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testMaxEqualRowsAfterFlips_1() {
+        int[][] matrix = {{0, 1}, {1, 1}};
+        assertEquals(1, maxEqualRowsAfterFlips(matrix));
+    }
+
+    @Test
+    public void testMaxEqualRowsAfterFlips_2() {
+        int[][] matrix = {{0, 1}, {1, 0}};
+        assertEquals(2, maxEqualRowsAfterFlips(matrix));
+    }
+
+    @Test
+    public void testMaxEqualRowsAfterFlips_3() {
+        int[][] matrix = {{0, 0, 0}, {0, 0, 1}, {1, 1, 0}};
+        assertEquals(2, maxEqualRowsAfterFlips(matrix));
+    }
+
+    @Test
+    public void testMaxEqualRowsAfterFlips_4() {
+        int[][] matrix = {{0, 0, 0}, {0, 0, 0}, {0, 1, 0}};
+        assertEquals(2, maxEqualRowsAfterFlips(matrix));
+    }
+
+    @Test
+    public void testMaxEqualRowsAfterFlips_5() {
+        int[][] matrix = {{0, 0, 0}, {0, 0, 0}, {1, 1, 0}};
+        assertEquals(2, maxEqualRowsAfterFlips(matrix));
+    }
+}
+
+public class Solution {
+
+    public int maxEqualRowsAfterFlips(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int[] count = new int[cols];
+        for (int i = 0; i < rows; i++) {
+            boolean flip = false;
+            for (int j = 0; j < cols; j++) {
+                if (matrix[i][j] == 1) {
+                    flip = !flip;
+                }
+                count[j] += flip ? 1 : -1;
+            }
+        }
+
+        int maxCount = 0;
+        for (int c : count) {
+            maxCount = Math.max(maxCount, c);
+        }
+
+        return rows / 2 + maxCount;
+    }
+}
+```

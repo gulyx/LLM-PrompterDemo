@@ -1,0 +1,47 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1441_DescriptionOnlyTest {
+
+    @Test
+    public void testBuildTarget() {
+        int[] target = {1,2,3};
+        int n = 3;
+        String result = buildArray(target, n);
+        assertEquals("[Push, Push, Pop, Push, Pop, Push]", result);
+    }
+
+    @Test
+    public void testBuildTarget_WithOneElement() {
+        int[] target = {5};
+        int n = 1;
+        String result = buildArray(target, n);
+        assertEquals("[Push]", result);
+    }
+
+    @Test
+    public void testBuildTarget_EmptyStack() {
+        int[] target = {};
+        int n = 3;
+        String result = buildArray(target, n);
+        assertEquals("[Push, Push, Pop]", result);
+    }
+
+    @Test
+    public void testBuildTarget_WithMultipleElements() {
+        int[] target = {1,2,3,4};
+        int n = 4;
+        String result = buildArray(target, n);
+        assertEquals("[Push, Push, Pop, Push, Push, Pop, Push]", result);
+    }
+
+    @Test
+    public void testBuildTarget_WithNoSolution() {
+        int[] target = {1,2,3};
+        int n = 5;
+        String result = buildArray(target, n);
+        assertEquals("No solution", result);
+    }
+}

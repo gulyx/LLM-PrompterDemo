@@ -1,0 +1,64 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.*;
+
+public class DescriptionExampleTest {
+
+    public List<String> getTargetString(String target) {
+        Set<String> result = new HashSet<>();
+        int aCount = 0;
+        for (char c : target.toCharArray()) {
+            StringBuilder sb = new StringBuilder();
+            if (c != 'a') {
+                while (!result.contains(sb.toString())) {
+                    if (sb.length() < aCount) {
+                        sb.append('a');
+                        aCount++;
+                    } else {
+                        char prev = sb.charAt(sb.length() - 1);
+                        sb.setCharAt(sb.length() - 1, (char) ((prev + 1)));
+                    }
+                }
+            }
+            result.add(sb.toString());
+        }
+        return new ArrayList<>(result);
+    }
+
+    @Test
+    public void testGetTargetString_ABC() {
+        List<String> expected = Arrays.asList("a", "aa", "ab", "aba", "abb", "abc");
+        List<String> actual = getTargetString("abc");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetTargetString_HE() {
+        List<String> expected = Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "ha", "hb", "hc", "hd", "he");
+        List<String> actual = getTargetString("he");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetTargetString_AAAAA() {
+        List<String> expected = Arrays.asList("a", "aa", "aaa", "aaaa");
+        List<String> actual = getTargetString("AAAAA");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetTargetString_BBBB() {
+        List<String> expected = Arrays.asList("b", "bb", "bbb");
+        List<String> actual = getTargetString("BBBBB");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetTargetString_ZZZZ() {
+        List<String> expected = Arrays.asList("z", "zz", "zzz");
+        List<String> actual = getTargetString("ZZZZZ");
+        assertEquals(expected, actual);
+    }
+}
+```

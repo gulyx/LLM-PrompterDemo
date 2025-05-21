@@ -1,0 +1,67 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnlyTest {
+
+    @Test
+    public void testAllElements() {
+        TreeNode root1 = new TreeNode(7);
+        root1.left = new TreeNode(3);
+        root1.right = new TreeNode(15);
+        root1.left.left = new TreeNode(2);
+        root1.left.right = new TreeNode(5);
+
+        TreeNode root2 = new TreeNode(9);
+        root2.left = new TreeNode(4);
+        root2.right = new TreeNode(20);
+
+        int[] result = new AllElements(root1, root2);
+        assertArrayEquals(new int[]{ 2, 3, 4, 5, 7, 9, 15, 20 }, result);
+    }
+
+    @Test
+    public void testOnlyOneElement() {
+        TreeNode root1 = new TreeNode(7);
+
+        TreeNode root2 = null;
+
+        int[] result = new AllElements(root1, root2);
+        assertArrayEquals(new int[]{ 7 }, result);
+    }
+
+    @Test
+    public void testEmptyTree1() {
+        TreeNode root1 = null;
+
+        TreeNode root2 = new TreeNode(9);
+
+        int[] result = new AllElements(root1, root2);
+        assertArrayEquals(new int[]{ 9 }, result);
+    }
+
+    @Test
+    public void testEmptyTree2() {
+        TreeNode root1 = new TreeNode(7);
+
+        TreeNode root2 = null;
+
+        int[] result = new AllElements(root1, root2);
+        assertArrayEquals(new int[]{ 7 }, result);
+    }
+
+    @Test
+    public void testSameTree() {
+        TreeNode root1 = new TreeNode(5);
+        root1.left = new TreeNode(4);
+        root1.right = new TreeNode(6);
+
+        TreeNode root2 = new TreeNode(5);
+        root2.left = new TreeNode(4);
+        root2.right = new TreeNode(6);
+
+        int[] result = new AllElements(root1, root2);
+        assertArrayEquals(new int[]{ 4, 5, 5, 4, 6, 6 }, result);
+    }
+}

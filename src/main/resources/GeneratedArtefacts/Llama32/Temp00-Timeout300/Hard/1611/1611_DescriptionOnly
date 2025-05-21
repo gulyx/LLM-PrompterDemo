@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class1611_DescriptionOnlyTest {
+
+    @Test
+    public void test_0() {
+        int result = minOperations(0);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void test_1() {
+        int result = minOperations(1);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void test_2() {
+        int result = minOperations(2);
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void test_4() {
+        int result = minOperations(4);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void test_8() {
+        int result = minOperations(8);
+        assertEquals(1, result);
+    }
+}

@@ -1,0 +1,39 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testMinOperations() {
+        int[] nums = {0, 1, 1, 1, 0, 0};
+        assertEquals(3, minOperations(nums));
+    }
+
+    @Test
+    public void testMinOperationsNoZeros() {
+        int[] nums = {1, 1, 1};
+        assertEquals(-1, minOperations(nums));
+    }
+
+    @Test
+    public void testMinOperationsTwoConsecutiveOnes() {
+        int[] nums = {0, 1, 1, 1, 0};
+        assertEquals(2, minOperations(nums));
+    }
+
+    @Test
+    public void testMinOperationsFiveZeros() {
+        int[] nums = {0, 0, 0, 0, 0};
+        assertEquals(-1, minOperations(nums));
+    }
+
+    @Test
+    public void testMinOperationsTwoConsecutiveOnesAndOneZero() {
+        int[] nums = {0, 1, 1, 0, 0};
+        assertEquals(4, minOperations(nums));
+    }
+}
+```

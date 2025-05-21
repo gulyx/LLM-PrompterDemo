@@ -1,0 +1,54 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2221_DescriptionOnlyTest {
+
+    @Test
+    public void testTriangularSum_EmptyArray() {
+        int[] nums = {};
+        assertEquals(0, triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_SingleElementArray() {
+        int[] nums = {5};
+        assertEquals(5, triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_TwoElementsArray() {
+        int[] nums = {1, 2};
+        assertEquals(3, triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_MultipleElementsArray() {
+        int[] nums = {1, 2, 3, 4, 5};
+        assertEquals(5, triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_LargeMultipleElementsArray() {
+        int[] nums = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+        assertEquals(9, triangularSum(nums));
+    }
+}
+
+public class Solution {
+
+    public int triangularSum(int[] nums) {
+        if (nums.length == 0 || nums.length == 1) return nums[0];
+        int n = nums.length;
+        while (n > 1) {
+            int[] newNums = new int[n - 1];
+            for (int i = 0; i < n - 1; i++) {
+                newNums[i] = (nums[i] + nums[i+1]) % 10;
+            }
+            nums = newNums;
+            n--;
+        }
+        return nums[0];
+    }
+}

@@ -1,0 +1,39 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 535_DescriptionExampleTest {
+
+    public Solution solution = new Solution();
+
+    @Test
+    public void test1() {
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = solution.encode(longUrl);
+        assertEquals(longUrl, solution.decode(shortUrl));
+    }
+
+    @Test
+    public void test2() {
+        String shortUrl = "http://tinyurl.com/4e9iAk";
+        String longUrl = solution.decode(shortUrl);
+        assertEquals("https://leetcode.com/problems/design-tinyurl", longUrl);
+    }
+
+    @Test
+    public void test3() {
+        String longUrl1 = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl1 = solution.encode(longUrl1);
+        assertEquals(5, shortUrl1.length());
+    }
+
+    @Test
+    public void test4() {
+        String longUrl2 = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl2 = solution.encode(longUrl2);
+        assertNotEquals(longUrl2, shortUrl2);
+    }
+}
+```

@@ -1,0 +1,55 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnlyTest {
+
+    @Test
+    public void testPrefixCommonArray() {
+        int[] A = {1, 2, 3};
+        int[] B = {3, 2, 1};
+        int[] expected = {1, 2, 2};
+        int[] result = findPrefixCommonArray(A, B);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testPrefixCommonArray_WithDuplicates() {
+        int[] A = {1, 2, 3, 2, 4};
+        int[] B = {3, 2, 1, 2, 5};
+        int[] expected = {1, 2, 2, 2, 2};
+        int[] result = findPrefixCommonArray(A, B);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testPrefixCommonArray_Empty() {
+        int[] A = {};
+        int[] B = {};
+        int[] expected = {};
+        int[] result = findPrefixCommonArray(A, B);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testPrefixCommonArray_SingleElement() {
+        int[] A = {1};
+        int[] B = {1};
+        int[] expected = {1};
+        int[] result = findPrefixCommonArray(A, B);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testPrefixCommonArray_NullInput() {
+        int[] A = null;
+        int[] B = {1, 2, 3};
+        try {
+            findPrefixCommonArray(A, B);
+            fail("NullPointerException expected");
+        } catch (NullPointerException e) {}
+    }
+}
+```

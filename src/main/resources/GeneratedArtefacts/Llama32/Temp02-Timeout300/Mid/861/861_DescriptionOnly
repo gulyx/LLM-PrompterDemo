@@ -1,0 +1,72 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnlyTest {
+
+    @Test
+    public void testHighScore() {
+        int[][] grid = {{1,0,2},{3,4,5}};
+        assertEquals(14, highScore(grid));
+    }
+
+    @Test
+    public void testLowScore() {
+        int[][] grid = {{0,0,0},{0,0,0}};
+        assertEquals(0, highScore(grid));
+    }
+
+    @Test
+    public void testAllOnes() {
+        int[][] grid = {{1,1,1},{1,1,1},{1,1,1}};
+        assertEquals(15, highScore(grid));
+    }
+
+    @Test
+    public void testNoOnes() {
+        int[][] grid = {{0,0,0},{0,0,0}};
+        assertEquals(0, highScore(grid));
+    }
+
+    @Test
+    public void testMixedValues() {
+        int[][] grid = {{1,2,3},{4,5,6}};
+        assertEquals(9, highScore(grid));
+    }
+}
+
+public class Solution {
+
+    public int highScore(int[][] grid) {
+        int rows = grid.length;
+        int cols = grid[0].length;
+        boolean[] rowSelected = new boolean[rows];
+        boolean[] colSelected = new boolean[cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (grid[i][j] == 1) {
+                    rowSelected[i] = true;
+                    colSelected[j] = true;
+                }
+            }
+        }
+
+        int score = 0;
+
+        for (boolean row : rowSelected) {
+            if (row) {
+                score += Integer.parseInt(Integer.toBinaryString(Integer.parseInt(Integer.toString(rows), 2) ^ Integer.parseInt(Integer.toString(i + 1), 2)));
+            }
+        }
+
+        for (boolean col : colSelected) {
+            if (col) {
+                score += Integer.parseInt(Integer.toBinaryString(Integer.parseInt(Integer.toString(cols), 2) ^ Integer.parseInt(Integer.toString(j + 1), 2)));
+            }
+        }
+
+        return score;
+    }
+}

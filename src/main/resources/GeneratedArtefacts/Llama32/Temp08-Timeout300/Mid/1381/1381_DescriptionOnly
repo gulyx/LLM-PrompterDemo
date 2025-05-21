@@ -1,0 +1,57 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+public class CustomStack_DescriptionOnlyTest {
+
+    @Test
+    public void testPushMaxSize() {
+        CustomStack stack = new CustomStack(3);
+        stack.push(5);
+        assertEquals(5, (int)stack.pop());
+    }
+
+    @Test
+    public void testPopEmpty() {
+        CustomStack stack = new CustomStack(3);
+        assertEquals(-1, stack.pop());
+    }
+
+    @Test
+    public void testPushAndPopMultipleTimes() {
+        CustomStack stack = new CustomStack(5);
+        stack.push(5);
+        stack.push(10);
+        assertEquals(10, (int)stack.pop());
+        assertEquals(5, (int)stack.pop());
+    }
+
+    @Test
+    public void testIncValueIncrease() {
+        CustomStack stack = new CustomStack(4);
+        stack.push(2);
+        stack.push(3);
+        stack.push(1);
+        int increment = 10;
+        stack.inc(3, increment);
+        assertEquals(12, (int)stack.pop());
+        assertEquals(11, (int)stack.pop());
+        assertEquals(12, (int)stack.pop());
+    }
+
+    @Test
+    public void testIncValueIncreaseMoreThanIncrement() {
+        CustomStack stack = new CustomStack(4);
+        stack.push(2);
+        stack.push(3);
+        stack.push(1);
+        int increment = 10;
+        stack.inc(6, increment);
+        assertEquals(11, (int)stack.pop());
+        assertEquals(12, (int)stack.pop());
+    }
+}
+```

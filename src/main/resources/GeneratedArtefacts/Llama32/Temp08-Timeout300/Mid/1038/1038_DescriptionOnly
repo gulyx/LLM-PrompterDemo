@@ -1,0 +1,75 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1038_DescriptionOnlyTest {
+
+    @Test
+    public void testInOrderTraversal() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        convertBST(root);
+
+        TreeNode expectedRoot = new TreeNode(6);
+        expectedRoot.left = new TreeNode(5);
+        expectedRoot.right = new TreeNode(7);
+
+        assertSame(expectedRoot, root);
+    }
+
+    @Test
+    public void testLeftChild() {
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(5);
+        root.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(3);
+
+        convertBST(root);
+
+        TreeNode expectedRoot = new TreeNode(10);
+        expectedRoot.left = new TreeNode(8);
+        expectedRoot.right = new TreeNode(13);
+        expectedRoot.left.left = new TreeNode(5);
+        expectedRoot.left.right = new TreeNode(9);
+
+        assertSame(expectedRoot, root);
+    }
+
+    @Test
+    public void testRightChild() {
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(5);
+        root.left.right = new TreeNode(3);
+
+        convertBST(root);
+
+        TreeNode expectedRoot = new TreeNode(10);
+        expectedRoot.left = new TreeNode(8);
+        expectedRoot.right = new TreeNode(13);
+
+        assertSame(expectedRoot, root);
+    }
+
+    @Test
+    public void testEmptyTree() {
+        TreeNode root = null;
+
+        convertBST(root);
+
+        assertNull(root);
+    }
+
+    @Test
+    public void testSingleNode() {
+        TreeNode root = new TreeNode(1);
+
+        convertBST(root);
+
+        assertSame(2, root.val);
+    }
+}

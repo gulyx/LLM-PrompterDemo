@@ -1,0 +1,59 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertArrayEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void test_1() {
+        int[] pref = {5, 2, 0, 3, 1};
+        int[] arr = new int[pref.length];
+        for (int i = 0; i < pref.length; i++) {
+            arr[i] = pref[0] ^ pref[i + 1];
+        }
+        assertArrayEquals(pref, arr);
+    }
+
+    @Test
+    public void test_2() {
+        int[] pref = {13};
+        int[] arr = new int[pref.length];
+        for (int i = 0; i < pref.length; i++) {
+            arr[i] = pref[0] ^ pref[i + 1];
+        }
+        assertArrayEquals(pref, arr);
+    }
+
+    @Test
+    public void test_3() {
+        int[] pref = {10, 5, 2};
+        int[] arr = new int[pref.length];
+        for (int i = 0; i < pref.length; i++) {
+            arr[i] = pref[0] ^ pref[i + 1];
+        }
+        assertArrayEquals(pref, arr);
+    }
+
+    @Test
+    public void test_4() {
+        int[] pref = {7, 3, 2, 5};
+        int[] arr = new int[pref.length];
+        for (int i = 0; i < pref.length; i++) {
+            arr[i] = pref[0] ^ pref[i + 1];
+        }
+        assertArrayEquals(pref, arr);
+    }
+
+    @Test
+    public void test_5() {
+        int[] pref = {12};
+        int[] arr = new int[pref.length];
+        for (int i = 0; i < pref.length; i++) {
+            arr[i] = pref[0] ^ pref[i + 1];
+        }
+        assertArrayEquals(pref, arr);
+    }
+}
+```

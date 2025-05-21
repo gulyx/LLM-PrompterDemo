@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+
+public class DescriptionOnlyTest {
+
+    @Test
+    public void testExample1() {
+        int[][] matrix = {{0, 0, 0}, {0, 0, 0}};
+        long target = 0;
+        assertEquals(9, numUniqueIntervals(matrix, target));
+    }
+
+    @Test
+    public void testExample2() {
+        int[][] matrix = {{1, 0, -1}, {-1, 0, -1}};
+        long target = 0;
+        assertEquals(5, numUniqueIntervals(matrix, target));
+    }
+
+    @Test
+    public void testExample3() {
+        int[][] matrix = {{0, 1, 2}, {3, 4, 5}};
+        long target = 7;
+        assertEquals(9, numUniqueIntervals(matrix, target));
+    }
+
+    @Test
+    public void testExample4() {
+        int[][] matrix = {{-1, -1, 1}, {-1, 0, 2}};
+        long target = 0;
+        assertEquals(8, numUniqueIntervals(matrix, target));
+    }
+
+    @Test
+    public void testExample5() {
+        int[][] matrix = {{1000, 1000, 1000}, {1000, 1000, 1000}};
+        long target = 2000;
+        assertEquals(1, numUniqueIntervals(matrix, target));
+    }
+}

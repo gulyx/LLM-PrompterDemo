@@ -1,0 +1,86 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testBalancedBinarySearchTree() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        expectedRoot.right = new TreeNode(3);
+
+        TreeNode actualRoot = balanceBST(root);
+        assertEquals(expectedRoot, actualRoot);
+    }
+
+    @Test
+    public void testBalancedBinarySearchTreeWithNullLeftChild() {
+        TreeNode root = new TreeNode(2);
+        root.left = null;
+        root.right = new TreeNode(1);
+
+        TreeNode expectedRoot = new TreeNode(1);
+        expectedRoot.left = new TreeNode(2);
+
+        TreeNode actualRoot = balanceBST(root);
+        assertEquals(expectedRoot, actualRoot);
+    }
+
+    @Test
+    public void testBalancedBinarySearchTreeWithNullRightChild() {
+        TreeNode root = new TreeNode(3);
+        root.right = null;
+        root.left = new TreeNode(1);
+
+        TreeNode expectedRoot = new TreeNode(1);
+        expectedRoot.left = new TreeNode(3);
+
+        TreeNode actualRoot = balanceBST(root);
+        assertEquals(expectedRoot, actualRoot);
+    }
+
+    @Test
+    public void testBalancedBinarySearchTreeWithMultipleNodes() {
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(5);
+        root.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(3);
+
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        expectedRoot.right = new TreeNode(3);
+        expectedRoot.left.left = new TreeNode(4);
+        expectedRoot.left.right = new TreeNode(5);
+
+        TreeNode actualRoot = balanceBST(root);
+        assertEquals(expectedRoot, actualRoot);
+    }
+
+    @Test
+    public void testBalancedBinarySearchTreeWithSingleNode() {
+        TreeNode root = new TreeNode(1);
+
+        TreeNode expectedRoot = new TreeNode(1);
+
+        TreeNode actualRoot = balanceBST(root);
+        assertEquals(expectedRoot, actualRoot);
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) { val = x; }
+
+}
+```

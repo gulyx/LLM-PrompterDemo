@@ -1,0 +1,40 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.*;
+
+public class DescriptionOnlyTest {
+
+    @Test
+    public void testVowelStringsNumberOfLengthOne() {
+        int n = 1;
+        assertEquals(5, numVowelStrings(n));
+    }
+
+    @Test
+    public void testVowelStringsNumberOfLengthFive() {
+        int n = 5;
+        assertEquals(153, numVowelStrings(n));
+    }
+
+    @Test
+    public void testVowelStringsNumberOfLengthTen() {
+        int n = 10;
+        assertEquals(2440L, numVowelStrings(n));
+    }
+
+    @Test
+    public void testVowelStringsOfLengthZero() {
+        int n = 0;
+        assertEquals(1, numVowelStrings(n));
+    }
+
+    @Test
+    public void testVowelStringsOfLengthFifty() {
+        int n = 50;
+        assertEquals((long) 927620L, numVowelStrings(n));
+    }
+}
+```

@@ -1,0 +1,39 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testPartitionString() {
+        int[] result = partitionLabel("ababcbacadefegdehijhklij");
+        assertEquals(new int[]{9,7,8}, result);
+    }
+
+    @Test
+    public void testPartitionLabelOneElement() {
+        int[] result = partitionLabel("abc");
+        assertEquals(new int[]{3}, result);
+    }
+
+    @Test
+    public void testPartitionLabelTwoElements() {
+        int[] result = partitionLabel("ab");
+        assertEquals(new int[]{2}, result);
+    }
+
+    @Test
+    public void testPartitionLabelNoChange() {
+        int[] result = partitionLabel("aab");
+        assertEquals(new int[]{2}, result);
+    }
+
+    @Test
+    public void testPartitionLabelOnlyOneElement() {
+        int[] result = partitionLabel("a");
+        assertEquals(new int[]{1}, result);
+    }
+}
+```

@@ -1,0 +1,63 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void test_1() {
+        int[] arr = {2,3,1,6,7};
+        assertEquals(4, threeEqualParts(arr));
+    }
+
+    @Test
+    public void test_2() {
+        int[] arr = {1,1,1,1,1};
+        assertEquals(10, threeEqualParts(arr));
+    }
+
+    @Test
+    public void test_3() {
+        int[] arr = {1,2,3,4,5};
+        assertEquals(0, threeEqualParts(arr));
+    }
+
+    @Test
+    public void test_4() {
+        int[] arr = {1,1,1,1,1,1};
+        assertEquals(15, threeEqualParts(arr));
+    }
+
+    @Test
+    public void test_5() {
+        int[] arr = {2,3,1,6,7,8};
+        assertEquals(0, threeEqualParts(arr));
+    }
+}
+
+public class Solution {
+
+    public int threeEqualParts(int[] arr) {
+        int n = arr.length;
+        int count = 0;
+
+        for (int i = 0; i < n - 2; i++) {
+            for (int j = i + 1; j < n - 1; j++) {
+                for (int k = j + 1; k < n; k++) {
+                    int a = 0;
+                    int b = 0;
+
+                    for (int m = i, n = j; m <= n; m++, n++) {
+                        a ^= arr[m];
+                        b ^= arr[n];
+                    }
+
+                    if (a == b) count++;
+                }
+            }
+        }
+
+        return count;
+    }
+}

@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.Arrays;
+
+public class 885_DescriptionOnlyTest {
+
+    @Test
+    public void test_1() {
+        int[][] result = new int[0][2];
+        int[] expected = {0, 0};
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void test_2() {
+        int[][] result = new int[][]{{4, 3}, {0, 1}, {1, 5}, {7, 2}};
+        int[] expected = {4, 3};
+        assertArrayEquals(expected, result[0]);
+    }
+
+    @Test
+    public void test_3() {
+        int[][] result = new int[][]{{0, 1}, {1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 6}, {6, 7}, {7, 8}};
+        int[] expected = {0, 1};
+        assertArrayEquals(expected, result[0]);
+    }
+
+    @Test
+    public void test_4() {
+        int[][] result = new int[][]{{3, 2}, {2, 4}, {1, 5}, {5, 6}, {4, 7}, {3, 8}, {2, 9}, {1, 10}};
+        int[] expected = {3, 2};
+        assertArrayEquals(expected, result[0]);
+    }
+
+    @Test
+    public void test_5() {
+        int[][] result = new int[][]{{0, 1}, {1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 6}, {6, 7}, {7, 8}};
+        int[] expected = {0, 1};
+        assertArrayEquals(expected, result[0]);
+    }
+}
+```

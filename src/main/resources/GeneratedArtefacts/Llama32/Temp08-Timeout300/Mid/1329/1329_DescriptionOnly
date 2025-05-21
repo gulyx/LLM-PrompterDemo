@@ -1,0 +1,68 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import java.util.Arrays;
+import static org.junit.Assert.*;
+
+public class 1329_DescriptionOnlyTest {
+
+    @Test
+    public void test_0_1(){
+        int[][] mat = {
+            {3,2,6},
+            {5,1,8},
+            {4,7,9}
+        };
+        Integer[][] result = diagonalSort(mat);
+        assertArrayEquals(new Integer[][]{
+            {1,2,3},
+            {4,5,6},
+            {7,8,9}
+        },result);
+    }
+
+    @Test
+    public void test_0_2(){
+        int[][] mat = {
+            {1,2,3},
+            {4,5,6},
+            {7,8,9}
+        };
+        Integer[][] result = diagonalSort(mat);
+        assertArrayEquals(new Integer[][]{
+            {1,2,3},
+            {4,5,6},
+            {7,8,9}
+        },result);
+
+    }
+
+    @Test
+    public void test_0_3(){
+        int[][] mat = {
+            {5},
+            {1},
+            {9}
+        };
+        Integer[][] result = diagonalSort(mat);
+        assertArrayEquals(new Integer[][]{
+            {1,5,9}
+        },result);
+
+    }
+
+    @Test
+    public void test_0_4(){
+
+        int[][] mat = new int[3][];
+        for(int i= 0;i<3;i++){
+            mat[i] = new int[]{i+1};
+        }
+        Integer[][] result = diagonalSort(mat);
+        assertArrayEquals(new Integer[][]{
+            {1,2,3}
+        },result);
+
+    }
+
+}

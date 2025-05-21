@@ -1,0 +1,68 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testReverseDigits() {
+        int[] nums = {1, 13, 10, 12, 31};
+        assertEquals(6, reverseDigits(nums));
+    }
+
+    @Test
+    public void testReverseDigitsSameNumber() {
+        int[] nums = {2, 2, 2};
+        assertEquals(1, reverseDigits(nums));
+    }
+
+    @Test
+    public void testReverseDigitsSingleDigit() {
+        int[] nums = {5};
+        assertEquals(1, reverseDigits(nums));
+    }
+
+    @Test
+    public void testReverseDigitsLargeNumber() {
+        int[] nums = {1000, 1234, 5678};
+        assertEquals(6, reverseDigits(nums));
+    }
+
+    @Test
+    public void testReverseDigitsEmptyArray() {
+        int[] nums = {};
+        assertEquals(0, reverseDigits(nums));
+    }
+}
+
+public class Solution {
+
+    public int reverseDigits(int[] nums) {
+        StringBuilder sb = new StringBuilder();
+        for (int num : nums) {
+            sb.append(num);
+            sb.reverse();
+            nums = appendReverse(sb.toString(), nums);
+        }
+        return getDistinctCount(nums);
+    }
+
+    private int[] appendReverse(String str, int[] nums) {
+        if (str.length() == 0) return nums;
+        nums = new int[nums.length + 1];
+        nums[0] = Integer.parseInt(str);
+        System.arraycopy(nums, 0, nums, 1, nums.length - 1);
+        return nums;
+    }
+
+    private int getDistinctCount(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            set.add(num);
+        }
+        return set.size();
+    }
+}
+```

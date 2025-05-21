@@ -1,0 +1,52 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void rearrangeArray_LowerEqualsPivot_Correct() {
+        int[] nums = {9,12,5,10,14,3,10};
+        int pivot = 10;
+        int[] result = rearrangeArray(nums, pivot);
+        assertArrayEquals(result, new int[]{9,5,3,10,10,12,14});
+    }
+
+    @Test
+    public void rearrangeArray_LowerDoesNotEqualsPivot_Correct() {
+        int[] nums = {-3,4,3,2};
+        int pivot = 2;
+        int[] result = rearrangeArray(nums, pivot);
+        assertArrayEquals(result, new int[]{-3,2,4,3});
+    }
+
+    @Test
+    public void rearrangeArray_EmptyArray_PivotCorrect() {
+        int[] nums = {};
+        int pivot = 10;
+        int[] result = rearrangeArray(nums, pivot);
+        assertTrue(result == null || result.length == 0);
+    }
+
+    @Test
+    public void rearrangeArray_NullArray_ThrowsException() {
+        try {
+            int[] nums = null;
+            int pivot = 10;
+            rearrangeArray(nums, pivot);
+            assert false;
+        } catch (NullPointerException e) {
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void rearrangeArray_PivotZero Correct() {
+        int[] nums = {9,12,5,10,14,3,10};
+        int pivot = 0;
+        int[] result = rearrangeArray(nums, pivot);
+        assertArrayEquals(result, new int[]{3,5,9,10,10,12,14});
+    }
+
+}

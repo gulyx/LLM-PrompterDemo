@@ -1,0 +1,49 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertArrayEquals;
+
+public class 2545_DescriptionOnlyTest {
+
+    @Test
+    public void testSortStudents_by_score() {
+        int[][] score = {{10,100},{30,60}};
+        int k = 0;
+        int[][] expected = {{10,100},{30,60}};
+        assertArrayEquals(expected, sortStudentsByScore(score,k));
+    }
+
+    @Test
+    public void testSortStudents_by_score_k1() {
+        int[][] score = {{10,100},{30,60}};
+        int k = 1;
+        int[][] expected = {{30,60},{10,100}};
+        assertArrayEquals(expected, sortStudentsByScore(score,k));
+    }
+
+    @Test
+    public void testSortStudents_by_score_k2() {
+        int[][] score = {{10,100},{30,60}};
+        int k = 2;
+        int[][] expected = {{10,100},{30,60}};
+        assertArrayEquals(expected, sortStudentsByScore(score,k));
+    }
+
+    @Test
+    public void testSortStudents_by_score_k3() {
+        int[][] score = {{10,100},{30,60}};
+        int k = 3;
+        int[][] expected = null;
+        assertArrayEquals(expected, sortStudentsByScore(score,k));
+    }
+
+    @Test
+    public void testSortStudents_by_score_emptyMatrix() {
+        int[][] score = {};
+        int k = 0;
+        int[][] expected = null;
+        assertArrayEquals(expected, sortStudentsByScore(score,k));
+    }
+}
+```

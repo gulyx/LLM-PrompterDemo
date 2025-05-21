@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1284_DescriptionOnlyTest {
+
+    @Test
+    public void testMinFlips() {
+        int[][] mat = {{1,0},{0,1}};
+        assertEquals(2, minFlips(mat));
+    }
+
+    @Test
+    public void testMinFlipsZeroMatrix() {
+        int[][] mat = {{0,0},{0,0}};
+        assertEquals(0, minFlips(mat));
+    }
+
+    @Test
+    public void testMinFlipsInvalidInput() {
+        int[][] mat = {{1,1},{1,1}};
+        assertEquals(-1, minFlips(mat));
+    }
+
+    @Test
+    public void testMinFlipsSingleCell() {
+        int[][] mat = {{0,0},{0,0}};
+        assertEquals(2, minFlips(mat));
+    }
+
+    @Test
+    public void testMinFlipsAllOnes() {
+        int[][] mat = {{1,1},{1,1}};
+        assertEquals(-1, minFlips(mat));
+    }
+}

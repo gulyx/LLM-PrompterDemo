@@ -1,0 +1,60 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.*;
+
+public class 2807_DescriptionOnlyTest {
+
+    @Test
+    public void test_GivenHeadWithOneNode_ReturnsSameList() {
+        ListNode head = new ListNode(1);
+        head.next = null;
+        ListNode result = insertGCDLink(head);
+        assertEquals(1, result.val);
+        assertNull(result.next);
+    }
+
+    @Test
+    public void test_GivenHeadWithTwoNodes_ReturnsCorrectedList() {
+        ListNode head = new ListNode(2);
+        head.next = new ListNode(4);
+        ListNode result = insertGCDLink(head);
+        assertEquals(2, result.val);
+        assertEquals(1, result.next.val);
+        assertEquals(2, result.next.next.val);
+    }
+
+    @Test
+    public void test_GivenHeadWithThreeNodes_ReturnsCorrectedList() {
+        ListNode head = new ListNode(5);
+        head.next = new ListNode(10);
+        head.next.next = new ListNode(15);
+        ListNode result = insertGCDLink(head);
+        assertEquals(5, result.val);
+        assertEquals(5, result.next.val);
+        assertEquals(5, result.next.next.val);
+    }
+
+    @Test
+    public void test_GivenHeadWithNegativeNumbers_ReturnsCorrectedList() {
+        ListNode head = new ListNode(-2);
+        head.next = new ListNode(-4);
+        head.next.next = new ListNode(-6);
+        ListNode result = insertGCDLink(head);
+        assertEquals(-2, result.val);
+        assertEquals(2, result.next.val);
+        assertEquals(2, result.next.next.val);
+    }
+
+    @Test
+    public void test_GivenHeadWithZero_ReturnsCorrectedList() {
+        ListNode head = new ListNode(0);
+        head.next = new ListNode(0);
+        head.next.next = new ListNode(0);
+        ListNode result = insertGCDLink(head);
+        assertEquals(0, result.val);
+        assertEquals(0, result.next.val);
+        assertEquals(0, result.next.next.val);
+    }
+}

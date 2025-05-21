@@ -1,0 +1,74 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class MyCalendarThree_DescriptionOnlyTest {
+
+    @Test
+    public void test_one_event() {
+        MyCalendarThree myCalendar = new MyCalendarThree();
+        int result = myCalendar.book(0, 30);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void test_two_events() {
+        MyCalendarThree myCalendar = new MyCalendarThree();
+        myCalendar.book(6, 8);
+        int result = myCalendar.book(2, 4);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void test_three_events() {
+        MyCalendarThree myCalendar = new MyCalendarThree();
+        myCalendar.book(5, 8);
+        myCalendar.book(7, 9);
+        int result = myCalendar.book(6, 8);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void test_four_events() {
+        MyCalendarThree myCalendar = new MyCalendarThree();
+        myCalendar.book(1, 5);
+        myCalendar.book(2, 4);
+        myCalendar.book(7, 9);
+        int result = myCalendar.book(3, 8);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void test_five_events() {
+        MyCalendarThree myCalendar = new MyCalendarThree();
+        myCalendar.book(1, 5);
+        myCalendar.book(2, 4);
+        myCalendar.book(7, 9);
+        myCalendar.book(10, 12);
+        int result = myCalendar.book(3, 8);
+        assertEquals(3, result);
+    }
+}
+
+class MyCalendarThree {
+    private java.util.HashMap<Integer, Integer> map;
+
+    public MyCalendarThree() {
+        map = new java.util.HashMap<>();
+    }
+
+    public int book(int startTime, int endTime) {
+        int k = 0;
+        for (int i : map.keySet()) {
+            if (i < startTime || i > endTime) {
+                continue;
+            }
+            if (map.get(i) == 1) {
+                k++;
+            }
+        }
+        map.put(startTime, map.getOrDefault(startTime, 0) + 1);
+        return k;
+    }
+}

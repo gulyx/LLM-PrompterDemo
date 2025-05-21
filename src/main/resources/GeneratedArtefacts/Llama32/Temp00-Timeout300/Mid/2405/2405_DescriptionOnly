@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2405_DescriptionOnlyTest {
+
+    @Test
+    public void testPartitionUniqueChars() {
+        String s = "abc";
+        assertEquals(3, partition(s));
+    }
+
+    @Test
+    public void testPartitionNoSubstrings() {
+        String s = "aaaa";
+        assertEquals(1, partition(s));
+    }
+
+    @Test
+    public void testPartitionSingleChar() {
+        String s = "a";
+        assertEquals(1, partition(s));
+    }
+
+    @Test
+    public void testPartitionMultipleChars() {
+        String s = "abcabc";
+        assertEquals(3, partition(s));
+    }
+
+    @Test
+    public void testPartitionEmptyString() {
+        String s = "";
+        assertEquals(0, partition(s));
+    }
+}

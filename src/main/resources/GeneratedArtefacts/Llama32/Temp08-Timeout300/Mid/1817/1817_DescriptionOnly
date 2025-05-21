@@ -1,0 +1,77 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.*;
+import java.util.stream.*;
+
+public class DescriptionOnlyTest {
+
+    public static void main(String[] args) {
+        List<Integer> answer1 = new ArrayList<>(Arrays.asList(3,2,3,1));
+        System.out.println(Arrays.toString(test1(answer1)));
+        List<Integer> answer2 = new ArrayList<>(Arrays.asList(2, 2));
+        System.out.println(Arrays.toString(test2(answer2)));
+        List<Integer> answer3 = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 0, 4));
+        System.out.println(Arrays.toString(test3(answer3)));
+        List<Integer> answer4 = new ArrayList<>(Arrays.asList(1));
+        System.out.println(Arrays.toString(test4(answer4)));
+        List<Integer> answer5 = new ArrayList<>(Arrays.asList(2));
+        System.out.println(Arrays.toString(test5(answer5)));
+    }
+
+    public static int[] test1(List<Integer> answer) {
+        Map<Integer, Integer> minutes = new HashMap<>();
+        for (int i = 0; i < answer.size(); i++) {
+            minutes.put(i + 1, minutes.getOrDefault(i + 1, 0) + answer.get(i));
+        }
+        return minutes.entrySet().stream()
+                .sorted(Map.Entry.<Integer, Integer>comparingByValue())
+                .limit(3)
+                .map(Map.Entry::getKey)
+                .toArray();
+    }
+
+    public static int[] test2(List<Integer> answer) {
+        Set<Integer> uniqueMinutes = new HashSet<>();
+        for (int i = 0; i < answer.size(); i++) {
+            uniqueMinutes.add(i + 1);
+        }
+        Map<Integer, Integer> minutes = new HashMap<>();
+        for (Integer minute : uniqueMinutes) {
+            int count = Arrays.stream(answer.stream().mapToInt(x -> x).toArray()).filter(x -> x == minute).count();
+            minutes.put(minute, count);
+        }
+        return minutes.entrySet().stream()
+                .sorted(Map.Entry.<Integer, Integer>comparingByValue())
+                .limit(2)
+                .map(Map.Entry::getKey)
+                .toArray();
+    }
+
+    public static int[] test3(List<Integer> answer) {
+        Map<Integer, Integer> minutes = new HashMap<>();
+        for (int i = 0; i < answer.size(); i++) {
+            minutes.put(i + 1, minutes.getOrDefault(i + 1, 0) + answer.get(i));
+        }
+        return minutes.entrySet().stream()
+                .sorted(Map.Entry.<Integer, Integer>comparingByValue())
+                .limit(6)
+                .map(Map.Entry::getKey)
+                .toArray();
+    }
+
+    public static int[] test4(List<Integer> answer) {
+        Map<Integer, Integer> minutes = new HashMap<>();
+        for (int i = 0; i < answer.size(); i++) {
+            minutes.put(i + 1, minutes.getOrDefault(i + 1, 0) + answer.get(i));
+        }
+        return new int[] {minutes.get(1)};
+    }
+
+    public static int[] test5(List<Integer> answer) {
+        Map<Integer, Integer> minutes = new HashMap<>();
+        for (int i = 0; i < answer.size(); i++) {
+            minutes.put(i + 1, minutes.getOrDefault(i + 1, 0) + answer.get(i));
+        }
+        return new int[] {minutes.get(2)};
+    }
+}

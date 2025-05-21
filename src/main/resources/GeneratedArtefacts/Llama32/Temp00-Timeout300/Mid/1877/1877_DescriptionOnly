@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 1877_DescriptionOnlyTest {
+
+    @Test
+    public void testMaxPairSum() {
+        int[] nums = {1, 4, 3, 2};
+        assertEquals(5, maxPairSum(nums));
+    }
+
+    @Test
+    public void testMaxPairSum_2() {
+        int[] nums = {1, 7, 11, 5};
+        assertEquals(8, maxPairSum(nums));
+    }
+
+    @Test
+    public void testMaxPairSum_3() {
+        int[] nums = {2, 4, 8, 10};
+        assertEquals(6, maxPairSum(nums));
+    }
+
+    @Test
+    public void testMaxPairSum_4() {
+        int[] nums = {1, 100, 2, 99};
+        assertEquals(101, maxPairSum(nums));
+    }
+
+    @Test
+    public void testMaxPairSum_5() {
+        int[] nums = {1, 7, 11, 15};
+        assertEquals(9, maxPairSum(nums));
+    }
+}

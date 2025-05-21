@@ -1,0 +1,78 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.*;
+
+public class DescriptionOnlyTest {
+
+    public static void main(String[] args) {
+        test1();
+        test2();
+        test3();
+        test4();
+        test5();
+    }
+
+    public static void test1() {
+        String[] words = {"a", "b", "c"};
+        char[] letters = {'z','i'};
+        int[] score = {10,20};
+        System.out.println(maxScore(words, letters, score));
+    }
+
+    public static void test2() {
+        String[] words = {"ab","cd"};
+        char[] letters = {'a', 'b', 'c'};
+        int[] score = {1, 1};
+        System.out.println(maxScore(words, letters, score));
+    }
+
+    public static void test3() {
+        String[] words = {"abc"};
+        char[] letters = {'z','i','l'};
+        int[] score = {10,20,50};
+        System.out.println(maxScore(words, letters, score));
+    }
+
+    public static void test4() {
+        String[] words = {};
+        char[] letters = {'a', 'b', 'c', 'd'};
+        int[] score = {1, 2, 3, 10};
+        System.out.println(maxScore(words, letters, score));
+    }
+
+    public static void test5() {
+        String[] words = {"abc","def"};
+        char[] letters = {'a','b','c','e', 'f'};
+        int[] score = {1,1,2,3,10};
+        System.out.println(maxScore(words, letters, score));
+    }
+
+    public static int maxScore(String[] words, char[] letters, int[] score) {
+        Map<Character,Integer> map = new HashMap<>();
+        for(int i=0;i<26;i++){
+            map.put((char)(i+'a'),score[i]);
+        }
+        List<String> list=new ArrayList<>(Arrays.asList(words));
+        Collections.sort(list,new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return Integer.compare(s1.length(),s2.length());
+            }
+        });
+        for(int i=0;i<list.size();i++){
+            if(!map.containsKey(list.get(i).charAt(0))){
+                list.remove(i);
+                i--;
+            }else{
+                map.put(list.get(i).charAt(0),map.get(list.get(i).charAt(0))-1);
+            }
+        }
+        int sum=0;
+        for(int i=0;i<list.size();i++){
+            sum=sum+map.get(list.get(i).charAt(0));
+        }
+        return sum;
+
+    }
+
+}

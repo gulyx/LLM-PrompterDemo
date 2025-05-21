@@ -1,0 +1,76 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import java.util.*;
+
+public class '78_DescriptionExampleTest {
+
+    @Test
+    public void testPowerSet() {
+        int[] nums = {1, 2, 3};
+        List<List<Integer>> result = powerSet(nums);
+        assertEquals(expectedResult(nums), result);
+    }
+
+    @Test
+    public void testPowerSetEmptyArray() {
+        int[] nums = {};
+        List<List<Integer>> result = powerSet(nums);
+        assertEquals(Collections.singletonList(Collections.emptyList()), result);
+    }
+
+    @Test
+    public void testPowerSetSingleElement() {
+        int[] nums = {0};
+        List<List<Integer>> result = powerSet(nums);
+        assertEquals(expectedResult(nums), result);
+    }
+
+    @Test
+    public void testPowerSetDuplicateElements() {
+        int[] nums = {1, 2, 2};
+        List<List<Integer>> result = powerSet(nums);
+        assertEquals(expectedResult(nums), result);
+    }
+
+    @Test
+    public void testPowerSetLargeArray() {
+        int[] nums = {1, 2, 3, 4, 5};
+        List<List<Integer>> result = powerSet(nums);
+        assertEquals(expectedResult(nums), result);
+    }
+
+    private List<List<Integer>> powerSet(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        backtrack(result, new ArrayList<>(), nums);
+        return result;
+    }
+
+    private void backtrack(List<List<Integer>> result, List<Integer> tempList, int[] nums) {
+        result.add(new ArrayList<>(tempList));
+        for (int i = 0; i < nums.length; i++) {
+            if (!tempList.contains(nums[i])) {
+                tempList.add(nums[i]);
+                backtrack(result, tempList, nums);
+                tempList.remove(tempList.size() - 1);
+            }
+        }
+    }
+
+    private List<List<Integer>> expectedResult(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        for (int i = 0; i < (1 << nums.length); i++) {
+            List<Integer> temp = new ArrayList<>();
+            for (int j = 0; j < nums.length; j++) {
+                if ((i & (1 << j)) != 0) {
+                    temp.add(nums[j]);
+                }
+            }
+            result.add(temp);
+        }
+        return result;
+    }
+
+}
+```

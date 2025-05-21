@@ -1,0 +1,76 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1382_DescriptionOnlyTest {
+
+    @Test
+    public void testBalancedTree() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        expectedRoot.right = new TreeNode(3);
+
+        TreeNode actualRoot = balanceBST(root);
+        assertEquals(expectedRoot, actualRoot);
+    }
+
+    @Test
+    public void testBalancedTreeWithOneNode() {
+        TreeNode root = new TreeNode(1);
+
+        TreeNode expectedRoot = root;
+
+        TreeNode actualRoot = balanceBST(root);
+        assertEquals(expectedRoot, actualRoot);
+    }
+
+    @Test
+    public void testUnbalancedTree() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        expectedRoot.right = new TreeNode(3);
+
+        TreeNode actualRoot = balanceBST(root);
+        assertEquals(expectedRoot, actualRoot);
+    }
+
+    @Test
+    public void testEmptyTree() {
+        TreeNode root = null;
+
+        TreeNode expectedRoot = null;
+
+        TreeNode actualRoot = balanceBST(root);
+        assertEquals(expectedRoot, actualRoot);
+    }
+
+    @Test
+    public void testBalancedTreeWithMultipleNodes() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        expectedRoot.right = new TreeNode(3);
+
+        TreeNode actualRoot = balanceBST(root);
+        assertEquals(expectedRoot, actualRoot);
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}

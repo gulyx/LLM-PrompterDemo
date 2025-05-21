@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1861_DescriptionExampleTest {
+
+    @Test
+    public void test_1() {
+        char[][] boxGrid = {{"#","."},{".","."}};
+        int[][] result = rotateTheBox(boxGrid);
+        assertArrayEquals(new int[][]{{"."},{"#"}},result);
+    }
+
+    @Test
+    public void test_2() {
+        char[][] boxGrid = {{"#",".","*","."},{"#","#","*","."}};
+        int[][] result = rotateTheBox(boxGrid);
+        assertArrayEquals(new int[][]{{"#","."},{ "#","#" }},result);
+    }
+
+    @Test
+    public void test_3() {
+        char[][] boxGrid = {{"#","#","*",".","*","."},{"#","#","#","*",".","."},{"#","#","#",".","#","."}};
+        int[][] result = rotateTheBox(boxGrid);
+        assertArrayEquals(new int[][]{{".","#","#"},{".","#","*"},{"#","*","."},{"#",".","*"},{"#",".","."}},result);
+    }
+
+    @Test
+    public void test_4() {
+        char[][] boxGrid = {{"#","#","*",".","*","."},{"#","#","#","*",".","."},{"#","#","#",".","#","."}};
+        int[][] result = rotateTheBox(boxGrid);
+        assertArrayEquals(new int[][]{{".","#","#"},{".","#","*"},{"#","*","."},{"#",".","*"},{"#",".","."}},result);
+    }
+
+    @Test
+    public void test_5() {
+        char[][] boxGrid = {{"#","#","*",".","*","."},{"#","#","#","*",".","."},{"#","#","#",".","#","."}};
+        int[][] result = rotateTheBox(boxGrid);
+        assertArrayEquals(new int[][]{{".","#","#"},{".","#","*"},{"#","*","."},{"#",".","*"},{"#",".","."}},result);
+    }
+
+}

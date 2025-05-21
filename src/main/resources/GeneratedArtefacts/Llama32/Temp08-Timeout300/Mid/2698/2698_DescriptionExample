@@ -1,0 +1,58 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testGetPunishmentNumber1() {
+        int n = 10;
+        int expected = 182;
+        int actual = punish(n);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetPunishmentNumber2() {
+        int n = 37;
+        int expected = 1478;
+        int actual = punish(n);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetPunishmentNumber3() {
+        int n = 20;
+        int expected = 8810;
+        int actual = punish(n);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetPunishmentNumber4() {
+        int n = 1000;
+        int expected = 250000000;
+        int actual = punish(n);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetPunishmentNumber5() {
+        int n = 1;
+        int expected = 1;
+        int actual = punish(n);
+        assertEquals(expected, actual);
+    }
+}
+
+public class DescriptionExample {
+
+    public int punishment(int n) {
+        // implement your logic here
+        return 0;
+    }
+
+}
+```

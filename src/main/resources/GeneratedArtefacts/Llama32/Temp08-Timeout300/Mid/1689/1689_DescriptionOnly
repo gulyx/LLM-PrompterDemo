@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1689_DescriptionOnlyTest {
+
+    @Test
+    public void testMinDecibinary() {
+        int n = 13;
+        int result = minDeccribinary(n);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void testMinDecibinary_12() {
+        int n = 12;
+        int result = minDeccribinary(n);
+        assertEquals(4, result);
+    }
+
+    @Test
+    public void testMinDecibinary_1() {
+        int n = 1;
+        int result = minDeccribinary(n);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void testMinDecibinary_5() {
+        int n = 5;
+        int result = minDeccribinary(n);
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void testMinDecibinary_15() {
+        int n = 15;
+        int result = minDeccribinary(n);
+        assertEquals(4, result);
+    }
+}

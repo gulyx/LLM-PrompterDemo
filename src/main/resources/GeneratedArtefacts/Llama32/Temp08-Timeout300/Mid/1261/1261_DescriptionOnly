@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class FindElements {
+    @Test
+    public void testDescription() throws Exception {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(0);
+        solution.findElements(root);
+
+        assertTrue(solution.find(1));
+        assertFalse(solution.find(-1));
+
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode leftChild = new TreeNode(5);
+        leftChild.left = node2;
+        root.left = leftChild;
+
+        solution.findElements(root);
+
+        assertTrue(solution.find(2));
+        assertFalse(solution.find(-1));
+
+        TreeNode rightChild = new TreeNode(6);
+        rightChild.right = node3;
+        root.right = rightChild;
+
+        solution.findElements(root);
+
+        assertTrue(solution.find(5));
+        assertTrue(solution.find(6));
+    }
+}
+
+class Solution {
+
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+
+}

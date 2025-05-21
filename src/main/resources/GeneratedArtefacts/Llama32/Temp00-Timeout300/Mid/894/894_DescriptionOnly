@@ -1,0 +1,45 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.*;
+
+public class 894_DescriptionOnlyTest {
+
+    @Test
+    public void testGenerateTrees() {
+        List<TreeNode> result = generateTrees(0);
+        assertEquals(1, result.size());
+    }
+
+    @Test
+    public void testGenerateTrees_2Nodes() {
+        List<TreeNode> result = generateTrees(1);
+        assertEquals(3, result.size());
+    }
+
+    @Test
+    public void testGenerateTrees_3Nodes() {
+        List<TreeNode> result = generateTrees(2);
+        assertEquals(4, result.size());
+    }
+
+    @Test
+    public void testGenerateTrees_4Nodes() {
+        List<TreeNode> result = generateTrees(3);
+        assertEquals(7, result.size());
+    }
+
+    @Test
+    public void testGenerateTrees_5Nodes() {
+        List<TreeNode> result = generateTrees(4);
+        assertEquals(11, result.size());
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}

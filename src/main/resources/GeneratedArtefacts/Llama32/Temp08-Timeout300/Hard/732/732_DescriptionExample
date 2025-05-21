@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class MyCalendarThree {
+
+    @Test
+    public void testOne() {
+        int k = book(10, 20);
+        assertEquals(1, k);
+    }
+
+    @Test
+    public void testTwo() {
+        int k = book(50, 60);
+        assertEquals(1, k);
+    }
+
+    @Test
+    public void testThree() {
+        int k = book(10, 40);
+        assertEquals(2, k);
+    }
+
+    @Test
+    public void testFour() {
+        int k = book(5, 15);
+        assertEquals(3, k);
+    }
+
+    @Test
+    public void testFive() {
+        int k = book(25, 55);
+        assertEquals(3, k);
+    }
+}

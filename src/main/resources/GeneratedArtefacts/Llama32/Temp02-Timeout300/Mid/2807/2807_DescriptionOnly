@@ -1,0 +1,56 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class 2807_DescriptionOnlyTest {
+
+    @Test
+    public void test_insertGCD() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+
+        ListNode result = insertGCD(head, 1);
+        assertEquals(1, result.val);
+        assertEquals(2, result.next.val);
+        assertEquals(6, result.next.next.val);
+    }
+
+    @Test
+    public void test_insertGCD_twoNodes() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+
+        ListNode result = insertGCD(head, 1);
+        assertEquals(1, result.val);
+        assertEquals(1, result.next.val);
+    }
+
+    @Test
+    public void test_insertGCD_singleNode() {
+        ListNode head = new ListNode(1);
+
+        ListNode result = insertGCD(head, 1);
+        assertEquals(1, result.val);
+    }
+
+    @Test
+    public void test_insertGCD_emptyList() {
+        ListNode head = null;
+
+        ListNode result = insertGCD(head, 1);
+        assertNull(result);
+    }
+
+    @Test
+    public void test_insertGCD_multipleInsertions() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+
+        ListNode result = insertGCD(head, 1);
+        assertEquals(1, result.val);
+        assertEquals(2, result.next.val);
+        assertEquals(6, result.next.next.val);
+    }
+}

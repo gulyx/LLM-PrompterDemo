@@ -1,0 +1,75 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 1284_DescriptionExampleTest {
+
+    @Test
+    public void testOne() {
+        int[][] mat = {{0,0},{0,1}};
+        int expected = 3;
+        int actual = flipAndCount(mat);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testZero() {
+        int[][] mat = {{0}};
+        int expected = 0;
+        int actual = flipAndCount(mat);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testOneFlipUnreachable() {
+        int[][] mat = {{1,0,0},{1,0,0}};
+        int expected = -1;
+        int actual = flipAndCount(mat);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testMultipleFlips() {
+        int[][] mat = {{0,0,0},{1,0,1},{1,0,0}};
+        int expected = 2;
+        int actual = flipAndCount(mat);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSingleFlip() {
+        int[][] mat = {{0,1},{0,0}};
+        int expected = 1;
+        int actual = flipAndCount(mat);
+        assertEquals(expected, actual);
+    }
+    
+    private int flipAndCount(int[][] mat) {
+        int rows = mat.length;
+        int cols = mat[0].length;
+        boolean[][] vis = new boolean[rows][cols];
+        int res = 0;
+        for (int i=0; i<rows; i++) {
+            for (int j=0; j<cols; j++) {
+                if (mat[i][j]==1 && !vis[i][j]) {
+                    res++;
+                    dfs(mat, vis, i, j);
+                }
+            }
+        }
+        return res % 2==0 ? res : -1;
+    }
+
+    private void dfs(int[][] mat, boolean[][] vis, int i, int j) {
+        if (i<0 || i>=mat.length || j<0 || j>=mat[0].length)
+            return;
+        if (!vis[i][j]) {
+            vis[i][j] = true;
+            dfs(mat, vis, i-1, j);
+            dfs(mat, vis, i+1, j);
+            dfs(mat, vis, i, j-1);
+            dfs(mat, vis, i, j+1);
+        }
+    }
+}

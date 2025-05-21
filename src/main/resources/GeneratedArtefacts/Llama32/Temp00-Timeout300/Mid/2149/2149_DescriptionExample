@@ -1,0 +1,79 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2149_DescriptionExampleTest {
+
+    @Test
+    public void test_1() {
+        int[] nums = {3,1,-2,-5,2,-4};
+        int[] result = rearrangeArray(nums);
+        assertArrayEquals(new int[]{3,-2,1,-5,2,-4}, result);
+    }
+
+    @Test
+    public void test_2() {
+        int[] nums = {-1,1};
+        int[] result = rearrangeArray(nums);
+        assertArrayEquals(new int[]{1,-1}, result);
+    }
+
+    @Test
+    public void test_3() {
+        int[] nums = {1,1,1,1,1,1};
+        int[] result = rearrangeArray(nums);
+        assertArrayEquals(new int[]{1,1,1,1,1,1}, result);
+    }
+
+    @Test
+    public void test_4() {
+        int[] nums = {-2,-3,-4,-5,-6,-7};
+        int[] result = rearrangeArray(nums);
+        assertArrayEquals(new int[]{-2,-3,-4,-5,-6,-7}, result);
+    }
+
+    @Test
+    public void test_5() {
+        int[] nums = {1,2,3,4,5,6};
+        int[] result = rearrangeArray(nums);
+        assertArrayEquals(new int[]{1,2,3,4,5,6}, result);
+    }
+}
+
+public class Solution {
+
+    public int[] rearrangeArray(int[] nums) {
+        int n = nums.length;
+        boolean[] seenPositive = new boolean[n];
+        boolean[] seenNegative = new boolean[n];
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > 0) {
+                seenPositive[i] = true;
+            } else {
+                seenNegative[i] = true;
+            }
+        }
+
+        int positiveIndex = 0, negativeIndex = 1;
+
+        for (int i = 0; i < n; i++) {
+            if (!seenPositive[positiveIndex]) {
+                positiveIndex++;
+            }
+            if (!seenNegative[negativeIndex]) {
+                negativeIndex++;
+            }
+            if (nums[i] > 0) {
+                nums[positiveIndex] = nums[i];
+                seenPositive[positiveIndex] = true;
+            } else {
+                nums[negativeIndex] = nums[i];
+                seenNegative[negativeIndex] = true;
+            }
+        }
+
+        return nums;
+    }
+}

@@ -1,0 +1,71 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertArrayEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void test1() {
+        int[] nums = {9, 12, 5, 10, 14, 3, 10};
+        int pivot = 10;
+        int[] expected = {9, 5, 3, 10, 10, 12, 14};
+        assertArrayEquals(expected, rearrange(nums, pivot));
+    }
+
+    @Test
+    public void test2() {
+        int[] nums = {-3, 4, 3, 2};
+        int pivot = 2;
+        int[] expected = {-3, 2, 4, 3};
+        assertArrayEquals(expected, rearrange(nums, pivot));
+    }
+
+    @Test
+    public void test3() {
+        int[] nums = {1, 2, 3, 4, 5};
+        int pivot = 3;
+        int[] expected = {1, 2, 5, 4, 3};
+        assertArrayEquals(expected, rearrange(nums, pivot));
+    }
+
+    @Test
+    public void test4() {
+        int[] nums = {10, 20, 30, 40, 50};
+        int pivot = 30;
+        int[] expected = {10, 20, 50, 40, 30};
+        assertArrayEquals(expected, rearrange(nums, pivot));
+    }
+
+    @Test
+    public void test5() {
+        int[] nums = {1, 2, 3, 4, 5};
+        int pivot = 1;
+        int[] expected = {5, 4, 3, 2, 1};
+        assertArrayEquals(expected, rearrange(nums, pivot));
+    }
+
+    public static int[] rearrange(int[] nums, int pivot) {
+        // implementation of the rearrange function
+        // for simplicity, let's assume it's a simple swap operation
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != pivot) {
+                for (int j = i + 1; j < nums.length; j++) {
+                    if (nums[j] == pivot) {
+                        int temp = nums[i];
+                        nums[i] = nums[j];
+                        nums[j] = temp;
+                        break;
+                    } else if (nums[j] < pivot && nums[i] > pivot) {
+                        int temp = nums[i];
+                        nums[i] = nums[j];
+                        nums[j] = temp;
+                    }
+                }
+            }
+        }
+        return nums;
+    }
+}
+```

@@ -1,0 +1,45 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1780_DescriptionOnlyTest {
+
+    @Test
+    public void testRepresentationAsSumOfPowersOfThree() {
+        assertTrue(canBeRepresentedAsSumOfPowersOfThree(4));
+    }
+
+    @Test
+    public void testRepresentationAsSumOfPowersOfThreeFalse() {
+        assertFalse(canBeRepresentedAsSumOfPowersOfThree(13));
+    }
+
+    @Test
+    public void testRepresentationAsSumOfPowersOfThreeMultipleTimes() {
+        assertTrue(canBeRepresentedAsSumOfPowersOfThree(6));
+    }
+
+    @Test
+    public void testRepresentationAsSumOfPowersOfThreeZero() {
+        assertTrue(canBeRepresentedAsSumOfPowersOfThree(0));
+    }
+
+    @Test
+    public void testRepresentationAsSumOfPowersOfThreeNegativeNumber() {
+        assertFalse(canBeRepresentedAsSumOfPowersOfThree(-5));
+    }
+}
+
+public class Solution {
+
+    public boolean canBeRepresentedAsSumOfPowersOfThree(int n) {
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                return false;
+            }
+            n >>= 1;
+        }
+        return true;
+    }
+}

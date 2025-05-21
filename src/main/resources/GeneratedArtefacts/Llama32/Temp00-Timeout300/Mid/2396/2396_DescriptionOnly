@@ -1,0 +1,64 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2396_DescriptionOnlyTest {
+
+    @Test
+    public void testIsStrictlyPalindromic_1() {
+        int n = 1;
+        assertTrue(isStrictlyPalindromic(n));
+    }
+
+    @Test
+    public void testIsStrictlyPalindromic_2() {
+        int n = 9;
+        assertTrue(isStrictlyPalindromic(n));
+    }
+
+    @Test
+    public void testIsStrictlyPalindromic_3() {
+        int n = 10;
+        assertFalse(isStrictlyPalindromic(n));
+    }
+
+    @Test
+    public void testIsStrictlyPalindromic_4() {
+        int n = 12;
+        assertTrue(isStrictlyPalindromic(n));
+    }
+
+    @Test
+    public void testIsStrictlyPalindromic_5() {
+        int n = 23;
+        assertFalse(isStrictlyPalindromic(n));
+    }
+}
+
+public class Solution {
+
+    public boolean isStrictlyPalindromic(int n) {
+        for (int b = 2; b < n - 1; b++) {
+            String strN = Integer.toString(n, b);
+            if (!isPalindrome(strN)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isPalindrome(String s) {
+        int left = 0;
+        int right = s.length() - 1;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+}

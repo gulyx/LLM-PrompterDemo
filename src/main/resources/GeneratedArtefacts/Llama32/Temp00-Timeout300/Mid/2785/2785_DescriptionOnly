@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2785_DescriptionOnlyTest {
+
+    @Test
+    public void testVowelsInOrder() {
+        String s = "aeiou";
+        String result = permuteString(s);
+        assertEquals("aeeee", result);
+    }
+
+    @Test
+    public void testConsonantsAndVowels() {
+        String s = "aeiouAEIOU";
+        String result = permuteString(s);
+        assertEquals("aAeEiIoOu", result);
+    }
+
+    @Test
+    public void testNoVowels() {
+        String s = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+        String result = permuteString(s);
+        assertEquals("bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ", result);
+    }
+
+    @Test
+    public void testEmptyString() {
+        String s = "";
+        String result = permuteString(s);
+        assertEquals("", result);
+    }
+
+    @Test
+    public void testSingleCharacterString() {
+        String s = "a";
+        String result = permuteString(s);
+        assertEquals("a", result);
+    }
+}

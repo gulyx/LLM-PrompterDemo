@@ -1,0 +1,41 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class 2221_DescriptionOnlyTest {
+
+    @Test
+    public void testTriangularSum_EmptyArray() {
+        int[] nums = {};
+        assertEquals(0, triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_SingleElementArray() {
+        int[] nums = {5};
+        assertEquals(5, triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_MultipleElementsArray() {
+        int[] nums = {1, 2, 3, 4, 5};
+        assertEquals(7, triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_CyclicArray() {
+        int[] nums = {1, 2, 3, 4, 5, 1, 2, 3};
+        assertEquals(9, triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_LargeArray() {
+        int[] nums = new int[10];
+        for (int i = 0; i < 10; i++) {
+            nums[i] = (i % 2 == 0) ? i / 2 : (9 - i / 2);
+        }
+        assertEquals(15, triangularSum(nums));
+    }
+
+}

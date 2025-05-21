@@ -1,0 +1,61 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class SolutionTest {
+
+    private boolean isSafe(int[][] board, int row, int col, int n) {
+        for (int i = 0; i < col; i++) {
+            if (board[row][i] == 1) {
+                return false;
+            }
+        }
+
+        for (int i = row, j = col; i >= 0 && j <= n - 1; i--, j++) {
+            if (board[i][j] == 1) {
+                return false;
+            }
+        }
+
+        for (int i = row, j = col; i < n && j >= 0; i++, j--) {
+            if (board[i][j] == 1) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void solveNQueensUtil(int[][] board, int col, int n) {
+        if (col == n) {
+            return 1;
+        }
+
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (isSafe(board, i, col, n)) {
+                board[i][col] = 1;
+                count += solveNQueensUtil(board, col + 1, n);
+                board[i][col] = 0;
+            }
+        }
+
+        return count;
+    }
+
+    @Test
+    public void testSolveNQueens() {
+        int[][] board = new int[4][4];
+        assertEquals(2, solveNQueensUtil(board, 0, 4));
+    }
+
+    @Test
+    public void testSolveNQueens1Col0() {
+        int[][] board = new int[1][1];
+        assertEquals(1, solveNQueensUtil(board, 0, 1));
+    }
+}
+```

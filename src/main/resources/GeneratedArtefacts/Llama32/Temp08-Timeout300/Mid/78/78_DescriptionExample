@@ -1,0 +1,66 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import java.util.Arrays;
+
+public class '78_DescriptionExampleTest {
+
+    @Test
+    public void testPowerSetEmptyArray() {
+        int[] nums = {};
+        Object[][] expectedOutput = { {}, new int[0] };
+        assertArrayEquals(expectedOutput, powerSet(nums));
+    }
+
+    @Test
+    public void testPowerSetSingleElement() {
+        int[] nums = { 1 };
+        Object[][] expectedOutput = { {}, new int[]{ 1 } };
+        assertArrayEquals(expectedOutput, powerSet(nums));
+    }
+
+    @Test
+    public void testPowerSetTwoElements() {
+        int[] nums = { 1, 2 };
+        Object[][] expectedOutput = { {}, new int[]{ 1 }, new int[]{ 2 }, new int[]{ 1, 2 } };
+        assertArrayEquals(expectedOutput, powerSet(nums));
+    }
+
+    @Test
+    public void testPowerSetThreeElements() {
+        int[] nums = { 1, 2, 3 };
+        Object[][] expectedOutput = { {}, new int[]{ 1 }, new int[]{ 2 }, new int[]{ 1, 2 }, new int[]{ 3 }, new int[]{ 1, 3 }, new int[]{ 2, 3 }, new int[]{ 1, 2, 3 } };
+        assertArrayEquals(expectedOutput, powerSet(nums));
+    }
+
+    @Test
+    public void testPowerSetSingleZeroElement() {
+        int[] nums = { 0 };
+        Object[][] expectedOutput = { {}, new int[]{ 0 } };
+        assertArrayEquals(expectedOutput, powerSet(nums));
+    }
+}
+```
+
+```java
+import java.util.*;
+
+public class Solution {
+
+    public static Object[][] powerSet(int[] nums) {
+        List<Object[]> result = new ArrayList<>();
+        for (int mask = 0; mask < (1 << nums.length); ++mask) {
+            int[] subset = new int[nums.length];
+            int n = 0;
+            for (int i = 0; i < nums.length; ++i) {
+                if ((mask & (1 << i)) != 0) {
+                    subset[n++] = nums[i];
+                }
+            }
+            result.add(subset);
+        }
+        return result.toArray(new Object[0][]);
+    }
+}
+```

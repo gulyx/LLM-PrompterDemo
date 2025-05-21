@@ -1,0 +1,73 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2785_DescriptionExampleTest {
+
+    @Test
+    public void test1() {
+        String s = "lEetcOde";
+        String t = "lEOtcede";
+        assertEquals(t, sortString(s));
+    }
+
+    @Test
+    public void test2() {
+        String s = "lYmpH";
+        String t = "lYmpH";
+        assertEquals(t, sortString(s));
+    }
+
+    @Test
+    public void test3() {
+        String s = "aaBcCeDdEEeFfGgHh";
+        String t = "aabbCCeDeEfFGghHh";
+        assertEquals(t, sortString(s));
+    }
+
+    @Test
+    public void test4() {
+        String s = "aeiouAEIOU";
+        String t = "aeiouAEIOU";
+        assertEquals(t, sortString(s));
+    }
+
+    @Test
+    public void test5() {
+        String s = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        StringBuilder sortedString = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if ("aeiouAEIOU".indexOf(c) != -1) {
+                sortedString.append(c);
+            }
+        }
+        char[] chars = t.toCharArray();
+        Arrays.sort(chars);
+        assertEquals(new String(chars), sortString(s));
+    }
+
+    public String sortString(String s) {
+        StringBuilder vowels = new StringBuilder();
+        for (char c : "aeiouAEIOU".toCharArray()) {
+            vowels.append(c);
+        }
+        char[] chars = s.toCharArray();
+        int i = 0, j = 0;
+        while (i < chars.length && j < vowels.length()) {
+            if ("aeiouAEIOU".indexOf(chars[i]) == "aeiouAEIOU".indexOf(vowels.charAt(j))) {
+                i++;
+                j++;
+            } else if ("aeiouAEIOU".indexOf(chars[i]) > "aeiouAEIOU".indexOf(vowels.charAt(j))) {
+                i++;
+            } else {
+                char temp = chars[i];
+                chars[i] = vowels.charAt(j);
+                vowels.charAt(j) = temp;
+                j++;
+            }
+        }
+        return new String(chars);
+    }
+
+}

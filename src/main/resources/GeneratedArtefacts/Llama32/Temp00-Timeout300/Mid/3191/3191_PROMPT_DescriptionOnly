@@ -1,0 +1,9 @@
+As a professional Software Tester, generate a complete Junit class test file (name the class as :'3191_DescriptionOnlyTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
+You are given a binary array "nums".
+
+You can do the following operation on the array any number of times (possibly zero):
+
+Choose any 3 consecutive elements from the array and flip all of them.
+Flipping an element means changing its value from 0 to 1, and from 1 to 0.
+
+Return the minimum number of operations required to make all elements in "nums" equal to 1. If it is impossible, return -1.

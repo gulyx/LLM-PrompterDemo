@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class 1579_DescriptionOnlyTest {
+
+    @Test
+    public void test_1() {
+        int[][] edges = {{0, 1, 2}, {1, 3, 4}};
+        assertEquals(2, maxNumEdgesToRemove(edges));
+    }
+
+    @Test
+    public void test_2() {
+        int[][] edges = {{0, 1, 2}, {1, 2, 3}, {1, 3, 4}};
+        assertEquals(-1, maxNumEdgesToRemove(edges));
+    }
+
+    @Test
+    public void test_3() {
+        int[][] edges = {{0, 1, 2}, {1, 2, 3}, {2, 3, 4}};
+        assertEquals(0, maxNumEdgesToRemove(edges));
+    }
+
+    @Test
+    public void test_4() {
+        int[][] edges = {{0, 1, 2}, {1, 2, 3}, {2, 3, 4}, {3, 4, 5}};
+        assertEquals(0, maxNumEdgesToRemove(edges));
+    }
+
+    @Test
+    public void test_5() {
+        int[][] edges = {{0, 1, 2}, {1, 2, 3}, {2, 3, 4}, {3, 4, 5}, {4, 5, 6}};
+        assertEquals(0, maxNumEdgesToRemove(edges));
+    }
+}

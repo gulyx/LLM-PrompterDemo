@@ -1,0 +1,23 @@
+As a professional Software Tester, generate a complete Junit class test file (name the class as :'2482_DescriptionExampleTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description: 
+You are given a 0-indexed "m x n" binary matrix "grid".
+
+A 0-indexed "m x n" difference matrix "diff" is created with the following procedure:
+
+Let the number of ones in the "iᵗʰ" row be "onesRowᵢ".
+
+Let the number of ones in the "jᵗʰ" column be "onesColⱼ".
+
+Let the number of zeros in the "iᵗʰ" row be "zerosRowᵢ".
+
+Let the number of zeros in the "jᵗʰ" column be "zerosColⱼ".
+
+"diff[i][j] = onesRowᵢ + onesColⱼ - zerosRowᵢ - zerosColⱼ"
+
+Return the difference matrix "diff".
+[--Example 1--]
+Input: grid = [[0,1,1],[1,0,1],[0,0,1]]
+Output: [[0,0,4],[0,0,4],[-2,-2,2]]
+
+[--Example 2--]
+Input: grid = [[1,1,1],[1,1,1]]
+Output: [[5,5,5],[5,5,5]]

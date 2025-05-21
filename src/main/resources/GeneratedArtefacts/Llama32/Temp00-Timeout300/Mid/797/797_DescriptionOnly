@@ -1,0 +1,57 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import java.util.*;
+
+public class DescriptionOnlyTest {
+
+    @Test
+    public void testFindPaths() {
+        List<List<Integer>> graph = new ArrayList<>();
+        graph.add(Arrays.asList(1,2));
+        graph.add(Arrays.asList(3));
+        graph.add(Arrays.asList(3,4));
+        graph.add(Arrays.asList(4,5));
+
+        List<List<Integer>> result = findPaths(graph, 0);
+        assertEquals(2, result.size());
+    }
+
+    @Test
+    public void testFindPaths_EmptyGraph() {
+        List<List<Integer>> graph = new ArrayList<>();
+
+        List<List<Integer>> result = findPaths(graph, 0);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testFindPaths_SingleNode() {
+        List<List<Integer>> graph = new ArrayList<>();
+        graph.add(Arrays.asList(0));
+
+        List<List<Integer>> result = findPaths(graph, 0);
+        assertEquals(1, result.size());
+    }
+
+    @Test
+    public void testFindPaths_MultiplePaths() {
+        List<List<Integer>> graph = new ArrayList<>();
+        graph.add(Arrays.asList(1,2));
+        graph.add(Arrays.asList(3));
+        graph.add(Arrays.asList(3,4));
+        graph.add(Arrays.asList(4,5));
+
+        List<List<Integer>> result = findPaths(graph, 0);
+        assertEquals(3, result.size());
+    }
+
+    @Test
+    public void testFindPaths_NoPath() {
+        List<List<Integer>> graph = new ArrayList<>();
+        graph.add(Arrays.asList());
+
+        List<List<Integer>> result = findPaths(graph, 0);
+        assertTrue(result.isEmpty());
+    }
+}

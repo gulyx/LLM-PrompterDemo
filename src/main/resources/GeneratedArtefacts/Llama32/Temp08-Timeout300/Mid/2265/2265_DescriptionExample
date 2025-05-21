@@ -1,0 +1,68 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 2265_DescriptionExampleTest {
+
+    @Test
+    public void testCountNodesWithSameAverageAsSubtree() {
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(8);
+        root.right = new TreeNode(5);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(1);
+        root.right.right = new TreeNode(6);
+
+        int actual = countNodesWithSameAverageAsSubtree(root);
+        assertEquals(5, actual);
+    }
+
+    @Test
+    public void testCountNodesWithSameAverageAsSubtree_SingleNode() {
+        TreeNode root = new TreeNode(4);
+
+        int actual = countNodesWithSameAverageAsSubtree(root);
+        assertEquals(1, actual);
+    }
+
+    @Test
+    public void testCountNodesWithSameAverageAsSubtree_EmptyTree() {
+        TreeNode root = null;
+
+        int actual = countNodesWithSameAverageAsSubtree(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void testCountNodesWithSameAverageAsSubtree_Symmetric() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        int actual = countNodesWithSameAverageAsSubtree(root);
+        assertEquals(4, actual);
+    }
+
+    @Test
+    public void testCountNodesWithSameAverageAsSubtree_LargeTree() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        int actual = countNodesWithSameAverageAsSubtree(root);
+        assertEquals(4, actual);
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    public TreeNode(int val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}

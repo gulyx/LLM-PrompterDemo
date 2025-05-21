@@ -1,0 +1,89 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class Node {
+    int val;
+    Node left;
+    Node right;
+    Node(int _val) {
+        val = _val;
+        left = null;
+        right = null;
+    }
+}
+
+public class Solution {
+
+    public List<Node> allPossibleFBT(int n) {
+        if (n == 0 || n == 1) return new ArrayList<>();
+        List<Node> res = new ArrayList<>();
+        dfs(res, 0, n - 1);
+        return res;
+    }
+
+    void dfs(List<Node> res, int l, int r) {
+        if (l > r) {
+            Node root = new Node(0);
+            res.add(root);
+            return;
+        }
+        for (int i = l; i <= r; ++i) {
+            dfs(res, l, i - 1);
+            dfs(res, i + 1, r);
+            int numNodesLeft = i - l;
+            int numNodesRight = r - i;
+            Node root = new Node(0);
+            root.left = res.get(l).left;
+            root.right = res.get(i).right;
+            root.left.left = root;
+            root.left.right = root;
+            root.right.left = root;
+            root.right.right = root;
+
+            res.add(root);
+        }
+    }
+
+}
+
+public class 894_DescriptionExampleTest {
+
+    @Test
+    public void testAllPossibleFBT_7() {
+        Solution solution = new Solution();
+        List<Node> result = solution.allPossibleFBT(7);
+        assertTrue(result.size() == 14);
+
+        for (Node node: result) {
+            if(node.left != null && node.right != null) {
+                if(node.val !=0){
+                    fail("node value is not equal to zero");
+                }
+            }else {
+                continue;
+            }
+
+        }
+    }
+
+    @Test
+    public void testAllPossibleFBT_3() {
+        Solution solution = new Solution();
+        List<Node> result = solution.allPossibleFBT(3);
+        assertTrue(result.size() == 1);
+
+        for (Node node: result) {
+            if(node.left != null && node.right != null){
+                fail("node value is not equal to zero");
+            }else {
+                continue;
+            }
+        }
+
+    }
+
+}
+```

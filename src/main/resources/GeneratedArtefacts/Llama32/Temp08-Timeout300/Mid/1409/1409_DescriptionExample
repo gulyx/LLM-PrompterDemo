@@ -1,0 +1,73 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testQueries1() {
+        int[] queries = {3, 1, 2, 1};
+        int m = 5;
+        int[] result = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            result[i] = binarySearch(queries[i], m);
+        }
+        assertArrayEquals(new int[]{2, 1, 2, 1}, result);
+    }
+
+    @Test
+    public void testQueries2() {
+        int[] queries = {4, 1, 2, 2};
+        int m = 4;
+        int[] result = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            result[i] = binarySearch(queries[i], m);
+        }
+        assertArrayEquals(new int[]{3, 1, 2, 0}, result);
+    }
+
+    @Test
+    public void testQueries3() {
+        int[] queries = {7, 5, 5, 8, 3};
+        int m = 8;
+        int[] result = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            result[i] = binarySearch(queries[i], m);
+        }
+        assertArrayEquals(new int[]{6, 5, 0, 7, 5}, result);
+    }
+
+    private int binarySearch(int key, int size) {
+        if (size <= 0) return -1;
+        else if (key < 0 || key >= size) return -1;
+
+        while (true) {
+            int pos = lowerBound(size + key, 1, size + size);
+            if (pos == size + size)
+                return pos - size;
+            if (size + pos < size && lowerBound(pos + 1, 0, size + size - key) != size + pos) return pos - size;
+
+            while (lowerBound(size + key, pos, size + size) != lowerBound(pos + 1, 0, size + size)) {
+                if (pos == 0) return pos;
+                if (size + pos >= size + size) return -1;
+                int mid = pos / 2;
+                if (key < lowerBound(size + key, pos, size + size))
+                    pos = mid;
+                else
+                    pos = mid + 1;
+            }
+        }
+    }
+
+    private int lowerBound(int from, int to, int size) {
+        while (to - from > 1) {
+            int mid = (from + to) / 2;
+            if (size + mid < size + from) return size + mid;
+            else if (size + mid >= size + to) return size + to;
+            else if (mid % 2 == 0) mid++;
+        }
+        return from;
+    }
+
+}

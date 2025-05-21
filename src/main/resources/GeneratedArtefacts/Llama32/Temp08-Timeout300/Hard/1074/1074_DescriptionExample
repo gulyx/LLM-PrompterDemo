@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 1074_DescriptionExampleTest {
+
+    @Test
+    public void test_1() {
+        int[][] matrix = {{0,1,0},{1,1,1},{0,1,0}};
+        long target = 0;
+        assertEquals(4, numSubmatrixSumTarget(matrix, target));
+    }
+
+    @Test
+    public void test_2() {
+        int[][] matrix = {{1,-1],[-1,1]};
+        long target = 0;
+        assertEquals(5, numSubmatrixSumTarget(matrix, target));
+    }
+
+    @Test
+    public void test_3() {
+        int[][] matrix = {{904}};
+        long target = 0;
+        assertEquals(0, numSubmatrixSumTarget(matrix, target));
+    }
+    
+    @Test
+    public void test_4(){
+       int[][] matrix = new int[1][2];
+        long target = 5;
+        assertEquals(0,numSubmatrixSumTarget(matrix, target));
+      }
+
+   @Test
+     public void test_5(){
+         int[][] matrix = {{7}};
+        long target = -16;
+        assertEquals(4,numSubmatrixSumTarget(matrix, target));
+    }
+}

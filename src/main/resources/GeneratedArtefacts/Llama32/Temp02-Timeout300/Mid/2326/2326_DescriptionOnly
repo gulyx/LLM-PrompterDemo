@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2326_DescriptionOnlyTest {
+
+    @Test
+    public void testGenerateMatrix() {
+        int[][] result = generateMatrix(3, 2);
+        assertArrayEquals(new int[][]{{1, 2}, {-1, -1}}, result[0]);
+        assertArrayEquals(new int[][]{{-1, 6}, {5, -1}}, result[1]);
+        assertArrayEquals(new int[][]{{-1, -1}, {4, 7}}, result[2]);
+    }
+
+    @Test
+    public void testGenerateMatrix_OnlyOneElement() {
+        int[][] result = generateMatrix(1, 1);
+        assertArrayEquals(new int[][]{-1}, result);
+    }
+
+    @Test
+ public void testGenerateMatrix_EmptyList() {
+        int[][] result = generateMatrix(3, 2);
+        for (int[] row : result) {
+            assertArrayEquals(new int[]{-1,-1},row);
+        }
+    }
+
+    @Test
+    public void testGenerateMatrix_SingleElement() {
+        int[][] result = generateMatrix(1, 1);
+        assertArrayEquals(new int[][]{0}, result);
+    }
+
+    @Test
+    public void testGenerateMatrix_LargeInput() {
+        int[][] result = generateMatrix(100, 200);
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result[0].length; j++) {
+                if(result[i][j]!=-1){
+                    assert(result[i][j]>=0 && result[i][j]<=10000);
+                }
+            }
+        }
+    }
+
+}
