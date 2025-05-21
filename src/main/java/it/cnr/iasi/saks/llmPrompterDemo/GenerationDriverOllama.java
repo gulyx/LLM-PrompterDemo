@@ -44,7 +44,12 @@ public class GenerationDriverOllama {
 	private static String llmName = "llama3.2";
 	private static String llmVersion = "latest";
 
-	private static String OPTION_PATH_LONG = "p";
+	private static double  OLLAMA_TEMPERATURE = 0.0;
+//	private static double  OLLAMA_TEMPERATURE = 0.2;
+//	private static double  OLLAMA_TEMPERATURE = 0.8;
+	private static int OLLAMA_TIMEOUT = 300;
+
+        private static String OPTION_PATH_LONG = "p";
 	private static String OPTION_PATH_SHORT = "path";
 	private static String OPTION_PATH_DESCRIPTION = "path to the directory to process";
 
@@ -85,8 +90,8 @@ public class GenerationDriverOllama {
 	}
 
 	private static void processDirs(List<String> items) {
-		ChatModel llm = OllamaChatModel.builder().baseUrl(OLLAMA_BASE_URL).modelName(llmName).temperature(0.8)
-				.timeout(Duration.ofSeconds(300)).build();
+		ChatModel llm = OllamaChatModel.builder().baseUrl(OLLAMA_BASE_URL).modelName(llmName).temperature(OLLAMA_TEMPERATURE)
+				.timeout(Duration.ofSeconds(OLLAMA_TIMEOUT)).build();
 
 		for (String id : items) {
 			Prompter p = new DescriptionOnlyPrompter(id, 5, llm);
