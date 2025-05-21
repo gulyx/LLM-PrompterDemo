@@ -1,0 +1,84 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import java.util.*;
+
+public class DescriptionOnly {
+
+    @Test
+    public void testAllPaths() {
+        List<List<Integer>> graph = new ArrayList<>();
+        graph.add(Arrays.asList(1, 2));
+        graph.add(Arrays.asList(3));
+        graph.add(Arrays.asList(4, 5));
+
+        List<List<Integer>> result = allPaths(graph, 0);
+        System.out.println(result);
+    }
+
+    @Test
+    public void testNoPath() {
+        List<List<Integer>> graph = new ArrayList<>();
+        graph.add(new ArrayList<>());
+
+        List<List<Integer>> result = allPaths(graph, 0);
+        assert result.isEmpty();
+    }
+
+    @Test
+    public void testSingleNodeGraph() {
+        List<List<Integer>> graph = new ArrayList<>();
+        graph.add(Arrays.asList(0));
+
+        List<List<Integer>> result = allPaths(graph, 0);
+        System.out.println(result);
+    }
+
+    @Test
+    public void testMultipleNodes() {
+        List<List<Integer>> graph = new ArrayList<>();
+        graph.add(Arrays.asList(1));
+        graph.add(Arrays.asList(2));
+        graph.add(Arrays.asList(3));
+
+        List<List<Integer>> result = allPaths(graph, 0);
+        System.out.println(result);
+    }
+
+    @Test
+    public void testLongestPath() {
+        List<List<Integer>> graph = new ArrayList<>();
+        graph.add(Arrays.asList(1, 2));
+        graph.add(Arrays.asList(3));
+        graph.add(Arrays.asList(4, 5));
+
+        List<List<Integer>> result = allPaths(graph, 0);
+        System.out.println(result);
+    }
+}
+
+public class Solution {
+    public List<List<Integer>> allPaths(List<List<Integer>> graph, int start) {
+        List<List<Integer>> result = new ArrayList<>();
+        dfs(graph, start, new ArrayList<>(), result);
+        return result;
+    }
+
+    private void dfs(List<List<Integer>> graph, int node, List<Integer> path, List<List<Integer>> result) {
+        path.add(node);
+
+        if (node == graph.size() - 1) {
+            result.add(new ArrayList<>(path));
+        } else {
+            for (int next : graph.get(node)) {
+                if (!path.contains(next)) {
+                    dfs(graph, next, new ArrayList<>(path), result);
+                }
+            }
+        }
+
+        path.remove(path.size() - 1);
+    }
+}
+```

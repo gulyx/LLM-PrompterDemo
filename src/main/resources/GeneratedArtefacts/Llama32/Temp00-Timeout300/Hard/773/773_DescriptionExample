@@ -1,0 +1,47 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExample {
+
+    @Test
+    public void test1() {
+        int[][] board = {{1,2,3},{4,0,5}};
+        assertEquals(1, minMovesToSolveBoard(board));
+    }
+
+    @Test
+    public void test2() {
+        int[][] board = {{1,2,3},{5,4,0}};
+        assertEquals(-1, minMovesToSolveBoard(board));
+    }
+
+    @Test
+    public void test3() {
+        int[][] board = {{4,1,2},{5,0,3}};
+        assertEquals(5, minMovesToSolveBoard(board));
+    }
+
+    @Test
+    public void test4() {
+        int[][] board = {{1,2,3},{4,5,6}};
+        assertEquals(-1, minMovesToSolveBoard(board));
+    }
+
+    @Test
+    public void test5() {
+        int[][] board = {{0,1,2},{3,4,5}};
+        assertEquals(10, minMovesToSolveBoard(board));
+    }
+}
+
+public class Solution {
+
+    public int minMovesToSolveBoard(int[][] board) {
+        // implement your solution here
+        return -1;
+    }
+}
+```

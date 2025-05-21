@@ -1,0 +1,66 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 980_DescriptionOnly {
+
+    @Test
+    public void test_1() {
+        int[][] grid = {{1,2},{3,4}};
+        assertEquals(0, numUniquePaths(grid));
+    }
+
+    @Test
+    public void test_2() {
+        int[][] grid = {{1,2},{-1,-1},{0,0},{0,0}};
+        assertEquals(6, numUniquePaths(grid));
+    }
+
+    @Test
+    public void test_3() {
+        int[][] grid = {{1,2},{-1,0},{0,-1},{0,0}};
+        assertEquals(4, numUniquePaths(grid));
+    }
+
+    @Test
+    public void test_4() {
+        int[][] grid = {{1,2},{-1,0},{0,-1},{0,0},{0,0}};
+        assertEquals(12, numUniquePaths(grid));
+    }
+
+    @Test
+    public void test_5() {
+        int[][] grid = {{1,2},{3,4},{-1,-1},{0,0},{0,0}};
+        assertEquals(0, numUniquePaths(grid));
+    }
+}
+
+public class Solution {
+
+    private static final int[][] DIRECTIONS = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
+    public int numUniquePaths(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        boolean[] visited = new boolean[m * n];
+        return dfs(grid, 0, 0, visited);
+    }
+
+    private int dfs(int[][] grid, int i, int j, boolean[] visited) {
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == -1 || visited[(i * n) + j]) {
+            return 0;
+        }
+        if (grid[i][j] == 2) {
+            return 1;
+        }
+        visited[(i * n) + j] = true;
+        int count = 0;
+        for (int[] direction : DIRECTIONS) {
+            count += dfs(grid, i + direction[0], j + direction[1], visited);
+        }
+        visited[(i * n) + j] = false;
+        return count;
+    }
+
+}

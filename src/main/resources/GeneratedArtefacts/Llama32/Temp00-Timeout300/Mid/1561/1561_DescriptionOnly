@@ -1,0 +1,38 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
+
+public class 1561_DescriptionOnly {
+
+    @Test
+    public void test_3n_piles_with_equal_coins() {
+        int[] piles = {2, 7, 4};
+        assertEquals(15, maxCoins(piles));
+    }
+
+    @Test
+    public void test_3n_piles_with_large_coins() {
+        int[] piles = {1, 8, 6};
+        assertEquals(13, maxCoins(piles));
+    }
+
+    @Test
+    public void test_3n_piles_with_small_coins() {
+        int[] piles = {2, 3, 4};
+        assertEquals(9, maxCoins(piles));
+    }
+
+    @Test
+    public void test_3n_piles_with_large_and_small_coins() {
+        int[] piles = {1, 8, 6, 5};
+        assertEquals(15, maxCoins(piles));
+    }
+
+    @Test
+    public void test_3n_piles_with_all_equal_coins() {
+        int[] piles = {2, 2, 2};
+        assertEquals(6, maxCoins(piles));
+    }
+}

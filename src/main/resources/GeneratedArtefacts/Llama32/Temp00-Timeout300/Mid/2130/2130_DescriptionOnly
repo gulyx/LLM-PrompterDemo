@@ -1,0 +1,54 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2130_DescriptionOnly {
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) { val = x; }
+    }
+
+    @Test
+    public void testMaxTwinSum() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+
+        assertEquals(8, maxTwinSum(head));
+    }
+
+    @Test
+    public void testMaxTwinSum_OnlyOneNode() {
+        ListNode head = new ListNode(1);
+
+        assertEquals(0, maxTwinSum(head));
+    }
+
+    @Test
+    public void testMaxTwinSum_EmptyList() {
+        ListNode head = null;
+
+        assertEquals(0, maxTwinSum(head));
+    }
+
+    @Test
+    public void testMaxTwinSum_SingleNode() {
+        ListNode head = new ListNode(1);
+
+        assertEquals(0, maxTwinSum(head));
+    }
+
+    @Test
+    public void testMaxTwinSum_EvenLengthList() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+
+        assertEquals(8, maxTwinSum(head));
+    }
+}

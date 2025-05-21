@@ -1,0 +1,53 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class DescriptionOnly {
+
+    public int numTilePossibilities(String tiles) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : tiles.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+        return count(map.values());
+    }
+
+    private int count(int[] arr) {
+        int res = 1;
+        for (int x : arr) {
+            res *= x;
+        }
+        return res;
+    }
+
+    @Test
+    public void testNumTilePossibilities_EmptyString() {
+        String tiles = "";
+        assertEquals(0, numTilePossibilities(tiles));
+    }
+
+    @Test
+    public void testNumTilePossibilities_SingleCharacter() {
+        String tiles = "a";
+        assertEquals(1, numTilePossibilities(tiles));
+    }
+
+    @Test
+    public void testNumTilePossibilities_MultipleCharacters() {
+        String tiles = "abc";
+        assertEquals(6, numTilePossibilities(tiles));
+    }
+
+    @Test
+    public void testNumTilePossibilities_DuplicateCharacters() {
+        String tiles = "aab";
+        assertEquals(4, numTilePossibilities(tiles));
+    }
+
+    @Test
+    public void testNumTilePossibilities_AllDifferentCharacters() {
+        String tiles = "abcdefgh";
+        assertEquals(40320, numTilePossibilities(tiles));
+    }
+}

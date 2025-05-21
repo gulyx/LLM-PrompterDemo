@@ -1,0 +1,77 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.Arrays;
+
+public class 654_DescriptionOnly {
+
+    @Test
+    public void testBuildMaxTree() {
+        int[] nums = {3,2,1,5,6,4};
+        TreeNode root = new Solution().buildMaximumBinaryTree(nums);
+        assertNotNull(root);
+    }
+
+    @Test
+    public void testBuildMaxTree_EmptyArray() {
+        int[] nums = {};
+        TreeNode root = new Solution().buildMaximumBinaryTree(nums);
+        assertNull(root);
+    }
+
+    @Test
+    public void testBuildMaxTree_SingleElementArray() {
+        int[] nums = {1};
+        TreeNode root = new Solution().buildMaximumBinaryTree(nums);
+        assertNotNull(root);
+    }
+
+    @Test
+    public void testBuildMaxTree_DuplicateValues() {
+        int[] nums = {3,2,2,5,6,4};
+        TreeNode root = new Solution().buildMaximumBinaryTree(nums);
+        assertNotNull(root);
+    }
+
+    @Test
+    public void testBuildMaxTree_NullArray() {
+        int[] nums = null;
+        assertThrows(NullPointerException.class, () -> new Solution().buildMaximumBinaryTree(nums));
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
+
+class Solution {
+
+    public TreeNode buildMaximumBinaryTree(int[] nums) {
+        if (nums == null || nums.length == 0) return null;
+
+        Arrays.sort(nums);
+        return buildMaxTree(nums, 0, nums.length - 1);
+    }
+
+    private TreeNode buildMaxTree(int[] nums, int start, int end) {
+        if (start > end) return null;
+        int maxIndex = start;
+        for (int i = start + 1; i <= end; i++) {
+            if (nums[i] > nums[maxIndex]) {
+                maxIndex = i;
+            }
+        }
+
+        TreeNode root = new TreeNode(nums[maxIndex]);
+        root.left = buildMaxTree(nums, start, maxIndex - 1);
+        root.right = buildMaxTree(nums, maxIndex + 1, end);
+
+        return root;
+    }
+}
+```

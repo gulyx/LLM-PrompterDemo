@@ -1,0 +1,88 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class DescriptionOnly {
+
+    public static boolean isArithmetic(int[] nums) {
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i + 1] - nums[i] != nums[1] - nums[0]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isArithmetic(int[] nums, int l, int r) {
+        Arrays.sort(nums, l, r + 1);
+        for (int i = l; i <= r; i++) {
+            if (nums[i + 1] - nums[i] != nums[l] - nums[0]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isArithmetic(int[][] queries) {
+        int[] result = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            result[i] = isArithmetic(queries[i][0], queries[i][1]);
+        }
+        return result;
+    }
+
+    public static boolean isArithmetic(int[][] queries, int[] nums) {
+        int n = nums.length;
+        int m = queries.length;
+        int[][] res = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = queries[i][0]; j <= queries[i][1]; j++) {
+                res[i][j - queries[i][0]] = nums[j];
+            }
+        }
+        return isArithmetic(res);
+    }
+
+    public static boolean isArithmetic(int[][] queries, int[] nums, int l, int r) {
+        int n = nums.length;
+        int m = queries.length;
+        int[][] res = new int[m][r - l + 1];
+        for (int i = 0; i < m; i++) {
+            for (int j = l; j <= r; j++) {
+                res[i][j - l] = nums[j];
+            }
+        }
+        return isArithmetic(res);
+    }
+
+    public static boolean[] check(int[][] queries, int[] nums) {
+        int n = nums.length;
+        int m = queries.length;
+        boolean[] result = new boolean[m];
+        for (int i = 0; i < m; i++) {
+            if (!isArithmetic(queries[i][0], queries[i][1], nums)) {
+                result[i] = false;
+            } else {
+                result[i] = true;
+            }
+        }
+        return result;
+    }
+
+    public static boolean[] check(int[][] queries, int[] nums, int l, int r) {
+        int n = nums.length;
+        int m = queries.length;
+        boolean[] result = new boolean[m];
+        for (int i = 0; i < m; i++) {
+            if (!isArithmetic(queries[i][0], queries[i][1], nums, l, r)) {
+                result[i] = false;
+            } else {
+                result[i] = true;
+            }
+        }
+        return result;
+    }
+
+}

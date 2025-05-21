@@ -1,0 +1,81 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExample {
+
+    @Test
+    public void testDeepestLeavesSum() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.right = new TreeNode(6);
+        root.right.right.right = new TreeNode(7);
+        root.left.left.left = new TreeNode(8);
+
+        int actual = deepestLeavesSum(root);
+        assertEquals(15, actual);
+    }
+
+    @Test
+    public void testDeepestLeavesSum2() {
+        TreeNode root = new TreeNode(6);
+        root.left = new TreeNode(7);
+        root.right = new TreeNode(8);
+        root.left.left = new TreeNode(2);
+        root.left.right = new TreeNode(7);
+        root.right.left = new TreeNode(1);
+        root.right.right = new TreeNode(3);
+        root.right.right.right = new TreeNode(9);
+        root.right.right.right.left = new TreeNode(4);
+        root.right.right.right.left.right = new TreeNode(5);
+
+        int actual = deepestLeavesSum(root);
+        assertEquals(19, actual);
+    }
+
+    @Test
+    public void testEmptyTree() {
+        TreeNode root = null;
+
+        int actual = deepestLeavesSum(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void testSingleNodeTree() {
+        TreeNode root = new TreeNode(1);
+
+        int actual = deepestLeavesSum(root);
+        assertEquals(1, actual);
+    }
+
+    @Test
+    public void testLargeTree() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.right = new TreeNode(6);
+        root.left.left.left = new TreeNode(7);
+        root.left.left.right = new TreeNode(8);
+
+        int actual = deepestLeavesSum(root);
+        assertEquals(15, actual);
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) { val = x; }
+
+}
+```

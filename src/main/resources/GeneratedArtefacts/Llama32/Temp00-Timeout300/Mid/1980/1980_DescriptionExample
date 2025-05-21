@@ -1,0 +1,44 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExample {
+
+    @Test
+    public void testFindDifferentBinaryString() {
+        String[] nums = {"01", "10"};
+        String result = findDifferentBinaryString(nums);
+        assertEquals("11", result);
+    }
+
+    @Test
+    public void testFindDifferentBinaryString_2() {
+        String[] nums = {"00", "01"};
+        String result = findDifferentBinaryString(nums);
+        assertEquals("11", result);
+    }
+
+    @Test
+    public void testFindDifferentBinaryString_3() {
+        String[] nums = {"111", "011", "001"};
+        String result = findDifferentBinaryString(nums);
+        assertEquals("101", result);
+    }
+
+    @Test
+    public void testFindDifferentBinaryString_4() {
+        String[] nums = {"000", "111"};
+        String result = findDifferentBinaryString(nums);
+        assertEquals("100", result);
+    }
+
+    @Test
+    public void testFindDifferentBinaryString_5() {
+        String[] nums = {"101", "110", "100"};
+        String result = findDifferentBinaryString(nums);
+        assertEquals("011", result);
+    }
+}
+```

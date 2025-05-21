@@ -1,0 +1,69 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExample {
+
+    @Test
+    public void testProcessQueries() {
+        int[] queries = {3, 1, 2, 1};
+        int m = 5;
+        int[] result = processQueries(queries, m);
+        assertArrayEquals(new int[]{2, 1, 2, 1}, result);
+    }
+
+    @Test
+    public void testProcessQueries_2() {
+        int[] queries = {4, 1, 2, 2};
+        int m = 4;
+        int[] result = processQueries(queries, m);
+        assertArrayEquals(new int[]{3, 1, 2, 0}, result);
+    }
+
+    @Test
+    public void testProcessQueries_3() {
+        int[] queries = {7, 5, 5, 8, 3};
+        int m = 8;
+        int[] result = processQueries(queries, m);
+        assertArrayEquals(new int[]{6, 5, 0, 7, 5}, result);
+    }
+
+    @Test
+    public void testProcessQueries_4() {
+        int[] queries = {1, 2, 3};
+        int m = 3;
+        int[] result = processQueries(queries, m);
+        assertArrayEquals(new int[]{0, 1, 2}, result);
+    }
+
+    @Test
+    public void testProcessQueries_5() {
+        int[] queries = {10, 20, 30};
+        int m = 100;
+        int[] result = processQueries(queries, m);
+        assertArrayEquals(new int[]{90, 70, 60}, result);
+    }
+}
+
+public class Solution {
+
+    public int[] processQueries(int[] queries, int m) {
+        int n = queries.length;
+        int[] res = new int[n];
+        for (int i = 0; i < n; ++i) {
+            int pos = Arrays.binarySearch(new int[]{1, 2, 3, ..., m}, queries[i]);
+            res[i] = pos;
+            swap(pos, 0);
+        }
+        return res;
+    }
+
+    private void swap(int i, int j) {
+        int temp = queries[i];
+        queries[i] = queries[j];
+        queries[j] = temp;
+    }
+}
+```

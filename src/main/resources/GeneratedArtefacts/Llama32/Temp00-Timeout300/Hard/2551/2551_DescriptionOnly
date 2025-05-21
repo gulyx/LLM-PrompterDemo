@@ -1,0 +1,81 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2551_DescriptionOnly {
+
+    @Test
+    public void testMaxScore() {
+        int[] weights = {2,3,4};
+        int k = 2;
+        assertEquals(18, maxCost(weights, k));
+    }
+
+    @Test
+    public void testMinScore() {
+        int[] weights = {1,2,3};
+        int k = 2;
+        assertEquals(6, minCost(weights, k));
+    }
+
+    @Test
+    public void testMaxAndMinSame() {
+        int[] weights = {1,1,1};
+        int k = 1;
+        assertEquals(0, maxCost(weights, k) - minCost(weights, k));
+    }
+
+    @Test
+    public void testAllInOneBag() {
+        int[] weights = {10,20,30};
+        int k = 1;
+        assertEquals(60, maxCost(weights, k));
+    }
+
+    @Test
+    public void testEmptyBagsNotAllowed() {
+        int[] weights = {2,3,4};
+        int k = 0;
+        assertThrows(NullPointerException.class, () -> minCost(weights, k));
+    }
+}
+
+public class Solution {
+
+    public long maxCost(int[] weights, int k) {
+        return maxScore(weights, k);
+    }
+
+    private long maxScore(int[] weights, int k) {
+        long max = 0;
+        for (int i = 0; i < weights.length; i++) {
+            for (int j = i + 1; j <= Math.min(i + k, weights.length); j++) {
+                max = Math.max(max, weights[i] + weights[j]);
+            }
+        }
+        return max;
+    }
+
+    public long minCost(int[] weights, int k) {
+        if (k == 0) throw new NullPointerException();
+        long min = Long.MAX_VALUE;
+        for (int i = 0; i < weights.length; i++) {
+            for (int j = i + 1; j <= Math.min(i + k, weights.length); j++) {
+                int left = i;
+                int right = j - 1;
+                while (left < right) {
+                    int mid = left + (right - left) / 2;
+                    if (weights[mid] > weights[left]) {
+                        right = mid;
+                    } else {
+                        left = mid + 1;
+                    }
+                }
+                min = Math.min(min, weights[i] + weights[j] - weights[left]);
+            }
+        }
+        return min;
+    }
+
+}

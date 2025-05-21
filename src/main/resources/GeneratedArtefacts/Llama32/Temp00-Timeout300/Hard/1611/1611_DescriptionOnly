@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1611_DescriptionOnly {
+
+    @Test
+    public void test_0() {
+        int result = numDecodings(0);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void test_1() {
+        int result = numDecodings(1);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void test_2() {
+        int result = numDecodings(10);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void test_3() {
+        int result = numDecodings(22);
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void test_4() {
+        int result = numDecodings(111);
+        assertEquals(6, result);
+    }
+}

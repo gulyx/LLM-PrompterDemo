@@ -1,0 +1,85 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1284_DescriptionOnly {
+
+    @Test
+    public void test_1() {
+        int[][] mat = {{0,1},{1,0}};
+        assertEquals(2, flipAndAllNeighbors(mat));
+    }
+
+    @Test
+    public void test_2() {
+        int[][] mat = {{0,0,0},{0,0,0},{0,0,0}};
+        assertEquals(0, flipAndAllNeighbors(mat));
+    }
+
+    @Test
+    public void test_3() {
+        int[][] mat = {{1,1,1},{1,1,1},{1,1,1}};
+        assertEquals(-1, flipAndAllNeighbors(mat));
+    }
+
+    @Test
+    public void test_4() {
+        int[][] mat = {{0,1,0},{1,0,1},{0,1,0}};
+        assertEquals(2, flipAndAllNeighbors(mat));
+    }
+
+    @Test
+    public void test_5() {
+        int[][] mat = {{0,1,0,0},{1,0,1,0},{0,1,0,0},{0,0,0,0}};
+        assertEquals(4, flipAndAllNeighbors(mat));
+    }
+}
+
+int minFlips = 0;
+boolean[][] visited = new boolean[1000][1000];
+public int flipAndAllNeighbors(int[][] mat) {
+    int m = mat.length;
+    int n = mat[0].length;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (!visited[i][j]) {
+                minFlips++;
+                flip(mat, i, j);
+                dfs(mat, i, j);
+            }
+        }
+    }
+    return minFlips;
+}
+
+void flip(int[][] mat, int i, int j) {
+    if (i < 0 || i >= mat.length || j < 0 || j >= mat[0].length)
+        return;
+    int temp = mat[i][j];
+    mat[i][j] = (temp == 1) ? 0 : 1;
+    visited[i][j] = true;
+
+    if (mat[i-1][j] != 0 && !visited[i-1][j])
+        flip(mat, i - 1, j);
+    if (mat[i+1][j] != 0 && !visited[i+1][j])
+        flip(mat, i + 1, j);
+    if (mat[i][j-1] != 0 && !visited[i][j-1])
+        flip(mat, i, j - 1);
+    if (mat[i][j+1] != 0 && !visited[i][j+1])
+        flip(mat, i, j + 1);
+}
+
+void dfs(int[][] mat, int i, int j) {
+    if (i < 0 || i >= mat.length || j < 0 || j >= mat[0].length)
+        return;
+    if (!mat[i][j] || visited[i][j])
+        return;
+
+    minFlips++;
+    visited[i][j] = true;
+    dfs(mat, i - 1, j);
+    dfs(mat, i + 1, j);
+    dfs(mat, i, j - 1);
+    dfs(mat, i, j + 1);
+}

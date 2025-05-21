@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 2698_DescriptionOnly {
+
+    @Test
+    public void test_PunishmentNumber_WhenNIs1_Returns1() {
+        int result = punishmentNumber(1);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void test_PunishmentNumber_WhenNIs2_Returns3() {
+        int result = punishmentNumber(2);
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void test_PunishmentNumber_WhenNIs5_Returns15() {
+        int result = punishmentNumber(5);
+        assertEquals(15, result);
+    }
+
+    @Test
+    public void test_PunishmentNumber_WhenNIs10_Returns55() {
+        int result = punishmentNumber(10);
+        assertEquals(55, result);
+    }
+
+    @Test
+    public void test_PunishmentNumber_WhenNIs1000_Returns25502500() {
+        int result = punishmentNumber(1000);
+        assertEquals(25502500, result);
+    }
+}

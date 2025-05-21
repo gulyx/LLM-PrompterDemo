@@ -1,0 +1,69 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 773_DescriptionOnly {
+
+    @Test
+    public void test1() {
+        int[][] board = {{1,2,3},{4,5,0}};
+        assertEquals(0, minMovesToTransform(board));
+    }
+
+    @Test
+    public void test2() {
+        int[][] board = {{5,1,9,11},{2,6,3,8},{4,7,10,13},{15,20,12,19}};
+        assertEquals(-1, minMovesToTransform(board));
+    }
+
+    @Test
+    public void test3() {
+        int[][] board = {{0,1,2},{3,4,5}};
+        assertEquals(6, minMovesToTransform(board));
+    }
+
+    @Test
+    public void test4() {
+        int[][] board = {{8,1,2},{3,4,5},{6,7,0}};
+        assertEquals(-1, minMovesToTransform(board));
+    }
+
+    @Test
+    public void test5() {
+        int[][] board = {{5,4,3,2,1},{4,5,6,7,0},{4,5,6,7,0},{4,5,6,7,0}};
+        assertEquals(10, minMovesToTransform(board));
+    }
+}
+
+public class Solution {
+
+    public int minMovesToTransform(int[][] board) {
+        int rows = board.length;
+        int cols = board[0].length;
+        boolean visited[][] = new boolean[rows][cols];
+        Queue<int[]> queue = new LinkedList<>();
+        queue.add(new int[]{0, 0});
+        visited[0][0] = true;
+
+        while(!queue.isEmpty()){
+            int[] curr = queue.poll();
+            if(curr[0]==rows-1 && curr[1]==cols-1){
+                return curr[2];
+            }
+            for(int i=0;i<4;i++){
+                int r = curr[0]+dir[i][0];
+                int c = curr[1]+dir[i][1];
+                if(r>=0 && r<rows && c>=0 && c<cols && !visited[r][c] && board[r][c]!=0){
+                    queue.add(new int[]{r,c,curr[2]+Math.abs(board[r][c]-board[curr[0]][curr[1]])});
+                    visited[r][c]=true;
+                }
+            }
+        }
+
+        return -1;
+    }
+
+    static int[] dir = {0, 1, 0, -1};
+
+}

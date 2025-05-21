@@ -1,0 +1,32 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExample {
+
+    @Test
+    public void testRemapKeys() {
+        String word = "abcde";
+        int expectedOutput = 5;
+        assertEquals(expectedOutput, minPushes(word));
+    }
+
+    @Test
+    public void testRemapKeys2() {
+        String word = "xyzxyzxyzxyz";
+        int expectedOutput = 12;
+        assertEquals(expectedOutput, minPushes(word));
+    }
+
+    @Test
+    public void testRemapKeys3() {
+        String word = "aabbcc";
+        int expectedOutput = 6;
+        assertEquals(expectedOutput, minPushes(word));
+    }
+
+    @Test
+    public void testRemapKeys4() {
+        String word = "ababababababababababababababababababababababababababababababab

@@ -1,0 +1,73 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1557_DescriptionOnly {
+
+    @Test
+    public void test1() {
+        int[][] edges = {{0,1},{1,2},{2,0}};
+        int[] result = findSmallestSetOfVertices(edges);
+        assertArrayEquals(new int[]{0,1,2},result);
+    }
+
+    @Test
+    public void test2() {
+        int[][] edges = {};
+        int[] result = findSmallestSetOfVertices(edges);
+        assertArrayEquals(new int[]{0},result);
+    }
+
+    @Test
+    public void test3() {
+        int[][] edges = {{0,1},{1,2}};
+        int[] result = findSmallestSetOfVertices(edges);
+        assertArrayEquals(new int[]{0,1},result);
+    }
+
+    @Test
+    public void test4() {
+        int[][] edges = {{0,1},{1,2},{2,3},{3,0}};
+        int[] result = findSmallestSetOfVertices(edges);
+        assertArrayEquals(new int[]{0,1,2,3},result);
+    }
+
+    @Test
+    public void test5() {
+        int[][] edges = {{0,1},{1,2},{2,3},{3,4},{4,5}};
+        int[] result = findSmallestSetOfVertices(edges);
+        assertArrayEquals(new int[]{0,1,2,3,4,5},result);
+    }
+
+    public static int[] findSmallestSetOfVertices(int[][] edges) {
+        boolean[] visited = new boolean[edges.length];
+        for (int i = 0; i < edges.length; i++) {
+            if (!visited[i]) {
+                dfs(edges, visited, i);
+            }
+        }
+        return getVisitedIndices(visited);
+    }
+
+    private static void dfs(int[][] edges, boolean[] visited, int node) {
+        visited[node] = true;
+        for (int[] edge : edges) {
+            if (edge[0] == node) {
+                dfs(edges, visited, edge[1]);
+            }
+        }
+    }
+
+    private static int[] getVisitedIndices(boolean[] visited) {
+        boolean[] temp = new boolean[visited.length];
+        int count = 0;
+        for (int i = 0; i < visited.length; i++) {
+            if (!visited[i]) {
+                temp[count++] = true;
+            }
+        }
+        return new int[count];
+    }
+
+}

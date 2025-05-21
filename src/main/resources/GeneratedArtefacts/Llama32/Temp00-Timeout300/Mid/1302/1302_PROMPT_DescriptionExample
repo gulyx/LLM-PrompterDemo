@@ -1,0 +1,13 @@
+As a professional Software Tester, generate a complete Junit class test file (name the class as :'1302_DescriptionExample', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description: 
+Given the "root" of a binary tree, return the sum of values of its deepest leaves.
+
+Constraints:
+
+The number of nodes in the tree is in the range "[1, 104]".
+"1 <= Node.val <= 100"
+[--Example 1--]
+Input: root = [1,2,3,4,5,null,6,7,null,null,null,null,8]
+Output: 15
+[--Example 2--]
+Input: root = [6,7,8,2,7,1,3,9,null,1,4,null,null,null,5]
+Output: 19

@@ -1,0 +1,59 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertArrayEquals;
+
+public class DescriptionExample {
+
+    @Test
+
+    public void testGenerateMatrix() {
+        int[][] result = generateMatrix(3, 5, new ListNode(3, new ListNode(0, new ListNode(2, new ListNode(6, new ListNode(8, new ListNode(1, new ListNode(7, new ListNode(9, new ListNode(4, new ListNode(2, new ListNode(5, new ListNode(5, new ListNode(0))))))))))))));
+        int[][] expected = {{0, 1, 2}, {-1, -1, -1}, {-1, -1, -1}};
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testGenerateMatrix_2() {
+        int[][] result = generateMatrix(4, 3, new ListNode(5, new ListNode(1, new ListNode(9, new ListNode(11, new ListNode(10, new ListNode(0)))))));
+        int[][] expected = {{5, 1, 11}, {9, 10, -1}, {-1, -1, -1}};
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testGenerateMatrix_3() {
+        int[][] result = generateMatrix(2, 2, new ListNode(4, new ListNode(5, new ListNode(7, new ListNode(10))))));
+        int[][] expected = {{4, 7}, {5, 10}};
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testGenerateMatrix_4() {
+        int[][] result = generateMatrix(1, 1, new ListNode(2)));
+        int[][] expected = {{2}};
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testGenerateMatrix_5() {
+        int[][] result = generateMatrix(0, 3, new ListNode(4, new ListNode(7, new ListNode(10))))));
+        int[][] expected = {{-1, -1, -1}};
+        assertArrayEquals(expected, result);
+    }
+}
+
+class ListNode {
+    int val;
+    ListNode next;
+
+    public ListNode(int val) {
+        this.val = val;
+    }
+
+    public ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
+    }
+}
+```

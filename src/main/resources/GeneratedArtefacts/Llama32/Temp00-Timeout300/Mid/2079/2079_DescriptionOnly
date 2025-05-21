@@ -1,0 +1,52 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2079_DescriptionOnly {
+
+    @Test
+    public void test1() {
+        int[] plants = {2, 2, 3, 3};
+        int capacity = 5;
+        assertEquals(8, waterPlants(plants, capacity));
+    }
+
+    @Test
+    public void test2() {
+        int[] plants = {1, 2, 3, 4, 5};
+        int capacity = 5;
+        assertEquals(10, waterPlants(plants, capacity));
+    }
+
+    @Test
+    public void test3() {
+        int[] plants = {1, 1, 1, 1, 1};
+        int capacity = 2;
+        assertEquals(6, waterPlants(plants, capacity));
+    }
+
+    @Test
+    public void test4() {
+        int[] plants = {};
+        int capacity = 5;
+        assertEquals(0, waterPlants(plants, capacity));
+    }
+
+    @Test
+    public void test5() {
+        int[] plants = {1};
+        int capacity = 2;
+        assertEquals(3, waterPlants(plants, capacity));
+    }
+}
+
+int waterPlants(int[] plants, int capacity) {
+    int steps = 0;
+    for (int plant : plants) {
+        if (plant > capacity) return -1; // not enough capacity
+        steps += plant;
+        steps++;
+    }
+    return steps;
+}

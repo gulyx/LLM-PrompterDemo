@@ -1,0 +1,35 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.*;
+
+public class DescriptionOnly {
+
+    public int[][] generateMatrix(int m, int n, ListNode head) {
+        if (head == null || m == 0 || n == 0) return new int[0][0];
+        int[][] res = new int[m][n];
+        int[] rowDir = {0,1,0,-1};
+        int[] colDir = {-1,0,1,0};
+        int dir = 0;
+        int r = 0, c = 0;
+        boolean visited[][] = new boolean[m][n];
+        res[0][0] = head.val;
+        visited[r][c] = true;
+        for (int i=1; i<m*n; i++) {
+            int nr = r + rowDir[dir];
+            int nc = c + colDir[dir];
+            if (nr<0 || nr>=m || nc<0 || nc>=n || visited[nr][nc]) dir = (dir+1)%4;
+            else {
+                res[nr][nc] = head.val;
+                visited[nr][nc] = true;
+                r = nr; c = nc;
+            }
+        }
+        return res;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) { val = x; }
+    }
+}

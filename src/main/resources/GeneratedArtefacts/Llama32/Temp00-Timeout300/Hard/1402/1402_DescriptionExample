@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 1402_DescriptionExample {
+
+    @Test
+    public void test_1() {
+        int[] satisfaction = {-1,-8,0,5,-9};
+        assertEquals(14, maxSatisfaction(satisfaction));
+    }
+
+    @Test
+    public void test_2() {
+        int[] satisfaction = {4,3,2};
+        assertEquals(20, maxSatisfaction(satisfaction));
+    }
+
+    @Test
+    public void test_3() {
+        int[] satisfaction = {-1,-4,-5};
+        assertEquals(0, maxSatisfaction(satisfaction));
+    }
+
+    @Test
+    public void test_4() {
+        int[] satisfaction = {1,2,3,4,5};
+        assertEquals(70, maxSatisfaction(satisfaction));
+    }
+
+    @Test
+    public void test_5() {
+        int[] satisfaction = {-1000,-500,0,500,1000};
+        assertEquals(-2000000, maxSatisfaction(satisfaction));
+    }
+}

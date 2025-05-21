@@ -1,0 +1,56 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExample {
+
+    public int sumEvenGrandparent(TreeNode root) {
+        return dfs(root);
+    }
+
+    private int dfs(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        int left = dfs(node.left);
+        int right = dfs(node.right);
+
+        if (node.parent != null && node.parent.parent != null && node.parent.parent.val % 2 == 0) {
+            return left + right + node.val;
+        } else {
+            return left + right;
+        }
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode parent;
+
+        TreeNode(int x) { val = x; }
+    }
+
+    @Test
+    public void testSumEvenGrandparent() {
+        DescriptionExample solution = new DescriptionExample();
+        TreeNode root1 = new TreeNode(6);
+        root1.left = new TreeNode(7);
+        root1.right = new TreeNode(8);
+        root1.left.left = new TreeNode(2);
+        root1.left.right = new TreeNode(7);
+        root1.left.right.left = new TreeNode(1);
+        root1.left.right.right = new TreeNode(4);
+        root1.right.right = new TreeNode(9);
+        root1.right.right.left = new TreeNode(1);
+        int result1 = solution.sumEvenGrandparent(root1);
+        assertEquals(18, result1);
+
+        TreeNode root2 = new TreeNode(1);
+        int result2 = solution.sumEvenGrandparent(root2);
+        assertEquals(0, result2);
+    }
+}
+```

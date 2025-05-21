@@ -1,0 +1,73 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 885_DescriptionExample {
+
+    @Test
+    public void test_1() {
+        int[][] result = new int[1][2];
+        int[] expected = {0, 1, 2, 3};
+        int rows = 1;
+        int cols = 4;
+        int rStart = 0;
+        int cStart = 0;
+
+        int[][] actual = spiralMatrix(rows, cols, rStart, cStart);
+        assertArrayEquals(expected, actual[0]);
+    }
+
+    @Test
+    public void test_2() {
+        int[][] result = new int[1][2];
+        int[] expected = {1, 4, 5, 2, 4, 3, 3, 2, 1, 2, 1, 0, 4, 5, 4, 3, 4, 2, 1, 4, 0, 1, 1, 0};
+        int rows = 5;
+        int cols = 6;
+        int rStart = 1;
+        int cStart = 4;
+
+        int[][] actual = spiralMatrix(rows, cols, rStart, cStart);
+        assertArrayEquals(expected, actual[0]);
+    }
+
+    @Test
+    public void test_3() {
+        int[][] result = new int[1][2];
+        int[] expected = {0, 1, 2, 3};
+        int rows = 4;
+        int cols = 5;
+        int rStart = 0;
+        int cStart = 0;
+
+        int[][] actual = spiralMatrix(rows, cols, rStart, cStart);
+        assertArrayEquals(expected, actual[0]);
+    }
+
+    @Test
+    public void test_4() {
+        int[][] result = new int[1][2];
+        int[] expected = {3, 2, 5, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30};
+        int rows = 8;
+        int cols = 10;
+        int rStart = 0;
+        int cStart = 0;
+
+        int[][] actual = spiralMatrix(rows, cols, rStart, cStart);
+        assertArrayEquals(expected, actual[0]);
+    }
+
+    @Test
+    public void test_5() {
+        int[][] result = new int[1][2];
+        int[] expected = {3, 2, 5, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30};
+        int rows = 10;
+        int cols = 11;
+        int rStart = 0;
+        int cStart = 0;
+
+        int[][] actual = spiralMatrix(rows, cols, rStart, cStart);
+        assertArrayEquals(expected, actual[0]);
+    }
+
+}

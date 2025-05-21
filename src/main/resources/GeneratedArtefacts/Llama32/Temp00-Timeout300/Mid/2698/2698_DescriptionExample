@@ -1,0 +1,73 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExample {
+
+    @Test
+    public void testPunishmentNumberForN10() {
+        int n = 10;
+        int expectedOutput = 182;
+        assertEquals(expectedOutput, punishmentNumber(n));
+    }
+
+    @Test
+    public void testPunishmentNumberForN37() {
+        int n = 37;
+        int expectedOutput = 1478;
+        assertEquals(expectedOutput, punishmentNumber(n));
+    }
+
+    @Test
+    public void testPunishmentNumberForN1() {
+        int n = 1;
+        int expectedOutput = 1;
+        assertEquals(expectedOutput, punishmentNumber(n));
+    }
+
+    @Test
+    public void testPunishmentNumberForN1000() {
+        int n = 1000;
+        long expectedOutput = 25164150L;
+        assertEquals(expectedOutput, punishmentNumber(n));
+    }
+
+    @Test
+    public void testPunishmentNumberForN2() {
+        int n = 2;
+        int expectedOutput = 5;
+        assertEquals(expectedOutput, punishmentNumber(n));
+    }
+}
+
+public class Main {
+
+    public static int punishmentNumber(int n) {
+        long result = 0;
+        for (int i = 1; i <= n; i++) {
+            String s = Integer.toString(i * i);
+            boolean found = false;
+            for (int j = 1; j < s.length(); j++) {
+                if (s.charAt(j - 1) == '0' && s.charAt(j) != '0') {
+                    int sum = 0;
+                    for (int k = j; k < s.length(); k++) {
+                        sum += Character.getNumericValue(s.charAt(k));
+                        if (sum == i) {
+                            found = true;
+                            break;
+                        } else if (sum > i) {
+                            break;
+                        }
+                    }
+                }
+            }
+            if (found) {
+                result += (long)i * i;
+            }
+        }
+        return (int)result;
+    }
+}
+```

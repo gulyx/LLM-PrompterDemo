@@ -1,0 +1,79 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2181_DescriptionOnly {
+
+    public ListNode mergeNodes(ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode prev = dummy, curr = head;
+        int sum = 0;
+        while (curr != null) {
+            if (curr.val == 0 && prev.next != null && prev.next.val == 0) {
+                sum += curr.next.val;
+                prev.next = curr.next.next;
+            } else {
+                prev.next = new ListNode(sum);
+                prev = prev.next;
+                sum = 0;
+            }
+            curr = curr.next;
+        }
+        return dummy.next;
+    }
+
+    @Test
+    public void testMergeNodes() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(0);
+        head.next.next = new ListNode(0);
+        head.next.next.next = new ListNode(2);
+        head.next.next.next.next = new ListNode(3);
+
+        ListNode result = mergeNodes(head);
+        assertEquals(new ListNode(1).val, result.val);
+        assertEquals(new ListNode(1).val, result.next.val);
+        assertEquals(new ListNode(4).val, result.next.next.val);
+        assertEquals(new ListNode(5).val, result.next.next.next.val);
+    }
+
+    @Test
+    public void testMergeNodesEmpty() {
+        ListNode head = new ListNode(0);
+        head.next = new ListNode(0);
+
+        ListNode result = mergeNodes(head);
+        assertNull(result);
+    }
+
+    @Test
+    public void testMergeNodesSingleNode() {
+        ListNode head = new ListNode(1);
+
+        ListNode result = mergeNodes(head);
+        assertEquals(new ListNode(1).val, result.val);
+    }
+
+    @Test
+    public void testMergeNodesTwoZeroes() {
+        ListNode head = new ListNode(0);
+        head.next = new ListNode(0);
+
+        ListNode result = mergeNodes(head);
+        assertNull(result);
+    }
+
+    @Test
+    public void testMergeNodesMultipleZeros() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(0);
+        head.next.next = new ListNode(0);
+        head.next.next.next = new ListNode(2);
+
+        ListNode result = mergeNodes(head);
+        assertEquals(new ListNode(1).val, result.val);
+        assertEquals(new ListNode(4).val, result.next.val);
+    }
+}

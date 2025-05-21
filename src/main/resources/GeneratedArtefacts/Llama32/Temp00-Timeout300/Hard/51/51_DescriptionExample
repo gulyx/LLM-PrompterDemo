@@ -1,0 +1,46 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import java.util.*;
+
+public class 51_DescriptionExample {
+
+    @Test
+    public void test_nQueens_4() {
+        int[][] board = new int[4][4];
+        List<List<String>> result = nQueens(4, board);
+        assertEquals(result, Arrays.asList(Arrays.asList(".Q..", "...Q", "Q...", "..Q."), 
+                Arrays.asList("..Q.", "Q...", "...Q", ".Q..")));
+    }
+
+    @Test
+    public void test_nQueens_1() {
+        int[][] board = new int[1][1];
+        List<List<String>> result = nQueens(1, board);
+        assertEquals(result, Collections.singletonList(Arrays.asList("Q")));
+    }
+
+    @Test
+    public void test_nQueens_2() {
+        int[][] board = new int[2][2];
+        List<List<String>> result = nQueens(2, board);
+        assertEquals(result, Arrays.asList(Arrays.asList(".Q.", "..."), 
+                Arrays.asList("..", "...")));
+    }
+
+    @Test
+    public void test_nQueens_3() {
+        int[][] board = new int[3][3];
+        List<List<String>> result = nQueens(3, board);
+        assertEquals(result, Collections.emptyList());
+    }
+
+    @Test
+    public void test_nQueens_0() {
+        int[][] board = new int[0][0];
+        List<List<String>> result = nQueens(0, board);
+        assertEquals(result, Collections.emptyList());
+    }
+}
+```

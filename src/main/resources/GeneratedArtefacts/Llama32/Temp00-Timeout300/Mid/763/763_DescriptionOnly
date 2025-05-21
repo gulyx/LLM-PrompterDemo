@@ -1,0 +1,56 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.*;
+
+public class DescriptionOnly {
+    public int[] partitionLabels(String s) {
+        int n = s.length();
+        int[] ans = new int[n];
+        int right = -1;
+        for (int i = 0; i < n; ++i) {
+            right = Math.max(right, s.indexOf(s.charAt(i), i + 1));
+            if (i == right)
+                ans[i] = right;
+        }
+        return ans;
+    }
+
+    @Test
+    public void testPartitionLabels() {
+        String s = "ababcc";
+        int[] result = partitionLabels(s);
+        assertEquals(Arrays.asList(2, 1), Arrays.stream(result).boxed().collect(Collectors.toList()));
+    }
+
+    @Test
+    public void testPartitionLabels2() {
+        String s = "ababa";
+        int[] result = partitionLabels(s);
+        assertEquals(Arrays.asList(3, 2), Arrays.stream(result).boxed().collect(Collectors.toList()));
+    }
+
+    @Test
+    public void testPartitionLabels3() {
+        String s = "abc";
+        int[] result = partitionLabels(s);
+        assertEquals(Arrays.asList(1, 0, 1), Arrays.stream(result).boxed().collect(Collectors.toList()));
+    }
+
+    @Test
+    public void testPartitionLabels4() {
+        String s = "aaa";
+        int[] result = partitionLabels(s);
+        assertEquals(Arrays.asList(3), Arrays.stream(result).boxed().collect(Collectors.toList()));
+    }
+
+    @Test
+    public void testPartitionLabels5() {
+        String s = "";
+        int[] result = partitionLabels(s);
+        assertTrue(result.length == 0);
+    }
+}
+```

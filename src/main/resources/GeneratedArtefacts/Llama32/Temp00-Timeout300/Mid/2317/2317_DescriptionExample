@@ -1,0 +1,61 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExample {
+
+    @Test
+    public void testMaxXor() {
+        int[] nums = {3,2,4,6};
+        assertEquals(7, maxXOR(nums));
+    }
+
+    @Test
+    public void testMaxXor2() {
+        int[] nums = {1,2,3,9,2};
+        assertEquals(11, maxXOR(nums));
+    }
+
+    @Test
+    public void testMaxXor3() {
+        int[] nums = {10,20,30,40};
+        assertEquals(31, maxXOR(nums));
+    }
+
+    @Test
+    public void testMaxXor4() {
+        int[] nums = {1,2,3,4,5};
+        assertEquals(15, maxXOR(nums));
+    }
+
+    @Test
+    public void testMaxXor5() {
+        int[] nums = {0,0,0,0,0};
+        assertEquals(0, maxXOR(nums));
+    }
+}
+
+public class DescriptionExample {
+
+    public static int maxXOR(int[] nums) {
+        int n = nums.length;
+        int[] res = new int[n];
+        for (int i = 0; i < n; i++) {
+            res[i] = nums[i];
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                res[j] ^= res[i];
+            }
+        }
+
+        int max = Integer.MIN_VALUE;
+        for (int num : res) {
+            max = Math.max(max, num);
+        }
+
+        return max;
+    }
+}

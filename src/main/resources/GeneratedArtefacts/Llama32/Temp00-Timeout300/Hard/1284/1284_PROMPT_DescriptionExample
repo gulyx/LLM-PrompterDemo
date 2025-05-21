@@ -1,0 +1,17 @@
+As a professional Software Tester, generate a complete Junit class test file (name the class as :'1284_DescriptionExample', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description: 
+Given a "m x n" binary matrix "mat". In one step, you can choose one cell and flip it and all the four neighbors of it if they exist (Flip is changing "1" to "0" and "0" to "1"). A pair of cells are called neighbors if they share one edge.
+
+Return the minimum number of steps required to convert "mat" to a zero matrix or "-1" if you cannot.
+
+A binary matrix is a matrix with all cells equal to "0" or "1" only.
+
+A zero matrix is a matrix with all cells equal to "0".
+[--Example 1--]
+Input: mat = [[0,0],[0,1]]
+Output: 3
+[--Example 2--]
+Input: mat = [[0]]
+Output: 0
+[--Example 3--]
+Input: mat = [[1,0,0],[1,0,0]]
+Output: -1

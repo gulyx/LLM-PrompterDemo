@@ -1,0 +1,65 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1409_DescriptionOnly {
+
+    @Test
+    public void test1() {
+        int[] queries = {2, 7, 3};
+        int[] result = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            result[i] = findPosition(queries[i], queries);
+        }
+        assertArrayEquals(new int[]{4, 6, 3}, result);
+    }
+
+    @Test
+    public void test2() {
+        int[] queries = {1, 5, 3};
+        int[] result = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            result[i] = findPosition(queries[i], queries);
+        }
+        assertArrayEquals(new int[]{2, 4, 3}, result);
+    }
+
+    @Test
+    public void test3() {
+        int[] queries = {10, 5, 8};
+        int[] result = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            result[i] = findPosition(queries[i], queries);
+        }
+        assertArrayEquals(new int[]{9, 4, 7}, result);
+    }
+
+    @Test
+    public void test4() {
+        int[] queries = {1, 2, 3};
+        int[] result = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            result[i] = findPosition(queries[i], queries);
+        }
+        assertArrayEquals(new int[]{2, 3, 4}, result);
+    }
+
+    @Test
+    public void test5() {
+        int[] queries = {1, 1, 1};
+        int[] result = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            result[i] = findPosition(queries[i], queries);
+        }
+        assertArrayEquals(new int[]{2, 2, 2}, result);
+    }
+
+    public static int findPosition(int num, int[] queries) {
+        int pos = Arrays.binarySearch(queries, num);
+        if (pos < 0) {
+            pos = -pos - 1;
+        }
+        return pos;
+    }
+}

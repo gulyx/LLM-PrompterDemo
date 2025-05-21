@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.*;
+
+public class DescriptionOnly {
+    public TreeNode recoverFromPreorder(String traversal) {
+        int i = 0;
+        return buildTree(traversal, 0, Integer.MAX_VALUE);
+    }
+
+    private TreeNode buildTree(String traversal, int depth, int maxDepth) {
+        if (i >= traversal.length()) {
+            return null;
+        }
+        int j = i;
+        while (j < traversal.length() && Character.isDigit(traversal.charAt(j))) {
+            j++;
+        }
+        int val = Integer.parseInt(traversal.substring(i, j));
+        i = j;
+        if (depth > maxDepth) {
+            return buildTree(traversal, depth + 1, maxDepth);
+        }
+        TreeNode node = new TreeNode(val);
+        if (j + 1 < traversal.length() && Character.isDigit(traversal.charAt(j + 1))) {
+            node.left = buildTree(traversal, depth + 1, Math.min(maxDepth, val + 1));
+        } else {
+            node.left = null;
+        }
+        return node;
+    }
+
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) {
+        val = x;
+    }
+}

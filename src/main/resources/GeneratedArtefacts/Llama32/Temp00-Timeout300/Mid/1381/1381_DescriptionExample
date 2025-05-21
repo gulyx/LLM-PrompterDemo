@@ -1,0 +1,84 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class CustomStack {
+
+    public int[] customStack(int maxSize, String[] ops) {
+        int[] stack = new int[maxSize];
+        int top = -1;
+        for (String op : ops) {
+            if (op.equals("push")) {
+                push(stack, Integer.parseInt(ops[++top]));
+            } else if (op.equals("pop")) {
+                pop(stack);
+            } else if (op.startsWith("increment")) {
+                inc(stack, Integer.parseInt(op.split(",")[1]), Integer.parseInt(op.split(",")[2]));
+            }
+        }
+        return stack;
+    }
+
+    private void push(int[] stack, int x) {
+        if (stack.length == stack.length - 1) {
+            throw new RuntimeException();
+        }
+        stack[++top] = x;
+    }
+
+    private void pop(int[] stack) {
+        if (top < 0) {
+            return;
+        }
+        top--;
+    }
+
+    private void inc(int[] stack, int k, int val) {
+        for (int i = 0; i < Math.min(k, stack.length); i++) {
+            stack[i] += val;
+        }
+    }
+
+    @Test
+    public void testExample1() {
+        CustomStack customStack = new CustomStack();
+        String[] ops = {"CustomStack","push","push","pop","push","push","push","increment","increment","pop","pop","pop","pop"};
+        int[] result = customStack.customStack(3, ops);
+        assertArrayEquals(new int[]{null,null,null,2,null,null,null,null,null,103,202,201,-1}, result);
+    }
+
+    @Test
+    public void testExample2() {
+        CustomStack customStack = new CustomStack();
+        String[] ops = {"CustomStack","push","push","pop","push","push","push"};
+        int[] result = customStack.customStack(3, ops);
+        assertArrayEquals(new int[]{null,null,null,-1}, result);
+    }
+
+    @Test
+    public void testExample3() {
+        CustomStack customStack = new CustomStack();
+        String[] ops = {"CustomStack","push","push","pop","push","push"};
+        int[] result = customStack.customStack(2, ops);
+        assertArrayEquals(new int[]{null,null,-1}, result);
+    }
+
+    @Test
+    public void testExample4() {
+        CustomStack customStack = new CustomStack();
+        String[] ops = {"CustomStack","push","push"};
+        int[] result = customStack.customStack(2, ops);
+        assertArrayEquals(new int[]{null,null,-1}, result);
+    }
+
+    @Test
+    public void testExample5() {
+        CustomStack customStack = new CustomStack();
+        String[] ops = {"CustomStack"};
+        int[] result = customStack.customStack(0, ops);
+        assertArrayEquals(new int[]{null}, result);
+    }
+}
+```

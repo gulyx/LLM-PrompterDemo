@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2683_DescriptionOnly {
+
+    @Test
+    public void test_1() {
+        int[] derived = {0, 1};
+        assertTrue(isValid(derived));
+    }
+
+    @Test
+    public void test_2() {
+        int[] derived = {1, 0};
+        assertTrue(isValid(derived));
+    }
+
+    @Test
+    public void test_3() {
+        int[] derived = {1, 1};
+        assertFalse(isValid(derived));
+    }
+
+    @Test
+    public void test_4() {
+        int[] derived = {2, 1};
+        assertTrue(isValid(derived));
+    }
+
+    @Test
+    public void test_5() {
+        int[] derived = {0, 0, 1};
+        assertTrue(isValid(derived));
+    }
+}

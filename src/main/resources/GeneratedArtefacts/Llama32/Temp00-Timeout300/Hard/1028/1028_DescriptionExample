@@ -1,0 +1,95 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SolutionTest {
+
+    @Test
+    public void testRecoverTree() {
+        String traversal = "1-2--3--4-5--6--7";
+        Node root = new Solution().reconstructFromPreorder(traversal);
+        assertEquals(1, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(5, root.right.val);
+        assertEquals(3, root.right.left.val);
+        assertEquals(4, root.right.right.val);
+        assertEquals(6, root.right.right.right.val);
+        assertEquals(7, root.right.right.right.right.val);
+    }
+
+    @Test
+    public void testRecoverTree2() {
+        String traversal = "1-2--3---4-5--6---7";
+        Node root = new Solution().reconstructFromPreorder(traversal);
+        assertEquals(1, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(5, root.right.val);
+        assertEquals(3, root.right.left == null ? null : root.right.left.val);
+        assertEquals(4, root.right.right.val);
+        assertEquals(6, root.right.right.right.val);
+        assertEquals(7, root.right.right.right.right.val);
+    }
+
+    @Test
+    public void testRecoverTree3() {
+        String traversal = "1-401--349---90--88";
+        Node root = new Solution().reconstructFromPreorder(traversal);
+        assertEquals(1, root.val);
+        assertEquals(401, root.left.val);
+        assertEquals(349, root.right.val);
+        assertEquals(88, root.right.left.val);
+        assertEquals(90, root.right.right.val);
+    }
+
+    @Test
+    public void testRecoverTree4() {
+        String traversal = "1-2--3---4";
+        Node root = new Solution().reconstructFromPreorder(traversal);
+        assertEquals(1, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(3, root.right.val);
+        assertEquals(4, root.right.right.val);
+    }
+
+    @Test
+    public void testRecoverTree5() {
+        String traversal = "1-2--3";
+        Node root = new Solution().reconstructFromPreorder(traversal);
+        assertEquals(1, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(3, root.right.val);
+    }
+}
+
+class Node {
+    int val;
+    Node left;
+    Node right;
+
+    public Node(int val) {
+        this.val = val;
+    }
+}
+
+public class Solution {
+
+    public Node reconstructFromPreorder(String traversal) {
+        String[] nodes = traversal.split("-");
+        return reconstruct(nodes, 0);
+    }
+
+    private Node reconstruct(String[] nodes, int index) {
+        if (index >= nodes.length) {
+            return null;
+        }
+        int depth = nodes[index].length();
+        Node root = new Node(Integer.parseInt(nodes[index]));
+        root.left = reconstruct(nodes, index + 1);
+        root.right = reconstruct(nodes, index + 1 + depth);
+        return root;
+    }
+
+}
+```

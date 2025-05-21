@@ -1,0 +1,95 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class Solution {
+
+    @Test
+    public void testReverseOddLevels() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+
+        Solution solution = new Solution();
+        TreeNode result = solution.reverseOddLevels(root);
+
+        assertEquals(new TreeNode(1), result);
+        assertEquals(new TreeNode(2), result.left);
+        assertEquals(new TreeNode(3), result.right);
+        assertEquals(new TreeNode(4), result.left.left);
+        assertEquals(new TreeNode(5), result.left.right);
+        assertEquals(new TreeNode(6), result.right.left);
+        assertEquals(new TreeNode(7), result.right.right);
+    }
+
+    @Test
+    public void testReverseOddLevelsEmptyTree() {
+        Solution solution = new Solution();
+        TreeNode root = null;
+
+        TreeNode result = solution.reverseOddLevels(root);
+
+        assertNull(result);
+    }
+
+    @Test
+    public void testReverseOddLevelsSingleNodeTree() {
+        TreeNode root = new TreeNode(1);
+        Solution solution = new Solution();
+        TreeNode result = solution.reverseOddLevels(root);
+
+        assertEquals(new TreeNode(1), result);
+    }
+
+    @Test
+    public void testReverseOddLevelsTwoLevelTree() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        Solution solution = new Solution();
+        TreeNode result = solution.reverseOddLevels(root);
+
+        assertEquals(new TreeNode(1), result);
+        assertEquals(new TreeNode(2), result.left);
+        assertEquals(new TreeNode(3), result.right);
+    }
+
+    @Test
+    public void testReverseOddLevelsPerfectTree() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+
+        Solution solution = new Solution();
+        TreeNode result = solution.reverseOddLevels(root);
+
+        assertEquals(new TreeNode(1), result);
+        assertEquals(new TreeNode(2), result.left);
+        assertEquals(new TreeNode(3), result.right);
+        assertEquals(new TreeNode(4), result.left.left);
+        assertEquals(new TreeNode(5), result.left.right);
+        assertEquals(new TreeNode(6), result.right.left);
+        assertEquals(new TreeNode(7), result.right.right);
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) { val = x; }
+
+}
+```

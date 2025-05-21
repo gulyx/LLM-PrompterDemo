@@ -1,0 +1,76 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SubrectangleQueries {
+
+    private int[][] rectangle;
+
+    public SubrectangleQueries(int[][] rectangle) {
+        this.rectangle = rectangle;
+    }
+
+    @Test
+    [--Example 1--]
+    public void testUpdateSubrectangle() {
+        SubrectangleQueries s = new SubrectangleQueries(new int[][]{{1,2,1},{4,3,4},{3,2,1},{1,1,1}});
+        s.updateSubrectangle(0, 2, 0, 0, 5);
+        assertEquals(5, s.getValue(0, 2));
+    }
+
+    @Test
+    [--Example 2--]
+    public void testUpdateSubrectangle_2() {
+        SubrectangleQueries s = new SubrectangleQueries(new int[][]{{1,1,1},{2,2,2},{3,3,3}});
+        s.updateSubrectangle(0, 0, 0, 0, 100);
+        assertEquals(100, s.getValue(0, 0));
+    }
+
+    @Test
+    [--Example 3--]
+    public void testUpdateSubrectangle_3() {
+        SubrectangleQueries s = new SubrectangleQueries(new int[][]{{1,2,1},{4,3,4},{3,2,1},{1,1,1}});
+        s.updateSubrectangle(0, 2, 0, 2, 10);
+        assertEquals(10, s.getValue(0, 2));
+    }
+
+    @Test
+    [--Example 4--]
+    public void testUpdateSubrectangle_4() {
+        SubrectangleQueries s = new SubrectangleQueries(new int[][]{{1,1,1},{2,2,2},{3,3,3}});
+        s.updateSubrectangle(0, 0, 0, 1, 20);
+        assertEquals(20, s.getValue(0, 1));
+    }
+
+    @Test
+    [--Example 5--]
+    public void testUpdateSubrectangle_5() {
+        SubrectangleQueries s = new SubrectangleQueries(new int[][]{{1,2,1},{4,3,4},{3,2,1},{1,1,1}});
+        s.updateSubrectangle(0, 0, 0, 2, 10);
+        assertEquals(10, s.getValue(0, 2));
+    }
+
+    @Test
+    [--Example 6--]
+    public void testGetValue() {
+        SubrectangleQueries s = new SubrectangleQueries(new int[][]{{1,2,1},{4,3,4},{3,2,1},{1,1,1}});
+        assertEquals(1, s.getValue(0, 2));
+    }
+
+    @Test
+    [--Example 7--]
+    public void testGetValue_2() {
+        SubrectangleQueries s = new SubrectangleQueries(new int[][]{{1,1,1},{2,2,2},{3,3,3}});
+        assertEquals(100, s.getValue(0, 0));
+    }
+
+    @Test
+    [--Example 8--]
+    public void testGetValue_3() {
+        SubrectangleQueries s = new SubrectangleQueries(new int[][]{{1,2,1},{4,3,4},{3,2,1},{1,1,1}});
+        assertEquals(5, s.getValue(0, 2));
+    }
+}
+```
