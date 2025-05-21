@@ -1,0 +1,14 @@
+As a professional Software Tester, generate a complete Junit class test file (name the class as :'2545_DescriptionExample', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description: 
+There is a class with "m" students and "n" exams. You are given a 0-indexed "m x n" integer matrix "score", where each row represents one student and "score[i][j]" denotes the score the "ith" student got in the "jth" exam. The matrix "score" contains distinct integers only.
+
+You are also given an integer "k". Sort the students (i.e., the rows of the matrix) by their scores in the "kth" (0-indexed) exam from the highest to the lowest.
+
+Return the matrix after sorting it.
+
+[--Example 1--]
+Input: score = [[10,6,9,1],[7,5,11,2],[4,8,3,15]], k = 2
+Output: [[7,5,11,2],[10,6,9,1],[4,8,3,15]]
+
+[--Example 2--]
+Input: score = [[3,4],[5,6]], k = 0
+Output: [[5,6],[3,4]]

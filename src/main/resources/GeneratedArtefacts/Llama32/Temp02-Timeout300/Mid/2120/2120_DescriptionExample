@@ -1,0 +1,76 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExample {
+
+    @Test
+    public void testExample1() {
+        int n = 3;
+        int[] startPos = {0, 1};
+        String s = "RRDDLU";
+        int[] answer = solution(n, startPos, s);
+        assertEquals(new int[]{1, 5, 4, 3, 1, 0}, answer);
+    }
+
+    @Test
+    public void testExample2() {
+        int n = 2;
+        int[] startPos = {1, 1};
+        String s = "LURD";
+        int[] answer = solution(n, startPos, s);
+        assertEquals(new int[]{4, 1, 0, 0}, answer);
+    }
+
+    @Test
+    public void testExample3() {
+        int n = 1;
+        int[] startPos = {0, 0};
+        String s = "LRUD";
+        int[] answer = solution(n, startPos, s);
+        assertEquals(new int[]{0, 0, 0, 0}, answer);
+    }
+
+    @Test
+    public void testExample4() {
+        int n = 2;
+        int[] startPos = {1, 1};
+        String s = "DD";
+        int[] answer = solution(n, startPos, s);
+        assertEquals(new int[]{3, 0}, answer);
+    }
+
+    @Test
+    public void testExample5() {
+        int n = 3;
+        int[] startPos = {2, 2};
+        String s = "UUURRR";
+        int[] answer = solution(n, startPos, s);
+        assertEquals(new int[]{1, 0, 4}, answer);
+    }
+}
+
+public class Solution {
+
+    public int[] solution(int n, int[] startPos, String s) {
+        int m = s.length();
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int[][] dp = new int[m][n * n];
+        for (int i = 0; i < m; i++) {
+            int[] pos = startPos.clone();
+            for (int j = i; j < m; j++) {
+                char c = s.charAt(j);
+                if (c == 'L' && pos[1] > 0) pos[1]--;
+                else if (c == 'R' && pos[1] < n - 1) pos[1]++;
+                else if (c == 'U' && pos[0] > 0) pos[0]--;
+                else if (c == 'D' && pos[0] < n - 1) pos[0]++;
+                int index = pos[0] * n + pos[1];
+                dp[j][index] = j - i + 1;
+            }
+        }
+        return dp[m - 1];
+    }
+}
+```

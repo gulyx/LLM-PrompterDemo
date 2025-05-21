@@ -1,0 +1,70 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 2785_DescriptionExample {
+
+    public String sortString(String s) {
+        char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+        int[] vowelCounts = new int[5];
+        for (char c : s.toCharArray()) {
+            if (vowels.includes(c)) {
+                vowelCounts[vowels.indexOf(Character.toLowerCase(c))] += 1;
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < vowelCounts.length; i++) {
+            while (vowelCounts[i]-- > 0) {
+                sb.append(vowels[i]);
+            }
+        }
+
+        for (char c : s.toCharArray()) {
+            if (!Character.isLetter(c)) continue;
+            sb.append(c);
+        }
+        return sb.toString();
+    }
+
+    @Test
+    public void test1() {
+        String s = "lEetcOde";
+        assertEquals("lEOtcede", sortString(s));
+    }
+
+    @Test
+    public void test2() {
+        String s = "lYmpH";
+        assertEquals("lYmpH", sortString(s));
+    }
+
+    @Test
+    public void test3() {
+        String s = "aabbcc";
+        assertEquals("aaabbbccc", sortString(s));
+    }
+
+    @Test
+    public void test4() {
+        String s = "abcde";
+        assertEquals("abcde", sortString(s));
+    }
+
+    @Test
+    public void test5() {
+        String s = "abcdefghijklmnopqrstuvwxyz";
+        StringBuilder expected = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (c == 'a' || c == 'e') continue;
+            expected.append(c);
+        }
+        for (int i = 0; i < 5; i++) {
+            expected.append('a');
+        }
+        assertEquals(expected.toString(), sortString(s));
+    }
+}
+```

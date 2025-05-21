@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1402_DescriptionOnly {
+
+    @Test
+    public void test1() {
+        int[] time = {1, 2};
+        int[] satisfaction = {-1, -1};
+        assertEquals(0, maxSatisfaction(time, satisfaction));
+    }
+
+    @Test
+    public void test2() {
+        int[] time = {1, 2, 3};
+        int[] satisfaction = {1, 2, 3};
+        assertEquals(9, maxSatisfaction(time, satisfaction));
+    }
+
+    @Test
+    public void test3() {
+        int[] time = {1, 2, 3};
+        int[] satisfaction = {-1,-2,-3};
+        assertEquals(-6, maxSatisfaction(time, satisfaction));
+    }
+
+    @Test
+    public void test4() {
+        int[] time = {1, 2, 3, 4, 5};
+        int[] satisfaction = {1, -2, 3, -4, 5};
+        assertEquals(15, maxSatisfaction(time, satisfaction));
+    }
+
+    @Test
+    public void test5() {
+        int[] time = {1, 2, 3, 4, 5};
+        int[] satisfaction = {-1,-2,-3,-4,-5};
+        assertEquals(-15, maxSatisfaction(time, satisfaction));
+    }
+}

@@ -1,0 +1,73 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1038_DescriptionExample {
+
+    public TreeNode convert(TreeNode root) {
+        return convert(root, 0);
+    }
+
+    private TreeNode convert(TreeNode node, int sum) {
+        if (node == null) {
+            return null;
+        }
+        TreeNode new_node = new TreeNode(node.val + sum);
+        new_node.left = convert(node.left, node.val + sum);
+        new_node.right = convert(node.right, sum - node.val);
+        return new_node;
+    }
+
+    @Test
+    public void testConvert() {
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(6);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(2);
+        root.right.left = new TreeNode(5);
+        root.right.right = new TreeNode(7);
+
+        TreeNode new_root = convert(root);
+        // Add assertions here to verify the output
+    }
+
+    @Test
+    public void testConvert_EmptyTree() {
+        TreeNode root = null;
+        TreeNode new_root = convert(root);
+        assertNull(new_root);
+    }
+
+    @Test
+    public void testConvert_SingleNodeTree() {
+        TreeNode root = new TreeNode(0);
+        TreeNode new_root = convert(root);
+        assertEquals(0, new_root.val);
+    }
+
+    @Test
+    public void testConvert_BalanceTree() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        TreeNode new_root = convert(root);
+        // Add assertions here to verify the output
+    }
+
+    @Test
+    public void testConvert_UnbalancedTree() {
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(6);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(2);
+        root.right.left = new TreeNode(5);
+        root.right.right = new TreeNode(7);
+
+        TreeNode new_root = convert(root);
+        // Add assertions here to verify the output
+    }
+}

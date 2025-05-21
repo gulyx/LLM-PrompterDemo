@@ -1,0 +1,77 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2375_DescriptionOnly {
+
+    @Test
+    public void test_1() {
+        String pattern = "ID";
+        String num = "1239";
+        assertEquals(num, smallestNumber(pattern));
+    }
+
+    @Test
+    public void test_2() {
+        String pattern = "DD";
+        String num = "98";
+        assertEquals(num, smallestNumber(pattern));
+    }
+
+    @Test
+    public void test_3() {
+        String pattern = "II";
+        String num = "12";
+        assertEquals(num, smallestNumber(pattern));
+    }
+
+    @Test
+    public void test_4() {
+        String pattern = "IDD";
+        String num = "1359";
+        assertEquals(num, smallestNumber(pattern));
+    }
+
+    @Test
+    public void test_5() {
+        String pattern = "";
+        String num = "1";
+        assertEquals(num, smallestNumber(pattern));
+    }
+}
+
+public class Solution {
+
+    public String smallestNumber(String pattern) {
+        if (pattern.isEmpty()) return "1";
+
+        char prev = pattern.charAt(0);
+        int prevDigit = Character.getNumericValue(prev);
+
+        StringBuilder sb = new StringBuilder("1");
+        for (int i = 1; i < pattern.length(); i++) {
+            char curr = pattern.charAt(i);
+            int currDigit = Character.getNumericValue(curr);
+
+            if (curr == 'I') {
+                while (sb.length() > 1 && prevDigit >= currDigit) {
+                    sb.insert(0, ++prevDigit);
+                }
+            } else {
+                while (sb.length() > 1 && prevDigit <= currDigit) {
+                    sb.append(++prevDigit);
+                }
+            }
+
+            if (curr != 'I') {
+                sb.append(curr);
+            }
+
+            prev = curr;
+            prevDigit = currDigit;
+        }
+
+        return sb.toString();
+    }
+}

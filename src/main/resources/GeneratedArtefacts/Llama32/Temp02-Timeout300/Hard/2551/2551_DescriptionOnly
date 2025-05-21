@@ -1,0 +1,74 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2551_DescriptionOnly {
+
+    @Test
+    public void testMaxMin() {
+        int[] weights = {2, 3, 4};
+        int k = 2;
+        assertEquals(5, maxMinScore(weights, k));
+    }
+
+    @Test
+    public void testMaxMin_2() {
+        int[] weights = {1, 1, 1, 1, 1};
+        int k = 1;
+        assertEquals(0, maxMinScore(weights, k));
+    }
+
+    @Test
+    public void testMaxMin_3() {
+        int[] weights = {10, 20, 30, 40, 50};
+        int k = 2;
+        assertEquals(90, maxMinScore(weights, k));
+    }
+
+    @Test
+    public void testMaxMin_4() {
+        int[] weights = {1, 3, 5, 7, 9};
+        int k = 2;
+        assertEquals(16, maxMinScore(weights, k));
+    }
+
+    @Test
+    public void testMaxMin_5() {
+        int[] weights = {1000000, 2000000, 3000000, 4000000, 5000000};
+        int k = 2;
+        assertEquals(9000000, maxMinScore(weights, k));
+    }
+
+}
+
+public class Solution {
+
+    public int maxMinScore(int[] weights, int k) {
+        int n = weights.length;
+        long minScore = Long.MAX_VALUE;
+        long maxScore = 0;
+
+        for (int i = 0; i < n; i++) {
+            long score = 0;
+            for (int j = i + 1; j <= n && k > 0; j++) {
+                score += weights[j - 1] + weights[i];
+                if (j == n) break;
+                k--;
+            }
+            minScore = Math.min(minScore, score);
+        }
+
+        for (int i = 0; i < n; i++) {
+            long score = 0;
+            for (int j = i + 1; j <= n && k > 0; j++) {
+                score += weights[j - 1] + weights[i];
+                if (j == n) break;
+                k--;
+            }
+            maxScore += score;
+        }
+
+        return (int)(maxScore - minScore);
+    }
+}

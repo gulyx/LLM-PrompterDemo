@@ -1,0 +1,63 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import java.util.*;
+
+public class 51_DescriptionOnly {
+
+    @Test
+    public void testNQueens() {
+        int[][] result = new Solution().solveNQueens(4);
+        List<String> expected = Arrays.asList(
+            "Q. Q.. Q...",
+            ". Q... Q.",
+            "Q... Q. Q",
+            ".. Q... Q."
+        );
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testNQueens_1() {
+        int[][] result = new Solution().solveNQueens(1);
+        List<String> expected = Arrays.asList(
+            "Q"
+        );
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testNQueens_2() {
+        int[][] result = new Solution().solveNQueens(2);
+        List<String> expected = Arrays.asList(
+            "Q... Q.",
+            ". Q...",
+            "Q... Q."
+        );
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testNQueens_3() {
+        int[][] result = new Solution().solveNQueens(3);
+        List<String> expected = Arrays.asList(
+            "Q. . .",
+            "... Q.",
+            ".. Q..."
+        );
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testNQueens_4() {
+        int[][] result = new Solution().solveNQueens(5);
+        List<String> expected = Arrays.asList(
+            "Q... ...",
+            ". . . . Q",
+            "... . . Q",
+            ".. . . ..",
+            ".... Q..."
+        );
+        assertEquals(expected, result);
+    }
+}

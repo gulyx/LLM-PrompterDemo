@@ -1,0 +1,49 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExample {
+
+    @Test
+    public void testExample1() {
+        int[] plantTime = {1, 4, 3};
+        int[] growTime = {2, 3, 1};
+        assertEquals(9, solve(plantTime, growTime));
+    }
+
+    @Test
+    public void testExample2() {
+        int[] plantTime = {1, 2, 3, 2};
+        int[] growTime = {2, 1, 2, 1};
+        assertEquals(9, solve(plantTime, growTime));
+    }
+
+    @Test
+    public void testExample3() {
+        int[] plantTime = {1};
+        int[] growTime = {1};
+        assertEquals(2, solve(plantTime, growTime));
+    }
+
+    @Test
+    public void testExample4() {
+        int[] plantTime = {1, 2, 3, 4, 5};
+        int[] growTime = {1, 2, 3, 4, 5};
+        assertEquals(15, solve(plantTime, growTime));
+    }
+
+    @Test
+    public void testExample5() {
+        int[] plantTime = {10, 20, 30, 40, 50};
+        int[] growTime = {1, 2, 3, 4, 5};
+        assertEquals(55, solve(plantTime, growTime));
+    }
+
+    public int solve(int[] plantTime, int[] growTime) {
+        // implement your solution here
+        return 0;
+    }
+}
+```

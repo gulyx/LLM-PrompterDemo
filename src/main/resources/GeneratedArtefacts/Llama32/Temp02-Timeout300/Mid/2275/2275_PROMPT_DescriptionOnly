@@ -1,0 +1,8 @@
+As a professional Software Tester, generate a complete Junit class test file (name the class as :'2275_DescriptionOnly', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
+The bitwise AND of an array "nums" is the bitwise AND of all integers in "nums".
+
+For example, for "nums = [1, 5, 3]", the bitwise AND is equal to "1 & 5 & 3 = 1".
+Also, for "nums = [7]", the bitwise AND is "7".
+You are given an array of positive integers "candidates". Compute the bitwise AND for all possible combinations of elements in the "candidates" array.
+
+Return the size of the largest combination of "candidates" with a bitwise AND greater than "0".

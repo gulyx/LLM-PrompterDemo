@@ -1,0 +1,62 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExample {
+
+    @Test
+    public void testPartitionString() {
+        String s = "abacaba";
+        int expectedOutput = 4;
+        assertEquals(expectedOutput, partition(s));
+    }
+
+    @Test
+    public void testPartitionString2() {
+        String s = "ssssss";
+        int expectedOutput = 6;
+        assertEquals(expectedOutput, partition(s));
+    }
+
+    @Test
+    public void testPartitionString3() {
+        String s = "abcde";
+        int expectedOutput = 5;
+        assertEquals(expectedOutput, partition(s));
+    }
+
+    @Test
+    public void testPartitionString4() {
+        String s = "";
+        int expectedOutput = 0;
+        assertEquals(expectedOutput, partition(s));
+    }
+
+    @Test
+    public void testPartitionString5() {
+        String s = "a";
+        int expectedOutput = 1;
+        assertEquals(expectedOutput, partition(s));
+    }
+}
+
+public class Solution {
+
+    public int partition(String s) {
+        boolean[] used = new boolean[26];
+        int count = 0;
+        for (char c : s.toCharArray()) {
+            if (!used[c - 'a']) {
+                used[c - 'a'] = true;
+                count++;
+            } else {
+                count = 1;
+                used[c - 'a'] = true;
+            }
+        }
+        return count;
+    }
+}
+```

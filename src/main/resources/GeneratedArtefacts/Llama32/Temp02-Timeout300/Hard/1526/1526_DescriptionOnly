@@ -1,0 +1,46 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
+
+public class DescriptionOnly {
+    @Test
+    public void testMinOperations() {
+        int[] target = {1, 2, 3};
+        int[] initial = new int[target.length];
+        Arrays.fill(initial, 0);
+        assertEquals(6, minOperations(target, initial));
+    }
+
+    @Test
+    public void testMinOperationsZeroTarget() {
+        int[] target = {};
+        int[] initial = new int[target.length];
+        Arrays.fill(initial, 0);
+        assertEquals(0, minOperations(target, initial));
+    }
+
+    @Test
+    public void testMinOperationsAllZeros() {
+        int[] target = {1, 2, 3};
+        int[] initial = new int[target.length];
+        Arrays.fill(initial, 0);
+        assertEquals(3, minOperations(target, initial));
+    }
+
+    @Test
+    public void testMinOperationsEqualTargetAndInitial() {
+        int[] target = {1, 2, 3};
+        int[] initial = {1, 2, 3};
+        assertEquals(0, minOperations(target, initial));
+    }
+
+    @Test
+    public void testMinOperationsLargeDiff() {
+        int[] target = {1000000, 2000000, 3000000};
+        int[] initial = new int[target.length];
+        Arrays.fill(initial, 0);
+        assertEquals(3000000, minOperations(target, initial));
+    }
+}

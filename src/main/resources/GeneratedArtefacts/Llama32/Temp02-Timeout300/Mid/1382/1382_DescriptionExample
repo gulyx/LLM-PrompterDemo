@@ -1,0 +1,95 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class DescriptionExample {
+
+    public TreeNode balanceBST(TreeNode root) {
+        if (root == null) return null;
+        int leftSum = 0, rightSum = 0;
+        TreeNode current = root;
+        while (current.left != null) current = current.left;
+        while (current.right != null) current = current.right;
+
+        while (current != null) {
+            if (current.left == null) leftSum += current.val;
+            else leftSum += current.left.val;
+            if (current.right == null) rightSum += current.val;
+            else rightSum += current.right.val;
+            int midVal = leftSum - rightSum;
+            TreeNode newNode = new TreeNode(midVal);
+            if (newNode.val < root.val) {
+                newNode.right = root;
+                root.left = newNode;
+                return balanceBST(root.left);
+            } else {
+                newNode.left = root;
+                root.right = newNode;
+                return balanceBST(root.right);
+            }
+        }
+        return null;
+    }
+
+    @Test
+    public void test1() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(null);
+        root.right = new TreeNode(3);
+        root.right.left = new TreeNode(2);
+        root.right.right = new TreeNode(4);
+
+        TreeNode expected = new TreeNode(2);
+        expected.left = new TreeNode(1);
+        expected.right = new TreeNode(3);
+        expected.right.left = new TreeNode(null);
+        expected.right.right = new TreeNode(4);
+        assertEquals(expected, balanceBST(root));
+    }
+
+    @Test
+    public void test2() {
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(3);
+
+        TreeNode expected = new TreeNode(2);
+        expected.left = new TreeNode(1);
+        expected.right = new TreeNode(3);
+        assertEquals(expected, balanceBST(root));
+    }
+
+    @Test
+    public void test3() {
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(3);
+
+        TreeNode expected = new TreeNode(2);
+        expected.left = new TreeNode(1);
+        expected.right = new TreeNode(3);
+        assertEquals(expected, balanceBST(root));
+    }
+
+    @Test
+    public void test4() {
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(1);
+
+        TreeNode expected = new TreeNode(2);
+        expected.left = new TreeNode(1);
+        assertEquals(expected, balanceBST(root));
+    }
+
+    @Test
+    public void test5() {
+        TreeNode root = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        TreeNode expected = new TreeNode(2);
+        expected.right = new TreeNode(3);
+        assertEquals(expected, balanceBST(root));
+    }
+}
+```

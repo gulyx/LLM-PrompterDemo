@@ -1,0 +1,50 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.*;
+
+public class HappyStringTest {
+
+    public static void main(String[] args) {
+        HappyStringTest test = new HappyStringTest();
+        System.out.println(test.test1());
+        System.out.println(test.test2());
+        System.out.println(test.test3());
+        System.out.println(test.test4());
+        System.out.println(test.test5());
+    }
+
+    public String getHappyString(int n, int k) {
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            result.add(String.valueOf((char) ('a' + i)));
+        }
+        return findKth(result, k);
+    }
+
+    private String findKth(List<String> list, int k) {
+        if (list.size() < k) {
+            return "";
+        }
+        return list.get(k - 1);
+    }
+
+    public void test1() {
+        System.out.println(getHappyString(7, 1));
+    }
+
+    public void test2() {
+        System.out.println(getHappyString(10, 100));
+    }
+
+    public void test3() {
+        System.out.println(getHappyString(5, 4));
+    }
+
+    public void test4() {
+        System.out.println(getHappyString(20, 1));
+    }
+
+    public void test5() {
+        System.out.println(getHappyString(10, 1000000));
+    }
+}

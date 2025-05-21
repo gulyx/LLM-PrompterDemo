@@ -1,0 +1,57 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.*;
+
+public class DescriptionOnly {
+    public int[] partitionLabels(String s) {
+        int n = s.length();
+        int[] ans = new int[n];
+        int right = -1;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            map.put(i, s.charAt(i) - 'a');
+            right = Math.max(right, map.get(s.charAt(i) - 'a'));
+            ans[i] = right;
+        }
+        return ans;
+    }
+
+    @Test
+    public void test1() {
+        String s = "ababcc";
+        int[] result = partitionLabels(s);
+        assertEquals(new int[]{3, 2}, result);
+    }
+
+    @Test
+    public void test2() {
+        String s = "aa";
+        int[] result = partitionLabels(s);
+        assertEquals(new int[]{1}, result);
+    }
+
+    @Test
+    public void test3() {
+        String s = "abbbcc";
+        int[] result = partitionLabels(s);
+        assertEquals(new int[]{4, 2}, result);
+    }
+
+    @Test
+    public void test4() {
+        String s = "abcde";
+        int[] result = partitionLabels(s);
+        assertArrayEquals(new int[]{1, 1, 1, 1, 1}, result);
+    }
+
+    @Test
+    public void test5() {
+        String s = "aaaaa";
+        int[] result = partitionLabels(s);
+        assertEquals(new int[]{5}, result);
+    }
+}
+```
