@@ -1,4 +1,0 @@
-As a professional Software Tester, generate a complete Junit class test file (name the class as :'1780_DescriptionOnly', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
-Given an integer "n", return "true" if it is possible to represent "n" as the sum of distinct powers of three. Otherwise, return "false".
-
-An integer "y" is a power of three if there exists an integer "x" such that "y == 3x".

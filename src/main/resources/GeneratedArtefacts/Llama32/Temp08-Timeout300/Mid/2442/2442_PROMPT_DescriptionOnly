@@ -1,6 +1,0 @@
-As a professional Software Tester, generate a complete Junit class test file (name the class as :'2442_DescriptionOnly', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
-You are given an array "nums" consisting of positive integers.
-
-You have to take each integer in the array, reverse its digits, and add it to the end of the array. You should apply this operation to the original integers in "nums".
-
-Return the number of distinct integers in the final array.

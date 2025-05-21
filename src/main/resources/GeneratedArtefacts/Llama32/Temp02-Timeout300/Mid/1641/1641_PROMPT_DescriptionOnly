@@ -1,8 +1,0 @@
-As a professional Software Tester, generate a complete Junit class test file (name the class as :'1641_DescriptionOnly', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
-Given an integer "n", return the number of strings of length "n" that consist only of vowels ("a", "e", "i", "o", "u") and are lexicographically sorted.
-
-A string "s" is lexicographically sorted if for all valid "i", "s[i]" is the same as or comes before "s[i+1]" in the alphabet.
-
-Constraints:
-
-* "1 <= n <= 50" 

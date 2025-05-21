@@ -1,7 +1,0 @@
-As a professional Software Tester, generate a complete Junit class test file (name the class as :'1347_DescriptionOnly', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
-You are given two strings of the same length "s" and "t". In one step you can choose any character of "t" and replace it with another character.
-
-Return the minimum number of steps to make "t" an anagram of "s".
-
-An Anagram of a string is a string that contains the same characters with a different (or the same) ordering.
-

@@ -1,2 +1,0 @@
-As a professional Software Tester, generate a complete Junit class test file (name the class as :'1277_DescriptionOnly', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
-Given a "m * n" matrix of ones and zeros, return how many square submatrices have all ones.
