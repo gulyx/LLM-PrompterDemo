@@ -1,0 +1,60 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1382;
+
+public class Solution {
+    public TreeNode balanceBST(TreeNode root) {
+        inorder(root);
+        int n = size;
+        TreeNode[] nodes = new TreeNode[n];
+        build(nodes, 0, n - 1);
+        return sortedArrayToBST(nodes[0], n - 1);
+    }
+
+    private void inorder(TreeNode node) {
+        if (node == null)
+            return;
+        inorder(node.left);
+        values.add(node.val);
+        inorder(node.right);
+    }
+
+    private int size = 0;
+
+    private void build(TreeNode[] nodes, int start, int end) {
+        if (start > end)
+            return;
+        int i = start;
+        for (int j = start + 1; j <= end; j++) {
+            if (nodes[j].val < nodes[i].val) {
+                int temp = nodes[start];
+                nodes[start] = nodes[j];
+                nodes[j] = temp;
+            }
+        }
+        size++;
+        build(nodes, start + 1, end);
+    }
+
+    private TreeNode sortedArrayToBST(TreeNode[] nodes, int start, int end) {
+        if (start > end)
+            return null;
+        TreeNode root = new TreeNode(values.get(start));
+        int i = start;
+        for (int j = start + 1; j <= end; j++) {
+            if (nodes[j].val < root.val) {
+                int temp = nodes[start];
+                nodes[start] = nodes[j];
+                nodes[j] = temp;
+            }
+        }
+        root.left = sortedArrayToBST(nodes, start + 1, i - 1);
+        root.right = sortedArrayToBST(nodes, i, end);
+        return root;
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int x) { val = x; }
+    }
+}

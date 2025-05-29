@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2317;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2317.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] nums = {3, 2, 4, 6};
+        assertEquals(7, solution.maxBitwiseXor(nums));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2, 3, 9, 2};
+        assertEquals(11, solution.maxBitwiseXor(nums));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] nums = {5, 3, 6, 7};
+        assertEquals(15, solution.maxBitwiseXor(nums));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2, 3, 4, 5};
+        assertEquals(31, solution.maxBitwiseXor(nums));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] nums = {0, 1, 2, 3, 4};
+        assertEquals(15, solution.maxBitwiseXor(nums));
+    }
+}
+```

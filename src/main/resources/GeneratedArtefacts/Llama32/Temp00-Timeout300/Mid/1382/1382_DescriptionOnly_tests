@@ -1,0 +1,64 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1382;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1382.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void testBalancedTree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        expectedRoot.right = new TreeNode(3);
+        assertEquals(expectedRoot, solution.balanceBST(root));
+    }
+
+    @Test
+    public void testBalancedTreeWithOneNode() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        TreeNode expectedRoot = root;
+        assertEquals(expectedRoot, solution.balanceBST(root));
+    }
+
+    @Test
+    public void testUnbalancedTree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        assertEquals(expectedRoot, solution.balanceBST(root));
+    }
+
+    @Test
+    public void testEmptyTree() {
+        Solution solution = new Solution();
+        TreeNode root = null;
+        assertNull(solution.balanceBST(root));
+    }
+
+    @Test
+    public void testBalancedTreeWithMultipleNodes() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+        TreeNode expectedRoot = new TreeNode(4);
+        expectedRoot.left = new TreeNode(2);
+        expectedRoot.right = new TreeNode(7);
+        assertEquals(expectedRoot, solution.balanceBST(root));
+    }
+}
+```

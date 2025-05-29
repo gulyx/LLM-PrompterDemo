@@ -1,0 +1,34 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.894;
+
+import java.util.*;
+
+public class Solution {
+    public List<TreeNode> allPossibleFBT(int n) {
+        if (n % 2 == 0) return new ArrayList<>();
+        if (n == 1) return new ArrayList<>(Arrays.asList(new TreeNode(0)));
+
+        List<TreeNode> left = allPossibleFBT(n / 2);
+        List<TreeNode> right = allPossibleFBT(n - 1 - n / 2);
+
+        List<TreeNode> result = new ArrayList<>();
+
+        for (TreeNode l : left) {
+            for (TreeNode r : right) {
+                TreeNode root = new TreeNode(0);
+                root.left = l;
+                root.right = r;
+                result.add(root);
+            }
+        }
+
+        return result;
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) { val = x; }
+    }
+}

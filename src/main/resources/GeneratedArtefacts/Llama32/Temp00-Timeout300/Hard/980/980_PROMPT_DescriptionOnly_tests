@@ -1,0 +1,16 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '980_DescriptionOnly_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.980;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.980.Solution;'). The class-under-test implements the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description for the class-under-test: 
+You are given an "m x n" integer array "grid" where "grid[i][j]" could be:
+- "1" representing the starting square. There is exactly one starting square.
+- "2" representing the ending square. There is exactly one ending square.
+- "0" representing empty squares we can walk over.
+- "-1" representing obstacles that we cannot walk over.
+Return the number of 4-directional walks from the starting square to the ending square, that walk over every non-obstacle square exactly once.
+Constraints:
+- "m == grid.length"
+- "n == grid\[i].length"
+- "1 <= m, n <= 20"
+- "1 <= m \* n <= 20"
+- "-1 <= grid\[i]\[j] <= 2"
+- There is exactly one starting cell and one ending cell.
+
+

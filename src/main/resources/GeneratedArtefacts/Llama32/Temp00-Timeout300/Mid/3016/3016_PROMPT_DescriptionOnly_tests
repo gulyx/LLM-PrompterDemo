@@ -1,0 +1,8 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '3016_DescriptionOnly_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3016;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3016.Solution;'). The class-under-test implements the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description for the class-under-test: 
+You are given a string "word" containing lowercase English letters.
+
+Telephone keypads have keys mapped with distinct collections of lowercase English letters, which can be used to form words by pushing them. For example, the key "2" is mapped with "["a","b","c"]", we need to push the key one time to type ""a"", two times to type ""b"", and three times to type ""c"" .
+
+It is allowed to remap the keys numbered "2" to "9" to distinct collections of letters. The keys can be remapped to any amount of letters, but each letter must be mapped to exactly one key. You need to find the minimum number of times the keys will be pushed to type the string "word".
+
+Return the minimum number of pushes needed to type "word" after remapping the keys.

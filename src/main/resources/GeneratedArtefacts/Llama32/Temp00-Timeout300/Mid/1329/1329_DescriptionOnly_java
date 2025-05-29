@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1329;
+
+import java.util.*;
+
+public class Solution {
+    public int[][] diagonalSort(int[][] mat) {
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[0].length; j++) {
+                int key = i + j;
+                if (!map.containsKey(key)) {
+                    map.put(key, new ArrayList<>());
+                }
+                map.get(key).add(mat[i][j]);
+            }
+        }
+
+        List<List<Integer>> result = new ArrayList<>();
+        for (List<Integer> list : map.values()) {
+            Collections.sort(list);
+            result.add(new ArrayList<>(list));
+        }
+
+        int[][] res = new int[mat.length][mat[0].length];
+        Map<Integer, Integer> indexMap = new HashMap<>();
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[0].length; j++) {
+                int key = i + j;
+                res[i][j] = result.get(key).remove(indexMap.get(key));
+                indexMap.put(key, indexMap.getOrDefault(key, 0) + 1);
+            }
+        }
+
+        return res;
+    }
+}

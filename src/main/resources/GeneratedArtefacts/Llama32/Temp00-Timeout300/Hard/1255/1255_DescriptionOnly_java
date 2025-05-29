@@ -1,0 +1,27 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1255;
+
+import java.util.*;
+
+public class Solution {
+    public int maxScoreWords(String[] words, char[] letters, int[] score) {
+        Map<Character, Integer> letterCount = new HashMap<>();
+        for (char c : letters) {
+            letterCount.put(c, letterCount.getOrDefault(c, 0) + 1);
+        }
+        int totalScore = 0;
+        for (String word : words) {
+            char[] wordArray = word.toCharArray();
+            boolean isValidWord = true;
+            for (int i = 0; i < word.length(); i++) {
+                if (!letterCount.containsKey(wordArray[i]) || letterCount.get(wordArray[i]) == 0) {
+                    isValidWord = false;
+                    break;
+                }
+                totalScore += score[wordArray[i] - 'a'];
+                letterCount.put(wordArray[i], letterCount.get(wordArray[i]) - 1);
+            }
+            if (isValidWord) continue;
+        }
+        return totalScore;
+    }
+}

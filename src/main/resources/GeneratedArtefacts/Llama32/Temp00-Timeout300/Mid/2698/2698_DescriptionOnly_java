@@ -1,0 +1,27 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2698;
+
+public class Solution {
+    public int punishmentNumber(int n) {
+        boolean[] isPartition = new boolean[n + 1];
+        for (int i = 1; i <= n; i++) {
+            for (int j = i * i; j > 0; j /= 10) {
+                String s = Integer.toString(j);
+                int sum = 0;
+                for (char c : s.toCharArray()) {
+                    sum += c - '0';
+                }
+                if (sum == i && !isPartition[i]) {
+                    isPartition[i] = true;
+                }
+            }
+        }
+
+        int result = 0;
+        for (int i = 1; i <= n; i++) {
+            if (isPartition[i]) {
+                result += i * i;
+            }
+        }
+        return result;
+    }
+}

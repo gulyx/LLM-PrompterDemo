@@ -1,0 +1,28 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1310;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Solution {
+    public int[] xorQueries(int[] arr, int[][] queries) {
+        Map<Integer, Integer> prefixXor = new HashMap<>();
+        prefixXor.put(0, 0);
+        for (int i = 1; i < arr.length; i++) {
+            prefixXor.put(i, prefixXor.get(i - 1) ^ arr[i]);
+        }
+        int[] answer = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            answer[i] = prefixXor.get(queries[i][1]) ^ prefixXor.get(queries[i][0] - 1);
+        }
+        return answer;
+    }
+
+    [--Example 1--]
+    int[] arr = {1,3,4,8};
+    int[][] queries = {{0,1},{1,2},{0,3},{3,3}};
+    int[] expectedOutput = {2,7,14,8};
+
+    [--Example 2--]
+    int[] arr2 = {4,8,2,10};
+    int[][] queries2 = {{2,3},{1,3},{0,0},{0,3}};
+    int[] expectedOutput2 = {8,0,4,4};

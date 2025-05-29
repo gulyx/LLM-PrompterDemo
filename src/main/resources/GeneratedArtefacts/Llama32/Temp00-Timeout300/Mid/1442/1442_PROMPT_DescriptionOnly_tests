@@ -1,0 +1,19 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '1442_DescriptionOnly_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1442;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1442.Solution;'). The class-under-test implements the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description for the class-under-test: 
+Given an array of integers "arr".
+
+We want to select three indices "i", "j" and "k" where "(0 <= i < j <= k < arr.length)".
+
+Let's define "a" and "b" as follows:
+
+* "a = arr[i] ^ arr[i + 1] ^ ... ^ arr[j - 1]"
+* "b = arr[j] ^ arr[j + 1] ^ ... ^ arr[k]"
+
+Note that ^ denotes the bitwise-xor operation.
+
+Return the number of triplets ("i", "j" and "k") Where "a == b".
+
+
+Constraints:
+
+* "1 <= arr.length <= 300"
+* "1 <= arr[i] <= 108"

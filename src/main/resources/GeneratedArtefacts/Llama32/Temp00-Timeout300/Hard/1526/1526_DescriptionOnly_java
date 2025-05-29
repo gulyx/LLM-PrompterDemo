@@ -1,0 +1,12 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1526;
+
+public class Solution {
+    public int minOperations(int[] target) {
+        int result = 0;
+        for (int i : target) {
+            if (i == 1)
+                result++;
+        }
+        return result;
+    }
+}

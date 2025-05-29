@@ -1,0 +1,72 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.654;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.654.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SolutionTest {
+
+    @Test
+    public void testBuildMaxTree() {
+        Solution solution = new Solution();
+        int[] nums = {3,2,1,6,0,5};
+        TreeNode expectedRoot = new TreeNode(6);
+        expectedRoot.left = new TreeNode(3);
+        expectedRoot.right = new TreeNode(5);
+        expectedRoot.left.left = new TreeNode(2);
+        expectedRoot.left.right = new TreeNode(0);
+        solution.buildMaxTree(nums);
+        assertEquals(expectedRoot, solution.root);
+    }
+
+    @Test
+    public void testBuildMaxTree_2() {
+        Solution solution = new Solution();
+        int[] nums = {3,2,1};
+        TreeNode expectedRoot = new TreeNode(3);
+        expectedRoot.right = new TreeNode(2);
+        expectedRoot.right.left = new TreeNode(1);
+        solution.buildMaxTree(nums);
+        assertEquals(expectedRoot, solution.root);
+    }
+
+    @Test
+    public void testBuildMaxTree_3() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3};
+        TreeNode expectedRoot = new TreeNode(3);
+        expectedRoot.left = new TreeNode(2);
+        expectedRoot.right = new TreeNode(1);
+        solution.buildMaxTree(nums);
+        assertEquals(expectedRoot, solution.root);
+    }
+
+    @Test
+    public void testBuildMaxTree_4() {
+        Solution solution = new Solution();
+        int[] nums = {5,4,3,2,1};
+        TreeNode expectedRoot = new TreeNode(5);
+        expectedRoot.left = new TreeNode(4);
+        expectedRoot.right = new TreeNode(3);
+        expectedRoot.left.left = new TreeNode(2);
+        expectedRoot.left.right = new TreeNode(1);
+        solution.buildMaxTree(nums);
+        assertEquals(expectedRoot, solution.root);
+    }
+
+    @Test
+    public void testBuildMaxTree_5() {
+        Solution solution = new Solution();
+        int[] nums = {10,9,8,7,6,5};
+        TreeNode expectedRoot = new TreeNode(10);
+        expectedRoot.left = new TreeNode(9);
+        expectedRoot.right = new TreeNode(8);
+        expectedRoot.left.left = new TreeNode(7);
+        expectedRoot.left.right = new TreeNode(6);
+        expectedRoot.left.left.left = new TreeNode(5);
+        solution.buildMaxTree(nums);
+        assertEquals(expectedRoot, solution.root);
+    }
+}
+```

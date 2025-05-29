@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1561;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1561.Solution;
+
+public class 1561_DescriptionExample_testsTest {
+
+    Solution solution = new Solution();
+
+    @Test
+    public void test_1() {
+        int[] piles = {2,4,1,2,7,8};
+        int expectedOutput = 9;
+        assertEquals(expectedOutput, solution.maxCoins(piles));
+    }
+
+    @Test
+    public void test_2() {
+        int[] piles = {2,4,5};
+        int expectedOutput = 4;
+        assertEquals(expectedOutput, solution.maxCoins(piles));
+    }
+
+    @Test
+    public void test_3() {
+        int[] piles = {9,8,7,6,5,1,2,3,4};
+        int expectedOutput = 18;
+        assertEquals(expectedOutput, solution.maxCoins(piles));
+    }
+
+    @Test
+    public void test_4() {
+        int[] piles = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int expectedOutput = 45;
+        assertEquals(expectedOutput, solution.maxCoins(piles));
+    }
+
+    @Test
+    public void test_5() {
+        int[] piles = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int expectedOutput = 54;
+        assertEquals(expectedOutput, solution.maxCoins(piles));
+    }
+}

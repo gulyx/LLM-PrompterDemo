@@ -1,0 +1,44 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2221;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2221.Solution;
+
+public class 2221_DescriptionExample_testsTest {
+
+    @Test
+    public void testTriangularSum_SingleElementArray() {
+        Solution solution = new Solution();
+        int[] nums = {5};
+        int expectedOutput = 5;
+        assertEquals(expectedOutput, solution.triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_MultipleElementsArray() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3,4,5};
+        int expectedOutput = 8;
+        assertEquals(expectedOutput, solution.triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_EmptyArray() {
+        Solution solution = new Solution();
+        int[] nums = {};
+        int expectedOutput = 0;
+        assertEquals(expectedOutput, solution.triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_NullArray() {
+        Solution solution = new Solution();
+        int[] nums = null;
+        assertThrows(NullPointerException.class, () -> solution.triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_InvalidInput() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3,4,5,6};
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> solution.triangularSum(nums));
+    }
+}

@@ -1,0 +1,67 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2482;
+
+public class Solution {
+    public int[][] addOnesMatrix(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int[][] diff = new int[m][n];
+
+        for (int i = 0; i < m; i++) {
+            int onesRow = 0, zerosRow = 0;
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) onesRow++;
+                else zerosRow++;
+            }
+            diff[i][0] = onesRow + countOnesCol(grid, i, 0) - zerosRow - countZerosCol(grid, i, 0);
+        }
+
+        for (int j = 1; j < n; j++) {
+            int onesCol = 0, zerosCol = 0;
+            for (int i = 0; i < m; i++) {
+                if (grid[i][j] == 1) onesCol++;
+                else zerosCol++;
+            }
+            diff[0][j] = countOnesRow(grid, 0, j) + onesCol - countZerosRow(grid, 0, j) - zerosCol;
+        }
+
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                diff[i][j] = countOnesRow(grid, i, j) + countOnesCol(grid, i, j) - countZerosRow(grid, i, j) - countZerosCol(grid, i, j);
+            }
+        }
+
+        return diff;
+    }
+
+    private int countOnesRow(int[][] grid, int row, int col) {
+        int ones = 0;
+        for (int i = row; i < grid.length; i++) {
+            if (grid[i][col] == 1) ones++;
+        }
+        return ones;
+    }
+
+    private int countZerosRow(int[][] grid, int row, int col) {
+        int zeros = 0;
+        for (int i = row; i < grid.length; i++) {
+            if (grid[i][col] == 0) zeros++;
+        }
+        return zeros;
+    }
+
+    private int countOnesCol(int[][] grid, int row, int col) {
+        int ones = 0;
+        for (int j = col; j < grid[0].length; j++) {
+            if (grid[row][j] == 1) ones++;
+        }
+        return ones;
+    }
+
+    private int countZerosCol(int[][] grid, int row, int col) {
+        int zeros = 0;
+        for (int j = col; j < grid[0].length; j++) {
+            if (grid[row][j] == 0) zeros++;
+        }
+        return zeros;
+    }
+}

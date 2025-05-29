@@ -1,0 +1,14 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2683;
+
+public class Solution {
+    public boolean validPuzzle(int[] derived) {
+        int n = derived.length;
+        if (n == 1) return true;
+        if ((derived[0] & 1) != 0 || (derived[n - 1] & 1) != 0) return false;
+
+        for (int i = 1; i < n - 1; i++) {
+            if (((derived[i] ^ derived[i + 1]) & 1) != 0) return false;
+        }
+        return true;
+    }
+}

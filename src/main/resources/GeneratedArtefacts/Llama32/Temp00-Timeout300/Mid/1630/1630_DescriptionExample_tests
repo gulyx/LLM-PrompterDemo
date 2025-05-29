@@ -1,0 +1,71 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1630;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1630.Solution;
+
+public class 1630_DescriptionExample_testsTest {
+
+    public void test1() {
+        Solution solution = new Solution();
+        int[] nums = {4,6,5,9,3,7};
+        int[][] l = {{0},{0},{2}};
+        int[][] r = {{2},{3},{5}};
+        boolean[] answer = solution.checkRangeNearbySequence(nums, l, r);
+        assert answer[0] == true;
+        assert answer[1] == false;
+        assert answer[2] == true;
+    }
+
+    public void test2() {
+        Solution solution = new Solution();
+        int[] nums = {-12,-9,-3,-12,-6,15,20,-25,-20,-15,-10};
+        int[][] l = {{0},{1},{6},{4},{8},{7}};
+        int[][] r = {{4},{4},{9},{7},{9},{10}};
+        boolean[] answer = solution.checkRangeNearbySequence(nums, l, r);
+        assert answer[0] == false;
+        assert answer[1] == true;
+        assert answer[2] == false;
+        assert answer[3] == false;
+        assert answer[4] == true;
+        assert answer[5] == true;
+    }
+
+    public void test3() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2, 3, 4, 5};
+        int[][] l = {{0},{0},{0},{0},{0}};
+        int[][] r = {{0},{0},{0},{0},{0}};
+        boolean[] answer = solution.checkRangeNearbySequence(nums, l, r);
+        assert answer[0] == true;
+        assert answer[1] == true;
+        assert answer[2] == true;
+        assert answer[3] == true;
+        assert answer[4] == true;
+    }
+
+    public void test4() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2, 3, 4, 5};
+        int[][] l = {{0},{0},{0},{0},{0}};
+        int[][] r = {{0},{0},{0},{0},{0}};
+        boolean[] answer = solution.checkRangeNearbySequence(nums, l, r);
+        assert answer[0] == true;
+        assert answer[1] == true;
+        assert answer[2] == true;
+        assert answer[3] == true;
+        assert answer[4] == true;
+    }
+
+    public void test5() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2, 3, 4, 5};
+        int[][] l = {{0},{0},{0},{0},{0}};
+        int[][] r = {{0},{0},{0},{0},{0}};
+        boolean[] answer = solution.checkRangeNearbySequence(nums, l, r);
+        assert answer[0] == true;
+        assert answer[1] == true;
+        assert answer[2] == true;
+        assert answer[3] == true;
+        assert answer[4] == true;
+    }
+
+}

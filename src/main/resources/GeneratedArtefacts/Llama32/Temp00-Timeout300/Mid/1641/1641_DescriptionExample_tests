@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1641;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1641.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 1641_DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int result = solution.countVowelStrings(1);
+        assertEquals(5, result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int result = solution.countVowelStrings(2);
+        assertEquals(15, result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int result = solution.countVowelStrings(33);
+        assertEquals(66045, result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int result = solution.countVowelStrings(50);
+        assertEquals(218038860585210, result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int result = solution.countVowelStrings(1);
+        assertEquals(5, result);
+    }
+}
+```

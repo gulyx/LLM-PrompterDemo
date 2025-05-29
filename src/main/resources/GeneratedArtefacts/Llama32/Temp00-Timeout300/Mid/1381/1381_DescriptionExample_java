@@ -1,0 +1,55 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1381;
+
+import java.util.*;
+
+public class Solution {
+    private int maxSize;
+    private List<Integer> stack;
+    private int[] incrementStack;
+
+    public Solution(int maxSize) {
+        this.maxSize = maxSize;
+        this.stack = new ArrayList<>();
+        this.incrementStack = new int[maxSize];
+    }
+
+    public void push(int x) {
+        if (stack.size() < maxSize) {
+            stack.add(x);
+        }
+    }
+
+    public int pop() {
+        if (!stack.isEmpty()) {
+            return stack.remove(stack.size() - 1);
+        } else {
+            return -1;
+        }
+    }
+
+    public void inc(int k, int val) {
+        for (int i = Math.min(k, stack.size()); i > 0; i--) {
+            incrementStack[i] += val;
+        }
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution(3);
+        solution.push(1);
+        solution.push(2);
+        System.out.println(solution.pop()); // Output: 2
+        solution.push(3);
+        System.out.println(solution.pop()); // Output: 3
+        solution.push(4);
+        solution.increment(2, 100);
+        System.out.println(solution.pop()); // Output: 103
+        solution.increment(2, 100);
+        System.out.println(solution.pop()); // Output: 202
+        solution.pop();
+        solution.pop();
+        solution.pop();
+        solution.pop(); // Output: -1
+    }
+}
+```

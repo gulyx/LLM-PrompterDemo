@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 3324_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        String result = solution.findWords("abc");
+        assertEquals("[\"a\",\"b\",\"c\"]", result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        String result = solution.findWords("az");
+        assertEquals("[\"a\"]", result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        String result = solution.findWords("ba");
+        assertEquals("[\"b\"]", result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        String result = solution.findWords("ab");
+        assertEquals("[\"a\",\"b\"]", result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        String result = solution.findWords("abcba");
+        assertEquals("[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\"]", result);
+    }
+}

@@ -1,0 +1,44 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.52;
+
+public class Solution {
+    public int totalNQueens(int n) {
+        return solve(n, new boolean[n]);
+    }
+
+    private int solve(int n, boolean[] col) {
+        if (isSafe(col)) {
+            return 1 + solve(n, addRow(col));
+        } else {
+            return 0;
+        }
+    }
+
+    private boolean isSafe(boolean[] col) {
+        for (int i = 0; i < col.length; i++) {
+            if (col[i]) {
+                int row = i;
+                int colIndex = 0;
+                while (row >= 0 && colIndex < n) {
+                    if (col[colIndex] == true) {
+                        return false;
+                    }
+                    if (Math.abs(row - colIndex) == Math.abs(i - colIndex)) {
+                        return false;
+                    }
+                    row--;
+                    colIndex++;
+                }
+            }
+        }
+        return true;
+    }
+
+    private boolean[] addRow(boolean[] col) {
+        boolean[] newRow = new boolean[col.length + 1];
+        System.arraycopy(col, 0, newRow, 0, col.length);
+        newRow[col.length] = true;
+        return newRow;
+    }
+}
+```

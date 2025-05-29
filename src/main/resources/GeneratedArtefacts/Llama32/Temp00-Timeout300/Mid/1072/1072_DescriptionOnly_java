@@ -1,0 +1,21 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1072;
+
+public class Solution {
+    public int maxEqualRowsAfterFlips(int[][] matrix) {
+        int[] count = new int[2];
+        for (int i = 0; i < matrix.length; i++) {
+            boolean flip = false;
+            for (int j = 0; j < matrix[i].length; j++) {
+                if ((matrix[i][j] == 1) ^ flip) {
+                    count[flip]++;
+                    flip ^= true;
+                }
+            }
+        }
+        int maxCount = Integer.MIN_VALUE;
+        for (int i : count) {
+            maxCount = Math.max(maxCount, i);
+        }
+        return maxCount > 0 ? maxCount : matrix.length;
+    }
+}

@@ -1,0 +1,53 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1828;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1828.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class 1828_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[][] points = {{1,1},{2,2},{3,3}};
+        int[][] queries = {{1,1,1},{2,2,2},{3,3,4}};
+        int[] answer = solution.numPointsInside(queries);
+        assertEquals(new int[]{4, 3, 2}, answer);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[][] points = {{1,1},{2,2},{3,3}};
+        int[][] queries = {{0,0,100},{10,10,100},{0,0,100}};
+        int[] answer = solution.numPointsInside(queries);
+        assertEquals(new int[]{100, 100, 99}, answer);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[][] points = {{1,1},{2,2},{3,3}};
+        int[][] queries = {{0,0,10},{10,10,10},{0,0,10}};
+        int[] answer = solution.numPointsInside(queries);
+        assertEquals(new int[]{100, 100, 99}, answer);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[][] points = {{1,1},{2,2},{3,3}};
+        int[][] queries = {{0,0,10},{10,10,10},{0,0,10}};
+        int[] answer = solution.numPointsInside(queries);
+        assertEquals(new int[]{100, 100, 99}, answer);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[][] points = {{1,1},{2,2},{3,3}};
+        int[][] queries = {{0,0,10},{10,10,10},{0,0,10}};
+        int[] answer = solution.numPointsInside(queries);
+        assertEquals(new int[]{100, 100, 99}, answer);
+    }
+}

@@ -1,0 +1,61 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1579;
+
+import java.util.*;
+
+public class Solution {
+    public int maxNumEdgesToRemove(int n, int[][] edges) {
+        List<Integer>[] graph = new ArrayList[n];
+        for (int i = 0; i < n; i++) {
+            graph[i] = new ArrayList<>();
+        }
+        Map<Integer, Integer> aliceMap = new HashMap<>();
+        Map<Integer, Integer> bobMap = new HashMap<>();
+
+        int maxEdgesToRemove = 0;
+
+        for (int[] edge : edges) {
+            if (edge[0] == 1) {
+                graph[edge[1]].add(edge[2]);
+                graph[edge[2]].add(edge[1]);
+                aliceMap.put(edge[2], aliceMap.getOrDefault(edge[2], 0) + 1);
+                bobMap.put(edge[1], bobMap.getOrDefault(edge[1], 0) + 1);
+            } else if (edge[0] == 2) {
+                graph[edge[1]].add(edge[2]);
+                graph[edge[2]].add(edge[1]);
+                aliceMap.putIfAbsent(edge[2], 0);
+                bobMap.putIfAbsent(edge[1], 0);
+            } else {
+                graph[edge[1]].add(edge[2]);
+                graph[edge[2]].add(edge[1]);
+                maxEdgesToRemove++;
+            }
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+            if (!aliceMap.containsKey(i) && !bobMap.containsKey(i)) {
+                queue.add(i);
+            }
+        }
+
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            for (int neighbor : graph[node]) {
+                aliceMap.put(neighbor, aliceMap.get(neighbor) - 1);
+                bobMap.put(neighbor, bobMap.get(neighbor) - 1);
+
+                if (aliceMap.get(neighbor) == 0 && bobMap.get(neighbor) == 0) {
+                    queue.add(neighbor);
+                }
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (!aliceMap.containsKey(i) || !bobMap.containsKey(i)) {
+                return -1;
+            }
+        }
+
+        return maxEdgesToRemove;
+    }
+}

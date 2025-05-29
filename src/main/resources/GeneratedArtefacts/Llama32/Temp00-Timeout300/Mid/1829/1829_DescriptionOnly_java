@@ -1,0 +1,29 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1829;
+
+public class Solution {
+    public int[] maxXOR(int[] nums, int maximumBit) {
+        int n = nums.length;
+        int[] answer = new int[n];
+        int[] prefixXor = new int[n + 1];
+
+        for (int i = 0; i < n; i++) {
+            prefixXor[i + 1] = prefixXor[i] ^ nums[i];
+        }
+
+        int maxVal = Integer.MIN_VALUE;
+        for (int i = 0; i <= n; i++) {
+            int val = prefixXor[i] ^ (1 << maximumBit);
+            if (val > maxVal) {
+                maxVal = val;
+            }
+        }
+
+        int currXor = 0;
+        for (int i = 0; i < n; i++) {
+            answer[i] = maxVal ^ currXor ^ nums[i];
+            currXor ^= nums[i];
+        }
+
+        return answer;
+    }
+}

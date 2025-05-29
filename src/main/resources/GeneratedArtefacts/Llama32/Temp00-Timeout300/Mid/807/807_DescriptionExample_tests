@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.807;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.807.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class SolutionTests {
+
+    @Test
+    public void testExample1() {
+        Solution solution = new Solution();
+        int[][] grid = {{3,0,8,4},{2,4,5,7},{9,2,6,3},{0,3,1,0}};
+        assertEquals(35, solution.maxIncreaseHeight(grid));
+    }
+
+    @Test
+    public void testExample2() {
+        Solution solution = new Solution();
+        int[][] grid = {{0,0,0},{0,0,0},{0,0,0}};
+        assertEquals(0, solution.maxIncreaseHeight(grid));
+    }
+
+    @Test
+    public void testExample3() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,2,3},{4,5,6},{7,8,9}};
+        assertEquals(45, solution.maxIncreaseHeight(grid));
+    }
+
+    @Test
+    public void testExample4() {
+        Solution solution = new Solution();
+        int[][] grid = {{100,0,0},{0,100,0},{0,0,100}};
+        assertEquals(200, solution.maxIncreaseHeight(grid));
+    }
+
+    @Test
+    public void testExample5() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,2},{3,4}};
+        assertEquals(10, solution.maxIncreaseHeight(grid));
+    }
+}
+```

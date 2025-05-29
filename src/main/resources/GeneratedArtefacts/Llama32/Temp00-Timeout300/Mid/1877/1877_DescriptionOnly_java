@@ -1,0 +1,19 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1877;
+
+public class Solution {
+    public int minPairSum(int[] nums) {
+        int n = nums.length;
+        int left = 0, right = n - 1;
+        int maxSum = 0;
+        while (left < right) {
+            if (nums[left] > nums[right]) {
+                maxSum = Math.max(maxSum, nums[left] + nums[right]);
+                left++;
+            } else {
+                maxSum = Math.max(maxSum, nums[left] + nums[right]);
+                right--;
+            }
+        }
+        return maxSum;
+    }
+}

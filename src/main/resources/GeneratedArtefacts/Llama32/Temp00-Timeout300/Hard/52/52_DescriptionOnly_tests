@@ -1,0 +1,44 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.52;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.52.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class 52_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int result = solution.totalNQueens(4);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int result = solution.totalNQueens(5);
+        assertEquals(10, result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int result = solution.totalNQueens(6);
+        assertEquals(4, result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        assertThrows(NumberFormatException.class, () -> solution.totalNQueens(-1));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        assertThrows(NumberFormatException.class, () -> solution.totalNQueens(0));
+    }
+}
+```

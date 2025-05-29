@@ -1,0 +1,74 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1302;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1302.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.right = new TreeNode(6);
+        root.right.right.left = new TreeNode(7);
+        root.right.right.right = new TreeNode(8);
+
+        int actual = solution.findLargestValue(root);
+        assertEquals(15, actual);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(6);
+        root.left = new TreeNode(7);
+        root.right = new TreeNode(8);
+        root.left.left = new TreeNode(2);
+        root.left.right = new TreeNode(7);
+        root.right.left = new TreeNode(1);
+        root.right.right = new TreeNode(3);
+        root.right.right.left = new TreeNode(9);
+        root.right.right.right = new TreeNode(1);
+        root.right.right.right.left = new TreeNode(4);
+        root.right.right.right.right = new TreeNode(5);
+
+        int actual = solution.findLargestValue(root);
+        assertEquals(19, actual);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        int actual = solution.findLargestValue(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        TreeNode root = null;
+
+        int actual = solution.findLargestValue(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+
+        int actual = solution.findLargestValue(root);
+        assertEquals(1, actual);
+    }
+}
+```

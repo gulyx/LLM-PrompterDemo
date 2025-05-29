@@ -1,0 +1,46 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2161;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2161.Solution;
+
+public class 2161_DescriptionExample_testsTest {
+
+    public void test1() {
+        Solution solution = new Solution();
+        int[] nums = {9,12,5,10,14,3,10};
+        int pivot = 10;
+        int[] expected = {9,5,3,10,10,12,14};
+        assertArrayEquals(expected, solution.reorderArray(nums, pivot));
+    }
+
+    public void test2() {
+        Solution solution = new Solution();
+        int[] nums = {-3,4,3,2};
+        int pivot = 2;
+        int[] expected = {-3,2,4,3};
+        assertArrayEquals(expected, solution.reorderArray(nums, pivot));
+    }
+
+    public void test3() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3,4,5};
+        int pivot = 3;
+        int[] expected = {1,2,5,4,3};
+        assertArrayEquals(expected, solution.reorderArray(nums, pivot));
+    }
+
+    public void test4() {
+        Solution solution = new Solution();
+        int[] nums = {1,1,1,1,1};
+        int pivot = 1;
+        int[] expected = {1,1,1,1,1};
+        assertArrayEquals(expected, solution.reorderArray(nums, pivot));
+    }
+
+    public void test5() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3,4,5};
+        int pivot = 6;
+        int[] expected = {1,2,3,4,5};
+        assertArrayEquals(expected, solution.reorderArray(nums, pivot));
+    }
+}

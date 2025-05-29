@@ -1,0 +1,96 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.237;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.237.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class SolutionTest {
+
+    @Test
+    public void testDeleteNode() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+
+        ListNode nodeToDelete = head.next;
+        ListNode result = solution.deleteNode(head, nodeToDelete.val);
+
+        assertEquals(1, result.val);
+        assertEquals(2, result.next.val);
+        assertEquals(3, result.next.next.val);
+        assertEquals(4, result.next.next.next.val);
+    }
+
+    @Test
+    public void testDeleteNodeAtHead() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+
+        ListNode nodeToDelete = head;
+        ListNode result = solution.deleteNode(head, nodeToDelete.val);
+
+        assertEquals(2, result.val);
+        assertEquals(3, result.next.val);
+    }
+
+    @Test
+    public void testDeleteNodeAtTail() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+
+        ListNode nodeToDelete = head.next.next;
+        ListNode result = solution.deleteNode(head, nodeToDelete.val);
+
+        assertEquals(1, result.val);
+        assertEquals(2, result.next.val);
+    }
+
+    @Test
+    public void testDeleteNodeWithSameValueAsHead() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+
+        ListNode nodeToDelete = head;
+        ListNode result = solution.deleteNode(head, 1);
+
+        assertEquals(2, result.val);
+        assertEquals(3, result.next.val);
+    }
+
+    @Test
+    public void testDeleteNodeWithSameValueAsTail() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+
+        ListNode nodeToDelete = head.next;
+        ListNode result = solution.deleteNode(head, 3);
+
+        assertEquals(1, result.val);
+        assertEquals(2, result.next.val);
+    }
+
+    @Test
+    public void testDeleteNodeWithSameValueAsMiddle() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+
+        ListNode nodeToDelete = head.next.next;
+        ListNode result = solution.deleteNode(head, 2);
+
+        assertEquals(1, result.val);
+        assertEquals(3, result.next.val);
+    }
+}

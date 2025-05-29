@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2785;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2785.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class 2785_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        String s = "leetcode";
+        String t = solution.descriptionOnly(s);
+        assertEquals("leetcode", t);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        String s = "aabb";
+        String t = solution.descriptionOnly(s);
+        assertEquals("aaab", t);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        String s = "aa";
+        String t = solution.descriptionOnly(s);
+        assertEquals("aa", t);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        String s = "abba";
+        String t = solution.descriptionOnly(s);
+        assertEquals("abbba", t);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        String s = "aaabbb";
+        String t = solution.descriptionOnly(s);
+        assertEquals("aabbbb", t);
+    }
+}

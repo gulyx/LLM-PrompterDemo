@@ -1,0 +1,59 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class 1028_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        String traversal = "D-D-D2";
+        TreeNode root = solution.recoverFromPreorder(traversal);
+        assertEquals(3, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(0, root.right.val);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        String traversal = "D-D-D3";
+        TreeNode root = solution.recoverFromPreorder(traversal);
+        assertEquals(3, root.val);
+        assertEquals(3, root.left.val);
+        assertEquals(0, root.right.val);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        String traversal = "D-D-D4";
+        TreeNode root = solution.recoverFromPreorder(traversal);
+        assertEquals(4, root.val);
+        assertEquals(3, root.left.val);
+        assertEquals(0, root.right.val);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        String traversal = "D-D-D5";
+        TreeNode root = solution.recoverFromPreorder(traversal);
+        assertEquals(5, root.val);
+        assertEquals(4, root.left.val);
+        assertEquals(0, root.right.val);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        String traversal = "D-D-D6";
+        TreeNode root = solution.recoverFromPreorder(traversal);
+        assertEquals(6, root.val);
+        assertEquals(5, root.left.val);
+        assertEquals(0, root.right.val);
+    }
+}

@@ -1,0 +1,34 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1630;
+
+import java.util.*;
+
+public class Solution {
+    public List<Boolean> checkArithmeticSubarrays(int[] nums, int[][] l, int[][] r) {
+        List<Boolean> answer = new ArrayList<>();
+        for (int i = 0; i < l.length; i++) {
+            int start = l[i][0];
+            int end = r[i][1];
+            Set<Integer> set = new HashSet<>();
+            for (int j = start; j <= end; j++) {
+                set.add(nums[j]);
+            }
+            if (set.size() == 2) {
+                answer.add(true);
+            } else if (set.size() > 2) {
+                boolean isArithmetic = true;
+                int diff = Integer.MAX_VALUE;
+                for (int num : set) {
+                    for (int otherNum : set) {
+                        if (num != otherNum && Math.abs(num - otherNum) < diff) {
+                            diff = Math.abs(num - otherNum);
+                        }
+                    }
+                }
+                answer.add(diff == 0 || diff > 1);
+            } else {
+                answer.add(false);
+            }
+        }
+        return answer;
+    }
+}

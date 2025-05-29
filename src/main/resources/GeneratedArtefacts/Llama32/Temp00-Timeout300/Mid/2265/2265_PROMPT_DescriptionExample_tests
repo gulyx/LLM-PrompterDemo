@@ -1,0 +1,12 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '2265_DescriptionExample_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2265;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2265.Solution;'). The class-under-test implements the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description for the class-under-test: 
+Given the "root" of a binary tree, return the number of nodes where the value of the node is equal to the "average" of the values in its "subtree".
+Note:
+The "average" of "n" elements is the "sum" of the "n" elements divided by "n" and "rounded down" to the nearest integer.
+A "subtree" of "root" is a tree consisting of "root" and all of its descendants.
+
+[--Example 1--]
+Input: root = [4,8,5,0,1,null,6] 
+Output: 5 
+[--Example 2--]
+Input: root = [1] 
+Output: 1 

@@ -1,0 +1,37 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1302;
+
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode() {}
+    TreeNode(int val) { this.val = val; }
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
+
+public class Solution {
+    public int deepestLeavesSum(TreeNode root) {
+        return dfs(root);
+    }
+
+    private int dfs(TreeNode node) {
+        if (node == null)
+            return 0;
+
+        int left = dfs(node.left);
+        int right = dfs(node.right);
+
+        if (left == 0 && right == 0)
+            return node.val;
+        else
+            return left + right;
+    }
+}
+```

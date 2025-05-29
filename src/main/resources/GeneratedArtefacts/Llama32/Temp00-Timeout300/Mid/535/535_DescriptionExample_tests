@@ -1,0 +1,58 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.535;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.535.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class SolutionTest {
+
+    @Test
+    public void testEncodeDecode() {
+        Solution solution = new Solution();
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = solution.encode(longUrl);
+        assertEquals(longUrl, solution.decode(shortUrl));
+    }
+
+    @Test
+    public void testEncodeDecode2() {
+        Solution solution = new Solution();
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl1 = solution.encode("https://leetcode.com/problems/design-tinyurl");
+        String shortUrl2 = solution.encode("https://leetcode.com/problems/design-tinyurl");
+        assertEquals(longUrl, solution.decode(shortUrl1));
+        assertEquals(longUrl, solution.decode(shortUrl2));
+    }
+
+    @Test
+    public void testEncodeDecode3() {
+        Solution solution = new Solution();
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = solution.encode("https://leetcode.com/problems/design-tinyurl");
+        String shortUrl2 = solution.encode("https://leetcode.com/problems/design-tinyurl");
+        assertEquals(longUrl, solution.decode(shortUrl));
+        assertEquals(longUrl, solution.decode(shortUrl2));
+    }
+
+    @Test
+    public void testEncodeDecode4() {
+        Solution solution = new Solution();
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = solution.encode("https://leetcode.com/problems/design-tinyurl");
+        String shortUrl3 = solution.encode("https://leetcode.com/problems/design-tinyurl");
+        assertEquals(longUrl, solution.decode(shortUrl));
+        assertEquals(longUrl, solution.decode(shortUrl3));
+    }
+
+    @Test
+    public void testEncodeDecode5() {
+        Solution solution = new Solution();
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = solution.encode("https://leetcode.com/problems/design-tinyurl");
+        String shortUrl4 = solution.encode("https://leetcode.com/problems/design-tinyurl");
+        assertEquals(longUrl, solution.decode(shortUrl));
+        assertEquals(longUrl, solution.decode(shortUrl4));
+    }
+}
+```

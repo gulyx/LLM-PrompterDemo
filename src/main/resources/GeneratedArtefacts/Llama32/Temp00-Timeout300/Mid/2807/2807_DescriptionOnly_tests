@@ -1,0 +1,67 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2807;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2807.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class 2807_DescriptionOnly_testsTest {
+
+    @Test
+    public void test_GivenHeadWithOneNode_ReturnsSameList() {
+        Solution solution = new Solution();
+        ListNode head = solution.insertGreatestCommonDivisor(head);
+        assertEquals(head, solution.getHead());
+    }
+
+    @Test
+    public void test_GivenHeadWithTwoNodes_ReturnsLinkedListWithGCDInserted() {
+        Solution solution = new Solution();
+        ListNode node1 = new ListNode(2);
+        ListNode node2 = new ListNode(4);
+        ListNode head = solution.insertGreatestCommonDivisor(node1.next);
+        assertEquals(2, head.val);
+        assertEquals(4, ((ListNode)head.next()).val);
+    }
+
+    @Test
+    public void test_GivenHeadWithThreeNodes_ReturnsLinkedListWithGCDInserted() {
+        Solution solution = new Solution();
+        ListNode node1 = new ListNode(2);
+        ListNode node2 = new ListNode(8);
+        ListNode node3 = new ListNode(3);
+        ListNode head = solution.insertGreatestCommonDivisor(node1.next.next);
+        assertEquals(2, head.val);
+        assertEquals(8, ((ListNode)head.next()).val);
+        assertEquals(3, ((ListNode)((ListNode)head.next()).next()).val);
+    }
+
+    @Test
+    public void test_GivenHeadWithFourNodes_ReturnsLinkedListWithGCDInserted() {
+        Solution solution = new Solution();
+        ListNode node1 = new ListNode(2);
+        ListNode node2 = new ListNode(8);
+        ListNode node3 = new ListNode(3);
+        ListNode node4 = new ListNode(10);
+        ListNode head = solution.insertGreatestCommonDivisor(node1.next.next.next);
+        assertEquals(2, head.val);
+        assertEquals(8, ((ListNode)head.next()).val);
+        assertEquals(3, ((ListNode)((ListNode)head.next()).next()).val);
+        assertEquals(10, ((ListNode)((ListNode)((ListNode)head.next()).next()).next()).val);
+    }
+
+    @Test
+    public void test_GivenHeadWithFiveNodes_ReturnsLinkedListWithGCDInserted() {
+        Solution solution = new Solution();
+        ListNode node1 = new ListNode(2);
+        ListNode node2 = new ListNode(8);
+        ListNode node3 = new ListNode(3);
+        ListNode node4 = new ListNode(10);
+        ListNode node5 = new ListNode(15);
+        ListNode head = solution.insertGreatestCommonDivisor(node1.next.next.next.next);
+        assertEquals(2, head.val);
+        assertEquals(8, ((ListNode)head.next()).val);
+        assertEquals(3, ((ListNode)((ListNode)head.next()).next()).val);
+        assertEquals(10, ((ListNode)((ListNode)((ListNode)head.next()).next()).next()).val);
+        assertEquals(15, ((ListNode)((ListNode)((ListNode)((ListNode)head.next()).next()).next()).next()).val);
+    }
+}

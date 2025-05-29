@@ -1,0 +1,55 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2545;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2545.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertArrayEquals;
+
+public class 2545_DescriptionExample_testsTest {
+
+    @Test
+    public void testSortStudents() {
+        Solution solution = new Solution();
+        int[][] score = {{10,6,9,1},{7,5,11,2},{4,8,3,15}};
+        int k = 2;
+        int[][] expected = {{7,5,11,2},{10,6,9,1},{4,8,3,15}};
+        assertArrayEquals(expected, solution.sortStudents(score, k));
+    }
+
+    @Test
+    public void testSortStudents_K_0() {
+        Solution solution = new Solution();
+        int[][] score = {{3,4},{5,6}};
+        int k = 0;
+        int[][] expected = {{5,6},{3,4}};
+        assertArrayEquals(expected, solution.sortStudents(score, k));
+    }
+
+    @Test
+    public void testSortStudents_EmptyMatrix() {
+        Solution solution = new Solution();
+        int[][] score = {};
+        int k = 2;
+        int[][] expected = {};
+        assertArrayEquals(expected, solution.sortStudents(score, k));
+    }
+
+    @Test
+    public void testSortStudents_SingleStudent() {
+        Solution solution = new Solution();
+        int[][] score = {{10}};
+        int k = 0;
+        int[][] expected = {{10}};
+        assertArrayEquals(expected, solution.sortStudents(score, k));
+    }
+
+    @Test
+    public void testSortStudents_SingleExam() {
+        Solution solution = new Solution();
+        int[][] score = {{1,2},{3,4}};
+        int k = 0;
+        int[][] expected = {{1,2},{3,4}};
+        assertArrayEquals(expected, solution.sortStudents(score, k));
+    }
+}
+```

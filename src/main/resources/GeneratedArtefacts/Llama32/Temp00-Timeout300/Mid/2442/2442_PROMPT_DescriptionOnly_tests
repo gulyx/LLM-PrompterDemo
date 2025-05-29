@@ -1,0 +1,6 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '2442_DescriptionOnly_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2442;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2442.Solution;'). The class-under-test implements the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description for the class-under-test: 
+You are given an array "nums" consisting of positive integers.
+
+You have to take each integer in the array, reverse its digits, and add it to the end of the array. You should apply this operation to the original integers in "nums".
+
+Return the number of distinct integers in the final array.

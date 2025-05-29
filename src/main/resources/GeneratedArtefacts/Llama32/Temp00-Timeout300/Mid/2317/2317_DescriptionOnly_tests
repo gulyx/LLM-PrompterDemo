@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2317;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2317.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] nums = {3, 10, 5, 6};
+        assertEquals(15, solution.maxXOR(nums));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] nums = {12, 34, 56, 78, 90};
+        assertEquals(1023, solution.maxXOR(nums));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2, 3, 4, 5};
+        assertEquals(15, solution.maxXOR(nums));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] nums = {0, 1, 2, 3, 4};
+        assertEquals(15, solution.maxXOR(nums));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] nums = {10, 20, 30, 40, 50};
+        assertEquals(1023, solution.maxXOR(nums));
+    }
+}

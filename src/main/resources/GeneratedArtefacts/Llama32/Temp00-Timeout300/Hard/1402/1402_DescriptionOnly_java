@@ -1,0 +1,22 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1402;
+
+public class Solution {
+    public int maxSatisfaction(int[] satisfaction) {
+        Arrays.sort(satisfaction);
+        long sum = 0;
+        for (int i = 0; i < satisfaction.length; i++) {
+            if (satisfaction[i] > 0)
+                break;
+            sum += satisfaction[i];
+        }
+        int left = 0, right = satisfaction.length - 1;
+        while (left < right) {
+            if (satisfaction[left] + satisfaction[right] > 0) {
+                sum += satisfaction[left++] + satisfaction[right--];
+            } else {
+                right--;
+            }
+        }
+        return (int)sum;
+    }
+}

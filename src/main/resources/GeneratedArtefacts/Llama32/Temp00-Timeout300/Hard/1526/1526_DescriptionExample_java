@@ -1,0 +1,32 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1526;
+
+public class Solution {
+    public int minOperations(int[] target) {
+        int sum = 0;
+        for (int num : target) {
+            sum += num;
+        }
+        return sum - target.length;
+    }
+
+    [--Example 1--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] target = {1,2,3,2,1};
+        System.out.println(solution.minOperations(target));
+    }
+
+    [--Example 2--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] target = {3,1,1,2};
+        System.out.println(solution.minOperations(target));
+    }
+
+    [--Example 3--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] target = {3,1,5,4,2};
+        System.out.println(solution.minOperations(target));
+    }
+}

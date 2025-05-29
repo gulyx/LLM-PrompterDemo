@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.980;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.980.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 980_DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,0,0,0},{0,0,0,0},{0,0,2,-1}};
+        assertEquals(2, solution.uniquePaths(grid));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,0,0,0},{0,0,0,0},{0,0,0,2}};
+        assertEquals(4, solution.uniquePaths(grid));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[][] grid = {{0,1},{2,0}};
+        assertEquals(0, solution.uniquePaths(grid));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,2,-1}};
+        assertEquals(8, solution.uniquePaths(grid));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,0,0,0},{0,0,0,0},{0,0,0,0},{0,2,-1,0}};
+        assertEquals(8, solution.uniquePaths(grid));
+    }
+}
+```

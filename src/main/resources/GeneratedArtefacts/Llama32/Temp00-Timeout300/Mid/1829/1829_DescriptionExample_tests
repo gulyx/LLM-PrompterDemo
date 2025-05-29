@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1829;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1829.Solution;
+
+public class 1829_DescriptionExample_testsTest {
+
+    Solution solution = new Solution();
+
+    @Test
+    public void test1() {
+        int[] nums = {0, 1, 1, 3};
+        int maximumBit = 2;
+        int[] answer = solution.maxXORValue(nums, maximumBit);
+        assertArrayEquals(new int[]{0, 3, 2, 3}, answer);
+    }
+
+    @Test
+    public void test2() {
+        int[] nums = {2, 3, 4, 7};
+        int maximumBit = 3;
+        int[] answer = solution.maxXORValue(nums, maximumBit);
+        assertArrayEquals(new int[]{5, 2, 6, 5}, answer);
+    }
+
+    @Test
+    public void test3() {
+        int[] nums = {0, 1, 2, 2, 5, 7};
+        int maximumBit = 3;
+        int[] answer = solution.maxXORValue(nums, maximumBit);
+        assertArrayEquals(new int[]{4, 3, 6, 4, 6, 7}, answer);
+    }
+
+    @Test
+    public void test4() {
+        int[] nums = {0, 1, 2};
+        int maximumBit = 2;
+        int[] answer = solution.maxXORValue(nums, maximumBit);
+        assertArrayEquals(new int[]{0, 3, 6}, answer);
+    }
+
+    @Test
+    public void test5() {
+        int[] nums = {0, 1, 2, 3};
+        int maximumBit = 4;
+        int[] answer = solution.maxXORValue(nums, maximumBit);
+        assertArrayEquals(new int[]{15, 14, 13, 12}, answer);
+    }
+}

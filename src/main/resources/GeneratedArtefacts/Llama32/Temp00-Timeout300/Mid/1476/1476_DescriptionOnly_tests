@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1476;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1476.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class 1476_DescriptionOnly_testsTest {
+
+    @Test
+    public void testUpdateSubrectangle() {
+        Solution solution = new Solution(new int[][]{{1,2,3},{4,5,6}});
+        solution.updateSubrectangle(0, 0, 1, 1, 50);
+        assertEquals(50, solution.getValue(0, 0));
+        assertEquals(50, solution.getValue(1, 1));
+    }
+
+    @Test
+    public void testUpdateSubrectangle_2() {
+        Solution solution = new Solution(new int[][]{{1,2,3},{4,5,6}});
+        solution.updateSubrectangle(0, 0, 1, 1, 50);
+        assertEquals(50, solution.getValue(0, 0));
+        assertEquals(50, solution.getValue(1, 1));
+    }
+
+    @Test
+    public void testUpdateSubrectangle_3() {
+        Solution solution = new Solution(new int[][]{{1,2,3},{4,5,6}});
+        solution.updateSubrectangle(0, 0, 1, 1, 50);
+        assertEquals(50, solution.getValue(0, 0));
+        assertEquals(50, solution.getValue(1, 1));
+    }
+
+    @Test
+    public void testUpdateSubrectangle_4() {
+        Solution solution = new Solution(new int[][]{{1,2,3},{4,5,6}});
+        solution.updateSubrectangle(0, 0, 1, 1, 50);
+        assertEquals(50, solution.getValue(0, 0));
+        assertEquals(50, solution.getValue(1, 1));
+    }
+
+    @Test
+    public void testUpdateSubrectangle_5() {
+        Solution solution = new Solution(new int[][]{{1,2,3},{4,5,6}});
+        solution.updateSubrectangle(0, 0, 1, 1, 50);
+        assertEquals(50, solution.getValue(0, 0));
+        assertEquals(50, solution.getValue(1, 1));
+    }
+}

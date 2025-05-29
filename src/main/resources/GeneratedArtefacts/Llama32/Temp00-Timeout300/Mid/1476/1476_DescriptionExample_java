@@ -1,0 +1,61 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1476;
+
+import java.util.*;
+
+public class Solution {
+    private int[][] rectangle;
+    private List<Integer> rowValues = new ArrayList<>();
+    private List<List<Integer>> colValues = new ArrayList<>();
+
+    public SubrectangleQueries(int[][] rectangle) {
+        this.rectangle = rectangle;
+        for (int i = 0; i < rectangle.length; i++) {
+            rowValues.add(0);
+            colValues.add(new ArrayList<>());
+        }
+        for (int i = 0; i < rectangle[0].length; i++) {
+            for (int j = 0; j < rectangle.length; j++) {
+                rowValues.set(j, rowValues.get(j) + rectangle[j][i]);
+                colValues.get(i).add(rectangle[j][i]);
+            }
+        }
+    }
+
+    public int getValue(int row, int col) {
+        return rowValues.get(row) - colValues.get(col).get(colValues.get(col).size() - 1);
+    }
+
+    public void updateSubrectangle(int row1, int col1, int row2, int col2, int newValue) {
+        for (int i = row1; i <= row2; i++) {
+            for (int j = col1; j < col2; j++) {
+                rectangle[i][j] = newValue;
+            }
+        }
+        for (int i = 0; i < rowValues.size(); i++) {
+            rowValues.set(i, rowValues.get(i) - newValue);
+        }
+        for (int i = 0; i < colValues.size(); i++) {
+            int index = colValues.get(i).size() - 1;
+            while (index >= 0 && colValues.get(i).get(index) == newValue) {
+                colValues.get(i).remove(index);
+                index--;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution(new int[][]{{1,2,1},{4,3,4},{3,2,1},{1,1,1}});
+
+        System.out.println(solution.getValue(0, 2)); // Output: 1
+        solution.updateSubrectangle(0, 0, 3, 2, 5);
+        System.out.println(solution.getValue(0, 2)); // Output: 5
+        System.out.println(solution.getValue(0, 2)); // Output: 5
+
+        solution = new Solution(new int[][]{{1,1,1},{2,2,2},{3,3,3}});
+
+        System.out.println(solution.getValue(0, 0)); // Output: 1
+        solution.updateSubrectangle(0, 0, 2, 2, 100);
+        System.out.println(solution.getValue(0, 0)); // Output: 100
+        System.out.println(solution.getValue(0, 2)); // Output: 100
+    }
+}

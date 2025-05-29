@@ -1,0 +1,36 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2807;
+
+public class Solution {
+    public ListNode insertGreatestCommonDivisorLinkhead(ListNode head) {
+        if (head == null || head.next == null) return head;
+        
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy;
+        while (pre.next != null && pre.next.next != null) {
+            int gcd = getGCD(pre.next.val, pre.next.next.val);
+            pre.next.next = new ListNode(gcd);
+            pre.next = pre.next.next;
+        }
+        return dummy.next;
+    }
+
+    private int getGCD(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+}
+```

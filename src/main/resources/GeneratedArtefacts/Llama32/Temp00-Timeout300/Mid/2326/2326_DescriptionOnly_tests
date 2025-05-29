@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2326;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2326.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void testGenerateMatrix() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(3, 3);
+        assertArrayEquals(new int[][]{{1,2,3},{8,9,4},{7,6,5}}, result);
+    }
+
+    @Test
+    public void testGenerateMatrix_WithEmptySpaces() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(3, 3);
+        assertArrayEquals(new int[][]{{1,2,3},{8,9,4},{7,6,-1}}, result);
+    }
+
+    @Test
+    public void testGenerateMatrix_WithRemainingEmptySpaces() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(3, 3);
+        assertArrayEquals(new int[][]{{1,2,3},{8,9,4},{7,6,-1}}, result);
+    }
+
+    @Test
+    public void testGenerateMatrix_WithRemainingEmptySpacesAtTop() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(3, 3);
+        assertArrayEquals(new int[][]{{-1,2,3},{8,9,4},{7,6,-1}}, result);
+    }
+
+    @Test
+    public void testGenerateMatrix_WithRemainingEmptySpacesAtBottom() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(3, 3);
+        assertArrayEquals(new int[][]{{1,2,3},{8,9,4},{7,6,-1}}, result);
+    }
+}
+```

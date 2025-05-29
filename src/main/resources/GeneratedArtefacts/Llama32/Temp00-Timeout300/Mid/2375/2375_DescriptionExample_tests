@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2375;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2375.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        String pattern = "IIIDIDDD";
+        String num = solution.descriptionExample(pattern);
+        assertEquals("123549876", num);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        String pattern = "DDD";
+        String num = solution.descriptionExample(pattern);
+        assertEquals("4321", num);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        String pattern = "IIIDDD";
+        String num = solution.descriptionExample(pattern);
+        // Add assertion here
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        String pattern = "DID";
+        String num = solution.descriptionExample(pattern);
+        // Add assertion here
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        String pattern = "";
+        String num = solution.descriptionExample(pattern);
+        // Add assertion here
+    }
+}
+```

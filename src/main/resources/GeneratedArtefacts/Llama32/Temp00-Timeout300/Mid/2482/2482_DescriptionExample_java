@@ -1,0 +1,55 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2482;
+
+public class Solution {
+    public int[][] updateMatrix(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int[][] diff = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            int onesRow = 0, zerosRow = 0;
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) onesRow++;
+                else zerosRow++;
+            }
+            diff[i][0] = onesRow + n - zerosRow;
+        }
+        for (int j = 0; j < n; j++) {
+            int onesCol = 0, zerosCol = 0;
+            for (int i = 0; i < m; i++) {
+                if (grid[i][j] == 1) onesCol++;
+                else zerosCol++;
+            }
+            diff[0][j] = onesCol + m - zerosCol;
+        }
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                int onesRow = grid[i-1][j];
+                int onesCol = grid[i][j-1];
+                int zerosRow = grid[i-1][j-1];
+                diff[i][j] = onesRow + onesCol - zerosRow - zerosCol;
+            }
+        }
+        return diff;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[][] grid1 = {{0,1,1},{1,0,1},{0,0,1}};
+        int[][] result1 = solution.updateMatrix(grid1);
+        for (int i = 0; i < result1.length; i++) {
+            for (int j = 0; j < result1[0].length; j++) {
+                System.out.print(result1[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        int[][] grid2 = {{1,1,1},{1,1,1}};
+        int[][] result2 = solution.updateMatrix(grid2);
+        for (int i = 0; i < result2.length; i++) {
+            for (int j = 0; j < result2[0].length; j++) {
+                System.out.print(result2[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}

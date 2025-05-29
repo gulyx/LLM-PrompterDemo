@@ -1,0 +1,40 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2149;
+
+public class Solution {
+    public int[] rearrangeArray(int[] nums) {
+        int n = nums.length;
+        int[] pos = new int[n / 2];
+        int[] neg = new int[n / 2];
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > 0) {
+                pos[i / 2] = nums[i];
+            } else {
+                neg[i / 2] = nums[i];
+            }
+        }
+
+        int[] result = new int[n];
+        for (int i = 0, j = 0; i < n; i += 2) {
+            result[i] = pos[j++];
+        }
+        for (int i = 1, j = 0; i < n; i += 2) {
+            result[i] = neg[j++];
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] nums1 = {3, 1, -2, -5, 2, -4};
+        int[] expected1 = {3, -2, 1, -5, 2, -4};
+        assert java.util.Arrays.equals(solution.rearrangeArray(nums1), expected1);
+
+        int[] nums2 = {-1, 1};
+        int[] expected2 = {1, -1};
+        assert java.util.Arrays.equals(solution.rearrangeArray(nums2), expected2);
+    }
+}
+```

@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.894;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.894.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class 894_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int n = 2;
+        Object[] result = solution.generateTrees(n);
+        assertEquals(2, result.length);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int n = 3;
+        Object[] result = solution.generateTrees(n);
+        assertEquals(5, result.length);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int n = 4;
+        Object[] result = solution.generateTrees(n);
+        assertEquals(14, result.length);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int n = 5;
+        Object[] result = solution.generateTrees(n);
+        assertEquals(42, result.length);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int n = 6;
+        Object[] result = solution.generateTrees(n);
+        assertEquals(202, result.length);
+    }
+}

@@ -1,0 +1,33 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1409;
+
+public class Solution {
+    public int[] getPermutation(int n, int[] queries) {
+        char[] chars = new char[n + 1];
+        for (int i = 0; i <= n; i++) {
+            chars[i] = (char) ('a' + i);
+        }
+        int[] res = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            int pos = getPos(chars, queries[i], n);
+            res[i] = pos;
+            rotate(chars, pos, n);
+        }
+        return res;
+    }
+
+    private void rotate(char[] chars, int pos, int n) {
+        for (int i = 0; i < n - pos; i++) {
+            char temp = chars[n - i];
+            chars[n - i] = chars[pos + i];
+            chars[pos + i] = temp;
+        }
+    }
+
+    private int getPos(char[] chars, int num, int n) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i <= n; i++) {
+            sb.append(chars[i]);
+        }
+        return sb.indexOf(String.valueOf(num));
+    }
+}

@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2415;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2415.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        TreeNode root = solution.reverseOddLevel(root);
+        // Add assertions here
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        TreeNode root = solution.reverseOddLevel(root);
+        // Add assertions here
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        TreeNode root = solution.reverseOddLevel(root);
+        // Add assertions here
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        TreeNode root = solution.reverseOddLevel(root);
+        // Add assertions here
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        TreeNode root = solution.reverseOddLevel(root);
+        // Add assertions here
+    }
+}
+```

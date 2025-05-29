@@ -1,0 +1,18 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1038;
+
+public class Solution {
+    public TreeNode convertBST(TreeNode root) {
+        double sum = 0;
+        inorder(root, sum);
+        return root;
+    }
+
+    private void inorder(TreeNode node, double sum) {
+        if (node == null)
+            return;
+        inorder(node.right, sum);
+        sum += node.val;
+        node.val = sum;
+        inorder(node.left, sum);
+    }
+}

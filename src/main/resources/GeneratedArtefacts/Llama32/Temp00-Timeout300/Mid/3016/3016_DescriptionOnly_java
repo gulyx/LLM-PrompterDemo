@@ -1,0 +1,34 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3016;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Solution {
+    public int minPushButtons(String word) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            if (!map.containsKey(c)) {
+                int min = Integer.MAX_VALUE;
+                for (char ch : getKeys(i + 1)) {
+                    min = Math.min(min, map.getOrDefault(ch, 0) + 1);
+                }
+                map.put(c, min);
+            }
+        }
+
+        return word.length() - map.values().stream().mapToInt(x -> x).sum();
+    }
+
+    private String getKeys(int i) {
+        if (i > 9) {
+            return "";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            for (int j = i; j <= i + 1; j++) {
+                sb.append((char) ('a' + j - 1));
+            }
+            return sb.toString();
+        }
+    }
+}

@@ -1,0 +1,5 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '2657_DescriptionOnly_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2657;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2657.Solution;'). The class-under-test implements the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description for the class-under-test: 
+You are given two "0-indexed" integer permutations "A" and "B" of length "n".
+A "prefix common array" of "A" and "B" is an array "C" such that "C[i]" is equal to the count of numbers that are present at or before the index "i" in both "A" and "B".
+Return the "prefix common array" of "A" "and" and "B".
+A sequence of "n" integers is called a "permutation" if it contains all integers from "1" to "n" exactly once.

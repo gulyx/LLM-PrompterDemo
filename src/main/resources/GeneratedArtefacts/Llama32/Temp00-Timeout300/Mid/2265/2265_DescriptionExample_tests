@@ -1,0 +1,64 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2265;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2265.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(8);
+        root.right = new TreeNode(5);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(1);
+        root.right.right = new TreeNode(6);
+
+        int actual = solution.findDuplicateSubtrees(root);
+        assertEquals(5, actual);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+
+        int actual = solution.findDuplicateSubtrees(root);
+        assertEquals(1, actual);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(8);
+        root.right = new TreeNode(5);
+
+        int actual = solution.findDuplicateSubtrees(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        int actual = solution.findDuplicateSubtrees(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        TreeNode root = null;
+
+        int actual = solution.findDuplicateSubtrees(root);
+        assertEquals(-1, actual);
+    }
+}
+```

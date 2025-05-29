@@ -1,0 +1,59 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.807;
+
+public class Solution {
+    public int maxIncreaseKeepingSkyline(int[][] grid) {
+        int rows = grid.length;
+        int cols = grid[0].length;
+        int[][] left = new int[rows][cols];
+        int[][] right = new int[rows][cols];
+        int[][] up = new int[cols][rows];
+        int[][] down = new int[cols][rows];
+
+        for (int i = 0; i < rows; i++) {
+            int maxLeft = 0;
+            for (int j = 0; j < cols; j++) {
+                left[i][j] = Math.max(maxLeft, grid[i][j]);
+                maxLeft = Math.max(maxLeft, grid[i][j]);
+            }
+        }
+
+        for (int i = rows - 1; i >= 0; i--) {
+            int maxRight = 0;
+            for (int j = cols - 1; j >= 0; j--) {
+                right[i][j] = Math.max(maxRight, grid[i][j]);
+                maxRight = Math.max(maxRight, grid[i][j]);
+            }
+        }
+
+        for (int i = 0; i < cols; i++) {
+            int maxUp = 0;
+            for (int j = rows - 1; j >= 0; j--) {
+                up[i][j] = Math.max(maxUp, grid[j][i]);
+                maxUp = Math.max(maxUp, grid[j][i]);
+            }
+        }
+
+        for (int i = cols - 1; i >= 0; i--) {
+            int maxDown = 0;
+            for (int j = 0; j < rows; j++) {
+                down[i][j] = Math.max(maxDown, grid[j][i]);
+                maxDown = Math.max(maxDown, grid[j][i]);
+            }
+        }
+
+        int sum = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                sum += Math.min(left[i][j], right[i][j]) - grid[i][j];
+            }
+        }
+
+        for (int i = 0; i < cols; i++) {
+            for (int j = 0; j < rows; j++) {
+                sum += Math.min(up[i][j], down[i][j]) - grid[j][i];
+            }
+        }
+
+        return sum;
+    }
+}

@@ -1,0 +1,25 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2125;
+
+public class Solution {
+    public int countBeams(String[] bank) {
+        int m = bank.length;
+        int n = bank[0].length();
+        boolean[] row = new boolean[m];
+        int beams = 0;
+        for (int i = 0; i < m; i++) {
+            if (bank[i].indexOf('1') == 0) {
+                row[i] = true;
+                if (i > 0 && !row[i - 1]) {
+                    beams++;
+                }
+                for (int j = 1; j < n; j++) {
+                    if (bank[i].charAt(j) == '1' && bank[i - 1].charAt(j) == '1') {
+                        row[i] = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return beams;
+    }
+}

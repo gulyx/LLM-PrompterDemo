@@ -1,0 +1,58 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1261;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1261.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class 1261_DescriptionOnly_testsTest {
+
+    @Test
+    public void testFindElements() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(0);
+        solution.findElements(root);
+        assertTrue(solution.find(2));
+        assertFalse(solution.find(-1));
+    }
+
+    @Test
+    public void testFindElements_WithLeftChild() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(1);
+        solution.findElements(root);
+        assertTrue(solution.find(3));
+        assertFalse(solution.find(-1));
+    }
+
+    @Test
+    public void testFindElements_WithRightChild() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(0);
+        root.right = new TreeNode(2);
+        solution.findElements(root);
+        assertTrue(solution.find(5));
+        assertFalse(solution.find(-1));
+    }
+
+    @Test
+    public void testFindElements_WithBothChildren() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(2);
+        solution.findElements(root);
+        assertTrue(solution.find(3));
+        assertTrue(solution.find(5));
+        assertFalse(solution.find(-1));
+    }
+
+    @Test
+    public void testFindElements_WithNoChildren() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(0);
+        solution.findElements(root);
+        assertFalse(solution.find(2));
+        assertFalse(solution.find(-1));
+    }
+}

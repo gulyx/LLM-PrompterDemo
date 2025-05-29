@@ -1,0 +1,49 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1008;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1008.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class 1008_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] preorder = {5,4,3,2,1};
+        TreeNode root = solution.bstFromPreorder(preorder);
+        assertNotNull(root);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] preorder = {1,2,3,4,5};
+        TreeNode root = solution.bstFromPreorder(preorder);
+        assertEquals(1, root.val);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] preorder = {1,2,3,4,5,6,7};
+        TreeNode root = solution.bstFromPreorder(preorder);
+        assertNotNull(root.left);
+        assertNotNull(root.right);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] preorder = {10,5,15,3,7,12,20,8,18};
+        TreeNode root = solution.bstFromPreorder(preorder);
+        assertEquals(10, root.val);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] preorder = {1,2,3,4,5,6,7,8,9};
+        TreeNode root = solution.bstFromPreorder(preorder);
+        assertEquals(1, root.val);
+    }
+}

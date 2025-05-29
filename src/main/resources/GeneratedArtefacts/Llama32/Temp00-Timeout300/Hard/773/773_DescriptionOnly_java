@@ -1,0 +1,51 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.773;
+
+import java.util.*;
+
+public class Solution {
+    public int slidingPuzzle(int[][] board) {
+        Queue<int[]> queue = new LinkedList<>();
+        Set<String> visited = new HashSet<>();
+
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == 0) {
+                    int[] position = {i, j};
+                    queue.offer(position);
+                    visited.add(Arrays.toString(position));
+                }
+            }
+        }
+
+        while (!queue.isEmpty()) {
+            int[] currentPosition = queue.poll();
+            int i = currentPosition[0];
+            int j = currentPosition[1];
+
+            if (board[i][j] == 5 && board[(i + 1) % 2][j] == 1 &&
+                    board[(i - 1 + 2) % 2][j] == 2 &&
+                    board[(i + 2) % 2][j] == 3 &&
+                    board[(i - 2 + 4) % 2][j] == 4) {
+                return queue.size();
+            }
+
+            int[] directions = {0, 1, 2, 3};
+            for (int direction : directions) {
+                int ni = i + direction;
+                int nj = j;
+
+                if (ni < 0 || ni >= 2 || nj < 0 || nj >= 3) continue;
+                if (board[ni][nj] != 0) continue;
+
+                int[] newPosition = {ni, nj};
+                if (!visited.contains(Arrays.toString(newPosition))) {
+                    queue.offer(newPosition);
+                    visited.add(Arrays.toString(newPosition));
+                }
+            }
+
+        }
+
+        return -1;
+    }
+}

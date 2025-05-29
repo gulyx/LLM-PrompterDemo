@@ -1,0 +1,72 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1038;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1038.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1038_DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(6);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(2);
+        root.right.left = new TreeNode(5);
+        root.right.right = new TreeNode(7);
+
+        int[] expected = {30, 36, 21, 36, 35, 26, 15, null, null, null, 33, null, null, 8};
+        int[] actual = solution.convertBST(root);
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(0);
+        root.right = new TreeNode(1);
+
+        int[] expected = {1, null, 1};
+        int[] actual = solution.convertBST(root);
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(5);
+        root.left = new TreeNode(4);
+        root.right = new TreeNode(8);
+        root.left.left = new TreeNode(11);
+        root.right.left = new TreeNode(13);
+        root.right.right = new TreeNode(4);
+        root.left.left.left = new TreeNode(7);
+        root.left.left.right = new TreeNode(2);
+
+        int[] expected = {18, 5, 10, null, 13, 4, 8, null, null, null, 12, null, null, 0};
+        int[] actual = solution.convertBST(root);
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+
+        int[] expected = {1, null, 1};
+        int[] actual = solution.convertBST(root);
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(0);
+
+        int[] expected = {0, null, 0};
+        int[] actual = solution.convertBST(root);
+        assertArrayEquals(expected, actual);
+    }
+}

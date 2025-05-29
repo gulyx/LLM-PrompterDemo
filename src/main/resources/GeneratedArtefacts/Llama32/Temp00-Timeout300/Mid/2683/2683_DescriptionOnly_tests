@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2683;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2683.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class 2683_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] derived = {5, 0, 3};
+        assertTrue(solution.validBinaryArray(derived));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] derived = {7, 0, 1, 0, 6, 5, 1, 9, 3};
+        assertFalse(solution.validBinaryArray(derived));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] derived = {1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1};
+        assertTrue(solution.validBinaryArray(derived));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] derived = {2, 3, 5, 7, 10, 14, 21, 28, 37, 48, 62};
+        assertFalse(solution.validBinaryArray(derived));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] derived = {1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1};
+        assertTrue(solution.validBinaryArray(derived));
+    }
+}

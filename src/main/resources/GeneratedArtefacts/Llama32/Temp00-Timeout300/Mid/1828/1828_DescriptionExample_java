@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1828;
+
+import java.util.*;
+
+public class Solution {
+    public int[] numPoints(int[][] points, int[][] queries) {
+        List<Set<Integer>> pointSets = new ArrayList<>();
+        for (int[] point : points) {
+            Set<Integer> set = new HashSet<>();
+            set.add(point[0]);
+            set.add(point[1]);
+            pointSets.add(set);
+        }
+
+        List<List<Integer>> querySets = new ArrayList<>();
+        for (int[] query : queries) {
+            List<Integer> list = new ArrayList<>();
+            list.add(query[0]);
+            list.add(query[1]);
+            list.add(query[2]);
+            querySets.add(list);
+        }
+
+        int[][] result = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            List<Integer> querySet = querySets.get(i);
+            Set<Integer> pointSet = pointSets.get(0);
+
+            if (!pointSet.contains(querySet.get(0)) || !pointSet.contains(querySet.get(1))) {
+                result[i] = 0;
+                continue;
+            }
+
+            int radiusSquared = Math.pow(querySet.get(2), 2);
+            Set<Integer> pointsInCircle = new HashSet<>();
+            for (int[] point : points) {
+                if (Math.pow(point[0] - querySet.get(0), 2) + Math.pow(point[1] - querySet.get(1), 2) <= radiusSquared) {
+                    pointsInCircle.add(point[0]);
+                    pointsInCircle.add(point[1]);
+                }
+            }
+
+            result[i] = pointsInCircle.size();
+        }
+
+        return result;
+    }
+}
+```

@@ -1,0 +1,52 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2551;
+
+public class Solution {
+    public int minCost(int[] weights, int k) {
+        int n = weights.length;
+        long[][] dp = new long[n + 1][k + 1];
+        for (int i = 0; i <= n; i++) {
+            Arrays.fill(dp[i], Long.MAX_VALUE);
+        }
+        dp[0][0] = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j <= k; j++) {
+                if (i > 0) {
+                    dp[i + 1][j] = Math.min(dp[i + 1][j], dp[i][j]);
+                }
+                dp[i + 1][j] = Math.min(dp[i + 1][j], dp[i][j - 1] + weights[i]);
+            }
+        }
+        long minScore = Long.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j <= k; j++) {
+                if (i > 0) {
+                    minScore = Math.min(minScore, dp[i][j] + dp[i + 1][j]);
+                } else {
+                    minScore = Math.min(minScore, dp[i][j] + weights[i]);
+                }
+            }
+        }
+        long maxScore = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j <= k; j++) {
+                if (i > 0) {
+                    maxScore = Math.max(maxScore, dp[i][j] + dp[i + 1][j]);
+                } else {
+                    maxScore = Math.max(maxScore, dp[i][j] + weights[i]);
+                }
+            }
+        }
+        return (int) (maxScore - minScore);
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] weights1 = {1, 3, 5, 1};
+        int k1 = 2;
+        System.out.println(solution.minCost(weights1, k1)); // Output: 4
+
+        int[] weights2 = {1, 3};
+        int k2 = 2;
+        System.out.println(solution.minCost(weights2, k2)); // Output: 0
+    }
+}

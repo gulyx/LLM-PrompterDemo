@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1780;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1780.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1780_DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        boolean result = solution.isSumOfPowers(12);
+        assertTrue(result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        boolean result = solution.isSumOfPowers(91);
+        assertTrue(result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        boolean result = solution.isSumOfPowers(21);
+        assertFalse(result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        boolean result = solution.isSumOfPowers(0);
+        assertTrue(result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        boolean result = solution.isSumOfPowers(-1);
+        assertFalse(result);
+    }
+}
+```

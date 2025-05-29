@@ -1,0 +1,76 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1123;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1123.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SolutionTest {
+
+    @Test
+    public void testLowestCommonAncestor() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(5);
+        root.right = new TreeNode(1);
+        root.left.left = new TreeNode(6);
+        root.left.right = new TreeNode(2);
+        root.left.right.left = new TreeNode(0);
+        root.left.right.right = new TreeNode(8);
+        root.right.left = new TreeNode(7);
+        root.right.right = new TreeNode(4);
+
+        int[] result1 = solution.lowestCommonAncestor(root, new int[]{6, 7});
+        int[] result2 = solution.lowestCommonAncestor(root, new int[]{0, 1});
+
+        assertArrayEquals(new int[]{2}, result1);
+        assertArrayEquals(new int[]{1}, result2);
+    }
+
+    @Test
+    public void testLowestCommonAncestor_2() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+
+        int[] result = solution.lowestCommonAncestor(root, new int[]{});
+
+        assertArrayEquals(new int[]{1}, result);
+    }
+
+    @Test
+    public void testLowestCommonAncestor_3() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(3);
+
+        int[] result = solution.lowestCommonAncestor(root, new int[]{2});
+
+        assertArrayEquals(new int[]{2}, result);
+    }
+
+    @Test
+    public void testLowestCommonAncestor_4() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(0);
+
+        int[] result = solution.lowestCommonAncestor(root, new int[]{});
+
+        assertArrayEquals(new int[]{1}, result);
+    }
+
+    @Test
+    public void testLowestCommonAncestor_5() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(5);
+        root.right = new TreeNode(1);
+
+        int[] result = solution.lowestCommonAncestor(root, new int[]{});
+
+        assertArrayEquals(new int[]{3}, result);
+    }
+}
+```

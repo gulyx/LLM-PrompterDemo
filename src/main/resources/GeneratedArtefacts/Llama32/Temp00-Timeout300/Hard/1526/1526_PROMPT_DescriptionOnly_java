@@ -1,0 +1,8 @@
+As a professional Software Engineer, generate a complete Java class file (name the class as :'Solution', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1526;') for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
+You are given an integer array "target". You have an integer array "initial" of the same size as "target" with all elements initially zeros.
+
+In one operation you can choose any subarray from "initial" and increment each value by one.
+
+Return the minimum number of operations to form a "target" array from "initial".
+
+The test cases are generated so that the answer fits in a 32-bit integer.

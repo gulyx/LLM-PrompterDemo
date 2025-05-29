@@ -1,0 +1,22 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1284;
+
+public class Solution {
+    public int minFlips(int[][] mat) {
+        int rows = mat.length;
+        int cols = mat[0].length;
+        boolean[][] visited = new boolean[rows][cols];
+        return dfs(mat, 0, 0, rows, cols, visited);
+    }
+
+    private int dfs(int[][] mat, int r, int c, int rows, int cols, boolean[][] visited) {
+        if (r < 0 || r >= rows || c < 0 || c >= cols || visited[r][c] || mat[r][c] == 0)
+            return 0;
+        visited[r][c] = true;
+        int res = dfs(mat, r + 1, c, rows, cols, visited) + dfs(mat, r - 1, c, rows, cols, visited);
+        if (mat[r][c] == 1) {
+            res += 2 * (dfs(mat, r + 1, c, rows, cols, visited) + dfs(mat, r - 1, c, rows, cols, visited));
+            res += 4 * (dfs(mat, r, c + 1, rows, cols, visited) + dfs(mat, r, c - 1, rows, cols, visited));
+        }
+        return res;
+    }
+}

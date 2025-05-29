@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.52;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.52.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 52_DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int result = solution.totalNQueens(4);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int result = solution.totalNQueens(1);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int result = solution.totalNQueens(9);
+        // TODO: implement this test
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int result = solution.totalNQueens(8);
+        // TODO: implement this test
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int result = solution.totalNQueens(0);
+        // TODO: implement this test
+    }
+}
+```

@@ -1,0 +1,33 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2698;
+
+public class Solution {
+    public int punishmentNumber(int n) {
+        int result = 0;
+        for (int i = 1; i <= n; i++) {
+            String strI = Integer.toString(i * i);
+            boolean isPartitionable = true;
+            int sum = 0;
+            for (int j = 0; j < strI.length(); j++) {
+                if (j == 0 || strI.charAt(j) != strI.charAt(j - 1)) {
+                    sum += Character.getNumericValue(strI.charAt(j));
+                    if (sum > i) {
+                        isPartitionable = false;
+                        break;
+                    }
+                }
+            }
+            if (isPartitionable && sum == i) {
+                result += i * i;
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.punishmentNumber(10));  // Output: 182
+        System.out.println(solution.punishmentNumber(37));  // Output: 1478
+    }
+}
+```

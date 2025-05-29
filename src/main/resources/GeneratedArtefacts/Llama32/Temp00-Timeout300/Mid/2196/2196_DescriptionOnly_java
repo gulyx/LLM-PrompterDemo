@@ -1,0 +1,56 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2196;
+
+import java.util.*;
+
+class Solution {
+    public TreeNode constructTree(int[][] descriptions) {
+        Map<Integer, List<int[]>> map = new HashMap<>();
+        for (int[] description : descriptions) {
+            int parent = description[0], child = description[1];
+            int isLeft = description[2];
+
+            if (!map.containsKey(parent)) {
+                map.put(parent, new ArrayList<>());
+            }
+            map.get(parent).add(new int[]{child, isLeft});
+        }
+
+        return buildTree(1, map);
+    }
+
+    private TreeNode buildTree(int node, Map<Integer, List<int[]>> map) {
+        if (node > 100000 || !map.containsKey(node)) {
+            return null;
+        }
+        List<int[]> children = map.get(node);
+
+        int leftChild = -1, rightChild = -1;
+
+        for (int[] child : children) {
+            if (child[1] == 0) {
+                rightChild = child[0];
+            } else {
+                leftChild = child[0];
+            }
+        }
+
+        TreeNode root = new TreeNode(node);
+        if (leftChild != -1) {
+            root.left = buildTree(leftChild, map);
+        }
+        if (rightChild != -1) {
+            root.right = buildTree(rightChild, map);
+        }
+
+        return root;
+    }
+
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) { val = x; }
+}

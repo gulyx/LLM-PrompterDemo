@@ -1,0 +1,44 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1284;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1284.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class 1284_DescriptionOnly_testsTest {
+
+    @Test
+    public void testMinFlips() {
+        Solution solution = new Solution();
+        int[][] mat = {{0,1},{1,0}};
+        assertEquals(2, solution.minFlips(mat));
+    }
+
+    @Test
+    public void testMinFlipsZeroMatrix() {
+        Solution solution = new Solution();
+        int[][] mat = {{0,0},{0,0}};
+        assertEquals(0, solution.minFlips(mat));
+    }
+
+    @Test
+    public void testMinFlipsInvalidInput() {
+        Solution solution = new Solution();
+        int[][] mat = {{1,1},{1,1}};
+        assertThrows(-1.class, () -> solution.minFlips(mat));
+    }
+
+    @Test
+    public void testMinFlipsSingleCell() {
+        Solution solution = new Solution();
+        int[][] mat = {{0,0},{0,0}};
+        assertEquals(2, solution.minFlips(mat));
+    }
+
+    @Test
+    public void testMinFlipsAllOnes() {
+        Solution solution = new Solution();
+        int[][] mat = {{1,1},{1,1}};
+        assertEquals(-1, solution.minFlips(mat));
+    }
+}

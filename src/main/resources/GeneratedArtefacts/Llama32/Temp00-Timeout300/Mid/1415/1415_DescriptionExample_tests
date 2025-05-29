@@ -1,0 +1,56 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1415;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1415.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void testExample1() {
+        Solution solution = new Solution();
+        int n = 1;
+        int k = 3;
+        String result = solution.getHappyString(n, k);
+        assertEquals("c", result);
+    }
+
+    @Test
+    public void testExample2() {
+        Solution solution = new Solution();
+        int n = 1;
+        int k = 4;
+        String result = solution.getHappyString(n, k);
+        assertEquals("", result);
+    }
+
+    @Test
+    public void testExample3() {
+        Solution solution = new Solution();
+        int n = 3;
+        int k = 9;
+        String result = solution.getHappyString(n, k);
+        assertEquals("cab", result);
+    }
+
+    @Test
+    public void testExample4() {
+        Solution solution = new Solution();
+        int n = 2;
+        int k = 1;
+        String result = solution.getHappyString(n, k);
+        assertEquals("ab", result);
+    }
+
+    @Test
+    public void testExample5() {
+        Solution solution = new Solution();
+        int n = 3;
+        int k = 1000000;
+        String result = solution.getHappyString(n, k);
+        // Note: This test is not guaranteed to pass due to the large value of k.
+        // It's recommended to use a smaller value for k in this case.
+    }
+}
+```

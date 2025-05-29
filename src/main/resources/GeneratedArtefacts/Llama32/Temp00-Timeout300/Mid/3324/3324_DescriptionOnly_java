@@ -1,0 +1,29 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324;
+
+import java.util.*;
+
+public class Solution {
+    public List<String> findDifferentStrings(String target) {
+        List<String> result = new ArrayList<>();
+        Deque<Character> stack = new ArrayDeque<>();
+
+        for (char c : target.toCharArray()) {
+            if (!stack.isEmpty() && stack.peekLast().equals(c)) {
+                stack.pollLast();
+                continue;
+            }
+
+            while (!stack.isEmpty() && Character.isLowerCase(stack.peekLast())) {
+                char lastChar = stack.pollLast();
+                result.add(lastChar + String.valueOf((char) ((lastChar - 'a' + 1) % 26 + 'a')));
+            }
+            stack.offerLast(c);
+        }
+
+        while (!stack.isEmpty()) {
+            result.add(String.valueOf(stack.pollLast()));
+        }
+
+        return result;
+    }
+}

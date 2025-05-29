@@ -1,0 +1,31 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2149;
+
+public class Solution {
+    public int[] rearrangeArray(int[] nums) {
+        int n = nums.length;
+        boolean[] seenPositive = new boolean[n];
+        boolean[] seenNegative = new boolean[n];
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > 0) {
+                seenPositive[i] = true;
+            } else {
+                seenNegative[i] = true;
+            }
+        }
+
+        int positiveIndex = 0, negativeIndex = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (seenPositive[positiveIndex]) {
+                nums[i] = nums[negativeIndex];
+                negativeIndex++;
+            } else {
+                nums[i] = nums[positiveIndex];
+                positiveIndex++;
+            }
+        }
+
+        return nums;
+    }
+}

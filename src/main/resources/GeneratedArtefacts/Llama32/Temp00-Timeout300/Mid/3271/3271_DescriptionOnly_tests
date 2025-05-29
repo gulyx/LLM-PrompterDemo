@@ -1,0 +1,53 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3271;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3271.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 3271_DescriptionOnly_testsTest {
+
+    @Test
+    public void test_SimpleCase() {
+        Solution solution = new Solution();
+        String s = "abcdefghijklmnopqrstuvwxyz";
+        int k = s.length();
+        String result = solution.descriptionOnly(s, k);
+        assertEquals("abcdefghijklmnopqrstuvwxyz", result);
+    }
+
+    @Test
+    public void test_MultipleSubstrings() {
+        Solution solution = new Solution();
+        String s = "abcdefghij";
+        int k = 3;
+        String result = solution.descriptionOnly(s, k);
+        assertEquals("abcdef", result);
+    }
+
+    @Test
+    public void test_LargeInput() {
+        Solution solution = new Solution();
+        String s = "abcdefghijklmnopqrstuvwxyz" + "abcdefghijklmnopqrstuvwxyz" + "abcdefghijklmnopqrstuvwxyz";
+        int k = 2;
+        String result = solution.descriptionOnly(s, k);
+        assertEquals("abcdabcdabcd", result);
+    }
+
+    @Test
+    public void test_EmptyString() {
+        Solution solution = new Solution();
+        String s = "";
+        int k = 1;
+        String result = solution.descriptionOnly(s, k);
+        assertEquals("", result);
+    }
+
+    @Test
+    public void test_ZeroLengthInput() {
+        Solution solution = new Solution();
+        String s = "a";
+        int k = 1;
+        String result = solution.descriptionOnly(s, k);
+        assertEquals("a", result);
+    }
+}

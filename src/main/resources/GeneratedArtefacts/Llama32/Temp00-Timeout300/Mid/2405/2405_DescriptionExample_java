@@ -1,0 +1,24 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2405;
+
+public class Solution {
+    public int minPartition(String s) {
+        boolean[] seen = new boolean[26];
+        int count = 0;
+        for (char c : s.toCharArray()) {
+            if (seen[c - 'a']) {
+                count++;
+                seen = new boolean[26];
+            }
+            seen[c - 'a'] = true;
+        }
+        return count + 1;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.minPartition("abacaba")); // Output: 4
+        System.out.println(solution.minPartition("ssssss")); // Output: 6
+    }
+}
+```

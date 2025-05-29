@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1415;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1415.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SolutionTest {
+
+    @Test
+    public void testGenerateHappyString() {
+        Solution solution = new Solution();
+        String result = solution.generateHappyString(3, 1);
+        assertEquals("abc", result);
+    }
+
+    @Test
+    public void testGenerateHappyString2() {
+        Solution solution = new Solution();
+        String result = solution.generateHappyString(4, 10);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testGenerateHappyString3() {
+        Solution solution = new Solution();
+        String result = solution.generateHappyString(1, 100);
+        assertEquals("a", result);
+    }
+
+    @Test
+    public void testGenerateHappyString4() {
+        Solution solution = new Solution();
+        String result = solution.generateHappyString(2, 100);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testGenerateHappyString5() {
+        Solution solution = new Solution();
+        String result = solution.generateHappyString(10, 1);
+        assertEquals("", result);
+    }
+}

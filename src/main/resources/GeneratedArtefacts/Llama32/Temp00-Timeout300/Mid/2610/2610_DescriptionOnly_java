@@ -1,0 +1,38 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2610;
+
+import java.util.*;
+
+public class Solution {
+    public int[][] distinctRows(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        Set<Integer> set = new HashSet<>();
+
+        for (int num : nums) {
+            if (!set.add(num)) {
+                List<Integer> row = new ArrayList<>();
+                row.add(num);
+                boolean added = false;
+                for (List<Integer> r : result) {
+                    if (!r.contains(num)) {
+                        r.add(num);
+                        added = true;
+                        break;
+                    }
+                }
+                if (!added) {
+                    result.add(row);
+                }
+            } else {
+                List<Integer> row = new ArrayList<>();
+                row.add(num);
+                result.add(row);
+            }
+        }
+
+        int[][] res = new int[result.size()][];
+        for (int i = 0; i < result.size(); i++) {
+            res[i] = result.get(i).toArray(new Integer[0]);
+        }
+        return res;
+    }
+}

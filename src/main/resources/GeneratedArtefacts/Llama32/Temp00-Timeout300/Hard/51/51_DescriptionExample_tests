@@ -1,0 +1,47 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.51;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.51.Solution;
+
+public class DescriptionExampleTests {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        String[][] result = solution.solveNQueens(4);
+        for (String[] row : result) {
+            System.out.println(row);
+        }
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        String[][] result = solution.solveNQueens(1);
+        for (String[] row : result) {
+            System.out.println(row[0]);
+        }
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        String[][] result = solution.solveNQueens(2);
+        // No output is expected for this case.
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        String[][] result = solution.solveNQueens(5);
+        // No output is expected for this case.
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        String[][] result = solution.solveNQueens(3);
+        for (String[] row : result) {
+            System.out.println(row);
+        }
+    }
+}

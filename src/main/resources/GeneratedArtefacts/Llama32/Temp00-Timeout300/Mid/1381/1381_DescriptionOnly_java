@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1381;
+
+import java.util.Stack;
+
+public class Solution {
+    private int maxSize;
+    private Stack<Integer> stack;
+    private int[] array;
+
+    public Solution(int maxSize) {
+        this.maxSize = maxSize;
+        this.stack = new Stack<>();
+        this.array = new int[maxSize];
+    }
+
+    public void push(int x) {
+        if (stack.size() < maxSize) {
+            stack.push(x);
+            array[stack.size()-1] = x;
+        }
+    }
+
+    public int pop() {
+        if (!stack.isEmpty()) {
+            return array[stack.pop()];
+        } else {
+            return -1;
+        }
+    }
+
+    public void inc(int k, int val) {
+        for (int i = Math.min(k, stack.size()); i > 0; i--) {
+            array[i-1] += val;
+        }
+    }
+}

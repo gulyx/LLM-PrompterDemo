@@ -1,0 +1,39 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1611;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1611.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class SolutionTest {
+
+    @Test
+    public void test_0_operations() {
+        Solution solution = new Solution();
+        assertEquals(0, solution.minOperations(0));
+    }
+
+    @Test
+    public void test_1_operation() {
+        Solution solution = new Solution();
+        assertEquals(1, solution.minOperations(1));
+    }
+
+    @Test
+    public void test_2_operations() {
+        Solution solution = new Solution();
+        assertEquals(2, solution.minOperations(2));
+    }
+
+    @Test
+    public void test_large_number_operations() {
+        Solution solution = new Solution();
+        assertEquals(9, solution.minOperations(512));
+    }
+
+    @Test
+    public void test_invalid_input_throwsException() {
+        Solution solution = new Solution();
+        assertThrows(NumberFormatException.class, () -> solution.minOperations(-1));
+    }
+}

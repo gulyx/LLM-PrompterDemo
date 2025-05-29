@@ -1,0 +1,23 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2317;
+
+public class Solution {
+    public int findMaximumXOR(int[] nums) {
+        int max = 0;
+        for (int num : nums) {
+            int tmp = max ^ num;
+            if (tmp > max)
+                max = tmp;
+        }
+        return max;
+    }
+
+    [--Example 1--]
+    int[] nums1 = {3,2,4,6};
+    int result1 = findMaximumXOR(nums1);
+    System.out.println(result1); // Output: 7
+
+    [--Example 2--]
+    int[] nums2 = {1,2,3,9,2};
+    int result2 = findMaximumXOR(nums2);
+    System.out.println(result2); // Output: 11
+}

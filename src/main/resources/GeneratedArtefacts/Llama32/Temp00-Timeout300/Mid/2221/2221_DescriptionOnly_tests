@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2221;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2221.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class 2221_DescriptionOnly_testsTest {
+
+    @Test
+    public void testTriangularSum_EmptyArray() {
+        Solution solution = new Solution();
+        int[] nums = {};
+        assertEquals(0, solution.triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_SingleElementArray() {
+        Solution solution = new Solution();
+        int[] nums = {1};
+        assertEquals(1, solution.triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_TwoElementsArray() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2};
+        assertEquals(3, solution.triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_MultipleElementsArray() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2, 3, 4, 5};
+        assertEquals(15, solution.triangularSum(nums));
+    }
+
+    @Test
+    public void testTriangularSum_CyclicPattern() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        assertEquals(45, solution.triangularSum(nums));
+    }
+}

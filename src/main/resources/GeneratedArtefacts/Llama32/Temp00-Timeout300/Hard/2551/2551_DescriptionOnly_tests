@@ -1,0 +1,53 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2551;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2551.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class 2551_DescriptionOnly_testsTest {
+
+    @Test
+    public void testMaxMinScore() {
+        Solution solution = new Solution();
+        int[] weights = {2,3,4};
+        int k = 2;
+        long expected = 24L;
+        assertEquals(expected, solution.maxMinScore(weights, k));
+    }
+
+    @Test
+    public void testMaxMinScore_EmptyArray() {
+        Solution solution = new Solution();
+        int[] weights = {};
+        int k = 1;
+        long expected = -1L;
+        assertEquals(expected, solution.maxMinScore(weights, k));
+    }
+
+    @Test
+    public void testMaxMinScore_SingleElementArray() {
+        Solution solution = new Solution();
+        int[] weights = {5};
+        int k = 1;
+        long expected = 10L;
+        assertEquals(expected, solution.maxMinScore(weights, k));
+    }
+
+    @Test
+    public void testMaxMinScore_LargeArray() {
+        Solution solution = new Solution();
+        int[] weights = {1,2,3,4,5};
+        int k = 3;
+        long expected = 60L;
+        assertEquals(expected, solution.maxMinScore(weights, k));
+    }
+
+    @Test
+    public void testMaxMinScore_KIsOne() {
+        Solution solution = new Solution();
+        int[] weights = {1,2,3,4,5};
+        int k = 1;
+        assertThrows(NullPointerException.class, () -> solution.maxMinScore(weights, k));
+    }
+}

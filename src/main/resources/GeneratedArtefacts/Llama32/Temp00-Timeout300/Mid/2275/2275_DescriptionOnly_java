@@ -1,0 +1,27 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2275;
+
+public class Solution {
+    public int findMaxForm(int[] candidates, int m) {
+        Integer[][] dp = new Integer[candidates.length + 1][m + 1];
+        for (int i = 0; i <= candidates.length; i++) {
+            Arrays.fill(dp[i], -1);
+        }
+        return helper(candidates, m, dp, 0, 0);
+    }
+
+    private int helper(int[] candidates, int m, Integer[][] dp, int idx, int sum) {
+        if (idx == candidates.length || sum > m) {
+            return 0;
+        }
+        if (dp[idx][sum] != -1) {
+            return dp[idx][sum];
+        }
+        int notPick = helper(candidates, m, dp, idx + 1, sum);
+        int pick = 0;
+        if (candidates[idx] <= sum && candidates[idx] * (int Math.pow(2, Integer.toBinaryString(candidates[idx]).length() - 1)) <= m) {
+            pick = helper(candidates, m - candidates[idx], dp, idx + 1, sum + candidates[idx]);
+        }
+        return dp[idx][sum] = notPick + pick;
+    }
+
+}

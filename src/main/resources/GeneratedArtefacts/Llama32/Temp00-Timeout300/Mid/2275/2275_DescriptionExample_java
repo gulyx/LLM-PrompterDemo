@@ -1,0 +1,52 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2275;
+
+import java.util.*;
+
+public class Solution {
+    public int findMaxForm(int[] candidates, int m) {
+        Arrays.sort(candidates);
+        int n = candidates.length;
+        int[][] dp = new int[n + 1][m + 1];
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= m; j++) {
+                if (i == 0 || j == 0) {
+                    dp[i][j] = 0;
+                } else if (candidates[i - 1] <= j) {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - candidates[i - 1]] + 1);
+                } else {
+                    dp[i][j] = dp[i - 1][j];
+                }
+            }
+        }
+        return dp[n][m];
+    }
+
+    public int findMaxForm(int[] candidates, int m) {
+        Arrays.sort(candidates);
+        int n = candidates.length;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            map.put(candidates[i], map.getOrDefault(candidates[i], 0) + 1);
+        }
+        return findMaxForm(map, m);
+    }
+
+    private int findMaxForm(Map<Integer, Integer> map, int m) {
+        int max = 0;
+        for (int i = 0; i < (1 << map.size()); i++) {
+            int sum = 0;
+            int count = 0;
+            for (int j = 0; j < map.size(); j++) {
+                if ((i & (1 << j)) != 0) {
+                    sum += map.keySet().iterator().next();
+                    count++;
+                }
+            }
+            if (sum <= m && count > max) {
+                max = count;
+            }
+        }
+        return max;
+    }
+
+}

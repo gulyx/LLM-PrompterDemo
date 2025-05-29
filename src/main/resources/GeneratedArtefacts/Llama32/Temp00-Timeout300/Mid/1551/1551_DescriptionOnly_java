@@ -1,0 +1,8 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1551;
+
+public class Solution {
+    public int minOperations(int n) {
+        long sum = (long)Math.ceil((double)n/2)*n;
+        return (int)(sum-(long)n*(n+1)/2);
+    }
+}

@@ -1,0 +1,23 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.763;
+
+import java.util.*;
+
+public class Solution {
+    public List<Integer> partitionLabels(String s) {
+        int[] lastIndexOf = new int[s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            lastIndexOf[i] = s.lastIndexOf(s.charAt(i));
+        }
+        List<Integer> result = new ArrayList<>();
+        int j = 0;
+        for (int i = 0; i < s.length(); i++) {
+            j = Math.max(j, lastIndexOf[i]);
+            if (i == j) {
+                result.add(i - j + 1);
+            } else {
+                j++;
+            }
+        }
+        return result;
+    }
+}

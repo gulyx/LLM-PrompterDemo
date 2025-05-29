@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2326;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2326.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertArrayEquals;
+
+public class DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(3, 5, new int[]{3,0,2,6,8,1,7,9,4,2,5,5,0});
+        assertArrayEquals(new int[][]{{-1,-1,-1,0,2},{-1,0,1,2,0},{1,2,0,1,1}}, result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(10, 5, new int[]{3,0,2,6,8,1,7,9,4,2,5,5,0});
+        assertArrayEquals(new int[][]{{-1,-1,-1,-1,-1},{-1,0,1,2,0},{1,2,0,1,1}}, result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(5, 5, new int[]{3,0,2,6,8,1,7,9,4,2,5,5,0});
+        assertArrayEquals(new int[][]{{-1,-1,-1,-1,-1},{-1,0,1,2,0},{1,2,0,1,1},{-1,1,1,0,2},{3,0,2,6,8}}, result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(20, 10, new int[]{3,0,2,6,8,1,7,9,4,2,5,5,0});
+        assertArrayEquals(new int[][]{{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},{-1,0,1,2,0,0,0,0,0,0},{1,2,0,1,1,0,0,0,0,0},{3,0,2,6,8,0,0,0,0,0},{-1,-1,-1,-1,-1,0,0,0,0,0}}, result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(3, 3, new int[]{3,0,2,6,8,1,7,9,4,2,5,5,0});
+        assertArrayEquals(new int[][]{{-1,-1,0},{0,1,2},{3,6,8}}, result);
+    }
+}
+```

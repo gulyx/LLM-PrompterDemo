@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1877;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1877.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 1877_DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] nums = {3,5,2,3};
+        assertEquals(7, solution.maxPairSum(nums));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] nums = {3,5,4,2,4,6};
+        assertEquals(8, solution.maxPairSum(nums));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] nums = {1, 7, 11, 5};
+        assertEquals(9, solution.maxPairSum(nums));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] nums = {2, 3, 5, 8};
+        assertEquals(10, solution.maxPairSum(nums));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] nums = {7, 1, 14, 11};
+        assertEquals(13, solution.maxPairSum(nums));
+    }
+}

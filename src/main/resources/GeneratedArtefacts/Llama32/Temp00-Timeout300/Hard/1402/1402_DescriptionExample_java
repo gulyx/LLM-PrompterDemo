@@ -1,0 +1,21 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1402;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class Solution {
+    public int maxSatisfaction(int[] satisfaction) {
+        Arrays.sort(satisfaction);
+        long sum = 0, res = 0;
+        for (int i = 0; i < satisfaction.length; i++) {
+            if (satisfaction[i] > 0)
+                break;
+            else if (sum + satisfaction[i] > 0)
+                sum += satisfaction[i];
+            else
+                res += sum;
+        }
+        return (int)res;
+    }
+
+}

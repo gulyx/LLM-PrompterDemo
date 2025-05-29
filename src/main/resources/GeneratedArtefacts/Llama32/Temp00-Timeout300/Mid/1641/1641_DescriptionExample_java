@@ -1,0 +1,16 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1641;
+
+public class Solution {
+    public int countVowelStrings(int n) {
+        long[] dp = new long[5];
+        dp[0] = 1;
+        for (int i = 1; i <= n; i++) {
+            long sum = 0;
+            for (int j = 0; j < 5; j++) {
+                sum += dp[j];
+                dp[j] = sum;
+            }
+        }
+        return (int) dp[4];
+    }
+}

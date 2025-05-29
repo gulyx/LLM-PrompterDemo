@@ -1,0 +1,98 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1579;
+
+import java.util.*;
+
+public class Solution {
+    public int maxNumEdgesToRemove(int n, int[][] edges) {
+        List<Integer>[] alice = new ArrayList[n];
+        List<Integer>[] bob = new ArrayList[n];
+
+        for (int i = 0; i < n; i++) {
+            alice[i] = new ArrayList<>();
+            bob[i] = new ArrayList<>();
+        }
+
+        for (int[] edge : edges) {
+            if (edge[0] == 1) {
+                alice[edge[1]].add(edge[2]);
+                bob[edge[2]].add(edge[1]);
+            } else if (edge[0] == 2) {
+                bob[edge[1]].add(edge[2]);
+                alice[edge[2]].add(edge[1]);
+            } else {
+                alice[edge[1]].add(edge[2]);
+                bob[edge[2]].add(edge[1]);
+            }
+        }
+
+        int[] aliceColors = new int[n];
+        int[] bobColors = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            if (alice[i].size() == 0) {
+                aliceColors[i] = -1;
+            } else {
+                aliceColors[i] = find(alice, i);
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (bob[i].size() == 0) {
+                bobColors[i] = -1;
+            } else {
+                bobColors[i] = find(bob, i);
+            }
+        }
+
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (aliceColors[i] != -1 && bobColors[i] == -1) {
+                return -1;
+            } else if (bobColors[i] != -1 && aliceColors[i] == -1) {
+                return -1;
+            }
+
+            if (aliceColors[i] == bobColors[i]) {
+                continue;
+            }
+
+            int minColor = Math.min(aliceColors[i], bobColors[i]);
+            for (int j : alice[i]) {
+                if (aliceColors[j] != -1 && aliceColors[j] <= minColor) {
+                    count++;
+                }
+            }
+
+            for (int j : bob[i]) {
+                if (bobColors[j] != -1 && bobColors[j] <= minColor) {
+                    count++;
+                }
+            }
+
+            aliceColors[i] = bobColors[i] = -1;
+        }
+
+        return edges.length - count;
+    }
+
+    private int find(List<Integer>[] graph, int start) {
+        Set<Integer> visited = new HashSet<>();
+        Queue<Integer> queue = new LinkedList<>();
+
+        queue.add(start);
+        visited.add(start);
+
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            for (int neighbor : graph[node]) {
+                if (!visited.contains(neighbor)) {
+                    visited.add(neighbor);
+                    queue.add(neighbor);
+                }
+            }
+        }
+
+        return visited.size() - 1;
+    }
+}

@@ -1,0 +1,33 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028;
+
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
+
+public class Solution {
+
+    public TreeNode recoverFromBinaryTree(String traversal) {
+        String[] nodes = traversal.split("-");
+        List<TreeNode> tree = new ArrayList<>();
+        for (String node : nodes) {
+            if (!node.isEmpty()) {
+                int val = Integer.parseInt(node);
+                TreeNode root = new TreeNode(val);
+                tree.add(root);
+                if (tree.size() > 1) {
+                    root.left = tree.get(tree.size() - 2);
+                }
+                if (tree.size() > 1) {
+                    root.right = tree.get(tree.size() - 1);
+                }
+            }
+        }
+        return tree.get(0);
+    }
+
+}

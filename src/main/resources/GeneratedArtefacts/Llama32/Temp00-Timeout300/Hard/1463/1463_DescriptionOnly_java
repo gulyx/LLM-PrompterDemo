@@ -1,0 +1,27 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1463;
+
+public class Solution {
+    public int cherryPickup(int[][] grid) {
+        int rows = grid.length;
+        int cols = grid[0].length;
+        int[][][] dp = new int[rows][cols][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols - 1; j++) {
+                for (int k = j + 1; k < cols; k++) {
+                    if (i == 0) {
+                        dp[i][j][k] = grid[i][j] + Math.max(dp[i + 1][j + 1][k], dp[i + 1][j][k]);
+                    } else {
+                        int maxPickup = Integer.MIN_VALUE;
+                        for (int l = j - 1; l <= k + 1; l++) {
+                            maxPickup = Math.max(maxPickup, grid[i][l] + dp[i - 1][l][k]);
+                        }
+                        dp[i][j][k] = maxPickup;
+                    }
+                }
+            }
+        }
+
+        return dp[rows - 1][0][cols - 1];
+    }
+}

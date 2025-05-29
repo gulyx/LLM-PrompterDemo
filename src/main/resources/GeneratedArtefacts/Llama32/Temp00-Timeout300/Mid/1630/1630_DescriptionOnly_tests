@@ -1,0 +1,60 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1630;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1630.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1630_DescriptionOnly_testsTest {
+
+    @Test
+    public void testArithmeticSequence() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3,4};
+        int[][] queries = {{0,1},{1,2}};
+        boolean[] answer = solution.checkArithmeticSubarrays(nums, queries);
+        assertTrue(answer[0]);
+        assertFalse(answer[1]);
+    }
+
+    @Test
+    public void testNoArithmeticSequence() {
+        Solution solution = new Solution();
+        int[] nums = {1,3,5};
+        int[][] queries = {{0,1},{1,2}};
+        boolean[] answer = solution.checkArithmeticSubarrays(nums, queries);
+        assertFalse(answer[0]);
+        assertTrue(answer[1]);
+    }
+
+    @Test
+    public void testEmptyArray() {
+        Solution solution = new Solution();
+        int[] nums = {};
+        int[][] queries = {{0,1},{1,2}};
+        boolean[] answer = solution.checkArithmeticSubarrays(nums, queries);
+        for (boolean b : answer) {
+            assertTrue(!b);
+        }
+    }
+
+    @Test
+    public void testSingleElementArray() {
+        Solution solution = new Solution();
+        int[] nums = {1};
+        int[][] queries = {{0,1},{1,2}};
+        boolean[] answer = solution.checkArithmeticSubarrays(nums, queries);
+        for (boolean b : answer) {
+            assertTrue(!b);
+        }
+    }
+
+    @Test
+    public void testAllArithmetic() {
+        Solution solution = new Solution();
+        int[] nums = {1, 3, 5, 7};
+        int[][] queries = {{0,2},{1,3}};
+        boolean[] answer = solution.checkArithmeticSubarrays(nums, queries);
+        assertTrue(answer[0]);
+        assertTrue(answer[1]);
+    }
+}

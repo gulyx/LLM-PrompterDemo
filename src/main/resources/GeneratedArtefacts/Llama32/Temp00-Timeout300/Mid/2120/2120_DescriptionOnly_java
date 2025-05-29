@@ -1,0 +1,50 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2120;
+
+import java.util.*;
+
+public class Solution {
+    public int[] executeInstructions(int n, int[] startPos, String s) {
+        int m = s.length();
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int[][] visited = new int[n][n];
+        int[][] answer = new int[m];
+
+        for (int i = 0; i < m; i++) {
+            int row = startPos[0] + directions[i % 4][0];
+            int col = startPos[1] + directions[i % 4][1];
+
+            if (row < 0 || row >= n || col < 0 || col >= n) {
+                answer[i] = i;
+                continue;
+            }
+
+            if (visited[row][col] == 1) {
+                answer[i] = i;
+                continue;
+            }
+
+            visited[row][col] = 1;
+
+            int j = i + 1;
+            while (j < m && isValid(row, col, directions[j % 4][0], directions[j % 4][1], n)) {
+                row += directions[j % 4][0];
+                col += directions[j % 4][1];
+
+                if (row < 0 || row >= n || col < 0 || col >= n) {
+                    answer[i] = j;
+                    break;
+                }
+
+                visited[row][col] = 1;
+
+                j++;
+            }
+        }
+
+        return answer;
+    }
+
+    private boolean isValid(int row, int col, int dr, int dc, int n) {
+        return row + dr >= 0 && row + dr < n && col + dc >= 0 && col + dc < n;
+    }
+}

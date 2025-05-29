@@ -1,0 +1,35 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324;
+
+import java.util.*;
+
+public class Solution {
+    public List<String> findDifferentString(String target) {
+        List<String> result = new ArrayList<>();
+        Deque<Character> stack = new ArrayDeque<>();
+
+        for (char c : target.toCharArray()) {
+            if (!stack.isEmpty() && stack.peekLast().equals(c)) {
+                stack.pollLast();
+                continue;
+            }
+
+            while (!stack.isEmpty() && Character.isLowerCase(stack.peekLast())) {
+                stack.pollLast();
+            }
+            stack.offerLast(c);
+            result.add(new String(stack.toArray()));
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+
+        List<String> result1 = solution.findDifferentString("abc");
+        System.out.println(result1);
+
+        List<String> result2 = solution.findDifferentString("he");
+        System.out.println(result2);
+    }
+}

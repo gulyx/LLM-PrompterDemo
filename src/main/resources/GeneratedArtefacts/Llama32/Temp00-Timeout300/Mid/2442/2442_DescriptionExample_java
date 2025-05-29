@@ -1,0 +1,25 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2442;
+
+public class Solution {
+    public int findDifferentInteger(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            String strNum = Integer.toString(num);
+            StringBuilder sb = new StringBuilder(strNum);
+            sb.reverse();
+            set.add(Integer.parseInt(sb.toString()));
+        }
+        return set.size();
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] nums1 = {1,13,10,12,31};
+        System.out.println(solution.findDifferentInteger(nums1)); // 6
+
+        int[] nums2 = {2,2,2};
+        System.out.println(solution.findDifferentInteger(nums2)); // 1
+    }
+}
+```

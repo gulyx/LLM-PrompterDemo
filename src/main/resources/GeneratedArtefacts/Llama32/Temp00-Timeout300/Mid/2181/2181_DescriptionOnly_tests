@@ -1,0 +1,75 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2181;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2181.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2181_DescriptionOnly_testsTest {
+
+    @Test
+    public void testMergeNodes() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(0);
+        head.next = new ListNode(1);
+        head.next.next = new ListNode(0);
+        head.next.next.next = new ListNode(3);
+        head.next.next.next.next = new ListNode(4);
+        head.next.next.next.next.next = new ListNode(2);
+        head.next.next.next.next.next.next = new ListNode(0);
+        head.next.next.next.next.next.next.next = new ListNode(5);
+        head.next.next.next.next.next.next.next.next = new ListNode(1);
+
+        solution.mergeNodes(head);
+        assertEquals(new ListNode(1), head.next);
+        assertEquals(new ListNode(4), head.next.next);
+        assertEquals(new ListNode(2), head.next.next.next);
+        assertEquals(new ListNode(10), head.next.next.next.next);
+        assertEquals(new ListNode(5), head.next.next.next.next.next);
+        assertEquals(new ListNode(0), head.next.next.next.next.next.next);
+    }
+
+    @Test
+    public void testMergeNodes_EmptyList() {
+        Solution solution = new Solution();
+        ListNode head = null;
+
+        solution.mergeNodes(head);
+        assertNull(head);
+    }
+
+    @Test
+    public void testMergeNodes_SingleNode() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(0);
+
+        solution.mergeNodes(head);
+        assertEquals(new ListNode(0), head);
+    }
+
+    @Test
+    public void testMergeNodes_TwoConsecutiveZeros() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(0);
+        head.next.next = new ListNode(3);
+
+        solution.mergeNodes(head);
+        assertEquals(new ListNode(4), head.next);
+    }
+
+    @Test
+    public void testMergeNodes_MultipleConsecutiveZeros() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(0);
+        head.next.next = new ListNode(2);
+        head.next.next.next = new ListNode(0);
+        head.next.next.next.next = new ListNode(4);
+
+        solution.mergeNodes(head);
+        assertEquals(new ListNode(6), head.next);
+        assertEquals(new ListNode(2), head.next.next);
+        assertEquals(new ListNode(0), head.next.next.next);
+        assertEquals(new ListNode(8), head.next.next.next.next);
+    }
+}

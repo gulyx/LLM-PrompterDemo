@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2079;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2079.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class Solution_testsTest {
+
+    @Test
+    public void testExample1() {
+        Solution solution = new Solution();
+        int[] plants = {2, 2, 3, 3};
+        int capacity = 5;
+        assertEquals(14, solution.wateringCanCapacity(plants, capacity));
+    }
+
+    @Test
+    public void testExample2() {
+        Solution solution = new Solution();
+        int[] plants = {1, 1, 1, 4, 2, 3};
+        int capacity = 4;
+        assertEquals(30, solution.wateringCanCapacity(plants, capacity));
+    }
+
+    @Test
+    public void testExample3() {
+        Solution solution = new Solution();
+        int[] plants = {7, 7, 7, 7, 7, 7, 7};
+        int capacity = 8;
+        assertEquals(49, solution.wateringCanCapacity(plants, capacity));
+    }
+
+    @Test
+    public void testExample4() {
+        Solution solution = new Solution();
+        int[] plants = {1, 2, 3, 4, 5};
+        int capacity = 10;
+        assertEquals(20, solution.wateringCanCapacity(plants, capacity));
+    }
+
+    @Test
+    public void testExample5() {
+        Solution solution = new Solution();
+        int[] plants = {1000000, 1000000, 1000000, 1000000};
+        int capacity = 2000000;
+        assertEquals(3000000, solution.wateringCanCapacity(plants, capacity));
+    }
+}
+```

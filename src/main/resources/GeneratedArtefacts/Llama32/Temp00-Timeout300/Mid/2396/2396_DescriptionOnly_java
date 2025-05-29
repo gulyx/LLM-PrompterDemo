@@ -1,0 +1,19 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2396;
+
+public class Solution {
+    public boolean isStrictPalindromic(int n) {
+        for (int b = 2; b < n - 1; b++) {
+            String numStr = Integer.toString(n, b);
+            int left = 0;
+            int right = numStr.length() - 1;
+            while (left < right) {
+                if (numStr.charAt(left) != numStr.charAt(right)) {
+                    return false;
+                }
+                left++;
+                right--;
+            }
+        }
+        return true;
+    }
+}

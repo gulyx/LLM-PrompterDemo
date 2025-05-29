@@ -1,0 +1,26 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '2391_DescriptionExample_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2391;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2391.Solution;'). The class-under-test implements the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description for the class-under-test: 
+You are given a 0-indexed array of strings "garbage" where "garbage[i]" represents the assortment of garbage at the "i^th" house. "garbage[i]" consists only of the characters "'M'", "'P'" and "'G'" representing one unit of metal, paper and glass garbage respectively. Picking up one unit of any type of garbage takes "1" minute.
+
+You are also given a 0-indexed integer array "travel" where "travel[i]" is the number of minutes needed to go from house "i" to house "i + 1".
+
+There are three garbage trucks in the city, each responsible for picking up one type of garbage. Each garbage truck starts at house "0" and must visit each house in order; however, they do not need to visit every house.
+
+Only one garbage truck may be used at any given moment. While one truck is driving or picking up garbage, the other two trucks cannot do anything.
+
+Return the minimum number of minutes needed to pick up all the garbage.
+
+
+Constraints:
+
+* "2 <= garbage.length <= 10^5"
+* "garbage[i]" consists of only the letters "'M'", "'P'", and "'G'".
+* "1 <= garbage[i].length <= 10"
+* "travel.length == garbage.length - 1"
+* "1 <= travel[i] <= 100"
+
+[--Example 1--]
+Input: garbage = ["G","P","GP","GG"], travel = [2,4,3]
+Output: 21
+[--Example 2--]
+Input: garbage = ["MMM","PGM","GP"], travel = [3,10]
+Output: 37

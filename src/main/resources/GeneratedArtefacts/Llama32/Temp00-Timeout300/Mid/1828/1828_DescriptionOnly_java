@@ -1,0 +1,47 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1828;
+
+import java.util.*;
+
+public class Solution {
+    public int[] numPointsInside(int[][] points, int[][] queries) {
+        List<Query> list = new ArrayList<>();
+        for (int i = 0; i < queries.length; i++) {
+            Query query = new Query(queries[i][0], queries[i][1], queries[i][2]);
+            list.add(query);
+        }
+        Collections.sort(list, Comparator.comparingInt(a -> a.x));
+        int[] answer = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            Query query = list.get(i);
+            int count = 0;
+            for (int j = 0; j < points.length; j++) {
+                if (isInside(points[j][0], points[j][1], query.x, query.y, query.r)) {
+                    count++;
+                }
+            }
+            answer[i] = count;
+        }
+        return answer;
+    }
+
+    private boolean isInside(int x1, int y1, int x2, int y2, int r) {
+        double dx = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        if (dx <= r) return true;
+        else return false;
+    }
+
+    private class Query implements Comparable<Query> {
+        int x, y, r;
+
+        public Query(int x, int y, int r) {
+            this.x = x;
+            this.y = y;
+            this.r = r;
+        }
+
+        @Override
+        public int compareTo(Query o) {
+            return Integer.compare(x, o.x);
+        }
+    }
+}

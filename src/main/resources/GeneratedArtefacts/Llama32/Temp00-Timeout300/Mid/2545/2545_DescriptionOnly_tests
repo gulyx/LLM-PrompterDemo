@@ -1,0 +1,54 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2545;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2545.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class 2545_DescriptionOnly_testsTest {
+
+    @Test
+    public void testSortStudentsByScore() {
+        Solution solution = new Solution();
+        int[][] score = {{100,80,70},{50,40,30},{25,20,15}};
+        int k = 2;
+        int[][] expected = {{100,80,70},{50,40,30},{25,20,15}};
+        assertEquals(expected, solution.sortStudents(score, k));
+    }
+
+    @Test
+    public void testSortStudentsByScore_kIs0() {
+        Solution solution = new Solution();
+        int[][] score = {{100,80,70},{50,40,30},{25,20,15}};
+        int k = 0;
+        int[][] expected = {{100,80,70},{50,40,30},{25,20,15}};
+        assertEquals(expected, solution.sortStudents(score, k));
+    }
+
+    @Test
+    public void testSortStudentsByScore_kIsN() {
+        Solution solution = new Solution();
+        int[][] score = {{100,80,70},{50,40,30},{25,20,15}};
+        int k = 2;
+        int n = 3;
+        int[][] expected = {{100,80,70},{50,40,30},{25,20,15}};
+        assertEquals(expected, solution.sortStudents(score, k));
+    }
+
+    @Test
+    public void testSortStudentsByScore_kIsM() {
+        Solution solution = new Solution();
+        int[][] score = {{100,80,70},{50,40,30},{25,20,15}};
+        int k = 2;
+        int m = 3;
+        assertThrows(NullPointerException.class, () -> solution.sortStudents(score, k));
+    }
+
+    @Test
+    public void testSortStudentsByScore_kIsNegative() {
+        Solution solution = new Solution();
+        int[][] score = {{100,80,70},{50,40,30},{25,20,15}};
+        int k = -1;
+        assertThrows(NullPointerException.class, () -> solution.sortStudents(score, k));
+    }
+}

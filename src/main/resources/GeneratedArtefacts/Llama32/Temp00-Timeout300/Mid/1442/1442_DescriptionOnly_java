@@ -1,0 +1,22 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1442;
+
+public class Solution {
+    public int findTriplets(int[] arr) {
+        int n = arr.length;
+        boolean[] seen = new boolean[n];
+        int count = 0;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 2; j < n; j++) {
+                long a = 0, b = 0;
+                for (int k = i; k < j; k++) {
+                    a ^= arr[k];
+                }
+                for (int l = j; l < n; l++) {
+                    b ^= arr[l];
+                }
+                if (a == b) count++;
+            }
+        }
+        return count;
+    }
+}

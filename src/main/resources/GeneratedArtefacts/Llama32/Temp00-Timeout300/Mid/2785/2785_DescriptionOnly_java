@@ -1,0 +1,35 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2785;
+
+public class Solution {
+    public String sortString(String s) {
+        char[] chars = s.toCharArray();
+        int[] vowelCounts = new int[5];
+        for (char c : chars) {
+            if ("aeiouAEIOU".indexOf(c) != -1) {
+                vowelCounts["aeiouAEIOU".indexOf(c)]++;
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+        while (true) {
+            for (int i = 0; i < 5; i++) {
+                if (vowelCounts[i] > 0) {
+                    result.append((char) ('a' + i));
+                    vowelCounts[i]--;
+                }
+            }
+            boolean allZero = true;
+            for (int i : vowelCounts) {
+                if (i > 0) {
+                    allZero = false;
+                    break;
+                }
+            }
+            if (allZero) {
+                break;
+            }
+        }
+
+        return result.toString();
+    }
+}

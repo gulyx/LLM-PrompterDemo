@@ -1,0 +1,44 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.51;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.51.Solution;
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SolutionTest {
+
+    @Test
+    public void test_Solution_With_N_4() {
+        Solution solution = new Solution();
+        List<List<String>> result = solution.solveNQueens(4);
+        assertEquals(2, result.size());
+    }
+
+    @Test
+    public void test_Solution_With_N_5() {
+        Solution solution = new Solution();
+        List<List<String>> result = solution.solveNQueens(5);
+        assertTrue(result.stream().anyMatch(solution::isValid));
+    }
+
+    @Test
+    public void test_Solution_With_N_6() {
+        Solution solution = new Solution();
+        List<List<String>> result = solution.solveNQueens(6);
+        assertEquals(4, result.size());
+    }
+
+    @Test
+    public void test_Solution_With_N_7() {
+        Solution solution = new Solution();
+        List<List<String>> result = solution.solveNQueens(7);
+        assertTrue(result.stream().anyMatch(solution::isValid));
+    }
+
+    @Test
+    public void test_Solution_With_N_8() {
+        Solution solution = new Solution();
+        List<List<String>> result = solution.solveNQueens(8);
+        assertEquals(10, result.size());
+    }
+}

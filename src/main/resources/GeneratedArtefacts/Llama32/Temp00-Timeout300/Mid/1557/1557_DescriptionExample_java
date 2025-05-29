@@ -1,0 +1,27 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1557;
+
+import java.util.*;
+
+public class Solution {
+    public List<Integer> findSmallestSetOfVertices(int n, int[][] edges) {
+        Set<Integer> sourceNodes = new HashSet<>();
+        for (int[] edge : edges) {
+            sourceNodes.add(edge[1]);
+        }
+        List<Integer> result = new ArrayList<>(sourceNodes);
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int n = 6;
+        int[][] edges = {{0,1},{0,2},{2,5},{3,4},{4,2}};
+        List<Integer> result = solution.findSmallestSetOfVertices(n, edges);
+        System.out.println(result);
+
+        n = 5;
+        edges = {{0,1},{2,1},{3,1},{1,4},{2,4}};
+        result = solution.findSmallestSetOfVertices(n, edges);
+        System.out.println(result);
+    }
+}

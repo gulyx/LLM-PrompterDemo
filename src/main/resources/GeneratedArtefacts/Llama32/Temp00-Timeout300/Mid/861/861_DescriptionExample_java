@@ -1,0 +1,37 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.861;
+
+public class Solution {
+    public int maxScore(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        boolean[] row = new boolean[m];
+        boolean[] col = new boolean[n];
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) {
+                    row[i] = true;
+                    col[j] = true;
+                }
+            }
+        }
+
+        int score = 0;
+
+        for (int i = 0; i < m; i++) {
+            if (row[i]) {
+                score += (1 << i);
+            }
+        }
+
+        for (int j = 0; j < n; j++) {
+            if (col[j]) {
+                score += (1 << j);
+            }
+        }
+
+        return score;
+    }
+}
+```

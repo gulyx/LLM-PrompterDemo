@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void testValidStrings_n3() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryString(3);
+        assertEquals("[\"010\",\"011\",\"101\",\"110\",\"111\"]", java.util.Arrays.toString(result));
+    }
+
+    @Test
+    public void testValidStrings_n1() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryString(1);
+        assertEquals("[\"0\",\"1\"]", java.util.Arrays.toString(result));
+    }
+
+    @Test
+    public void testValidStrings_n2() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryString(2);
+        assertEquals("[]", java.util.Arrays.toString(result));
+    }
+
+    @Test
+    public void testValidStrings_n4() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryString(4);
+        assertEquals("[\"01\",\"10\",\"11\"]", java.util.Arrays.toString(result));
+    }
+
+    @Test
+    public void testValidStrings_n5() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryString(5);
+        assertEquals("[\"010\",\"011\",\"101\",\"110\",\"111\"]", java.util.Arrays.toString(result));
+    }
+}
+```

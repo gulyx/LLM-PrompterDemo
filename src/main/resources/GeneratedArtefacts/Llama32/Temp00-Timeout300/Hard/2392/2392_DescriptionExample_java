@@ -1,0 +1,85 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2392;
+
+import java.util.*;
+
+public class Solution {
+    public int[][] constructMatrix(int k, int[][] rowConditions, int[][] colConditions) {
+        List<Integer> row = new ArrayList<>();
+        List<Integer> col = new ArrayList<>();
+
+        for (int[] condition : rowConditions) {
+            row.add(condition[0]);
+            row.add(condition[1]);
+        }
+
+        for (int[] condition : colConditions) {
+            col.add(condition[0]);
+            col.add(condition[1]);
+        }
+
+        Set<Integer> used = new HashSet<>();
+        List<List<Integer>> ans = new ArrayList<>();
+
+        for (int i = 1; i <= k; i++) {
+            if (!used.contains(i)) {
+                List<Integer> row = new ArrayList<>();
+                List<Integer> col = new ArrayList<>();
+
+                for (int j : rowConditions) {
+                    if (j[0] == i && !row.contains(j[1])) {
+                        row.add(j[1]);
+                        used.add(j[1]);
+                    }
+                }
+
+                for (int j : colConditions) {
+                    if (j[0] == i && !col.contains(j[1])) {
+                        col.add(j[1]);
+                        used.add(j[1]);
+                    }
+                }
+
+                List<Integer> rowList = new ArrayList<>(row);
+                List<Integer> colList = new ArrayList<>(col);
+
+                while (!rowList.isEmpty() || !colList.isEmpty()) {
+                    if (!rowList.isEmpty() && (colList.isEmpty() || rowList.get(rowList.size() - 1) < colList.get(colList.size() - 1))) {
+                        ans.add(new ArrayList<>(rowList));
+                        rowList.remove(rowList.size() - 1);
+                    } else {
+                        ans.add(new ArrayList<>(colList));
+                        colList.remove(colList.size() - 1);
+                    }
+                }
+
+                if (ans.isEmpty()) return new int[0][0];
+            }
+        }
+
+        List<List<Integer>> result = new ArrayList<>();
+        for (int i = 0; i < k; i++) {
+            List<Integer> row = new ArrayList<>();
+            List<Integer> col = new ArrayList<>();
+
+            for (List<Integer> list : ans) {
+                if (!list.isEmpty()) {
+                    row.add(list.get(0));
+                    col.add(list.get(1));
+                }
+            }
+
+            result.add(row);
+        }
+
+        int[][] matrix = new int[k][k];
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < k; j++) {
+                if (result.get(i).get(j) != 0) {
+                    matrix[i][j] = result.get(i).get(j);
+                }
+            }
+        }
+
+        return matrix;
+    }
+}

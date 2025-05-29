@@ -1,0 +1,12 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '1315_DescriptionExample_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1315;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1315.Solution;'). The class-under-test implements the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description for the class-under-test: 
+Given the "root" of a binary tree, return the sum of values of nodes with an even-valued grandparent. If there are no nodes with an even-valued grandparent, return "0".
+
+A grandparent of a node is the parent of its parent if it exists.
+
+[--Example 1--]
+Input: root = [6,7,8,2,7,1,3,9,null,1,4,null,null,null,5]
+Output: 18
+
+[--Example 2--]
+Input: root = [1]
+Output: 0

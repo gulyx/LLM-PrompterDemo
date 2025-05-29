@@ -1,0 +1,18 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '2317_DescriptionExample_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2317;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2317.Solution;'). The class-under-test implements the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description for the class-under-test: 
+You are given a 0-indexed integer array "nums". In one operation, select any non-negative integer x and an index i, then update "nums[i]" to be equal to "nums[i] AND (nums[i] XOR x)".
+
+Note that "AND" is the bitwise AND operation and "XOR" is the bitwise XOR operation.
+
+Return the maximum possible bitwise XOR of all elements of "nums" after applying the operation any number of times.
+
+
+Constraints:
+
+* "1 <= nums.length <= 10^5"
+* "0 <= nums[i] <= 10^8"
+[--Example 1--]
+Input: nums = [3,2,4,6]
+Output: 7
+[--Example 2--]
+Input: nums = [1,2,3,9,2]
+Output: 11

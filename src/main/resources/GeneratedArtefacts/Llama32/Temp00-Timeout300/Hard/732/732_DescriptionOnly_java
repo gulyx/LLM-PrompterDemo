@@ -1,0 +1,25 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.732;
+
+import java.util.*;
+
+public class Solution {
+    private final TreeMap<Integer, Integer> events;
+    private int maxK;
+
+    public Solution() {
+        events = new TreeMap<>();
+    }
+
+    public int book(int startTime, int endTime) {
+        int count = 0;
+        for (Map.Entry<Integer, Integer> entry : events.tailMap(endTime).entrySet()) {
+            if (startTime < entry.getKey()) {
+                count += 1;
+            }
+        }
+        maxK = Math.max(maxK, count);
+        events.put(startTime, events.getOrDefault(startTime, 0) + 1);
+        return maxK;
+    }
+
+}

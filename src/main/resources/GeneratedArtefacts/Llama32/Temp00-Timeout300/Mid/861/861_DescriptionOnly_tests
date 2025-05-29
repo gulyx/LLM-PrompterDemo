@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.861;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.861.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class SolutionTest {
+
+    @Test
+    public void testMaxScore() {
+        Solution solution = new Solution();
+        int[][] grid = {{0,1},{1,0}};
+        assertEquals(2, solution.maxScore(grid));
+    }
+
+    @Test
+    public void testMaxScore_WithAllZeros() {
+        Solution solution = new Solution();
+        int[][] grid = {{0,0},{0,0}};
+        assertEquals(0, solution.maxScore(grid));
+    }
+
+    @Test
+    public void testMaxScore_WithAllOnes() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,1},{1,1}};
+        assertEquals(2, solution.maxScore(grid));
+    }
+
+    @Test
+    public void testMaxScore_WithMixedValues() {
+        Solution solution = new Solution();
+        int[][] grid = {{0,1,0},{1,0,1},{0,1,0}};
+        assertEquals(5, solution.maxScore(grid));
+    }
+
+    @Test
+    public void testMaxScore_EmptyGrid() {
+        Solution solution = new Solution();
+        int[][] grid = {};
+        assertEquals(0, solution.maxScore(grid));
+    }
+}
+```

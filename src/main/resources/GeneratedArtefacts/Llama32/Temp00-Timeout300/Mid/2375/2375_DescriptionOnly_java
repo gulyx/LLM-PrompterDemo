@@ -1,0 +1,26 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2375;
+
+public class Solution {
+    public String smallestNumber(String pattern) {
+        int n = pattern.length();
+        char[] num = new char[n + 1];
+        for (int i = 0; i < n; i++) {
+            if (pattern.charAt(i) == 'I') {
+                for (char c = '9'; c >= '1'; c--) {
+                    if (num[i] == '\0' || num[i] > c) {
+                        num[i + 1] = c;
+                        break;
+                    }
+                }
+            } else {
+                for (char c = '0'; c <= '8'; c++) {
+                    if (num[i] == '\0' || num[i] < c) {
+                        num[i + 1] = c;
+                        break;
+                    }
+                }
+            }
+        }
+        return new String(num);
+    }
+}

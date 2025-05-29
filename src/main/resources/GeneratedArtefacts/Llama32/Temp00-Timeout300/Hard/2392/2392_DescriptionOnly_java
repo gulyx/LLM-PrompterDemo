@@ -1,0 +1,72 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2392;
+
+import java.util.*;
+
+public class Solution {
+    public int[][] constructMatrix(int k, int[][] rowConditions, int[][] colConditions) {
+        List<Integer> row = new ArrayList<>();
+        List<Integer> col = new ArrayList<>();
+
+        for (int i = 1; i <= k; i++) {
+            row.add(i);
+            col.add(i);
+        }
+
+        Map<Integer, Integer> rowMap = new HashMap<>();
+        Map<Integer, Integer> colMap = new HashMap<>();
+
+        for (int[] condition : rowConditions) {
+            int above = condition[0];
+            int below = condition[1];
+
+            if (!rowMap.containsKey(above)) {
+                row.add(above);
+                rowMap.put(above, row.size() - 1);
+            }
+
+            if (!rowMap.containsKey(below)) {
+                row.add(below);
+                rowMap.put(below, row.size() - 1);
+            }
+
+            int index = rowMap.get(above);
+            while (index > rowMap.get(below)) {
+                row.set(index, below);
+                index--;
+            }
+        }
+
+        for (int[] condition : colConditions) {
+            int left = condition[0];
+            int right = condition[1];
+
+            if (!colMap.containsKey(left)) {
+                col.add(left);
+                colMap.put(left, col.size() - 1);
+            }
+
+            if (!colMap.containsKey(right)) {
+                col.add(right);
+                colMap.put(right, col.size() - 1);
+            }
+
+            int index = colMap.get(left);
+            while (index > colMap.get(right)) {
+                col.set(index, right);
+                index--;
+            }
+        }
+
+        int[][] matrix = new int[k][k];
+
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < k; j++) {
+                if (row.get(i).equals(col.get(j))) {
+                    matrix[i][j] = row.get(i);
+                }
+            }
+        }
+
+        return matrix;
+    }
+}

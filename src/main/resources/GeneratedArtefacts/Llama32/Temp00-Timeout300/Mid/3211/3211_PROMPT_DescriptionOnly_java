@@ -1,0 +1,4 @@
+As a professional Software Engineer, generate a complete Java class file (name the class as :'Solution', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211;') for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
+You are given a positive integer "n".
+A binary string "x" is "valid" if all substrings of "x" of length 2 contain "at least" one "1".
+Return all "valid" strings with length "n", in "any" order.

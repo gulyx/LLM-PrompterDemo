@@ -1,0 +1,62 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1315;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1315.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void testEvenGrandparentSum() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        int actual = solution.sumEvenGrandparent(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void testNoNodesWithEvenGrandparent() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        int actual = solution.sumEvenGrandparent(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void testAllNodesHaveOddGrandparent() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        int actual = solution.sumEvenGrandparent(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void testAllNodesHaveEvenGrandparent() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        int actual = solution.sumEvenGrandparent(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void testEmptyTree() {
+        Solution solution = new Solution();
+        TreeNode root = null;
+        assertThrows(NullPointerException.class, () -> solution.sumEvenGrandparent(root));
+    }
+}

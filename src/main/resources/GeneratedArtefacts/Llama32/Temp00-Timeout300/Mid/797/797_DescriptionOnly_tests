@@ -1,0 +1,68 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.797;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.797.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SolutionTest {
+
+    @Test
+    public void testAllPaths() {
+        Solution solution = new Solution();
+        int[][] graph = {{1,2},{3},{}};
+        List<List<Integer>> result = solution.allPaths(graph, 0);
+        assertEquals(2, result.size());
+        assertTrue(result.get(0).contains(0));
+        assertTrue(result.get(0).contains(1));
+        assertTrue(result.get(0).contains(2));
+        assertTrue(result.get(0).contains(3));
+
+        assertTrue(result.get(1).contains(0));
+        assertTrue(result.get(1).contains(3));
+    }
+
+    @Test
+    public void testNoPaths() {
+        Solution solution = new Solution();
+        int[][] graph = {{}};
+        List<List<Integer>> result = solution.allPaths(graph, 0);
+        assertEquals(0, result.size());
+    }
+
+    @Test
+    public void testSingleNodeGraph() {
+        Solution solution = new Solution();
+        int[][] graph = {};
+        List<List<Integer>> result = solution.allPaths(graph, 0);
+        assertEquals(1, result.size());
+        assertTrue(result.get(0).isEmpty());
+    }
+
+    @Test
+    public void testEmptyGraph() {
+        Solution solution = new Solution();
+        int[][] graph = {};
+        List<List<Integer>> result = solution.allPaths(graph, 0);
+        assertEquals(0, result.size());
+    }
+
+    @Test
+    public void testMultipleNodes() {
+        Solution solution = new Solution();
+        int[][] graph = {{1},{2},{3}};
+        List<List<Integer>> result = solution.allPaths(graph, 0);
+        assertEquals(6, result.size());
+        assertTrue(result.get(0).contains(0));
+        assertTrue(result.get(0).contains(1));
+        assertTrue(result.get(0).contains(2));
+
+        assertTrue(result.get(1).contains(0));
+        assertTrue(result.get(1).contains(3));
+
+        assertTrue(result.get(2).contains(0));
+        assertTrue(result.get(2).contains(2));
+        assertTrue(result.get(2).contains(3));
+    }
+}
+```

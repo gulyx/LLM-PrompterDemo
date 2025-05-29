@@ -1,0 +1,60 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1315;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1315.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void testEvenGrandparentSum() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(6);
+        root.left = new TreeNode(7);
+        root.right = new TreeNode(8);
+        root.left.left = new TreeNode(2);
+        root.left.right = new TreeNode(7);
+        root.left.right.left = new TreeNode(1);
+        root.left.right.right = new TreeNode(3);
+        root.left.right.right.left = new TreeNode(9);
+        root.left.right.right.right = new TreeNode(1);
+        root.left.right.right.right.left = new TreeNode(4);
+        int actual = solution.sumEvenGrandparent(root);
+        assertEquals(18, actual);
+    }
+
+    @Test
+    public void testNoNodesWithEvenGrandparent() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        int actual = solution.sumEvenGrandparent(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void testEmptyTree() {
+        Solution solution = new Solution();
+        TreeNode root = null;
+        int actual = solution.sumEvenGrandparent(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void testSingleNodeTree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        int actual = solution.sumEvenGrandparent(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void testNoChildrenNodes() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(6);
+        root.right = null;
+        int actual = solution.sumEvenGrandparent(root);
+        assertEquals(0, actual);
+    }
+}
+```

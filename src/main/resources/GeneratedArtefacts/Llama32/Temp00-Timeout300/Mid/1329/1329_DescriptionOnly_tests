@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1329;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1329.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void testExample1() {
+        Solution solution = new Solution();
+        int[][] result = solution.d diagonalSort(new int[][]{{4,3,2},{3,2,1}});
+        assertArrayEquals(new int[][]{{2,1,4},{1,2,3},{3,2,1}}, result);
+    }
+
+    @Test
+    public void testExample2() {
+        Solution solution = new Solution();
+        int[][] result = solution.d_diagonalSort(new int[][]{{7,5,3},{9,1,8}});
+        assertArrayEquals(new int[][]{{3,5,7},{8,1,9}}, result);
+    }
+
+    @Test
+    public void testExample3() {
+        Solution solution = new Solution();
+        int[][] result = solution.d_diagonalSort(new int[][]{{3,2,1},{2,1,4}});
+        assertArrayEquals(new int[][]{{1,2,3},{4,1,2}}, result);
+    }
+
+    @Test
+    public void testExample4() {
+        Solution solution = new Solution();
+        int[][] result = solution.d_diagonalSort(new int[][]{{5,7,9},{3,6,8}});
+        assertArrayEquals(new int[][]{{3,5,7},{8,6,9}}, result);
+    }
+
+    @Test
+    public void testExample5() {
+        Solution solution = new Solution();
+        int[][] result = solution.d_diagonalSort(new int[][]{{1,2,3},{4,5,6}});
+        assertArrayEquals(new int[][]{{1,4,7},{2,5,8},{3,6,9}}, result);
+    }
+}
+```

@@ -1,0 +1,24 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2442;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2442.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] nums = {1,13,10,12,31};
+        assertEquals(6, solution.numDistinct(nums));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] nums = {2,2,2};
+        assertEquals(1, solution.numDistinct(nums));
+    }
+}
+```

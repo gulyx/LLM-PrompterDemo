@@ -1,0 +1,30 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.535;
+
+public class Solution {
+    private String shortUrlMap;
+    private int counter = 0;
+
+    public Solution() {
+        shortUrlMap = new HashMap<>();
+    }
+
+    public String encode(String longUrl) {
+        if (shortUrlMap.containsKey(longUrl)) {
+            return shortUrlMap.get(longUrl);
+        }
+        while (shortUrlMap.containsValue(counter)) {
+            counter++;
+        }
+        shortUrlMap.put(longUrl, "http://tinyurl.com/" + counter);
+        return shortUrlMap.get(longUrl);
+    }
+
+    public String decode(String shortUrl) {
+        for (String key : shortUrlMap.keySet()) {
+            if (shortUrl.equals("http://tinyurl.com/" + shortUrlMap.get(key))) {
+                return key;
+            }
+        }
+        return null;
+    }
+}

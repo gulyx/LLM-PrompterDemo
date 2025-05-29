@@ -1,0 +1,42 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.797;
+
+import java.util.*;
+
+public class Solution {
+    public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+        int n = graph.length;
+        List<List<Integer>> result = new ArrayList<>();
+        boolean[] visited = new boolean[n];
+        dfs(graph, 0, new ArrayList<>(), result, visited);
+        return result;
+    }
+
+    private void dfs(int[][] graph, int node, List<Integer> path, List<List<Integer>> result, boolean[] visited) {
+        if (node == graph.length - 1) {
+            result.add(new ArrayList<>(path));
+            return;
+        }
+        for (int next : graph[node]) {
+            if (!visited[next]) {
+                visited[next] = true;
+                path.add(next);
+                dfs(graph, next, path, result, visited);
+                path.remove(path.size() - 1);
+                visited[next] = false;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[][] graph1 = {{1,2},{3},{3},{}};
+        List<List<Integer>> result1 = solution.allPathsSourceTarget(graph1);
+        System.out.println(result1);
+
+        int[][] graph2 = {{4,3,1},{3,2,4},{3},{4},{}};
+        List<List<Integer>> result2 = solution.allPathsSourceTarget(graph2);
+        System.out.println(result2);
+    }
+}
+```

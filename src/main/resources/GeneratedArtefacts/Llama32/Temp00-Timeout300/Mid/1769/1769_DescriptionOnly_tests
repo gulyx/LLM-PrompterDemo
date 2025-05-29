@@ -1,0 +1,59 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1769;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1769.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1769_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] result = solution.minOperations("001100");
+        assertEquals(2, result[0]);
+        assertEquals(1, result[1]);
+        assertEquals(0, result[2]);
+        assertEquals(0, result[3]);
+        assertEquals(0, result[4]);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] result = solution.minOperations("000100");
+        assertEquals(1, result[0]);
+        assertEquals(1, result[1]);
+        assertEquals(1, result[2]);
+        assertEquals(1, result[3]);
+        assertEquals(1, result[4]);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] result = solution.minOperations("000000");
+        assertArrayEquals(new int[]{0}, result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] result = solution.minOperations("111111");
+        assertEquals(10, result[0]);
+        assertEquals(9, result[1]);
+        assertEquals(8, result[2]);
+        assertEquals(7, result[3]);
+        assertEquals(6, result[4]);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] result = solution.minOperations("100010");
+        assertEquals(10, result[0]);
+        assertEquals(9, result[1]);
+        assertEquals(8, result[2]);
+        assertEquals(7, result[3]);
+        assertEquals(6, result[4]);
+    }
+}

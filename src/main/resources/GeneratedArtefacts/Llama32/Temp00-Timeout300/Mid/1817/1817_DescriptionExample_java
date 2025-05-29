@@ -1,0 +1,25 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1817;
+
+import java.util.*;
+
+public class Solution {
+    public int[] findingUsersActiveMinutes(int[][] logs, int k) {
+        Map<Integer, Set<Integer>> userMinutes = new HashMap<>();
+        for (int[] log : logs) {
+            userMinutes.computeIfAbsent(log[0], key -> new HashSet<>()).add(log[1]);
+        }
+
+        List<List<Integer>> minutesList = new ArrayList<>();
+        for (Set<Integer> set : userMinutes.values()) {
+            minutesList.add(new ArrayList<>(set));
+        }
+
+        int[] answer = new int[k];
+        for (int i = 0; i < k; i++) {
+            answer[i] = minutesList.get(i).size();
+        }
+        return answer;
+    }
+}
+```

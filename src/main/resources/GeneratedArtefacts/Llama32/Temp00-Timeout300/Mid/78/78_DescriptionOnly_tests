@@ -1,0 +1,60 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.78;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.78.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2, 3};
+        Object[][] result = solution.subsets(nums);
+        assertEquals(2, result.length);
+        assertTrue(result[0].equals(new Object[]{}));
+        assertTrue(java.util.Arrays.equals((Object[])result[1], new Object[]{1, 2, 3}));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] nums = {0};
+        Object[][] result = solution.subsets(nums);
+        assertEquals(1, result.length);
+        assertTrue(result[0].equals(new Object[]{}));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] nums = {};
+        Object[][] result = solution.subsets(nums);
+        assertEquals(1, result.length);
+        assertTrue(java.util.Arrays.equals((Object[])result[0], new Object[]{}));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] nums = {1};
+        Object[][] result = solution.subsets(nums);
+        assertEquals(2, result.length);
+        assertTrue(result[0].equals(new Object[]{}));
+        assertTrue(java.util.Arrays.equals((Object[])result[1], new Object[]{1}));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2};
+        Object[][] result = solution.subsets(nums);
+        assertEquals(4, result.length);
+        assertTrue(result[0].equals(new Object[]{}));
+        assertTrue(java.util.Arrays.equals((Object[])result[1], new Object[]{1}));
+        assertTrue(java.util.Arrays.equals((Object[])result[2], new Object[]{2}));
+        assertTrue(java.util.Arrays.equals((Object[])result[3], new Object[]{1, 2}));
+    }
+}
+```

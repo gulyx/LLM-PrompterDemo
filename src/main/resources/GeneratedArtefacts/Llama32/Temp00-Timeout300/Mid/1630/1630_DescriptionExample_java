@@ -1,0 +1,45 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1630;
+
+import java.util.*;
+
+public class Solution {
+    public List<Boolean> checkArithmeticSubarrays(int[] nums, int[] l, int[] r) {
+        List<Boolean> answer = new ArrayList<>();
+        for (int i = 0; i < l.length; i++) {
+            boolean isArithmetic = true;
+            Set<Integer> set = new HashSet<>();
+            for (int j = l[i]; j <= r[i]; j++) {
+                if (!set.add(nums[j])) {
+                    isArithmetic = false;
+                    break;
+                }
+            }
+            answer.add(isArithmetic);
+        }
+        return answer;
+    }
+
+    [--Example 1--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] nums = {4,6,5,9,3,7};
+        int[] l = {0,0,2};
+        int[] r = {2,3,5};
+        List<Boolean> answer = solution.checkArithmeticSubarrays(nums, l, r);
+        for (boolean b : answer) {
+            System.out.print(b + " ");
+        }
+    }
+
+    [--Example 2--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] nums = {-12,-9,-3,-12,-6,15,20,-25,-20,-15,-10};
+        int[] l = {0,1,6,4,8,7};
+        int[] r = {4,4,9,7,9,10};
+        List<Boolean> answer = solution.checkArithmeticSubarrays(nums, l, r);
+        for (boolean b : answer) {
+            System.out.print(b + " ");
+        }
+    }
+}

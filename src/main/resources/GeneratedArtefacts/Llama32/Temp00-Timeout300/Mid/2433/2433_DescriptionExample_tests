@@ -1,0 +1,46 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2433;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2433.Solution;
+
+public class 2433_DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] pref = {5,2,0,3,1};
+        int[] arr = solution.xorPref(pref);
+        assertArrayEquals(new int[]{5,7,2,3,2}, arr);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] pref = {13};
+        int[] arr = solution.xorPref(pref);
+        assertArrayEquals(new int[]{13}, arr);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] pref = {1, 2, 4, 8, 16, 32, 64};
+        int[] arr = solution.xorPref(pref);
+        assertArrayEquals(new int[]{0, 1, 2, 3, 4, 5, 6}, arr);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] pref = {255, 254, 253, 252, 251};
+        int[] arr = solution.xorPref(pref);
+        assertArrayEquals(new int[]{0, 1, 2, 3, 4}, arr);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] pref = {1, 2, 3, 4, 5};
+        int[] arr = solution.xorPref(pref);
+        assertArrayEquals(new int[]{0, 1, 2, 3, 4}, arr);
+    }
+}

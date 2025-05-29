@@ -1,0 +1,54 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1347;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1347.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
+
+public class 1347_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        String s = "leetcode";
+        String t = "practice";
+        int result = solution.minSteps(s, t);
+        assertEquals(5, result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        String s = "ab";
+        String t = "ba";
+        int result = solution.minSteps(s, t);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        String s = "aa";
+        String t = "ab";
+        int result = solution.minSteps(s, t);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        String s = "leetcode";
+        String t = "saelem";
+        int result = solution.minSteps(s, t);
+        assertEquals(6, result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        String s = "abc";
+        String t = "bca";
+        int result = solution.minSteps(s, t);
+        assertEquals(2, result);
+    }
+}

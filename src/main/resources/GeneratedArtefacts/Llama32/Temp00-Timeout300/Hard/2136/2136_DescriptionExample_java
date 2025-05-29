@@ -1,0 +1,44 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2136;
+
+public class Solution {
+    public int minDays(int[] plantTime, int[] growTime) {
+        int n = plantTime.length;
+        long[][] dp = new long[n + 1][n + 1];
+        for (int i = 0; i <= n; i++) {
+            Arrays.fill(dp[i], -1);
+        }
+        return helper(plantTime, growTime, 0, n, dp) + growTime[0] - 1;
+    }
+
+    private long helper(int[] plantTime, int[] growTime, int start, int end, long[][] dp) {
+        if (start >= end) {
+            return 0;
+        }
+        if (dp[start][end] != -1) {
+            return dp[start][end];
+        }
+        long min = Long.MAX_VALUE;
+        for (int i = start; i < end; i++) {
+            int days = helper(plantTime, growTime, start, i, dp) + plantTime[i] + growTime[i];
+            if (days < min) {
+                min = days;
+            }
+        }
+        return dp[start][end] = min;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] plantTime1 = {1, 4, 3};
+        int[] growTime1 = {2, 3, 1};
+        System.out.println(solution.minDays(plantTime1, growTime1)); // Output: 9
+
+        int[] plantTime2 = {1, 2, 3, 2};
+        int[] growTime2 = {2, 1, 2, 1};
+        System.out.println(solution.minDays(plantTime2, growTime2)); // Output: 9
+
+        int[] plantTime3 = {1};
+        int[] growTime3 = {1};
+        System.out.println(solution.minDays(plantTime3, growTime3)); // Output: 2
+    }
+}

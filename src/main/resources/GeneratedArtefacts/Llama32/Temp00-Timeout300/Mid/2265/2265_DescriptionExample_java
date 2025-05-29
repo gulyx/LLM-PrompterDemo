@@ -1,0 +1,24 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2265;
+
+public class Solution {
+    int countNodes(TreeNode root) {
+        if (root == null) return 0;
+        int leftCount = countNodes(root.left);
+        int rightCount = countNodes(root.right);
+        double average = (double)(root.val + leftCount + rightCount) / (leftCount + rightCount + 1);
+        return (int)Math.floor(average);
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode() {}
+    TreeNode(int val) { this.val = val; }
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}

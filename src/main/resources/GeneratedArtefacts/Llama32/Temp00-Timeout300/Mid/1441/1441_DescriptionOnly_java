@@ -1,0 +1,22 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1441;
+
+import java.util.*;
+
+public class Solution {
+    public List<String> buildArray(int target, int n) {
+        List<String> result = new ArrayList<>();
+        boolean[] seen = new boolean[n + 1];
+        for (int i = 1; i <= n; i++) {
+            if (!seen[i]) {
+                while (target > 0 && !seen[target]) {
+                    result.add("Push " + target);
+                    target--;
+                    seen[target] = true;
+                }
+                result.add("Push " + i);
+                seen[i] = true;
+            }
+        }
+        return result;
+    }
+}

@@ -1,0 +1,44 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.732;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.732.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class 732_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int result = solution.book(0, 30);
+        assertEquals(23, result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int result = solution.book(5, 10);
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int result = solution.book(7, 9);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int result = solution.book(6, 8);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int result = solution.book(1, 2);
+        assertTrue(result == 0 || result == 1);
+    }
+}
