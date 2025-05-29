@@ -51,7 +51,7 @@ public class DescriptionOnlyJavaPrompter extends Prompter {
 		// https://github.com/langchain4j/langchain4j-examples/blob/8c6870202e7c9be333ec50e04397042bd65d5d69/tutorials/src/main/java/_03_PromptTemplate.java#L28
 		String javaFileName = this.problemID + "_" + SUFFIX;
 		String prompt = "As a professional Software Engineer, generate a complete Java class file (name the class as :'"
-				+ javaFileName + "', and use as first line the declaration: 'package " + TARGET_PACKAGE + "') for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: ";
+				+ javaFileName + "', and use as first line the declaration: 'package " + TARGET_PACKAGE + ";') for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: ";
 
 		prompt = prompt.concat("\n" + this.description);
 
