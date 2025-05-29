@@ -24,8 +24,8 @@ import it.cnr.iasi.saks.llmPrompter.Prompter;
 
 public class DescriptionExamplesJavaPrompter extends Prompter {
 
-	public static final String SUFFIX = "DescriptionExample_java";
-	public static final String TAG_EXAMPLE = "[--Example XX--]";
+	protected static final String SUFFIX = "DescriptionExample_java";
+	protected static final String TAG_EXAMPLE = "[--Example XX--]";
 
 	public DescriptionExamplesJavaPrompter(String problemID) {
 		super(problemID);
@@ -52,9 +52,11 @@ public class DescriptionExamplesJavaPrompter extends Prompter {
 	public String composePrompt() {
 		// You may improve this by looking at this example:
 		// https://github.com/langchain4j/langchain4j-examples/blob/8c6870202e7c9be333ec50e04397042bd65d5d69/tutorials/src/main/java/_03_PromptTemplate.java#L28
-		String javaFileName = this.problemID + "_" + SUFFIX;
+//		String javaClassName = this.problemID + "_" + SUFFIX;
+		String javaClassName = "Solution";
+		String javaPackageName = TARGET_PACKAGE + "." + this.problemID;
 		String prompt = "As a professional Software Engineer, generate a complete Java class file (name the class as :'"
-				+ javaFileName + "', and use as first line the declaration: 'package " + TARGET_PACKAGE + ";') for the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword"
+				+ javaClassName + "', and use as first line the declaration: 'package " + javaPackageName + ";') for the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword"
 							   + TAG_EXAMPLE
 							   + " (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description: ";
 
