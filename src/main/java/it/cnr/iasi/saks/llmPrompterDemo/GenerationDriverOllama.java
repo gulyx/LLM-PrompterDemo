@@ -35,7 +35,9 @@ import org.apache.commons.cli.HelpFormatter;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
 import it.cnr.iasi.saks.llmPrompter.Prompter;
+import it.cnr.iasi.saks.llmPrompter.impl.DescriptionExamplesJavaPrompter;
 import it.cnr.iasi.saks.llmPrompter.impl.DescriptionExamplesTestPrompter;
+import it.cnr.iasi.saks.llmPrompter.impl.DescriptionOnlyJavaPrompter;
 import it.cnr.iasi.saks.llmPrompter.impl.DescriptionOnlyTestPrompter;
 
 public class GenerationDriverOllama {
@@ -96,6 +98,8 @@ public class GenerationDriverOllama {
 		for (String id : items) {
 			Prompter p = new DescriptionOnlyTestPrompter(id, 5, llm);
 //			Prompter p = new DescriptionExamplesTestPrompter(id, 5, llm);
+//			Prompter p = new DescriptionOnlyJavaPrompter(id, 5, llm);
+//			Prompter p = new DescriptionExamplesJavaPrompter(id, 5, llm);
 		
 			String prompt = p.composePrompt();
 			System.out.println("Querying LLM for id:" + id + " ...");
