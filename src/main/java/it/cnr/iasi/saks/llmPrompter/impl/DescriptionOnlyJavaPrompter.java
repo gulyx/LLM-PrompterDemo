@@ -25,6 +25,7 @@ import it.cnr.iasi.saks.llmPrompter.Prompter;
 public class DescriptionOnlyJavaPrompter extends Prompter {
 
 	protected static final String SUFFIX = "DescriptionOnly_java";
+	protected static final String GENERATED_CLASS_NAME = "Solution";
 
 	public DescriptionOnlyJavaPrompter(String problemID) {
 		super(problemID);
@@ -49,7 +50,8 @@ public class DescriptionOnlyJavaPrompter extends Prompter {
 
 		// You may improve this by looking at this example:
 		// https://github.com/langchain4j/langchain4j-examples/blob/8c6870202e7c9be333ec50e04397042bd65d5d69/tutorials/src/main/java/_03_PromptTemplate.java#L28
-		String javaClassName = this.problemID + "_" + SUFFIX;
+//		String javaClassName = this.problemID + "_" + SUFFIX;
+		String javaClassName = GENERATED_CLASS_NAME;
 		String javaPackageName = TARGET_PACKAGE + "." + this.problemID;
 		String prompt = "As a professional Software Engineer, generate a complete Java class file (name the class as :'"
 				+ javaClassName + "', and use as first line the declaration: 'package " + javaPackageName + ";') for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: ";

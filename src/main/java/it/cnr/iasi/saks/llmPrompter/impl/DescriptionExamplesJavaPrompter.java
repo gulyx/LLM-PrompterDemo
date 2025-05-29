@@ -26,6 +26,7 @@ public class DescriptionExamplesJavaPrompter extends Prompter {
 
 	protected static final String SUFFIX = "DescriptionExample_java";
 	protected static final String TAG_EXAMPLE = "[--Example XX--]";
+	protected static final String GENERATED_CLASS_NAME = "Solution";
 
 	public DescriptionExamplesJavaPrompter(String problemID) {
 		super(problemID);
@@ -53,7 +54,7 @@ public class DescriptionExamplesJavaPrompter extends Prompter {
 		// You may improve this by looking at this example:
 		// https://github.com/langchain4j/langchain4j-examples/blob/8c6870202e7c9be333ec50e04397042bd65d5d69/tutorials/src/main/java/_03_PromptTemplate.java#L28
 //		String javaClassName = this.problemID + "_" + SUFFIX;
-		String javaClassName = "Solution";
+		String javaClassName = GENERATED_CLASS_NAME;
 		String javaPackageName = TARGET_PACKAGE + "." + this.problemID;
 		String prompt = "As a professional Software Engineer, generate a complete Java class file (name the class as :'"
 				+ javaClassName + "', and use as first line the declaration: 'package " + javaPackageName + ";') for the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword"
