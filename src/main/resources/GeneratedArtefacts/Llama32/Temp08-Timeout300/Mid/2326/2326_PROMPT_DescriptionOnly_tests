@@ -1,8 +1,0 @@
-As a professional Software Tester, generate a complete Junit class test file (name the class as :'2326_DescriptionOnlyTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
-You are given two integers "m" and "n", which represent the dimensions of a matrix.
-
-You are also given the "head" of a linked list of integers.
-
-Generate an "m x n" matrix that contains the integers in the linked list presented in spiral order (clockwise), starting from the top-left of the matrix. If there are remaining empty spaces, fill them with "-1".
-
-Return the generated matrix.

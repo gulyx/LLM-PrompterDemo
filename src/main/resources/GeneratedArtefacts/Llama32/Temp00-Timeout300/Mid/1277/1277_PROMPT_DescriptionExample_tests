@@ -1,8 +1,0 @@
-As a professional Software Tester, generate a complete Junit class test file (name the class as :'1277_DescriptionExampleTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description: 
-Given a "m * n" matrix of ones and zeros, return how many square submatrices have all ones.
-[--Example 1--]
-Input: matrix = [[0,1,1,1],[1,1,1,1],[0,1,1,1]]
-Output: 15
-[--Example 2--]
-Input: matrix = [[1,0,1],[1,1,0],[1,1,0]]
-Output: 7

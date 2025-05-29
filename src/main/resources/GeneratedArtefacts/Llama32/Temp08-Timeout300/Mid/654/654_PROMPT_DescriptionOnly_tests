@@ -1,8 +1,0 @@
-As a professional Software Tester, generate a complete Junit class test file (name the class as :'654_DescriptionOnlyTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
-You are given an integer array "nums" with no duplicates. A maximum binary tree can be built recursively from "nums" using the following algorithm:
-
-1. Create a root node whose value is the maximum value in "nums".
-2. Recursively build the left subtree on the subarray prefix to the left of the maximum value.
-3. Recursively build the right subtree on the subarray suffix to the right of the maximum value.
-Return the maximum binary tree built from "nums".
-
