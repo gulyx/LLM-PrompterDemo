@@ -57,9 +57,9 @@ public class DescriptionExamplesTestPrompter extends Prompter {
 		String testPackageName = TARGET_PACKAGE + "." + this.problemID;
 		String prompt = "As a professional Software Tester, generate a complete Junit class test file (name the class as :'"
 				+ testClassName + "Test', and use as first line the declaration: 'package " + testPackageName + ";') with " + this.numberOfTests
-				+ " different JUnit tests for a Java class named: "+ CLASS_UNDER_TEST + " (import it as: 'import " + testPackageName + ";') implementing following description in natural language with examples. Specifically below the description, each example is introduced by the keyword "
+				+ " different JUnit tests for a Java class-under-test named: "+ CLASS_UNDER_TEST + " (import it as: 'import " + testPackageName  + "." + CLASS_UNDER_TEST +";'). The class-under-test implements the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword "
 				+ TAG_EXAMPLE
-				+ " (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description: ";
+				+ " (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description for the class-under-test: ";
 
 		prompt = prompt.concat("\n" + this.description);
 
