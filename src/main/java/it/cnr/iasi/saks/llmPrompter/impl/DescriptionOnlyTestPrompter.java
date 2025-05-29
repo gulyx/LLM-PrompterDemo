@@ -24,7 +24,7 @@ import it.cnr.iasi.saks.llmPrompter.Prompter;
 
 public class DescriptionOnlyTestPrompter extends Prompter {
 
-	public static final String SUFFIX = "DescriptionOnly";
+	public static final String SUFFIX = "DescriptionOnly_tests";
 
 	public DescriptionOnlyTestPrompter(String problemID) {
 		super(problemID);

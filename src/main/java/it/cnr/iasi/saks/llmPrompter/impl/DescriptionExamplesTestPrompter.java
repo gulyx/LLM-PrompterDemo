@@ -24,7 +24,7 @@ import it.cnr.iasi.saks.llmPrompter.Prompter;
 
 public class DescriptionExamplesTestPrompter extends Prompter {
 
-	public static final String SUFFIX = "DescriptionExample";
+	public static final String SUFFIX = "DescriptionExample_tests";
 	public static final String TAG_EXAMPLE = "[--Example XX--]";
 
 	public DescriptionExamplesTestPrompter(String problemID) {
