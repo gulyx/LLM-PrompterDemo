@@ -52,7 +52,7 @@ public class DescriptionOnlyTestPrompter extends Prompter {
 		// https://github.com/langchain4j/langchain4j-examples/blob/8c6870202e7c9be333ec50e04397042bd65d5d69/tutorials/src/main/java/_03_PromptTemplate.java#L28
 		String testClassName = this.problemID + "_" + SUFFIX;
 		String testPackageName = TARGET_PACKAGE + "." + this.problemID;
-		String prompt = "As a professional Software Tester, generate a complete Junit class test file (name of the test class as :'"
+		String prompt = "As a professional Software Tester, generate a complete Junit class test file (name the test class as: '"
 				+ testClassName + "Test', and use as first line the declaration: 'package " + testPackageName + ";') with " + this.numberOfTests
 				+ " different JUnit tests for a Java class-under-test named: "+ CLASS_UNDER_TEST + " (import it as: 'import " + testPackageName + "." + CLASS_UNDER_TEST +";'). The class-under-test implements the following description in natural language. "
 				+ "Emit only the Java code, without any other tag or text. Here is the description for the class-under-test: ";
