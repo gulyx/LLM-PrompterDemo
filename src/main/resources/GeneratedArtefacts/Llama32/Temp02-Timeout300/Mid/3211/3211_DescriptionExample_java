@@ -1,0 +1,36 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211;
+
+public class Solution {
+    public String[] validBinaryStrings(int n) {
+        if (n == 1) return new String[]{"0", "1"};
+        String[] res = new String[n];
+        for (int i = 0; i < n; i++) {
+            StringBuilder sb = new StringBuilder();
+            sb.append('0');
+            sb.append(i);
+            res[i] = sb.toString();
+        }
+        for (int i = 0; i < n; i++) {
+            StringBuilder sb = new StringBuilder();
+            sb.append('1');
+            sb.append(i);
+            res[i] += sb.toString();
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] testCases = {3, 1};
+        for (int testCase : testCases) {
+            String[] result = solution.validBinaryStrings(testCase);
+            System.out.println("Input: n = " + testCase);
+            for (String s : result) {
+                System.out.print(s + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+```

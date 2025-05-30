@@ -1,0 +1,18 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1302;
+
+public class Solution {
+    public int deepestLeavesSum(TreeNode root) {
+        return dfs(root, 0);
+    }
+
+    private int dfs(TreeNode node, int depth) {
+        if (node == null)
+            return 0;
+        int left = dfs(node.left, depth + 1);
+        int right = dfs(node.right, depth + 1);
+        if (left == 0 && right == 0)
+            return node.val * Math.pow(10, depth - 1);
+        else
+            return 0;
+    }
+}

@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.980;
+
+public class Solution {
+    public int uniquePathsIII(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        boolean[] visited = new boolean[m * n];
+        return dfs(grid, 0, 0, 0, visited);
+    }
+
+    private int dfs(int[][] grid, int i, int j, int steps, boolean[] visited) {
+        if (grid[i][j] == -1 || visited[grid[i][j]]) {
+            return 0;
+        }
+        if (grid[i][j] == 2 && steps == m * n - 2) {
+            return 1;
+        }
+        visited[grid[i][j]] = true;
+        int count = 0;
+        for (int x = -1; x <= 1; x++) {
+            for (int y = -1; y <= 1; y++) {
+                if (x == 0 && y == 0) continue;
+                int ni = i + x;
+                int nj = j + y;
+                count += dfs(grid, ni, nj, steps + 1, visited);
+            }
+        }
+        visited[grid[i][j]] = false;
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[][] grid1 = {{1,0,0,0},{0,0,0,0},{0,0,2,-1}};
+        System.out.println(solution.uniquePathsIII(grid1)); // Output: 2
+
+        int[][] grid2 = {{1,0,0,0},{0,0,0,0},{0,0,0,2}};
+        System.out.println(solution.uniquePathsIII(grid2)); // Output: 4
+
+        int[][] grid3 = {{0,1},{2,0}};
+        System.out.println(solution.uniquePathsIII(grid3)); // Output: 0
+    }
+}
+```

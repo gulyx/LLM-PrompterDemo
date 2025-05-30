@@ -1,0 +1,66 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2275_DescriptionOnlyTest {
+
+    @Test
+    public void testBitwiseAnd() {
+        int[] nums = {1, 5, 3};
+        assertEquals(1, bitwiseAnd(nums));
+    }
+
+    @Test
+    public void testBitwiseAndSingleElement() {
+        int[] nums = {7};
+        assertEquals(7, bitwiseAnd(nums));
+    }
+
+    @Test
+    public void testBitwiseAndMultipleElements() {
+        int[] nums = {2, 4, 8};
+        assertEquals(0, bitwiseAnd(nums));
+    }
+
+    @Test
+    public void testBitwiseAndLargeNumber() {
+        int[] nums = {16, 32, 64};
+        assertEquals(0, bitwiseAnd(nums));
+    }
+
+    @Test
+    public void testBitwiseAndMultipleCombinations() {
+        int[] nums = {1, 2, 4};
+        assertEquals(0, bitwiseAnd(new int[]{nums[0], nums[1]}));
+        assertEquals(0, bitwiseAnd(new int[]{nums[0], nums[2]}));
+        assertEquals(0, bitwiseAnd(new int[]{nums[1], nums[2]}));
+    }
+
+}
+
+public class Solution {
+    public int findMaxForm(int[] candidates) {
+        int n = candidates.length;
+        int[][] dp = new int[n + 1][candidates[n] + 1];
+        for (int i = 0; i <= n; i++) {
+            Arrays.fill(dp[i], -1);
+        }
+        return findMaxFormHelper(candidates, dp, 0, 0);
+    }
+
+    private int findMaxFormHelper(int[] candidates, int[][] dp, int i, int j) {
+        if (i == candidates.length || j == 0)
+            return 0;
+        if (dp[i][j] != -1)
+            return dp[i][j];
+        int notTake = findMaxFormHelper(candidates, dp, i + 1, j);
+        int take = 0;
+        for (int k = 0; k <= candidates[i]; k++) {
+            if ((candidates[i] & k) == k) {
+                take = Math.max(take, findMaxFormHelper(candidates, dp, i + 1, j | k));
+            }
+        }
+        return dp[i][j] = Math.max(notTake, take);
+    }
+}

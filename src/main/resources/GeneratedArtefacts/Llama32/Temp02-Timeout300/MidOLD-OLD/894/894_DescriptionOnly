@@ -1,0 +1,66 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.*;
+
+public class 894_DescriptionOnly {
+
+    @Test
+    public void test_1() {
+        List<TreeNode> result = new ArrayList<>();
+        TreeNode root = new TreeNode(0);
+        result.add(root);
+        assertEquals(result, allPossibleFullBinaryTrees(1));
+    }
+
+    @Test
+    public void test_2() {
+        List<TreeNode> result = new ArrayList<>();
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(0);
+        root.right = new TreeNode(0);
+        result.add(root);
+        assertEquals(result, allPossibleFullBinaryTrees(2));
+    }
+
+    @Test
+    public void test_3() {
+        List<TreeNode> result = new ArrayList<>();
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(0);
+        root.right = new TreeNode(0);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(0);
+        result.add(root);
+        assertEquals(result, allPossibleFullBinaryTrees(3));
+    }
+
+    @Test
+    public void test_4() {
+        List<TreeNode> result = new ArrayList<>();
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(0);
+        root.right = new TreeNode(0);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(0);
+        root.right.left = new TreeNode(0);
+        result.add(root);
+        assertEquals(result, allPossibleFullBinaryTrees(4));
+    }
+
+    @Test
+    public void test_5() {
+        List<TreeNode> result = new ArrayList<>();
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(0);
+        root.right = new TreeNode(0);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(0);
+        root.right.left = new TreeNode(0);
+        root.right.right = new TreeNode(0);
+        result.add(root);
+        assertEquals(result, allPossibleFullBinaryTrees(5));
+    }
+
+}

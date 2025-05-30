@@ -1,0 +1,78 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2415;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2415.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+
+        solution.reverseOddLevel(root);
+
+        assertEquals(1, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(3, root.right.val);
+        assertEquals(4, root.left.left.val);
+        assertEquals(5, root.left.right.val);
+        assertEquals(6, root.right.left.val);
+        assertEquals(7, root.right.right.val);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+
+        solution.reverseOddLevel(root);
+
+        assertEquals(1, root.val);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+
+        solution.reverseOddLevel(root);
+
+        assertEquals(1, root.val);
+        assertEquals(2, root.left.val);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        solution.reverseOddLevel(root);
+
+        assertEquals(1, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(3, root.right.val);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        TreeNode root = null;
+
+        solution.reverseOddLevel(root);
+
+        assertNull(root);
+    }
+}
+```

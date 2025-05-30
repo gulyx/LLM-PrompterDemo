@@ -1,0 +1,39 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Solution {
+    private Map<String, String> map = new HashMap<>();
+
+    public Solution() {
+
+    }
+
+    public String encode(String longUrl) {
+        if (map.containsKey(longUrl)) {
+            return map.get(longUrl);
+        }
+        int length = longUrl.length();
+        StringBuilder sb = new StringBuilder(length + 5);
+        for (int i = 0; i < length; i++) {
+            char c = longUrl.charAt(i);
+            String hex = Integer.toHexString(c);
+            if (hex.length() == 1) {
+                sb.append('0');
+            }
+            sb.append(hex);
+        }
+        map.put(longUrl, "http://tinyurl.com/" + sb.toString());
+        return map.get(longUrl);
+    }
+
+    public String decode(String shortUrl) {
+        int index = shortUrl.indexOf("http://tinyurl.com/");
+        if (index == -1) {
+            throw new RuntimeException();
+        }
+        String key = shortUrl.substring(index + 17);
+        return map.get(key);
+    }
+}

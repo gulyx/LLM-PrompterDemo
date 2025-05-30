@@ -1,0 +1,23 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1823;
+
+public class Solution {
+    public int findTheWinner(int n, int k) {
+        int[] circle = new int[n];
+        for (int i = 0; i < n; i++) {
+            circle[i] = i + 1;
+        }
+        while (n > 1) {
+            int index = (k - 1 + circle[0]) % n;
+            circle = removeElement(circle, index);
+            n--;
+        }
+        return circle[0];
+    }
+
+    private int[] removeElement(int[] arr, int index) {
+        int[] newArr = new int[arr.length - 1];
+        System.arraycopy(arr, 0, newArr, 0, index);
+        System.arraycopy(arr, index + 1, newArr, index, arr.length - index - 1);
+        return newArr;
+    }
+}

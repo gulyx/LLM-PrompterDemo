@@ -1,0 +1,41 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3271;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3271.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 3271_DescriptionOnly_testsTest {
+
+    @Test
+    public void test_SimpleCase() {
+        Solution solution = new Solution();
+        String result = solution.descriptionOnly("leetscode", 3);
+        assertEquals("lreet", result);
+    }
+
+    @Test
+    public void test_MultipleWords() {
+        Solution solution = new Solution();
+        String result = solution.descriptionOnly("a quick brown fox jumps over the lazy dog", 4);
+        assertEquals("a b c d e f g h i j k l m n o p q r s t u v w x y z", result);
+    }
+
+    @Test
+    public void test_EmptyString() {
+        Solution solution = new Solution();
+        String result = solution.descriptionOnly("", 1);
+        assertEquals("", result);
+    }
+
+    @Test
+    public void test_NullString() {
+        Solution solution = new Solution();
+        assertThrows(NullPointerException.class, () -> solution.descriptionOnly(null, 1));
+    }
+
+    @Test
+    public void test_KIsZero() {
+        Solution solution = new Solution();
+        assertThrows(NullPointerException.class, () -> solution.descriptionOnly("test", 0));
+    }
+}

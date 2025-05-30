@@ -1,0 +1,65 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 654_DescriptionExampleTest {
+
+    public TreeNode buildMaxTree(int[] nums) {
+        return buildMaxTree(nums, 0, nums.length - 1);
+    }
+
+    private TreeNode buildMaxTree(int[] nums, int start, int end) {
+        if (start > end) {
+            return null;
+        }
+        int maxIndex = start;
+        for (int i = start + 1; i <= end; i++) {
+            if (nums[i] > nums[maxIndex]) {
+                maxIndex = i;
+            }
+        }
+        TreeNode root = new TreeNode(nums[maxIndex]);
+        root.left = buildMaxTree(nums, start, maxIndex - 1);
+        root.right = buildMaxTree(nums, maxIndex + 1, end);
+        return root;
+    }
+
+    @Test
+    public void testBuildMaxTree() {
+        int[] nums = {3,2,1,6,0,5};
+        TreeNode tree = buildMaxTree(nums);
+        assertEquals(6, tree.val);
+        assertNull(tree.left);
+        assertNull(tree.right);
+
+        TreeNode left = tree.left;
+        assertNull(left.left);
+        assertNull(left.right);
+
+        TreeNode right = tree.right;
+        assertNull(right.left);
+        assertEquals(2, right.val);
+        assertNull(right.right);
+    }
+
+    @Test
+    public void testBuildMaxTree2() {
+        int[] nums = {3,2,1};
+        TreeNode tree = buildMaxTree(nums);
+        assertEquals(3, tree.val);
+        assertNull(tree.left);
+        assertNull(tree.right);
+
+        TreeNode left = tree.left;
+        assertNull(left.left);
+        assertNull(left.right);
+
+        TreeNode right = tree.right;
+        assertNull(right.left);
+        assertEquals(1, right.val);
+        assertNull(right.right);
+    }
+}
+```

@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028;
+
+public class Solution {
+    public TreeNode recoverFromPreorder(String traversal) {
+        int i = 0;
+        while (i < traversal.length() && Character.isDigit(traversal.charAt(i))) {
+            i++;
+        }
+        return buildTree(0, traversal, i);
+    }
+
+    private TreeNode buildTree(int start, String traversal, int end) {
+        if (start >= traversal.length()) {
+            return null;
+        }
+        int depth = 0;
+        while (i < traversal.length() && Character.isDigit(traversal.charAt(i))) {
+            depth *= 10;
+            depth += traversal.charAt(i++) - '0';
+        }
+        TreeNode root = new TreeNode(traversal.charAt(start) - '0');
+        if (start + 1 < end && traversal.charAt(start + 1) == '-') {
+            root.left = buildTree(start + 2, traversal, end);
+        } else {
+            root.right = buildTree(end, traversal, traversal.length());
+        }
+        return root;
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int x) { val = x; }
+    }
+}

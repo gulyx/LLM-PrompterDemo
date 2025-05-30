@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1415;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1415.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void test_1() {
+        Solution solution = new Solution();
+        int[] result = solution.kthSmallest("abc", 3);
+        assertEquals(new int[]{2}, result);
+    }
+
+    @Test
+    public void test_2() {
+        Solution solution = new Solution();
+        String result = solution.kthSmallest("abcbabcbcb", 4);
+        assertEquals("", result);
+    }
+
+    @Test
+    public void test_3() {
+        Solution solution = new Solution();
+        int[] result = solution.kthSmallest("abc", 9);
+        assertEquals(new int[]{2}, result);
+    }
+
+    @Test
+    public void test_4() {
+        Solution solution = new Solution();
+        String result = solution.kthSmallest("abcbabcbcb", 10);
+        assertEquals("", result);
+    }
+
+    @Test
+    public void test_5() {
+        Solution solution = new Solution();
+        int[] result = solution.kthSmallest("abc", 1);
+        assertEquals(new int[]{0}, result);
+    }
+}
+```

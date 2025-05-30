@@ -1,0 +1,44 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028;
+
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
+
+public class Solution {
+    public TreeNode recoverFromPreorder(String traversal) {
+        String[] nodes = traversal.split("-");
+        List<TreeNode> stack = new ArrayList<>();
+        for (String node : nodes) {
+            int depth = 0;
+            while (node.charAt(depth) == '-') depth++;
+            int val = Integer.parseInt(node.substring(depth));
+            TreeNode nodeObj = new TreeNode(val);
+            if (stack.size() > 1 && stack.get(stack.size()-2).right != null) {
+                TreeNode rightParent = stack.get(stack.size()-2).right;
+                while (rightParent.left != null) {
+                    rightParent = rightParent.left;
+                }
+                rightParent.right = nodeObj;
+            } else if (stack.size() > 0 && stack.get(stack.size()-1).left == null) {
+                stack.get(stack.size()-1).right = nodeObj;
+            } else {
+                stack.add(nodeObj);
+            }
+        }
+        return stack.get(0);
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        String traversal = "1-2--3--4-5--6--7";
+        TreeNode root = solution.recoverFromPreorder(traversal);
+        // print tree
+    }
+}
+```

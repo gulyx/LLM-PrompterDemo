@@ -1,0 +1,19 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1944;
+
+public class Solution {
+    public int[] canSeePersonsCount(int[] heights) {
+        int n = heights.length;
+        int[] answer = new int[n];
+        int stackSize = 0;
+        for (int i = 0; i < n; i++) {
+            while (stackSize > 0 && heights[stackSize - 1] < heights[i]) {
+                answer[stackSize - 1] += 1;
+                stackSize -= 1;
+            }
+            if (i < n - 1) {
+                stackSize += 1;
+            }
+        }
+        return answer;
+    }
+}

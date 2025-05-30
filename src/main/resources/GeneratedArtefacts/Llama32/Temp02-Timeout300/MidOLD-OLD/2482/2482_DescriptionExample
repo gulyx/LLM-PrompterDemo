@@ -1,0 +1,74 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertArrayEquals;
+
+public class 2482_DescriptionExample {
+
+    public int[][] diffMatrix(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int[] rowOnes = new int[m];
+        int[] colOnes = new int[n];
+        int[] rowZeros = new int[m];
+        int[] colZeros = new int[n];
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) {
+                    rowOnes[i]++;
+                    colOnes[j]++;
+                } else {
+                    rowZeros[i]++;
+                    colZeros[j]++;
+                }
+            }
+        }
+
+        int[][] diff = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                diff[i][j] = rowOnes[i] + colOnes[j] - rowZeros[i] - colZeros[j];
+            }
+        }
+
+        return diff;
+    }
+
+    @Test
+    public void testDiffMatrix_Example1() {
+        int[][] grid = {{0, 1, 1}, {1, 0, 1}, {0, 0, 1}};
+        int[][] expected = {{0, 0, 4}, {0, 0, 4}, {-2, -2, 2}};
+        assertArrayEquals(expected, diffMatrix(grid));
+    }
+
+    @Test
+    public void testDiffMatrix_Example2() {
+        int[][] grid = {{1, 1, 1}, {1, 1, 1}};
+        int[][] expected = {{5, 5, 5}, {5, 5, 5}};
+        assertArrayEquals(expected, diffMatrix(grid));
+    }
+
+    @Test
+    public void testDiffMatrix_EmptyGrid() {
+        int[][] grid = {};
+        int[][] expected = {};
+        assertArrayEquals(expected, diffMatrix(grid));
+    }
+
+    @Test
+    public void testDiffMatrix_SingleElementGrid() {
+        int[][] grid = {{1}};
+        int[][] expected = {{2}, {0}, {0}};
+        assertArrayEquals(expected, diffMatrix(grid));
+    }
+
+    @Test
+    public void testDiffMatrix_TwoElementGrid() {
+        int[][] grid = {{0, 1}, {1, 0}};
+        int[][] expected = {{1, 1}, {1, 1}};
+        assertArrayEquals(expected, diffMatrix(grid));
+    }
+}
+```

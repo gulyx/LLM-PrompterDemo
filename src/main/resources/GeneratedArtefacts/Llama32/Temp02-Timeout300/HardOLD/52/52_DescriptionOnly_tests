@@ -1,0 +1,53 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
+
+public class SolutionTest {
+
+    @Test
+    public void testNQueens_5() {
+        int n = 5;
+        int expected = 10;
+        Solution solution = new Solution();
+        int actual = solution.totalNQueens(n);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testNQueens_1() {
+        int n = 1;
+        int expected = 1;
+        Solution solution = new Solution();
+        int actual = solution.totalNQueens(n);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testNQueens_9() {
+        int n = 9;
+        int expected = 2480;
+        Solution solution = new Solution();
+        int actual = solution.totalNQueens(n);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testNQueens_2() {
+        int n = 2;
+        int expected = 2;
+        Solution solution = new Solution();
+        int actual = solution.totalNQueens(n);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testNQueens_3() {
+        int n = 3;
+        int expected = 4;
+        Solution solution = new Solution();
+        int actual = solution.totalNQueens(n);
+        assertEquals(expected, actual);
+    }
+}

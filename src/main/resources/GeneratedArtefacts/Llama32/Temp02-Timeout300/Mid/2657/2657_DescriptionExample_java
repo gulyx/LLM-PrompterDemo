@@ -1,0 +1,48 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2657;
+
+public class Solution {
+    public int[] prefixCommonArray(int[] A, int[] B) {
+        int n = A.length;
+        int[] C = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (A[i] == B[i]) {
+                C[i] = 1;
+            } else {
+                break;
+            }
+        }
+        int j = 1;
+        for (int i = 0; i < n; i++) {
+            while (C[i] != j) {
+                j++;
+            }
+            if (i + 1 < n) {
+                C[i + 1] = j;
+            } else {
+                break;
+            }
+            j++;
+        }
+        return C;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] A1 = {1,3,2,4};
+        int[] B1 = {3,1,2,4};
+        int[] result1 = solution.prefixCommonArray(A1, B1);
+        for (int i : result1) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        int[] A2 = {2,3,1};
+        int[] B2 = {3,1,2};
+        int[] result2 = solution.prefixCommonArray(A2, B2);
+        for (int i : result2) {
+            System.out.print(i + " ");
+        }
+    }
+}
+```

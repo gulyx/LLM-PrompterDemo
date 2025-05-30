@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2161;
+
+public class Solution {
+    public int[] sortArrayByParityII(int[] nums) {
+        --Example 1--
+        int n = nums.length;
+        boolean[] seen = new boolean[n];
+        int left = 0, right = 1;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] % 2 == 0) {
+                if (!seen[left]) {
+                    seen[left] = true;
+                    nums[left] = nums[i];
+                    left++;
+                }
+            } else {
+                while (seen[right]) right++;
+                seen[right] = true;
+                nums[right] = nums[i];
+            }
+        }
+        return nums;
+        --Example 2--
+        int n = nums.length;
+        boolean[] seen = new boolean[n];
+        int left = 0, right = 1;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] % 2 == 0) {
+                if (!seen[left]) {
+                    seen[left] = true;
+                    nums[left] = nums[i];
+                    left++;
+                }
+            } else {
+                while (seen[right]) right++;
+                seen[right] = true;
+                nums[right] = nums[i];
+            }
+        }
+        return nums;
+    }
+}

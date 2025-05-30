@@ -1,0 +1,9 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2545;
+
+public class Solution {
+    public int[][] sortStudents(int[][] score, int k) {
+        return score.clone().sorted((a, b) -> Integer.compare(b[k], a[k])).ToArray();
+    }
+}
+```

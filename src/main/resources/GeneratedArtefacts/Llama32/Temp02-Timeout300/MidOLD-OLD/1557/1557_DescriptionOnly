@@ -1,0 +1,58 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1557_DescriptionOnly {
+
+    @Test
+    public void test1() {
+        int[][] edges = {{0,1},{1,2},{2,0}};
+        int[] result = findSmallestSetOfVertices(edges);
+        assertArrayEquals(new int[]{0,1,2},result);
+    }
+
+    @Test
+    public void test2() {
+        int[][] edges = {};
+        int[] result = findSmallestSetOfVertices(edges);
+        assertArrayEquals(new int[]{0},result);
+    }
+
+    @Test
+    public void test3() {
+        int[][] edges = {{0,1},{1,2}};
+        int[] result = findSmallestSetOfVertices(edges);
+        assertArrayEquals(new int[]{0,1},result);
+    }
+
+    @Test
+    public void test4() {
+        int[][] edges = {{0,1},{1,2},{2,3},{3,4},{4,5}};
+        int[] result = findSmallestSetOfVertices(edges);
+        assertArrayEquals(new int[]{0,1,2,3,4,5},result);
+    }
+
+    @Test
+    public void test5() {
+        int[][] edges = {{0,1},{1,2},{2,3},{3,4},{4,5},{5,6}};
+        int[] result = findSmallestSetOfVertices(edges);
+        assertArrayEquals(new int[]{0,1,2,3,4,5,6},result);
+    }
+
+    public static int[] findSmallestSetOfVertices(int[][] edges) {
+        boolean[] visited = new boolean[edges.length];
+        for (int i = 0; i < edges.length; i++) {
+            visited[i] = true;
+        }
+        for (int i = 0; i < edges.length; i++) {
+            if (!visited[i]) {
+                return new int[]{i};
+            }
+            for (int j = 0; j < edges[i].length; j++) {
+                visited[edges[i][j]] = false;
+            }
+        }
+        return new int[]{};
+    }
+}

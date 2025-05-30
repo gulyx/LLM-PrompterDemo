@@ -1,0 +1,34 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
+
+public class 2265_DescriptionOnly {
+
+    public int averageOfSubtree(TreeNode root) {
+        return dfs(root);
+    }
+
+    private int dfs(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        int sum = node.val + dfs(node.left) + dfs(node.right);
+        double avg = Math.ceil((double)sum / node.left != null ? node.left.val : 0 + node.right.val != null ? node.right.val : 0)/2.0;
+        return (node.val == avg)?1+dfs(node.left)+dfs(node.right):0;
+    }
+
+}
+
+class TreeNode {
+    int val = 0;
+    TreeNode left = null;
+    TreeNode right = null;
+
+    public TreeNode(int val) {
+        this.val = val;
+    }
+}
+```

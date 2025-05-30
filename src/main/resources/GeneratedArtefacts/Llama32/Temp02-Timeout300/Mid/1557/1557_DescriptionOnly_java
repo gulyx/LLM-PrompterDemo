@@ -1,0 +1,15 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1557;
+
+import java.util.*;
+
+public class Solution {
+    public List<Integer> findSmallestSetOfVertices(int n, int[][] edges) {
+        Set<Integer> visited = new HashSet<>();
+        for (int[] edge : edges) {
+            visited.add(edge[1]);
+        }
+        List<Integer> result = new ArrayList<>(visited);
+        Collections.sort(result);
+        return result;
+    }
+}

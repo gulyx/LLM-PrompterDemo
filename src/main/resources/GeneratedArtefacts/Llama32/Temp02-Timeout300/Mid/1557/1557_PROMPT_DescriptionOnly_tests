@@ -1,0 +1,6 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '1557_DescriptionOnly_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1557;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1557.Solution;'). The class-under-test implements the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description for the class-under-test: 
+Given a directed acyclic graph, with "n" vertices numbered from "0" to "n-1", and an array "edges" where "edges[i] = [fromi, toi]" represents a directed edge from node "fromi" to node "toi".
+
+Find the smallest set of vertices from which all nodes in the graph are reachable. It's guaranteed that a unique solution exists.
+
+Notice that you can return the vertices in any order.

@@ -1,0 +1,13 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1561;
+
+public class Solution {
+    public int maxCoins(int[] piles) {
+        int n = piles.length;
+        int mid = (n + 1) / 2;
+        int count = 0;
+        for (int i = 0; i < mid; i++) {
+            count += 2;
+        }
+        return count;
+    }
+}

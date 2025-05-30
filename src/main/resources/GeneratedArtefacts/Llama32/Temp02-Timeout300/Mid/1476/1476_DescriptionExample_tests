@@ -1,0 +1,46 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1476;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1476.Solution;
+
+public class TestSubrectangleQueries {
+
+    private Solution solution;
+
+    public TestSubrectangleQueries() {
+        solution = new Solution(new int[][]{{1, 2, 1}, {4, 3, 4}, {3, 2, 1}, {1, 1, 1}});
+    }
+
+    @Test
+    public void testGetValue_Example1() {
+        assertEquals(1, solution.getValue(0, 2));
+    }
+
+    @Test
+    public void testUpdateSubrectangle_Example1() {
+        solution.updateSubrectangle(0, 0, 3, 2, 5);
+        assertEquals(10, solution.getValue(3, 1));
+    }
+
+    @Test
+    public void testGetValue_Example1_2() {
+        assertEquals(5, solution.getValue(0, 2));
+    }
+
+    @Test
+    public void testUpdateSubrectangle_Example1_2() {
+        solution.updateSubrectangle(3, 0, 3, 2, 10);
+        assertEquals(10, solution.getValue(3, 1));
+    }
+
+    @Test
+    public void testGetValue_Example2() {
+        solution = new Solution(new int[][]{{1, 1, 1}, {2, 2, 2}, {3, 3, 3}});
+        assertEquals(1, solution.getValue(0, 0));
+    }
+
+    @Test
+    public void testUpdateSubrectangle_Example2() {
+        solution.updateSubrectangle(0, 0, 2, 2, 100);
+        assertEquals(100, solution.getValue(0, 0));
+    }
+}

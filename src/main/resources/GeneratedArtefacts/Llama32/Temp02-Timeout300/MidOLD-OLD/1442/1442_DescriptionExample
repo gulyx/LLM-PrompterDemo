@@ -1,0 +1,104 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExample {
+
+    @Test
+    public void test_1() {
+        int[] arr = {2,3,1,6,7};
+        assertEquals(4, countTriplets(arr));
+    }
+
+    @Test
+    public void test_2() {
+        int[] arr = {1,1,1,1,1};
+        assertEquals(10, countTriplets(arr));
+    }
+
+    @Test
+    public void test_3() {
+        int[] arr = {1, 2, 3, 4, 5};
+        assertEquals(0, countTriplets(arr));
+    }
+
+    @Test
+    public void test_4() {
+        int[] arr = {1, 1, 1, 1, 1, 1};
+        assertEquals(15, countTriplelets(arr));
+    }
+
+    @Test
+    public void test_5() {
+        int[] arr = {2,3,1,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+        assertEquals(0, countTriplelets(arr));
+    }
+
+    private int countTriplets(int[] arr) {
+        int n = arr.length;
+        int[][] prefixXor = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            prefixXor[i][i] = arr[i];
+            if (i > 0)
+                prefixXor[i][i] ^= prefixXor[i - 1][i - 1];
+        }
+        for (int length = 2; length <= n; length++) {
+            for (int i = 0; i < n - length + 1; i++) {
+                int j = i + length - 1;
+                if (length == 2) {
+                    prefixXor[i][j] = arr[i] ^ arr[j];
+                } else {
+                    prefixXor[i][j] = prefixXor[i][j - 1] ^ prefixXor[i + 1][j];
+                }
+            }
+        }
+
+        int count = 0;
+        for (int i = 0; i < n - 2; i++) {
+            for (int j = i + 2; j < n; j++) {
+                if (arr[i] == arr[j]) {
+                    for (int k = j + 1; k < n; k++) {
+                        if (prefixXor[i][j - 1] == prefixXor[j][k])
+                            count++;
+                    }
+                }
+            }
+        }
+        return count;
+    }
+
+    private int countTriplelets(int[] arr) {
+        int n = arr.length;
+        int[][] prefixXor = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            prefixXor[i][i] = arr[i];
+            if (i > 0)
+                prefixXor[i][i] ^= prefixXor[i - 1][i - 1];
+        }
+        for (int length = 2; length <= n; length++) {
+            for (int i = 0; i < n - length + 1; i++) {
+                int j = i + length - 1;
+                if (length == 2) {
+                    prefixXor[i][j] = arr[i] ^ arr[j];
+                } else {
+                    prefixXor[i][j] = prefixXor[i][j - 1] ^ prefixXor[i + 1][j];
+                }
+            }
+        }
+
+        int count = 0;
+        for (int i = 0; i < n - 3; i++) {
+            for (int j = i + 3; j < n; j++) {
+                if (arr[i] == arr[j]) {
+                    for (int k = j + 1; k < n; k++) {
+                        if (prefixXor[i][j - 1] == prefixXor[j][k])
+                            count++;
+                    }
+                }
+            }
+        }
+        return count;
+    }
+
+}

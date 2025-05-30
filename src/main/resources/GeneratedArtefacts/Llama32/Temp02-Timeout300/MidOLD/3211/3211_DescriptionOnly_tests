@@ -1,0 +1,40 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnlyTest {
+
+    @Test
+    public void testValidStrings() {
+        String[] result = validBinaryStrings(3);
+        assertEquals("111", result[0]);
+        assertEquals("10101", result[1]);
+    }
+
+    @Test
+    public void testEmptyString() {
+        String[] result = validBinaryStrings(0);
+        assertTrue(result.length == 0);
+    }
+
+    @Test
+    public void testSingleDigitNumber() {
+        String[] result = validBinaryStrings(1);
+        assertEquals("1", result[0]);
+    }
+
+    @Test
+    public void testTwoDigitNumber() {
+        String[] result = validBinaryStrings(2);
+        assertTrue(result.length == 0);
+    }
+
+    @Test
+    public void testThreeDigitNumber() {
+        String[] result = validBinaryStrings(3);
+        assertEquals("111", result[0]);
+    }
+}
+```

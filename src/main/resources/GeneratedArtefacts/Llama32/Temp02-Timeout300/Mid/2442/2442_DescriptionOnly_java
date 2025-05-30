@@ -1,0 +1,16 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2442;
+
+public class Solution {
+    public int findDistinct(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            String strNum = Integer.toString(num);
+            StringBuilder sb = new StringBuilder(strNum);
+            sb.reverse();
+            set.add(Integer.parseInt(sb.toString()));
+        }
+        return set.size();
+    }
+}
+```

@@ -1,0 +1,15 @@
+As a professional Software Tester, generate a complete Junit class test file (name the class as :'3191_DescriptionExample', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description: 
+You are given a binary array "nums".
+
+You can do the following operation on the array any number of times (possibly zero):
+
+Choose any 3 consecutive elements from the array and flip all of them.
+Flipping an element means changing its value from 0 to 1, and from 1 to 0.
+
+Return the minimum number of operations required to make all elements in "nums" equal to 1. If it is impossible, return -1.
+[--Example 1--]
+Input: nums = [0,1,1,1,0,0]
+Output: 3
+[--Example 2--]
+Input: nums = [0,1,1,1]
+Output: -1

@@ -1,0 +1,29 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2149;
+
+public class Solution {
+    public int[] rearrangeArray(int[] nums) {
+        int pos = 0, neg = 0;
+        for (int num : nums) {
+            if (num > 0)
+                pos++;
+            else
+                neg++;
+        }
+
+        int[] result = new int[nums.length];
+        int p = 0, n = 0;
+
+        while (p < pos && n < neg) {
+            result[p++] = nums[n++];
+            result[n++] = nums[pos++ - 1];
+        }
+        if (pos > neg)
+            for (; p < pos; p++)
+                result[p] = nums[pos + n - 1];
+        else
+            for (; n < neg; n++)
+                result[n] = nums[pos + p - 1];
+
+        return result;
+    }
+}

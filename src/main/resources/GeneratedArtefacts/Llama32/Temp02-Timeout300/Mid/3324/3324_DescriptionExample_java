@@ -1,0 +1,30 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324;
+
+import java.util.*;
+
+public class Solution {
+    public List<String> findDifferentKeyStrings(String target) {
+        List<String> result = new ArrayList<>();
+        Deque<Character> stack = new ArrayDeque<>();
+
+        for (char c : target.toCharArray()) {
+            if (!stack.isEmpty() && stack.peekLast().equals(c)) {
+                stack.pollLast();
+                continue;
+            }
+
+            while (c > 'z') {
+                char ch = stack.pollLast();
+                result.add(ch + String.valueOf((char) ('a' + (ch - 'z' + 1) % 26)));
+                c = ch;
+            }
+            stack.offerLast(c);
+        }
+
+        while (!stack.isEmpty()) {
+            result.add(String.valueOf(stack.pollFirst()));
+        }
+
+        return result;
+    }
+}

@@ -1,0 +1,68 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1305;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1305.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SolutionTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        TreeNode root1 = new TreeNode(2);
+        root1.left = new TreeNode(1);
+        root1.right = new TreeNode(4);
+
+        TreeNode root2 = new TreeNode(1);
+        root2.left = new TreeNode(0);
+        root2.right = new TreeNode(3);
+
+        int[] result = solution.inorderTraversal(root1, root2);
+        assertArrayEquals(new int[]{0, 1, 1, 2, 3, 4}, result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        TreeNode root1 = new TreeNode(1);
+        root1.right = new TreeNode(8);
+
+        TreeNode root2 = new TreeNode(8);
+        root2.left = new TreeNode(1);
+
+        int[] result = solution.inorderTraversal(root1, root2);
+        assertArrayEquals(new int[]{1, 1, 8, 8}, result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        TreeNode root1 = null;
+        TreeNode root2 = new TreeNode(1);
+
+        int[] result = solution.inorderTraversal(root1, root2);
+        assertArrayEquals(new int[]{1}, result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        TreeNode root1 = new TreeNode(1);
+        TreeNode root2 = null;
+
+        int[] result = solution.inorderTraversal(root1, root2);
+        assertArrayEquals(new int[]{1}, result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        TreeNode root1 = new TreeNode(1);
+        TreeNode root2 = new TreeNode(1);
+
+        int[] result = solution.inorderTraversal(root1, root2);
+        assertArrayEquals(new int[]{1, 1}, result);
+    }
+}
+```

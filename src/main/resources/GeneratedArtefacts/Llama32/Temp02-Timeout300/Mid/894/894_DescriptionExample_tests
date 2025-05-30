@@ -1,0 +1,47 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.894;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.894.Solution;
+
+public class 894_DescriptionExample_testsTest {
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        test1(solution);
+        test2(solution);
+        test3(solution);
+        test4(solution);
+        test5(solution);
+    }
+
+    private static void test1(Solution solution) {
+        TreeNode root = solution.generateTrees(7);
+        // implement assertion here
+    }
+
+    private static void test2(Solution solution) {
+        TreeNode root = solution.generateTrees(3);
+        // implement assertion here
+    }
+
+    private static void test3(Solution solution) {
+        TreeNode root = solution.generateTrees(0);
+        // implement assertion here
+    }
+
+    private static void test4(Solution solution) {
+        TreeNode root = solution.generateTrees(1);
+        // implement assertion here
+    }
+
+    private static void test5(Solution solution) {
+        TreeNode root = solution.generateTrees(2);
+        // implement assertion here
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}

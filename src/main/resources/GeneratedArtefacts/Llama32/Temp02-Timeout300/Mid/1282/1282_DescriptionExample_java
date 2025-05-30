@@ -1,0 +1,28 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1282;
+
+import java.util.*;
+
+public class Solution {
+    public List<List<Integer>> groupThePeople(int[] groupSizes) {
+        Map<Integer, List<Integer>> groups = new HashMap<>();
+        for (int i = 0; i < groupSizes.length; i++) {
+            if (!groups.containsKey(groupSizes[i])) {
+                groups.put(groupSizes[i], new ArrayList<>());
+            }
+            groups.get(groupSizes[i]).add(i);
+        }
+
+        List<List<Integer>> result = new ArrayList<>();
+        for (List<Integer> group : groups.values()) {
+            int size = group.size();
+            for (int i = 0; i < size; i += size) {
+                List<Integer> subgroup = new ArrayList<>(group.subList(i, Math.min(size, i + size)));
+                result.add(subgroup);
+            }
+        }
+
+        return result;
+    }
+}
+```

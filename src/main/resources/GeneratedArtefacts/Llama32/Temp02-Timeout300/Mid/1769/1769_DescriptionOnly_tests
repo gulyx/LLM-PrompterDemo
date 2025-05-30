@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1769;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1769.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1769_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] boxes = {0, 1};
+        int[] answer = solution.minOperations(boxes);
+        assertEquals(new int[]{2, 1}, answer);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] boxes = {0, 0, 0, 0, 0};
+        int[] answer = solution.minOperations(boxes);
+        assertEquals(new int[]{3, 2, 1, 0, 0}, answer);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] boxes = {1, 1, 0};
+        int[] answer = solution.minOperations(boxes);
+        assertEquals(new int[]{2, 1, 1}, answer);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] boxes = {0, 0, 0, 0, 0, 0};
+        int[] answer = solution.minOperations(boxes);
+        assertEquals(new int[]{5, 4, 3, 2, 1, 0}, answer);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] boxes = {0, 1, 0};
+        int[] answer = solution.minOperations(boxes);
+        assertEquals(new int[]{1, 2, 1}, answer);
+    }
+}

@@ -1,0 +1,23 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1828;
+
+import java.util.*;
+
+public class Solution {
+    public int[] numPointsInside(int[][] points, int[][] queries) {
+        List<int[]> res = new ArrayList<>();
+        for (int[] query : queries) {
+            Set<String> set = new HashSet<>();
+            for (int[] point : points) {
+                if (Math.pow(query[0] - point[0], 2) + Math.pow(query[1] - point[1], 2) <= Math.pow(query[2], 2)) {
+                    set.add(point[0] + "," + point[1]);
+                }
+            }
+            res.add(set.size());
+        }
+        int[] answer = new int[res.size()];
+        for (int i = 0; i < res.size(); i++) {
+            answer[i] = res.get(i);
+        }
+        return answer;
+    }
+}

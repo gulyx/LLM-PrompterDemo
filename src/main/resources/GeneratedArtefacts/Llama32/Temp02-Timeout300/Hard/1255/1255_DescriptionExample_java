@@ -1,0 +1,75 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1255;
+
+import java.util.*;
+
+public class Solution {
+    public int maxScoreWords(String[] words, char[] letters, int[] score) {
+        Map<Character, Integer> letterCount = new HashMap<>();
+        for (char c : letters) {
+            letterCount.put(c, letterCount.getOrDefault(c, 0) + 1);
+        }
+
+        int totalScore = 0;
+        for (String word : words) {
+            char[] chars = word.toCharArray();
+            boolean isValidWord = true;
+
+            Map<Character, Integer> wordChars = new HashMap<>();
+            for (char c : chars) {
+                if (!letterCount.containsKey(c)) {
+                    isValidWord = false;
+                    break;
+                }
+                wordChars.put(c, wordChars.getOrDefault(c, 0) + 1);
+            }
+
+            int wordScore = 0;
+            for (Map.Entry<Character, Integer> entry : wordChars.entrySet()) {
+                char c = entry.getKey();
+                int count = entry.getValue();
+
+                if (!letterCount.containsKey(c)) {
+                    isValidWord = false;
+                    break;
+                }
+                if (count > letterCount.get(c)) {
+                    isValidWord = false;
+                    break;
+                }
+
+                wordScore += score[c - 'a'] * count;
+            }
+
+            totalScore += wordScore;
+        }
+
+        return totalScore;
+    }
+
+    [--Example 1--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        String[] words = {"dog","cat","dad","good"};
+        char[] letters = {'a','a','c','d','d','d','g','o','o'};
+        int[] score = {1,0,9,5,0,0,3,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0};
+        System.out.println(solution.maxScoreWords(words, letters, score));
+    }
+
+    [--Example 2--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        String[] words = {"xxxz","ax","bx","cx"};
+        char[] letters = {'z','a','b','c','x','x','x'};
+        int[] score = {4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,10};
+        System.out.println(solution.maxScoreWords(words, letters, score));
+    }
+
+    [--Example 3--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        String[] words = {"leetcode"};
+        char[] letters = {'l','e','t','c','o','d'};
+        int[] score = {0,0,1,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0};
+        System.out.println(solution.maxScoreWords(words, letters, score));
+    }
+}

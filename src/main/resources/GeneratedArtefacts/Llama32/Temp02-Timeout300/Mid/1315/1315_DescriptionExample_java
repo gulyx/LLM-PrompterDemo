@@ -1,0 +1,26 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1315;
+
+public class Solution {
+    public int sumEvenGrandparent(TreeNode root) {
+        return dfs(root, 0);
+    }
+
+    private int dfs(TreeNode node, int parentVal) {
+        if (node == null) {
+            return 0;
+        }
+        int left = dfs(node.left, node.val % 2);
+        int right = dfs(node.right, node.val % 2);
+        return left + right + (parentVal == 1 ? node.val : 0);
+    }
+
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
+```

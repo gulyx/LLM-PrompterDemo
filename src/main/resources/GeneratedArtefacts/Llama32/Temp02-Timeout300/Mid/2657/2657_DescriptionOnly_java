@@ -1,0 +1,26 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2657;
+
+public class Solution {
+    public int[] prefixCommonArray(int[] A, int[] B) {
+        int n = A.length;
+        boolean[] seenA = new boolean[n + 1];
+        boolean[] seenB = new boolean[n + 1];
+
+        for (int i = 0; i < n; i++) {
+            seenA[A[i]] = true;
+            seenB[B[i]] = true;
+        }
+
+        int[] result = new int[n];
+        for (int i = 1; i <= n; i++) {
+            if (seenA[i] && seenB[i]) {
+                result[0]++;
+            }
+            if (i > 1) {
+                result[i - 1] += result[i - 1];
+            }
+        }
+
+        return result;
+    }
+}

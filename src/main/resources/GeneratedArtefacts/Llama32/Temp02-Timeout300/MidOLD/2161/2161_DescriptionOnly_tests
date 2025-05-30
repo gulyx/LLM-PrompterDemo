@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2161_DescriptionOnlyTest {
+
+    @Test
+    public void testLessThanPivot() {
+        int[] nums = {2, 4, 0, 0, 5};
+        int pivot = 2;
+        int[] result = rearrangeArray(nums, pivot);
+        assertArrayEquals(new int[]{0, 1, 2, 4, 5}, result);
+    }
+
+    @Test
+    public void testGreaterThanPivot() {
+        int[] nums = {2, 4, 0, 0, 5};
+        int pivot = 5;
+        int[] result = rearrangeArray(nums, pivot);
+        assertArrayEquals(new int[]{1, 2, 3, 4, 0}, result);
+    }
+
+    @Test
+    public void testEqualPivot() {
+        int[] nums = {2, 4, 0, 0, 5};
+        int pivot = 4;
+        int[] result = rearrangeArray(nums, pivot);
+        assertArrayEquals(new int[]{0, 1, 2, 3, 4}, result);
+    }
+
+    @Test
+    public void testAllEqual() {
+        int[] nums = {2, 2, 2, 2, 5};
+        int pivot = 2;
+        int[] result = rearrangeArray(nums, pivot);
+        assertArrayEquals(new int[]{0, 1, 2, 3, 4}, result);
+    }
+
+    @Test
+    public void testAllSame() {
+        int[] nums = {5, 5, 5, 5, 5};
+        int pivot = 5;
+        int[] result = rearrangeArray(nums, pivot);
+        assertArrayEquals(new int[]{0, 1, 2, 3, 4}, result);
+    }
+
+}

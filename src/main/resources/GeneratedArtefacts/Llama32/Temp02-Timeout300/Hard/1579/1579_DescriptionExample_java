@@ -1,0 +1,61 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1579;
+
+import java.util.*;
+
+public class Solution {
+    public int maxNumEdgesToRemove(int n, int[][] edges) {
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            graph.add(new ArrayList<>());
+        }
+        Map<Integer, Integer> alice = new HashMap<>();
+        Map<Integer, Integer> bob = new HashMap<>();
+
+        for (int[] edge : edges) {
+            int type = edge[0];
+            int u = edge[1] - 1;
+            int v = edge[2] - 1;
+
+            if (type == 3) {
+                graph.get(u).add(v);
+                graph.get(v).add(u);
+                alice.put(u, alice.getOrDefault(u, 0) | 1);
+                alice.put(v, alice.getOrDefault(v, 0) | 1);
+                bob.put(u, bob.getOrDefault(u, 0) | 2);
+                bob.put(v, bob.getOrDefault(v, 0) | 2);
+            } else if (type == 1) {
+                graph.get(u).add(v);
+                alice.put(u, alice.getOrDefault(u, 0) | 1);
+                alice.put(v, alice.getOrDefault(v, 0) | 1);
+            } else {
+                graph.get(u).add(v);
+                bob.put(u, bob.getOrDefault(u, 0) | 2);
+                bob.put(v, bob.getOrDefault(v, 0) | 2);
+            }
+        }
+
+        int count = 0;
+        boolean aliceCanReach = true;
+        boolean bobCanReach = true;
+
+        for (int i = 0; i < n && (aliceCanReach || bobCanReach); i++) {
+            if (!alice.getOrDefault(i, 0) == 2 && !bob.getOrDefault(i, 0) == 2) {
+                aliceCanReach = false;
+            }
+            if (!bob.getOrDefault(i, 0) == 2 && !alice.getOrDefault(i, 0) == 2) {
+                bobCanReach = false;
+            }
+
+            for (int j : graph.get(i)) {
+                if ((alice.get(j) & 1) != 0 || (bob.get(j) & 2) != 0) {
+                    continue;
+                }
+                count++;
+                alice.put(j, alice.getOrDefault(j, 0) | 1);
+                bob.put(j, bob.getOrDefault(j, 0) | 2);
+            }
+        }
+
+        return aliceCanReach && bobCanReach ? count : -1;
+    }
+}

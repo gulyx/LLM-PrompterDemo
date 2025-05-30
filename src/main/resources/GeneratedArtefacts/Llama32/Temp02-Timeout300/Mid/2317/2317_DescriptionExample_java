@@ -1,0 +1,28 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2317;
+
+public class Solution {
+    public int findMaximumXOR(int[] nums) {
+        int maxVal = 0;
+        for (int num : nums) {
+            maxVal |= num;
+        }
+        int cur = 0, res = 0;
+        int[] dp = new int[maxVal + 1];
+        dp[0] = 1;
+        for (int num : nums) {
+            int[] tmp = new int[maxVal + 1];
+            for (int i = 0; i <= maxVal; i++) {
+                if (dp[i] == 1) {
+                    tmp[i ^ num] = 1;
+                }
+            }
+            dp = tmp;
+        }
+        for (int i = maxVal; i >= 0; i--) {
+            if (dp[i] == 1) {
+                res |= i;
+            }
+        }
+        return res;
+    }
+}

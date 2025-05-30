@@ -1,0 +1,64 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.535;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.535.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 535_DescriptionOnly_testsTest {
+
+    @Test
+    public void test_encodeDecode() {
+        Solution solution = new Solution();
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = solution.encode(longUrl);
+        String decodedUrl = solution.decode(shortUrl);
+        assertEquals(longUrl, decodedUrl);
+    }
+
+    @Test
+    public void test_encodeDecode_WithDifferentLongUrls() {
+        Solution solution = new Solution();
+        String longUrl1 = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl1 = solution.encode(longUrl1);
+        String decodedUrl1 = solution.decode(shortUrl1);
+        assertEquals(longUrl1, decodedUrl1);
+
+        String longUrl2 = "https://leetcode.com/problems/design-tinyurl2";
+        String shortUrl2 = solution.encode(longUrl2);
+        String decodedUrl2 = solution.decode(shortUrl2);
+        assertEquals(longUrl2, decodedUrl2);
+    }
+
+    @Test
+    public void test_encodeDecode_WithEmptyLongUrls() {
+        Solution solution = new Solution();
+        String longUrl = "";
+        String shortUrl = solution.encode(longUrl);
+        String decodedUrl = solution.decode(shortUrl);
+        assertEquals(longUrl, decodedUrl);
+    }
+
+    @Test
+    public void test_encodeDecode_WithNullLongUrls() {
+        Solution solution = new Solution();
+        try {
+            solution.encode(null);
+            fail("Expected NullPointerException");
+        } catch (NullPointerException e) {
+
+        }
+    }
+
+    @Test
+    public void test_encodeDecode_WithLongUrlTooLong() {
+        Solution solution = new Solution();
+        String longUrl = "https://leetcode.com/problems/design-tinyurl".repeat(10);
+        try {
+            solution.encode(longUrl);
+            fail("Expected IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+
+        }
+    }
+
+}

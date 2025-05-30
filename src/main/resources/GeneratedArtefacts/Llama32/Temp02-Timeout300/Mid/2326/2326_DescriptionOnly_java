@@ -1,0 +1,59 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2326;
+
+import java.util.*;
+
+public class Solution {
+    public int[][] generateMatrix(int m, int n, ListNode head) {
+        if (head == null || m == 0 || n == 0)
+            return new int[0][0];
+        List<Integer> list = new ArrayList<>();
+        while (head != null) {
+            list.add(head.val);
+            head = head.next;
+        }
+        int[][] matrix = new int[m][n];
+        int top = 0, bottom = m - 1, left = 0, right = n - 1;
+        int index = 0;
+        while (top <= bottom && left <= right) {
+            for (int i = left; i <= right; i++) {
+                matrix[top][i] = list.get(index++);
+            }
+            top++;
+            for (int i = top; i <= bottom; i++) {
+                matrix[i][right] = list.get(index++);
+            }
+            right--;
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--) {
+                    matrix[bottom][i] = list.get(index++);
+                }
+                bottom--;
+            }
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    matrix[i][left] = list.get(index++);
+                }
+                left++;
+            }
+        }
+        while (top <= bottom) {
+            matrix[top++][left++] = -1;
+        }
+        while (left <= right) {
+            matrix[bottom--][right--) = -1;
+        }
+        while (top <= bottom) {
+            matrix[top++][right--) = -1;
+        }
+        while (left <= right) {
+            matrix[bottom--][left++] = -1;
+        }
+        return matrix;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) { val = x; }
+    }
+}

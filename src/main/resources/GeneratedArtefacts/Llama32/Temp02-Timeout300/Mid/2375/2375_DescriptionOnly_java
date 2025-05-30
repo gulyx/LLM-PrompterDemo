@@ -1,0 +1,26 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2375;
+
+public class Solution {
+    public String findNum(String pattern) {
+        int n = pattern.length();
+        char[] num = new char[n + 1];
+        for (int i = 0; i < n; i++) {
+            if (pattern.charAt(i) == 'I') {
+                for (char c = '1'; c <= '9'; c++) {
+                    if (num[i] != c && ((i == 0 || num[i - 1] > c) || (i + 1 == n || num[i + 1] < c))) {
+                        num[i] = c;
+                        break;
+                    }
+                }
+            } else {
+                for (char c = '9'; c >= '1'; c--) {
+                    if (num[i] != c && ((i == 0 || num[i - 1] < c) || (i + 1 == n || num[i + 1] > c))) {
+                        num[i] = c;
+                        break;
+                    }
+                }
+            }
+        }
+        return new String(num);
+    }
+}

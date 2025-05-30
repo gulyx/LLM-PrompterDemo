@@ -1,0 +1,108 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2807;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2807.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2807_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+
+        solution.addGreatestCommonDivisors(head);
+
+        ListNode result = head;
+        while (result != null) {
+            if (result.val == 1 && result.next != null && result.next.val == 6) {
+                result = result.next.next;
+                continue;
+            }
+            if (result.val == 2 && result.next != null && result.next.val == 2) {
+                result = result.next.next;
+                continue;
+            }
+            if (result.val == 3 && result.next != null && result.next.val == 1) {
+                result = result.next.next;
+                continue;
+            }
+        }
+
+        assertEquals(1, result.val);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(5);
+
+        solution.addGreatestCommonDivisors(head);
+
+        ListNode result = head;
+        while (result != null) {
+            if (result.val == 1 && result.next != null && result.next.val == 1) {
+                result = result.next.next;
+                continue;
+            }
+        }
+
+        assertEquals(1, result.val);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(2);
+
+        solution.addGreatestCommonDivisors(head);
+
+        ListNode result = head;
+        while (result != null) {
+            if (result.val == 1 && result.next != null && result.next.val == 1) {
+                result = result.next.next;
+                continue;
+            }
+        }
+
+        assertEquals(1, result.val);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(3);
+
+        solution.addGreatestCommonDivisors(head);
+
+        ListNode result = head;
+        while (result != null) {
+            if (result.val == 1 && result.next != null && result.next.val == 1) {
+                result = result.next.next;
+                continue;
+            }
+        }
+
+        assertEquals(1, result.val);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(7);
+
+        solution.addGreatestCommonDivisors(head);
+
+        ListNode result = head;
+        while (result != null) {
+            if (result.val == 1 && result.next != null && result.next.val == 1) {
+                result = result.next.next;
+                continue;
+            }
+        }
+
+        assertEquals(1, result.val);
+    }
+}

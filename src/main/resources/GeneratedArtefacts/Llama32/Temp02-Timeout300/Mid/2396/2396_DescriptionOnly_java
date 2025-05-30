@@ -1,0 +1,17 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2396;
+
+public class Solution {
+    public boolean isStrictPalindromic(int n) {
+        for (int b = 2; b < n - 1; b++) {
+            int num = n;
+            while (num > 0) {
+                int digit = num % b;
+                if (digit != n / b && digit != 0 && digit != 1) {
+                    return false;
+                }
+                num /= b;
+            }
+        }
+        return true;
+    }
+}

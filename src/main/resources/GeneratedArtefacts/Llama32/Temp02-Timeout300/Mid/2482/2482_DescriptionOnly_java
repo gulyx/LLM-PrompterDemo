@@ -1,0 +1,53 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2482;
+
+public class Solution {
+    public int[][] addOnes(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int[][] diff = new int[m][n];
+
+        for (int i = 0; i < m; i++) {
+            int onesRow = 0, zerosRow = 0;
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) onesRow++;
+                else zerosRow++;
+            }
+            diff[i][0] = onesRow + countOnesInColumn(grid, i, 0) - zerosRow - countZerosInColumn(grid, i, 0);
+        }
+
+        for (int j = 0; j < n; j++) {
+            int onesCol = 0, zerosCol = 0;
+            for (int i = 0; i < m; i++) {
+                if (grid[i][j] == 1) onesCol++;
+                else zerosCol++;
+            }
+            diff[0][j] = onesCol + countOnesInColumn(grid, 0, j) - zerosCol - countZerosInColumn(grid, 0, j);
+        }
+
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                diff[i][j] = grid[i][j] == 1 ? 
+                    onesRow + countOnesInColumn(grid, i, j) - zerosRow - countZerosInColumn(grid, i, j) :
+                    onesCol + countOnesInColumn(grid, i, j) - zerosCol - countZerosInColumn(grid, i, j);
+            }
+        }
+
+        return diff;
+    }
+
+    private int countOnesInColumn(int[][] grid, int row, int col) {
+        int count = 0;
+        for (int i = 0; i < grid.length; i++) {
+            if (grid[i][col] == 1) count++;
+        }
+        return count;
+    }
+
+    private int countZerosInColumn(int[][] grid, int row, int col) {
+        int count = 0;
+        for (int i = 0; i < grid.length; i++) {
+            if (grid[i][col] == 0) count++;
+        }
+        return count;
+    }
+}

@@ -1,0 +1,44 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.773;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.773.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class SolutionTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[][] board = {{1,2,3},{4,5,0}};
+        assertEquals(6, solution.minMovesToMakeBoardFull(board));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[][] board = {{1,2,3},{4,5,6}};
+        assertEquals(-1, solution.minMovesToMakeBoardFull(board));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[][] board = {{0,1,2},{3,4,5}};
+        assertEquals(10, solution.minMovesToMakeBoardFull(board));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[][] board = {{1,2,3},{4,5,6},{7,8,9}};
+        assertEquals(-1, solution.minMovesToMakeBoardFull(board));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[][] board = {{0,1,2},{3,4,5},{6,7,8}};
+        assertEquals(10, solution.minMovesToMakeBoardFull(board));
+    }
+}

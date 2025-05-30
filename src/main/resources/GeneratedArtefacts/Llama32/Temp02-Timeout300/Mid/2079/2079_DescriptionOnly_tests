@@ -1,0 +1,49 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2079;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2079.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class 2079_DescriptionOnly_testsTest {
+
+    @Test
+    public void testWateringCan() {
+        Solution solution = new Solution();
+        int[] plants = {1,2,3};
+        int capacity = 2;
+        assertEquals(5, solution.wateringCan(plants, capacity));
+    }
+
+    @Test
+    public void testWateringCan_WithOnePlant() {
+        Solution solution = new Solution();
+        int[] plants = {1};
+        int capacity = 1;
+        assertEquals(1, solution.wateringCan(plants, capacity));
+    }
+
+    @Test
+    public void testWateringCan_WithTwoPlants() {
+        Solution solution = new Solution();
+        int[] plants = {2,3};
+        int capacity = 2;
+        assertEquals(4, solution.wateringCan(plants, capacity));
+    }
+
+    @Test
+    public void testWateringCan_EmptyCapacity() {
+        Solution solution = new Solution();
+        int[] plants = {1,2,3};
+        int capacity = 0;
+        assertThrows(NullPointerException.class, () -> solution.wateringCan(plants, capacity));
+    }
+
+    @Test
+    public void testWateringCan_NullPlantsArray() {
+        Solution solution = new Solution();
+        int[] plants = null;
+        int capacity = 2;
+        assertThrows(NullPointerException.class, () -> solution.wateringCan(plants, capacity));
+    }
+}

@@ -1,0 +1,49 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1641;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1641.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class 1641_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int n = 2;
+        int expected = 6;
+        assertEquals(expected, solution.countVowelStrings(n));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int n = 5;
+        int expected = 52;
+        assertEquals(expected, solution.countVowelStrings(n));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int n = 1;
+        int expected = 5;
+        assertEquals(expected, solution.countVowelStrings(n));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int n = 10;
+        int expected = 1234567500L;
+        assertEquals(expected, solution.countVowelStrings(n));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int n = 50;
+        long expected = 1738388608L;
+        assertEquals(expected, solution.countVowelStrings(n));
+    }
+}

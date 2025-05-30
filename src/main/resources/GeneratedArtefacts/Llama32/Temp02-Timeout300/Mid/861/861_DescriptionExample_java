@@ -1,0 +1,63 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.861;
+
+public class Solution {
+    public int matrixScore(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        boolean[] row = new boolean[n];
+        for (int i = 0; i < m; i++) {
+            int ones = 0, zeros = 0;
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) ones++;
+                else zeros++;
+            }
+            row[j] = (ones >= zeros);
+        }
+        int score = 0;
+        for (boolean b : row) {
+            score += b ? 1 : 0;
+        }
+        while (true) {
+            boolean changed = false;
+            for (int i = 0; i < m; i++) {
+                if (!row[i]) {
+                    int ones = 0, zeros = 0;
+                    for (int j = 0; j < n; j++) {
+                        if (grid[i][j] == 1) ones++;
+                        else zeros++;
+                    }
+                    row[j] = (ones >= zeros);
+                    changed |= row[j] != row[i];
+                }
+            }
+            score += m * (row[0] ? 1 : 0);
+            for (int i = 0; i < n; i++) {
+                if (!row[i]) {
+                    int ones = 0, zeros = 0;
+                    for (int j = 0; j < m; j++) {
+                        if (grid[j][i] == 1) ones++;
+                        else zeros++;
+                    }
+                    row[i] = (ones >= zeros);
+                    changed |= row[i] != row[0];
+                }
+            }
+            if (!changed) break;
+        }
+        return score;
+    }
+
+    [--Example 1--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[][] grid = {{0,0,1,1},{1,0,1,0},{1,1,0,0}};
+        System.out.println(solution.matrixScore(grid)); // Output: 39
+    }
+
+    [--Example 2--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[][] grid = {{0}};
+        System.out.println(solution.matrixScore(grid)); // Output: 1
+    }
+}

@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2785_DescriptionOnlyTest {
+
+    @Test
+    public void test1() {
+        String s = "leetcode";
+        String t = "leetcdoe";
+        assertEquals(t, solve(s));
+    }
+
+    @Test
+    public void test2() {
+        String s = "aabb";
+        String t = "abba";
+        assertEquals(t, solve(s));
+    }
+
+    @Test
+    public void test3() {
+        String s = "aa";
+        String t = "aa";
+        assertEquals(t, solve(s));
+    }
+
+    @Test
+    public void test4() {
+        String s = "bcabc";
+        String t = "bcaac";
+        assertEquals(t, solve(s));
+    }
+
+    @Test
+    public void test5() {
+        String s = "aeiouAEIOU";
+        String t = "aieuoAEIOU";
+        assertEquals(t, solve(s));
+    }
+}

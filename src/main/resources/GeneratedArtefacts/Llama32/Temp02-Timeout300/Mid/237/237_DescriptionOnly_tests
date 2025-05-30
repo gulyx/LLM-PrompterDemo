@@ -1,0 +1,89 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.237;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.237.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 237_DescriptionOnly_testsTest {
+
+    @Test
+    public void test_deleteNode() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+
+        ListNode node = head.next;
+        head.next = head.next.next;
+
+        ListNode result = solution.deleteNode(head, node);
+        assertEquals(1, result.val);
+        assertEquals(2, result.next.val);
+        assertEquals(3, result.next.next.val);
+        assertEquals(4, result.next.next.next.val);
+    }
+
+    @Test
+    public void test_deleteNode_at_head() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+
+        ListNode node = head.next;
+        head.next = null;
+
+        ListNode result = solution.deleteNode(head, node);
+        assertNull(result);
+    }
+
+    @Test
+    public void test_deleteNode_at_tail() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+
+        ListNode node = head;
+        head = null;
+
+        ListNode result = solution.deleteNode(head, node);
+        assertNull(result);
+    }
+
+    @Test
+    public void test_deleteNode_with_multiple_nodes() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+
+        ListNode node = head.next.next;
+        head.next.next = null;
+
+        ListNode result = solution.deleteNode(head, node);
+        assertEquals(1, result.val);
+        assertEquals(2, result.next.val);
+        assertNull(result.next.next);
+    }
+
+    @Test
+    public void test_deleteNode_with_large_list() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        for (int i = 0; i < 1000; i++) {
+            head.next = new ListNode(i + 2);
+        }
+        head.next.next = new ListNode(2003);
+
+        ListNode node = head.next;
+        head.next = null;
+
+        ListNode result = solution.deleteNode(head, node);
+        assertEquals(1, result.val);
+        for (int i = 0; i < 1000; i++) {
+            assertEquals(i + 2, result.next.val);
+            result = result.next;
+        }
+    }
+}

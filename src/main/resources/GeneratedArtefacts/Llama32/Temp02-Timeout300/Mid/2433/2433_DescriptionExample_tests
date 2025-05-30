@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2433;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2433.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] pref = {5, 2, 0, 3, 1};
+        int[] arr = solution.xorPref(pref);
+        assertArrayEquals(new int[]{5, 7, 2, 3, 2}, arr);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] pref = {13};
+        int[] arr = solution.xorPref(pref);
+        assertArrayEquals(new int[]{13}, arr);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] pref = {1, 2, 4, 8};
+        int[] arr = solution.xorPref(pref);
+        assertArrayEquals(new int[]{0, 1, 2, 3}, arr);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] pref = {10, 20, 30};
+        int[] arr = solution.xorPref(pref);
+        assertArrayEquals(new int[]{0, 10, 10}, arr);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] pref = {};
+        int[] arr = solution.xorPref(pref);
+        assertArrayEquals(new int[]{0}, arr);
+    }
+}
+```

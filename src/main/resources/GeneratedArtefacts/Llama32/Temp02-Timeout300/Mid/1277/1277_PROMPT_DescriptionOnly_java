@@ -1,0 +1,2 @@
+As a professional Software Engineer, generate a complete Java class file (name the class as :'Solution', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1277;') for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
+Given a "m * n" matrix of ones and zeros, return how many square submatrices have all ones.

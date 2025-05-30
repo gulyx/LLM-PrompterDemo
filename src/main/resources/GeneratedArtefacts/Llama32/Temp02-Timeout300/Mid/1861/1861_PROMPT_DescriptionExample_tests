@@ -1,0 +1,42 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '1861_DescriptionExample_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1861;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1861.Solution;'). The class-under-test implements the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description for the class-under-test: 
+You are given an "m x n" matrix of characters "boxGrid" representing a side-view of a box. Each cell of the box is one of the following:
+
+* A stone "'#'"
+* A stationary obstacle "'*'"
+* Empty "'.'"
+
+The box is rotated 90 degrees clockwise, causing some of the stones to fall due to gravity. Each stone falls down until it lands on an obstacle, another stone, or the bottom of the box. Gravity does not affect the obstacles' positions, and the inertia from the box's rotation does not affect the stones' horizontal positions.
+
+It is guaranteed that each stone in "boxGrid" rests on an obstacle, another stone, or the bottom of the box.
+
+Return an "n x m" matrix representing the box after the rotation described above.
+
+
+Constraints:
+
+* "m == boxGrid.length"
+* "n == boxGrid[i].length"
+* "1 <= m, n <= 500"
+* "boxGrid[i][j]" is either "'#'", "'*'", or "'.'".
+[--Example 1--]
+Input: boxGrid = [["#",".","#"]]
+Output: [["."],
+         ["#"],
+         ["#"]]
+[--Example 2--]
+Input: boxGrid = [["#",".","*","."],
+              ["#","#","*","."]]
+Output: [["#","."],
+         ["#","#"],
+         ["*","*"],
+         [".","."]]
+[--Example 3--]
+Input: boxGrid = [["#","#","*",".","*","."],
+              ["#","#","#","*",".","."],
+              ["#","#","#",".","#","."]]
+Output: [[".","#","#"],
+         [".","#","#"],
+         ["#","#","*"],
+         ["#","*","."],
+         ["#",".","*"],
+         ["#",".","."]]

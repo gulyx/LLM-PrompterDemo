@@ -1,0 +1,52 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1441;
+
+import java.util.*;
+
+public class Solution {
+    public List<String> buildArray(int[] target, int n) {
+        List<String> result = new ArrayList<>();
+        Set<Integer> set = new HashSet<>();
+
+        for (int i = 1; i <= n; i++) {
+            if (!set.contains(i)) {
+                set.add(i);
+                result.add("Push");
+            }
+            while (!set.equals(target)) {
+                int top = set.iterator().next();
+                set.remove(top);
+                result.add("Pop");
+                if (set.isEmpty()) break;
+            }
+        }
+
+        return result;
+    }
+
+    [--Example 1--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] target = {1,3};
+        int n = 3;
+        List<String> output = solution.buildArray(target, n);
+        System.out.println(output);
+    }
+
+    [--Example 2--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] target = {1,2,3};
+        int n = 3;
+        List<String> output = solution.buildArray(target, n);
+        System.out.println(output);
+    }
+
+    [--Example 3--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] target = {1,2};
+        int n = 4;
+        List<String> output = solution.buildArray(target, n);
+        System.out.println(output);
+    }
+}

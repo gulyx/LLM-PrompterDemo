@@ -1,0 +1,49 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import java.util.*;
+
+public class 51_DescriptionExampleTest {
+
+    @Test
+    public void testNQueensPuzzle_4x4() {
+        int[][] board = new int[4][4];
+        List<List<String>> result = new ArrayList<>();
+        result.add(Arrays.asList(".Q..", "...Q", "Q...", ".Q.."));
+        result.add(Arrays.asList("..Q.", "Q...", "...Q", ".Q.."));
+        assertEquals(result, solveNQueensPuzzle(4));
+    }
+
+    @Test
+    public void testNQueensPuzzle_1x1() {
+        int[][] board = new int[1][1];
+        List<List<String>> result = new ArrayList<>();
+        result.add(Arrays.asList("Q"));
+        assertEquals(result, solveNQueensPuzzle(1));
+    }
+
+    @Test
+    public void testNQueensPuzzle_2x2() {
+        int[][] board = new int[2][2];
+        List<List<String>> result = new ArrayList<>();
+        result.add(Arrays.asList(".Q.", "Q."));
+        assertEquals(result, solveNQueensPuzzle(2));
+    }
+
+    @Test
+    public void testNQueensPuzzle_3x3() {
+        int[][] board = new int[3][3];
+        List<List<String>> result = new ArrayList<>();
+        result.add(Arrays.asList(".Q..", "...Q", "Q...", ".Q.."));
+        assertEquals(result, solveNQueensPuzzle(3));
+    }
+
+    @Test
+    public void testNQueensPuzzle_5x5() {
+        int[][] board = new int[5][5];
+        List<List<String>> result = new ArrayList<>();
+        result.add(Arrays.asList(".Q..Q.", "...Q..", "Q...Q.", ".Q...Q", "..Q..."));
+        assertEquals(result, solveNQueensPuzzle(5));
+    }
+
+}

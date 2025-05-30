@@ -1,0 +1,102 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 237_DescriptionExampleTest {
+
+    @Test
+    public void testDeleteNode_1() {
+        ListNode head = new ListNode(4);
+        head.next = new ListNode(5);
+        head.next.next = new ListNode(1);
+        head.next.next.next = new ListNode(9);
+
+        ListNode node = head.next;
+        head.next = head.next.next;
+
+        ListNode expected = new ListNode(4);
+        expected.next = new ListNode(1);
+        expected.next.next = new ListNode(9);
+
+        assertEquals(expected, head);
+    }
+
+    @Test
+    public void testDeleteNode_2() {
+        ListNode head = new ListNode(4);
+        head.next = new ListNode(5);
+        head.next.next = new ListNode(1);
+        head.next.next.next = new ListNode(9);
+
+        ListNode node = head.next.next;
+        head.next.next = head.next.next.next;
+
+        ListNode expected = new ListNode(4);
+        expected.next = new ListNode(5);
+        expected.next.next = new ListNode(9);
+
+        assertEquals(expected, head);
+    }
+
+    @Test
+    public void testDeleteNode_3() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
+
+        ListNode node = head.next;
+        head.next = head.next.next;
+
+        ListNode expected = new ListNode(1);
+        expected.next = new ListNode(2);
+        expected.next.next = new ListNode(3);
+        expected.next.next.next = new ListNode(4);
+        expected.next.next.next.next = new ListNode(5);
+
+        assertEquals(expected, head);
+    }
+
+    @Test
+    public void testDeleteNode_4() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
+
+        ListNode node = head;
+        head = head.next;
+        head.next = head.next.next;
+
+        ListNode expected = new ListNode(1);
+        expected.next = new ListNode(2);
+        expected.next.next = new ListNode(3);
+        expected.next.next.next = new ListNode(4);
+        expected.next.next.next.next = new ListNode(5);
+
+        assertEquals(expected, head);
+    }
+
+    @Test
+    public void testDeleteNode_5() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
+
+        ListNode node = head.next.next;
+        head.next.next = head.next.next.next;
+
+        ListNode expected = new ListNode(1);
+        expected.next = new ListNode(2);
+        expected.next.next = new ListNode(3);
+        expected.next.next.next = new ListNode(4);
+        expected.next.next.next.next = new ListNode(5);
+
+        assertEquals(expected, head);
+    }
+}

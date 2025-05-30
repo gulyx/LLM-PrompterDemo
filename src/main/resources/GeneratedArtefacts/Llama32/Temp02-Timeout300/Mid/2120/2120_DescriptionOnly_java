@@ -1,0 +1,58 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2120;
+
+import java.util.*;
+
+public class Solution {
+    public int[] executeInstructions(int n, int[] startPos, String s) {
+        int m = s.length();
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int[][] visited = new int[n][n];
+        Arrays.fill(visited[startPos[0]][startPos[1]], 1);
+
+        int[] answer = new int[m];
+
+        for (int i = m - 1; i >= 0; i--) {
+            int row = startPos[0], col = startPos[1];
+            char instruction = s.charAt(i);
+            boolean isValid = true;
+
+            for (int[] direction : directions) {
+                int newRow = row + direction[0];
+                int newCol = col + direction[1];
+
+                if (newRow < 0 || newRow >= n || newCol < 0 || newCol >= n) {
+                    isValid = false;
+                    break;
+                }
+
+                if (visited[newRow][newCol] == 0) {
+                    isValid = false;
+                    break;
+                }
+            }
+
+            if (!isValid) {
+                answer[i] = 0;
+                continue;
+            }
+
+            int steps = i + 1;
+
+            for (int[] direction : directions) {
+                int newRow = row + direction[0];
+                int newCol = col + direction[1];
+
+                while (newRow >= 0 && newRow < n && newCol >= 0 && newCol < n && visited[newRow][newCol] == 1) {
+                    steps++;
+                    newRow += direction[0];
+                    newCol += direction[1];
+                    visited[newRow][newCol]++;
+                }
+            }
+
+            answer[i] = steps;
+        }
+
+        return answer;
+    }
+}

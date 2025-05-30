@@ -1,0 +1,29 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.*;
+
+public class DescriptionOnly {
+
+    public List<String> findDifferentStrings(String target) {
+        List<String> result = new ArrayList<>();
+        Deque<Character> queue = new ArrayDeque<>();
+        Set<Character> visited = new HashSet<>();
+
+        for (char c : target.toCharArray()) {
+            queue.addLast(c);
+            while (!queue.isEmpty() && !visited.contains(queue.peekFirst())) {
+                char firstChar = queue.pollFirst();
+                result.add(String.valueOf(firstChar));
+                if (firstChar == 'z') {
+                    queue.addFirst('a');
+                } else {
+                    queue.addFirst((char) (firstChar + 1));
+                }
+                visited.add(firstChar);
+            }
+        }
+
+        return result;
+    }
+
+}

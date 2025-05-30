@@ -1,0 +1,21 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3271;
+
+public class Solution {
+    public String getHashedString(String s, int k) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < s.length(); i += k) {
+            int sum = 0;
+            for (int j = i; j < Math.min(i + k, s.length()); j++) {
+                sum += s.charAt(j) - 'a';
+            }
+            result.append((char) ('a' + sum % 26));
+        }
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.getHashedString("abcd", 2)); // bf
+        System.out.println(solution.getHashedString("mxz", 3)); // i
+    }
+}

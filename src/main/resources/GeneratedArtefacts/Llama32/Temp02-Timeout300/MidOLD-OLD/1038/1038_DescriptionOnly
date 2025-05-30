@@ -1,0 +1,66 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1038_DescriptionOnly {
+
+    @Test
+    public void testConvertBSTtoGreaterTree() {
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(5);
+        root.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(3);
+
+        convertBST(root);
+
+        assertEquals(7, root.val);
+        assertEquals(5, root.left.val);
+        assertEquals(6, root.right.val);
+        assertEquals(4, root.left.left.val);
+        assertEquals(3, root.left.right.val);
+    }
+
+    @Test
+    public void testConvertBSTtoGreaterTree_EmptyTree() {
+        TreeNode root = null;
+
+        convertBST(root);
+
+        assertNull(root);
+    }
+
+    @Test
+    public void testConvertBSTtoGreaterTree_SingleNodeTree() {
+        TreeNode root = new TreeNode(1);
+
+        convertBST(root);
+
+        assertEquals(1, root.val);
+    }
+
+    @Test
+    public void testConvertBSTtoGreaterTree_BSTWithOneChild() {
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(2);
+
+        convertBST(root);
+
+        assertEquals(6, root.val);
+        assertEquals(4, root.left.val);
+    }
+
+    @Test
+    public void testConvertBSTtoGreaterTree_BSTWithTwoChildren() {
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(5);
+
+        convertBST(root);
+
+        assertEquals(7, root.val);
+        assertEquals(6, root.left.val);
+        assertEquals(9, root.right.val);
+    }
+}

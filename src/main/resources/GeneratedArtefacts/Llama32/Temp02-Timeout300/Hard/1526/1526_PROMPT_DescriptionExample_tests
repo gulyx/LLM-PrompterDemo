@@ -1,0 +1,17 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '1526_DescriptionExample_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1526;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1526.Solution;'). The class-under-test implements the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description for the class-under-test: 
+You are given an integer array "target". You have an integer array "initial" of the same size as "target" with all elements initially zeros.
+
+In one operation you can choose any subarray from "initial" and increment each value by one.
+
+Return the minimum number of operations to form a "target" array from "initial".
+
+The test cases are generated so that the answer fits in a 32-bit integer.
+[--Example 1--]
+Input: target = [1,2,3,2,1]
+Output: 3
+[--Example 2--]
+Input: target = [3,1,1,2]
+Output: 4
+[--Example 3--]
+Input: target = [3,1,5,4,2]
+Output: 7

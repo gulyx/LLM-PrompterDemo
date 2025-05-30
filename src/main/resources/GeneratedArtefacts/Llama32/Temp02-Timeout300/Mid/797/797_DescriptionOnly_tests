@@ -1,0 +1,59 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.797;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.797.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SolutionTest {
+
+    @Test
+    public void testAllPaths() {
+        Solution solution = new Solution();
+        int[][] graph = {{1,2},{3}};
+        List<List<Integer>> result = solution.allPaths(graph, 0, 2);
+        assertEquals(2, result.size());
+        assertTrue(result.contains(Arrays.asList(0, 1, 2)));
+        assertTrue(result.contains(Arrays.asList(0, 2)));
+    }
+
+    @Test
+    public void testNoPath() {
+        Solution solution = new Solution();
+        int[][] graph = {};
+        List<List<Integer>> result = solution.allPaths(graph, 0, 2);
+        assertEquals(0, result.size());
+    }
+
+    @Test
+    public void testSingleNode() {
+        Solution solution = new Solution();
+        int[][] graph = {{}};
+        List<List<Integer>> result = solution.allPaths(graph, 0, 1);
+        assertEquals(1, result.size());
+        assertTrue(result.contains(Arrays.asList(0)));
+    }
+
+    @Test
+    public void testMultipleNodes() {
+        Solution solution = new Solution();
+        int[][] graph = {{1},{2}};
+        List<List<Integer>> result = solution.allPaths(graph, 0, 3);
+        assertEquals(6, result.size());
+        assertTrue(result.contains(Arrays.asList(0, 1)));
+        assertTrue(result.contains(Arrays.asList(0, 2)));
+        assertTrue(result.contains(Arrays.asList(0, 1, 2)));
+        assertTrue(result.contains(Arrays.asList(0, 2, 1)));
+        assertTrue(result.contains(Arrays.asList(0, 1, 2, 3)));
+        assertTrue(result.contains(Arrays.asList(0, 2, 3)));
+    }
+
+    @Test
+    public void testEmptyGraph() {
+        Solution solution = new Solution();
+        int[][] graph = {};
+        List<List<Integer>> result = solution.allPaths(graph, 0, 1);
+        assertEquals(0, result.size());
+    }
+}
+```

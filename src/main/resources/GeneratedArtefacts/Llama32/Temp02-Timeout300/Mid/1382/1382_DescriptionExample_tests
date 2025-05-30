@@ -1,0 +1,87 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1382;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1382.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1382_DescriptionExample_testsTest {
+
+    @Test
+    public void testBalancedBST_1() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.right.right = new TreeNode(5);
+
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        expectedRoot.right = new TreeNode(3);
+        expectedRoot.left.left = new TreeNode(4);
+        expectedRoot.right.right = new TreeNode(5);
+
+        solution.balanceBST(root);
+        assertEquals(expectedRoot, solution.root);
+    }
+
+    @Test
+    public void testBalancedBST_2() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(3);
+
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        expectedRoot.right = new TreeNode(3);
+
+        solution.balanceBST(root);
+        assertEquals(expectedRoot, solution.root);
+    }
+
+    @Test
+    public void testBalancedBST_3() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(3);
+
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        expectedRoot.right = new TreeNode(3);
+
+        solution.balanceBST(root);
+        assertEquals(expectedRoot, solution.root);
+    }
+
+    @Test
+    public void testBalancedBST_4() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(3);
+
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        expectedRoot.right = new TreeNode(3);
+
+        solution.balanceBST(root);
+        assertEquals(expectedRoot, solution.root);
+    }
+
+    @Test
+    public void testBalancedBST_5() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(3);
+
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        expectedRoot.right = new TreeNode(3);
+
+        solution.balanceBST(root);
+        assertEquals(expectedRoot, solution.root);
+    }
+}

@@ -1,0 +1,32 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2375;
+
+public class Solution {
+    public String smallestNumber(String pattern) {
+        char[] num = new char[pattern.length() + 1];
+        int i = 0;
+        for (char c : pattern.toCharArray()) {
+            if (c == 'I') {
+                while (i < num.length && num[i] != 0) {
+                    i++;
+                }
+                num[i++] = (char) ('1' + i);
+            } else {
+                while (i < num.length && num[i] == 9) {
+                    i++;
+                }
+                num[i++] = (char) (8 - i);
+            }
+        }
+        return new String(num).replace('\0', '0');
+    }
+
+    [--Example 1--]
+    public void testExample1() {
+        System.out.println(smallestNumber("IIIDIDDD"));
+    }
+
+    [--Example 2--]
+    public void testExample2() {
+        System.out.println(smallestNumber("DDD"));
+    }
+}

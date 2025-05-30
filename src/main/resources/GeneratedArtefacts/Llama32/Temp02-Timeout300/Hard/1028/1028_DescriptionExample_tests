@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class Solution_testsTest {
+
+    @Test
+    public void test1() {
+        String traversal = "1-2--3--4-5--6--7";
+        Solution solution = new Solution();
+        Object result = solution.recoverFromBinaryTree(traversal);
+        assertArrayEquals(new int[]{1, 2, 5, 3, 4, 6, 7}, (int[])result);
+    }
+
+    @Test
+    public void test2() {
+        String traversal = "1-2--3---4-5--6---7";
+        Solution solution = new Solution();
+        Object result = solution.recoverFromBinaryTree(traversal);
+        assertArrayEquals(new int[]{1, 2, 5, 3, null, 6, null, 4, null, 7}, (int[])result);
+    }
+
+    @Test
+    public void test3() {
+        String traversal = "1-401--349---90--88";
+        Solution solution = new Solution();
+        Object result = solution.recoverFromBinaryTree(traversal);
+        assertArrayEquals(new int[]{1, 401, null, 349, 88, 90}, (int[])result);
+    }
+
+    @Test
+    public void test4() {
+        String traversal = "1-2--3---4-5";
+        Solution solution = new Solution();
+        Object result = solution.recoverFromBinaryTree(traversal);
+        assertArrayEquals(new int[]{1, 2, 5, 3}, (int[])result);
+    }
+
+    @Test
+    public void test5() {
+        String traversal = "1-2";
+        Solution solution = new Solution();
+        Object result = solution.recoverFromBinaryTree(traversal);
+        assertArrayEquals(new int[]{1, 2}, (int[])result);
+    }
+}
+```

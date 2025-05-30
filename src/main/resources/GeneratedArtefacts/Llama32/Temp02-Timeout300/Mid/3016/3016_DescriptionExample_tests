@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3016;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3016.Solution;
+
+public class DescriptionExampleTestsTest {
+
+    public void testExample1() {
+        Solution solution = new Solution();
+        int result = solution.minPushCount("abcde");
+        org.junit.Assert.assertEquals(5, result);
+    }
+
+    public void testExample2() {
+        Solution solution = new Solution();
+        int result = solution.minPushCount("xyzxyzxyzxyz");
+        org.junit.Assert.assertEquals(12, result);
+    }
+
+    public void testExample3() {
+        Solution solution = new Solution();
+        int result = solution.minPushCount("");
+        org.junit.Assert.assertEquals(0, result);
+    }
+
+    public void testExample4() {
+        Solution solution = new Solution();
+        int result = solution.minPushCount("a");
+        org.junit.Assert.assertEquals(1, result);
+    }
+
+    public void testExample5() {
+        Solution solution = new Solution();
+        int result = solution.minPushCount("ab");
+        org.junit.Assert.assertEquals(2, result);
+    }
+}

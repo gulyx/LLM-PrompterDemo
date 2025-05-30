@@ -1,0 +1,49 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1381;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1381.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1381_DescriptionOnly_testsTest {
+
+    @Test
+    public void testPush() {
+        Solution solution = new Solution(3);
+        solution.push(2);
+        solution.push(5);
+        assertEquals(5, solution.pop());
+        assertEquals(-1, solution.pop());
+    }
+
+    @Test
+    public void testPop() {
+        Solution solution = new Solution(0);
+        assertEquals(-1, solution.pop());
+    }
+
+    @Test
+    public void testInc() {
+        Solution solution = new Solution(2);
+        solution.push(5);
+        solution.push(7);
+        solution.inc(3, 10);
+        assertEquals(15, solution.pop());
+        assertEquals(16, solution.pop());
+    }
+
+    @Test
+    public void testPushWithMaxSize() {
+        Solution solution = new Solution(1);
+        solution.push(2);
+        assertEquals(-1, solution.pop());
+    }
+
+    @Test
+    public void testIncWithEmptyStack() {
+        Solution solution = new Solution(3);
+        solution.inc(0, 10);
+        assertEquals(10, solution.pop());
+        assertEquals(10, solution.pop());
+        assertEquals(10, solution.pop());
+    }
+}

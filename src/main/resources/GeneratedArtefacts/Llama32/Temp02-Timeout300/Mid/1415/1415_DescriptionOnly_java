@@ -1,0 +1,38 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1415;
+
+public class Solution {
+    public String getHappyString(int n, int k) {
+        StringBuilder sb = new StringBuilder();
+        char[] chars = new char[n];
+        boolean[] used = new boolean[3];
+        int count = 0;
+        while (k > 0 && count < 6 * n) {
+            for (int i = 0; i < 3; i++) {
+                if (!used[i]) {
+                    sb.append((char) ('a' + i));
+                    used[i] = true;
+                    chars[0] = i;
+                    int j = 1;
+                    while (j < n && count < 6 * n) {
+                        if (chars[j - 1] == i || chars[j - 1] != (i + 1) % 3) {
+                            break;
+                        }
+                        sb.append((char) ('a' + chars[j - 1]));
+                        used[chars[j - 1]] = true;
+                        chars[j++] = (chars[j - 1] + 1) % 3;
+                        count++;
+                    }
+                    if (count >= k) {
+                        return sb.toString();
+                    } else {
+                        sb.deleteCharAt(sb.length() - 1);
+                        for (int l = 0; l < 3; l++) {
+                            used[l] = false;
+                        }
+                    }
+                }
+            }
+        }
+        return "";
+    }
+}

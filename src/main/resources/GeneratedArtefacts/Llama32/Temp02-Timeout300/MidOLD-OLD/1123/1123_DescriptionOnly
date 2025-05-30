@@ -1,0 +1,66 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.*;
+
+public class DescriptionOnly {
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || root.val > 1000)
+            return null;
+        if (p.val < root.val && q.val < root.val) {
+            return lowestCommonAncestor(root.left, p, q);
+        } else if (p.val > root.val && q.val > root.val) {
+            return lowestCommonAncestor(root.right, p, q);
+        }
+        return root;
+    }
+
+    public TreeNode lowestCommonAncestor(TreeNode root, int p, int q) {
+        if (root == null || root.val > 1000)
+            return null;
+        if (p < root.val && q < root.val) {
+            return lowestCommonAncestor(root.left, p, q);
+        } else if (p > root.val && q > root.val) {
+            return lowestCommonAncestor(root.right, p, q);
+        }
+        return root;
+    }
+
+    public TreeNode lowestCommonAncestor(TreeNode root, int[] p, int[] q) {
+        if (root == null || root.val > 1000)
+            return null;
+        if (p[0] < root.val && q[0] < root.val) {
+            return lowestCommonAncestor(root.left, p, q);
+        } else if (p[0] > root.val && q[0] > root.val) {
+            return lowestCommonAncestor(root.right, p, q);
+        }
+        return root;
+    }
+
+    public TreeNode lowestCommonAncestor(TreeNode root, int[] p, int[] q, int[] depth) {
+        if (root == null || root.val > 1000)
+            return null;
+        if (p[0] < root.val && q[0] < root.val) {
+            return lowestCommonAncestor(root.left, p, q, depth);
+        } else if (p[0] > root.val && q[0] > root.val) {
+            return lowestCommonAncestor(root.right, p, q, depth);
+        }
+        depth[0]++;
+        return root;
+    }
+
+    public TreeNode lowestCommonAncestor(TreeNode root, int[] p, int[] q, int[] depth, int maxDepth) {
+        if (root == null || root.val > 1000)
+            return null;
+        if (p[0] < root.val && q[0] < root.val) {
+            return lowestCommonAncestor(root.left, p, q, depth, maxDepth);
+        } else if (p[0] > root.val && q[0] > root.val) {
+            return lowestCommonAncestor(root.right, p, q, depth, maxDepth);
+        }
+        if (depth[0] == maxDepth)
+            return root;
+        depth[0]++;
+        return root;
+    }
+
+}

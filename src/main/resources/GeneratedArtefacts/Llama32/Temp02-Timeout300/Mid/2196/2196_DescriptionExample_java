@@ -1,0 +1,57 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2196;
+
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
+
+public class Solution {
+
+    public TreeNode constructTree(int[][] descriptions) {
+        Map<Integer, List<int[]>> map = new HashMap<>();
+        for (int[] description : descriptions) {
+            if (!map.containsKey(description[0])) {
+                map.put(description[0], new ArrayList<>());
+            }
+            map.get(description[0]).add(new int[]{description[1], description[2]});
+        }
+
+        return constructTreeHelper(1, map);
+    }
+
+    private TreeNode constructTreeHelper(int nodeVal, Map<Integer, List<int[]>> map) {
+        if (!map.containsKey(nodeVal)) {
+            return null;
+        }
+        TreeNode root = new TreeNode(nodeVal);
+
+        for (int[] childDesc : map.get(nodeVal)) {
+            int childVal = childDesc[0];
+            int isLeft = childDesc[1];
+
+            if (isLeft == 1) {
+                root.left = constructTreeHelper(childVal, map);
+            } else {
+                root.right = constructTreeHelper(childVal, map);
+            }
+        }
+
+        return root;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+
+        int[][] descriptions1 = {{20,15,1},{20,17,0},{50,20,1},{50,80,0},{80,19,1}};
+        TreeNode tree1 = solution.constructTree(descriptions1);
+        System.out.println(tree1.val + "," + tree1.left.val + "," + tree1.right.val + "," + tree1.left.left.val + "," + tree1.left.right.val + "," + tree1.right.left.val);
+
+        int[][] descriptions2 = {{1,2,1},{2,3,0},{3,4,1}};
+        TreeNode tree2 = solution.constructTree(descriptions2);
+        System.out.println(tree2.val + "," + tree2.left.val + "," + tree2.right.val + "," + tree2.left.left.val + "," + tree2.left.right.val + "," + tree2.right.left.val);
+    }
+}

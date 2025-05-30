@@ -1,0 +1,47 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.78;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.78.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 78_DescriptionOnly_testsTest {
+
+    @Test
+    public void testGenerateAllSubsets() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3};
+        assertTrue(solution.subsets(nums).size() == (1<<nums.length));
+    }
+
+    @Test
+    public void testGenerateEmptySubset() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3};
+        assertTrue(solution.subsets(nums).contains(new int[]{}));
+    }
+
+    @Test
+    public void testGenerateSingleElementSubsets() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3};
+        for (int i: solution.subsets(nums)) {
+            if (i.length == 1) {
+                assertTrue(true);
+            }
+        }
+    }
+
+    @Test
+    public void testGenerateDuplicateSubsets() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3};
+        assertNotEquals(solution.subsets(nums).size(), solution.subsets(new int[]{1}).size());
+    }
+
+    @Test
+    public void testGenerateEmptyArray() {
+        Solution solution = new Solution();
+        int[] nums = {};
+        assertTrue(solution.subsets(nums).isEmpty());
+    }
+}

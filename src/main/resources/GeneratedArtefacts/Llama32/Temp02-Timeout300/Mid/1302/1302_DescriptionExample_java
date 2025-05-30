@@ -1,0 +1,55 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1302;
+
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode() {}
+    TreeNode(int val) { this.val = val; }
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
+
+public class Solution {
+
+    public int deepestLeavesSum(TreeNode root) {
+        if (root == null) return 0;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        Map<Integer, Integer> depthMap = new HashMap<>();
+
+        while (!queue.isEmpty()) {
+            List<Integer> levelValues = new ArrayList<>();
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if (node.left != null) {
+                    queue.add(node.left);
+                    depthMap.putIfAbsent(node.left.val, depthMap.getOrDefault(node.left.val, 0) + 1);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                    depthMap.putIfAbsent(node.right.val, depthMap.getOrDefault(node.right.val, 0) + 1);
+                }
+                levelValues.add(node.val);
+            }
+
+            int maxDepth = Collections.max(levelValues);
+            for (int value : levelValues) {
+                if (depthMap.get(value).equals(maxDepth)) {
+                    return value;
+                }
+            }
+        }
+
+        return 0;
+    }
+}
+```

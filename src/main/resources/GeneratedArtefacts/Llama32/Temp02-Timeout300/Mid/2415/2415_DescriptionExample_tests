@@ -1,0 +1,122 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2415;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2415.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExample_testsTest {
+
+    @Test
+    public void testReverseOddLevels() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(5);
+        root.left.left = new TreeNode(8);
+        root.left.right = new TreeNode(13);
+        root.right.left = new TreeNode(21);
+        root.right.right = new TreeNode(34);
+
+        solution.reverseOddLevels(root);
+
+        TreeNode expectedLeft = new TreeNode(2);
+        TreeNode expectedRight = new TreeNode(5);
+        TreeNode expectedLeftLeft = new TreeNode(8);
+        TreeNode expectedLeftRight = new TreeNode(13);
+        TreeNode expectedRightLeft = new TreeNode(21);
+        TreeNode expectedRootRight = new TreeNode(34);
+
+        assertEquals(expectedLeft, root.left);
+        assertEquals(expectedRight, root.right);
+        assertEquals(expectedLeftLeft, root.left.left);
+        assertEquals(expectedLeftRight, root.left.right);
+        assertEquals(expectedRightLeft, root.right.left);
+        assertEquals(expectedRootRight, root.right.right);
+    }
+
+    @Test
+    public void testReverseOddLevels2() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(7);
+        root.left = new TreeNode(13);
+        root.right = new TreeNode(11);
+
+        solution.reverseOddLevels(root);
+
+        TreeNode expectedLeft = new TreeNode(7);
+        TreeNode expectedRight = new TreeNode(11);
+        TreeNode expectedRootRight = new TreeNode(13);
+
+        assertEquals(expectedLeft, root.left);
+        assertEquals(expectedRight, root.right);
+        assertEquals(expectedRootRight, root.right);
+    }
+
+    @Test
+    public void testReverseOddLevels3() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(2);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(0);
+        root.right.left = new TreeNode(0);
+        root.right.right = new TreeNode(1);
+        root.right.right.left = new TreeNode(1);
+        root.right.right.right = new TreeNode(2);
+
+        solution.reverseOddLevels(root);
+
+        TreeNode expectedLeft = new TreeNode(0);
+        TreeNode expectedRight = new TreeNode(2);
+        TreeNode expectedRootRightLeft = new TreeNode(1);
+        TreeNode expectedRootRightRight = new TreeNode(1);
+        TreeNode expectedRootRightRightLeft = new TreeNode(2);
+        TreeNode expectedRootRightRightRight = new TreeNode(1);
+
+        assertEquals(expectedLeft, root.left);
+        assertEquals(expectedRight, root.right);
+        assertEquals(expectedRootRightLeft, root.right.right.left);
+        assertEquals(expectedRootRightRight, root.right.right.right);
+        assertEquals(expectedRootRightRightLeft, root.right.right.right.left);
+        assertEquals(expectedRootRightRightRight, root.right.right.right.right);
+    }
+
+    @Test
+    public void testReverseOddLevels4() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(5);
+
+        solution.reverseOddLevels(root);
+
+        TreeNode expectedLeft = new TreeNode(2);
+        TreeNode expectedRight = new TreeNode(5);
+        TreeNode expectedRootRight = new TreeNode(3);
+
+        assertEquals(expectedLeft, root.left);
+        assertEquals(expectedRight, root.right);
+        assertEquals(expectedRootRight, root.right);
+    }
+
+    @Test
+    public void testReverseOddLevels5() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(7);
+        root.left = new TreeNode(13);
+        root.right = new TreeNode(11);
+
+        solution.reverseOddLevels(root);
+
+        TreeNode expectedLeft = new TreeNode(7);
+        TreeNode expectedRight = new TreeNode(11);
+        TreeNode expectedRootRight = new TreeNode(13);
+
+        assertEquals(expectedLeft, root.left);
+        assertEquals(expectedRight, root.right);
+        assertEquals(expectedRootRight, root.right);
+    }
+}
+```

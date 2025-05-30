@@ -1,0 +1,16 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.237;
+
+public class Solution {
+    public static void deleteNode(ListNode head, ListNode node) {
+        node.val = head.next.val;
+        head.next = head.next.next;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) { val = x; }
+    }
+}
+```

@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void testValidBinaryStrings_3() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryStrings(3);
+        assertArrayEquals(new String[]{"010","011","101","110","111"}, result);
+    }
+
+    @Test
+    public void testValidBinaryStrings_1() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryStrings(1);
+        assertArrayEquals(new String[]{"0","1"}, result);
+    }
+
+    @Test
+    public void testValidBinaryStrings_2() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryStrings(2);
+        assertArrayEquals(new String[]{"00","01","10","11"}, result);
+    }
+
+    @Test
+    public void testValidBinaryStrings_4() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryStrings(4);
+        assertArrayEquals(new String[]{"0011","0101","0110","1001","1010","1100","1111"}, result);
+    }
+
+    @Test
+    public void testValidBinaryStrings_5() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryStrings(5);
+        assertArrayEquals(new String[]{"00011","00101","00110","01011","01100","10011","10110","11000","11111"}, result);
+    }
+}
+```

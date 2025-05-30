@@ -1,0 +1,74 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2551;
+
+public class Solution {
+    public int minCost(int[] weights, int k) {
+        int n = weights.length;
+        long[][] dp = new long[k + 1][n];
+        for (int i = 0; i < n; i++) {
+            dp[1][i] = weights[i];
+        }
+        for (int i = 2; i <= k; i++) {
+            for (int j = 0; j < n; j++) {
+                long minVal = Long.MAX_VALUE;
+                int left = j - 1, right = j + 1;
+                while (left >= 0 && right < n) {
+                    if (right - left == j) {
+                        break;
+                    }
+                    minVal = Math.min(minVal, dp[i - 1][left] + weights[right]);
+                    left--;
+                    right++;
+                }
+                dp[i][j] = minVal + weights[j];
+            }
+        }
+        long maxScore = Long.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            maxScore = Math.max(maxScore, dp[k][i]);
+        }
+        return Integer.MAX_VALUE - maxScore;
+    }
+
+    public int minCost2(int[] weights, int k) {
+        long[][] dp = new long[weights.length + 1][];
+        for (int i = 0; i <= weights.length; i++) {
+            dp[i] = new long[k + 1];
+        }
+        for (int i = 0; i < weights.length; i++) {
+            for (int j = 1; j <= k; j++) {
+                if (i == 0) {
+                    dp[i][j] = dp[i][j - 1] + weights[0];
+                } else {
+                    long minVal = Long.MAX_VALUE;
+                    int left = i - 1, right = i + 1;
+                    while (left >= 0 && right < weights.length) {
+                        if (right - left == i) {
+                            break;
+                        }
+                        minVal = Math.min(minVal, dp[left][j - 1] + weights[right]);
+                        left--;
+                        right++;
+                    }
+                    dp[i][j] = minVal + weights[i];
+                }
+            }
+        }
+        long maxScore = Long.MIN_VALUE;
+        for (int i = 0; i < weights.length; i++) {
+            maxScore = Math.max(maxScore, dp[i][k]);
+        }
+        return Integer.MAX_VALUE - maxScore;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] weights1 = {1, 3, 5, 1};
+        int k1 = 2;
+        System.out.println(solution.minCost(weights1, k1)); // Output: 4
+        int[] weights2 = {1, 3};
+        int k2 = 2;
+        System.out.println(solution.minCost(weights2, k2)); // Output: 0
+    }
+}
+```

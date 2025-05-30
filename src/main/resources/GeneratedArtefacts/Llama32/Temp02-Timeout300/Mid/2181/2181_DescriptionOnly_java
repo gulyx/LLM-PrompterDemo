@@ -1,0 +1,35 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2181;
+
+public class Solution {
+    public ListNode mergeNodes(ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        int sum = 0, prev = -1;
+        ListNode current = head;
+        while (current != null) {
+            if (current.val == 0 && prev != -1) {
+                dummy.next.prev = null;
+                ListNode merged = new ListNode(sum);
+                merged.next = dummy.next;
+                merged.prev = dummy;
+                dummy.next = merged;
+                sum = 0;
+                prev = -1;
+            }
+            if (current.val != 0) {
+                sum += current.val;
+                prev = current.val;
+            }
+            current = current.next;
+        }
+        return dummy.next;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode prev;
+
+        ListNode(int x) { val = x; }
+    }
+}

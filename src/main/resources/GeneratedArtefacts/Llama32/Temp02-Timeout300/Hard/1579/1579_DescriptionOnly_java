@@ -1,0 +1,58 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1579;
+
+import java.util.*;
+
+public class Solution {
+    public int maxNumEdgesToRemove(int n, int[][] edges) {
+        List<Integer>[] alice = new ArrayList[n + 1];
+        List<Integer>[] bob = new ArrayList[n + 1];
+        for (int i = 0; i <= n; i++) {
+            alice[i] = new ArrayList<>();
+            bob[i] = new ArrayList<>();
+        }
+        int[] type = new int[edges.length];
+        int[] u = new int[edges.length];
+        int[] v = new int[edges.length];
+
+        for (int i = 0; i < edges.length; i++) {
+            type[i] = edges[i][0];
+            u[i] = edges[i][1];
+            v[i] = edges[i][2];
+            if (type[i] == 1) {
+                alice[u[i]].add(v[i]);
+                bob[v[i]].add(u[i]);
+            } else if (type[i] == 2) {
+                alice[u[i]].add(v[i]);
+                bob[v[i]].add(u[i]);
+            } else {
+                alice[u[i]].add(v[i]);
+                bob[v[i]].add(u[i]);
+            }
+        }
+
+        int res = 0;
+        for (int i = 1; i <= n; i++) {
+            if (!dfs(alice, i)) return -1;
+            if (!dfs(bob, i)) return -1;
+            res += alice[i].size();
+        }
+        return edges.length - res;
+    }
+
+    private boolean dfs(List<Integer>[] g, int u) {
+        Set<Integer> visited = new HashSet<>();
+        Stack<Integer> stack = new Stack<>();
+        stack.push(u);
+        while (!stack.isEmpty()) {
+            int v = stack.pop();
+            if (visited.contains(v)) continue;
+            visited.add(v);
+            for (int i : g[v]) {
+                if (!visited.contains(i)) {
+                    stack.push(i);
+                }
+            }
+        }
+        return visited.size() == g.length;
+    }
+}

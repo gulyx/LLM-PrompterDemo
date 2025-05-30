@@ -1,0 +1,85 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.*;
+
+public class SolutionTest {
+
+    @Test
+    public void testEvenGrandparentSum() {
+        // Create a binary tree for testing:
+        //       1
+        //      / \
+        //     2   3
+        //    /
+        //   4
+
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+
+        Solution solution = new Solution();
+        int sum = solution.sumEvenGrandparent(root);
+        assertEquals(0, sum); // No even grandparent
+    }
+
+    @Test
+    public void testEvenGrandparentSumWithEvenGrandparent() {
+        // Create a binary tree for testing:
+        //       1
+        //      / \
+        //     2   3
+        //    /
+        //   4
+        //  /
+        // 5
+
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.left.left = new TreeNode(5);
+
+        Solution solution = new Solution();
+        int sum = solution.sumEvenGrandparent(root);
+        assertEquals(10, sum); // 4 + 5
+    }
+
+    @Test
+    public void testEmptyTree() {
+        Solution solution = new Solution();
+        int sum = solution.sumEvenGrandparent(null);
+        assertEquals(0, sum); // No nodes with even grandparent
+    }
+
+    @Test
+    public void testSingleNodeTreeWithEvenParent() {
+        TreeNode root = new TreeNode(2);
+
+        Solution solution = new Solution();
+        int sum = solution.sumEvenGrandparent(root);
+        assertEquals(0, sum); // No nodes with even grandparent
+    }
+
+    @Test
+    public void testSingleNodeTreeWithEvenGrandparent() {
+        TreeNode root = new TreeNode(2);
+
+        Solution solution = new Solution();
+        int sum = solution.sumEvenGrandparent(root);
+        assertEquals(2, sum); // 2
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) { val = x; }
+
+}
+```

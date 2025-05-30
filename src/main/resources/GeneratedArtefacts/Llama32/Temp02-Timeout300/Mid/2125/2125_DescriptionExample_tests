@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2125;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2125.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        String[] bank = {"011001","000000","010100","001000"};
+        int expectedOutput = 8;
+        assertEquals(expectedOutput, solution.numLaserBeams(bank));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        String[] bank = {"000","111","000"};
+        int expectedOutput = 0;
+        assertEquals(expectedOutput, solution.numLaserBeams(bank));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        String[] bank = {"101011","010110","100001","110011"};
+        int expectedOutput = 4;
+        assertEquals(expectedOutput, solution.numLaserBeams(bank));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        String[] bank = {"111111","000000","101010","111111"};
+        int expectedOutput = 0;
+        assertEquals(expectedOutput, solution.numLaserBeams(bank));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        String[] bank = {"100001","011110","111011","000000"};
+        int expectedOutput = 6;
+        assertEquals(expectedOutput, solution.numLaserBeams(bank));
+    }
+}
+```

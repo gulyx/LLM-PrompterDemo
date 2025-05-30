@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.950;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.950.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 950_DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] deck = {17,13,11,2,3,5,7};
+        int[] result = solution.shuffle(deck);
+        assertArrayEquals(new int[]{2,13,3,11,5,17,7}, result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] deck = {1,1000};
+        int[] result = solution.shuffle(deck);
+        assertArrayEquals(new int[]{1,1000}, result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] deck = {5,4,6,2,1,8};
+        int[] result = solution.shuffle(deck);
+        assertArrayEquals(new int[]{2,1,6,5,4,8}, result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] deck = {10,20,30,40,50};
+        int[] result = solution.shuffle(deck);
+        assertArrayEquals(new int[]{10,20,30,40,50}, result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] deck = {1,2,3,4,5};
+        int[] result = solution.shuffle(deck);
+        assertArrayEquals(new int[]{1,2,3,4,5}, result);
+    }
+}
+```

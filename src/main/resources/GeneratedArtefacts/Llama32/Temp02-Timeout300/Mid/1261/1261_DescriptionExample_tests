@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1261;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1261.Solution;
+
+public class 1261_DescriptionExample_testsTest {
+
+    Solution solution = new Solution();
+
+    @Test
+    public void testFindElements() {
+        Object[] input = {solution.new FindElements(new TreeNode(-1)), true, true};
+        Object[] expected = {null, false, true};
+        assertArrayEquals(expected, solution.find(input[0].getClass(), (int)input[1], (int)input[2]));
+    }
+
+    @Test
+    public void testFindElements_2() {
+        Object[] input = {solution.new FindElements(new TreeNode(-1)), true, true, false};
+        Object[] expected = {null, true, true, false};
+        assertArrayEquals(expected, solution.find(input[0].getClass(), (int)input[1], (int)input[2]));
+    }
+
+    @Test
+    public void testFindElements_3() {
+        Object[] input = {solution.new FindElements(new TreeNode(-1)), true, false, false};
+        Object[] expected = {null, true, false, false};
+        assertArrayEquals(expected, solution.find(input[0].getClass(), (int)input[1], (int)input[2]));
+    }
+
+    @Test
+    public void testFindElements_4() {
+        Object[] input = {solution.new FindElements(new TreeNode(-1)), true, false, true};
+        Object[] expected = {null, true, false, true};
+        assertArrayEquals(expected, solution.find(input[0].getClass(), (int)input[1], (int)input[2]));
+    }
+
+    @Test
+    public void testFindElements_5() {
+        Object[] input = {solution.new FindElements(new TreeNode(-1)), true, false, true};
+        Object[] expected = {null, true, false, true};
+        assertArrayEquals(expected, solution.find(input[0].getClass(), (int)input[1], (int)input[2]));
+    }
+}

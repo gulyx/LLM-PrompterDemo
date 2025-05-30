@@ -1,0 +1,32 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2130;
+
+public class Solution {
+    public int maxTwinSum(ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        int sum = 0;
+        for (int i = 0; i < head.val; i++) {
+            sum += head.val;
+        }
+        while (head.next != null && head.next.next != null) {
+            if (Math.abs(head.val - head.next.next.val) > Math.abs(head.val - head.next.val)) {
+                sum -= head.val + head.next.val;
+                head.val = head.next.next.val;
+                head.next.val = head.val;
+            }
+            head = head.next.next;
+        }
+        return sum;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+    }
+}
+```

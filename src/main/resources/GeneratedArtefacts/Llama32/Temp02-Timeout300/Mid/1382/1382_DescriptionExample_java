@@ -1,0 +1,39 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1382;
+
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
+
+public class Solution {
+
+    public TreeNode balanceBST(TreeNode root) {
+        List<TreeNode> list = new ArrayList<>();
+        inorder(root, list);
+        return build(list);
+    }
+
+    private void inorder(TreeNode node, List<TreeNode> list) {
+        if (node == null)
+            return;
+        inorder(node.left, list);
+        list.add(node);
+        inorder(node.right, list);
+    }
+
+    private TreeNode build(List<TreeNode> list) {
+        if (list.isEmpty())
+            return null;
+        int mid = list.size() / 2;
+        TreeNode node = list.get(mid);
+        node.left = build(list.subList(0, mid));
+        node.right = build(list.subList(mid + 1, list.size()));
+        return node;
+    }
+}
+```

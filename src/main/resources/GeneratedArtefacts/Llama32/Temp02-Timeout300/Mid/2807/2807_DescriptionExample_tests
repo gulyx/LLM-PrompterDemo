@@ -1,0 +1,75 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2807;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2807.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2807_DescriptionExample_testsTest {
+
+    @Test
+    public void testInsertGCD() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(18);
+        head.next = new ListNode(6);
+        head.next.next = new ListNode(10);
+        head.next.next.next = new ListNode(3);
+
+        ListNode result = solution.insertionSortList(head);
+        while(result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+    }
+
+    @Test
+    public void testInsertGCD_SingleNode() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(7);
+
+        ListNode result = solution.insertionSortList(head);
+        while(result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+    }
+
+    @Test
+    public void testInsertGCD_EmptyList() {
+        Solution solution = new Solution();
+        ListNode head = null;
+
+        ListNode result = solution.insertionSortList(head);
+        while(result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+    }
+
+    @Test
+    public void testInsertGCD_SingleElement() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(5);
+
+        ListNode result = solution.insertionSortList(head);
+        while(result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+    }
+
+    @Test
+    public void testInsertGCD_MultipleElements() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(18);
+        head.next = new ListNode(6);
+        head.next.next = new ListNode(10);
+        head.next.next.next = new ListNode(3);
+
+        ListNode result = solution.insertionSortList(head);
+        while(result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+    }
+
+}

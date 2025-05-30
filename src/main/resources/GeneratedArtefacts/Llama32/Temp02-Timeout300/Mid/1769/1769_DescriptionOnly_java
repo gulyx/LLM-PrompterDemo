@@ -1,0 +1,18 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1769;
+
+public class Solution {
+    public int[] minOperations(String boxes) {
+        int n = boxes.length();
+        int[] answer = new int[n];
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            for (char c : boxes.toCharArray()) {
+                if (c == '1') {
+                    count += Math.abs(i - (n - boxes.indexOf(c))));
+                }
+            }
+            answer[i] = count;
+        }
+        return answer;
+    }
+}

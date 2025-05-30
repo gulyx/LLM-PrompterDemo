@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1861;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1861.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class Solution {
+
+    @Test
+    public void test_0() {
+        char[][] boxGrid = {{"#", "#", "."}, {"*", "*", "."}};
+        char[][] expected = {{".", ".", "."}, {"#", "#", "*"}};
+        assertArrayEquals(expected, new Solution().rotateTheBox(boxGrid));
+    }
+
+    @Test
+    public void test_1() {
+        char[][] boxGrid = {{"#", ".", "."}, {"*", "#", "."}};
+        char[][] expected = {{".", ".", "."}, {"#", "*", "#"}};
+        assertArrayEquals(expected, new Solution().rotateTheBox(boxGrid));
+    }
+
+    @Test
+    public void test_2() {
+        char[][] boxGrid = {{"#", "#", "."}, {"*", "*", "."}};
+        char[][] expected = {{"#", ".", "."}, {"*", "*", "*"}};
+        assertArrayEquals(expected, new Solution().rotateTheBox(boxGrid));
+    }
+
+    @Test
+    public void test_3() {
+        char[][] boxGrid = {{"#", "#", "."}, {"*", "#", "."}};
+        char[][] expected = {{"#", ".", "."}, {"*", "*", "*"}};
+        assertArrayEquals(expected, new Solution().rotateTheBox(boxGrid));
+    }
+
+    @Test
+    public void test_4() {
+        char[][] boxGrid = {{"#", "#", "."}, {"*", "#", "."}};
+        char[][] expected = {{"#", ".", "."}, {"*", "*", "*"}};
+        assertArrayEquals(expected, new Solution().rotateTheBox(boxGrid));
+    }
+}

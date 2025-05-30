@@ -1,0 +1,15 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1402;
+
+public class Solution {
+    public int maxSatisfaction(int[] satisfaction) {
+        Arrays.sort(satisfaction);
+        long sum = 0;
+        for (int i = 0; i < satisfaction.length && satisfaction[i] > 0; i++) {
+            if (sum + satisfaction[i] > 0)
+                sum += satisfaction[i];
+            else
+                break;
+        }
+        return (int) (sum - Arrays.stream(satisfaction).sum());
+    }
+}

@@ -1,0 +1,67 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExample {
+
+    @Test
+    public void testValidBinaryStrings_n3() {
+        int n = 3;
+        String[] result = validBinaryStrings(n);
+        assertEquals(5, result.length);
+        assertTrue(result.contains("010"));
+        assertTrue(result.contains("011"));
+        assertTrue(result.contains("101"));
+        assertTrue(result.contains("110"));
+        assertTrue(result.contains("111"));
+    }
+
+    @Test
+    public void testValidBinaryStrings_n1() {
+        int n = 1;
+        String[] result = validBinaryStrings(n);
+        assertEquals(2, result.length);
+        assertTrue(result.contains("0"));
+        assertTrue(result.contains("1"));
+    }
+
+    @Test
+    public void testValidBinaryStrings_n4() {
+        int n = 4;
+        String[] result = validBinaryStrings(n);
+        assertEquals(7, result.length);
+        // Add assertions for all possible combinations of substrings of length 2
+    }
+
+    @Test
+    public void testValidBinaryStrings_emptyString() {
+        int n = 0;
+        String[] result = validBinaryStrings(n);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testValidBinaryStrings_negativeInput() {
+        int n = -1;
+        try {
+            validBinaryStrings(n);
+            fail("Expected IndexOutOfBoundsException");
+        } catch (Exception e) {
+            // Expected exception
+        }
+    }
+}
+
+public class Solution {
+
+    public String[] validBinaryStrings(int n) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            sb.append('0' + '1');
+        }
+        return sb.toString().split("");
+    }
+}
+```

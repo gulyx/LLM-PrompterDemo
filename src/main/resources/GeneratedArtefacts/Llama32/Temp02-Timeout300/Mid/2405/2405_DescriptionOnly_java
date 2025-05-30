@@ -1,0 +1,17 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2405;
+
+public class Solution {
+    public int minPartition(String s) {
+        boolean[] unique = new boolean[26];
+        for (char c : s.toCharArray()) {
+            if (unique[c - 'a']) return Integer.MAX_VALUE;
+            unique[c - 'a'] = true;
+        }
+        int sum = 0;
+        for (boolean b : unique) {
+            sum += b ? 1 : 0;
+        }
+        return sum;
+    }
+
+}

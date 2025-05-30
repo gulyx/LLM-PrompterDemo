@@ -1,0 +1,51 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnly {
+
+    @Test
+    public void testValidBinaryString() {
+        String x = "11";
+        assertTrue(isValid(x));
+    }
+
+    @Test
+    public void testValidBinaryString_2() {
+        String x = "101";
+        assertTrue(isValid(x));
+    }
+
+    @Test
+    public void testNotValidBinaryString() {
+        String x = "00";
+        assertFalse(isValid(x));
+    }
+
+    @Test
+    public void testEmptyString() {
+        String x = "";
+        assertTrue(isValid(x));
+    }
+
+    @Test
+    public void testLongestValidBinaryString() {
+        String x = "1111";
+        assertTrue(isValid(x));
+    }
+}
+
+public class Main {
+
+    public static boolean isValid(String s) {
+        for (int i = 0; i < s.length() - 1; i++) {
+            if (s.charAt(i) == '0' && s.charAt(i + 1) == '0') {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```

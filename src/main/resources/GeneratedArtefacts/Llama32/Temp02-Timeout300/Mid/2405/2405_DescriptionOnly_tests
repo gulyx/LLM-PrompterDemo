@@ -1,0 +1,49 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2405;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2405.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class 2405_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        String s = "abcabc";
+        int expected = 3;
+        assertEquals(expected, solution.partition(s));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        String s = "aabbbcc";
+        int expected = 3;
+        assertEquals(expected, solution.partition(s));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        String s = "abcde";
+        int expected = 1;
+        assertEquals(expected, solution.partition(s));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        String s = "";
+        int expected = 0;
+        assertEquals(expected, solution.partition(s));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        String s = "aaaaaa";
+        int expected = 1;
+        assertEquals(expected, solution.partition(s));
+    }
+}

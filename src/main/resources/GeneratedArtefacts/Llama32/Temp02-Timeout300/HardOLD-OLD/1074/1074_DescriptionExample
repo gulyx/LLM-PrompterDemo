@@ -1,0 +1,72 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExample {
+
+    @Test
+    public void test1() {
+        int[][] matrix = {{0,1,0},{1,1,1},{0,1,0}};
+        long target = 0;
+        assertEquals(4, numUniqueElements(matrix, target));
+    }
+
+    @Test
+    public void test2() {
+        int[][] matrix = {{1,-1},{-1,1}};
+        long target = 0;
+        assertEquals(5, numUniqueElements(matrix, target));
+    }
+
+    @Test
+    public void test3() {
+        int[][] matrix = {{904}};
+        long target = 0;
+        assertEquals(0, numUniqueElements(matrix, target));
+    }
+
+    @Test
+    public void test4() {
+        int[][] matrix = {{1,2},{3,4}};
+        long target = 5;
+        assertEquals(9, numUniqueElements(matrix, target));
+    }
+
+    @Test
+    public void test5() {
+        int[][] matrix = {{0,0},{0,0}};
+        long target = 0;
+        assertEquals(1, numUniqueElements(matrix, target));
+    }
+}
+
+public class Solution {
+
+    public int numUniqueElements(int[][] matrix, long target) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int count = 0;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                int sum = 0;
+                for (int k = i; k <= i + 1; k++) {
+                    for (int l = j; l <= j + 1; l++) {
+                        if (k >= 0 && k < rows && l >= 0 && l < cols) {
+                            sum += matrix[k][l];
+                        }
+                    }
+                }
+
+                if (sum == target) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+}
+```

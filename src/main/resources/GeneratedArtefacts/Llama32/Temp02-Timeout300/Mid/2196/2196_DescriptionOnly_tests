@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2196;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2196.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class 2196_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[][] descriptions = {{0,1,1},{0,2,0}};
+        TreeNode root = solution.buildTree(descriptions);
+        assertNotNull(root);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[][] descriptions = {{0,1,1},{1,2,0}};
+        TreeNode root = solution.buildTree(descriptions);
+        assertNotNull(root);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[][] descriptions = {{0,1,1},{0,2,0},{1,3,1}};
+        TreeNode root = solution.buildTree(descriptions);
+        assertNotNull(root);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[][] descriptions = {{0,1,1},{0,2,0},{1,3,1},{2,4,0}};
+        TreeNode root = solution.buildTree(descriptions);
+        assertNotNull(root);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[][] descriptions = {{0,1,1},{0,2,0},{1,3,1},{2,4,0},{3,5,1}};
+        TreeNode root = solution.buildTree(descriptions);
+        assertNotNull(root);
+    }
+}

@@ -1,0 +1,29 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1038;
+
+public class Solution {
+    public TreeNode convertBST(TreeNode root) {
+        if (root == null) return null;
+        convertBST(root.right);
+        root.val += sumInRightSubtree(root.right);
+        root.right = reverseAndSum(root.right);
+        return root;
+    }
+
+    private TreeNode reverseAndSum(TreeNode node) {
+        if (node == null) return null;
+        TreeNode left = reverseAndSum(node.left);
+        TreeNode right = reverseAndSum(node.right);
+        node.left = node.right;
+        node.right = left;
+        return node;
+    }
+
+    private int sumInRightSubtree(TreeNode node) {
+        int sum = 0;
+        while (node != null && node.val <= sum) {
+            sum += node.val;
+            node = node.right;
+        }
+        return sum;
+    }
+}

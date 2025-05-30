@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2391;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2391.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 2391_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        String[] garbage = {"MPG", "GG"};
+        int[] travel = {2, 3};
+        assertEquals(10, solution.minCost(garbage, travel));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        String[] garbage = {"MPPGP", "GGG"};
+        int[] travel = {1, 2, 4};
+        assertEquals(17, solution.minCost(garbage, travel));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        String[] garbage = {"MPG", "GG"};
+        int[] travel = {2, 3, 1};
+        assertEquals(10, solution.minCost(garbage, travel));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        String[] garbage = {"MPPGP", "GGG"};
+        int[] travel = {1, 2, 4, 3};
+        assertEquals(17, solution.minCost(garbage, travel));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        String[] garbage = {"MPG", "GG"};
+        int[] travel = {2, 3, 1, 4};
+        assertEquals(10, solution.minCost(garbage, travel));
+    }
+}

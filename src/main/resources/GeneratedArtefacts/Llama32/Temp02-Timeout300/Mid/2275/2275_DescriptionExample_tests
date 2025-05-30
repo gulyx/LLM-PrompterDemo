@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2275;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2275.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] candidates = {16,17,71,62,12,24,14};
+        assertEquals(4, solution.maxBitwiseAnd(candidates));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] candidates = {8,8};
+        assertEquals(2, solution.maxBitwiseAnd(candidates));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] candidates = {1, 5, 3};
+        assertEquals(1, solution.maxBitwiseAnd(candidates));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] candidates = {7};
+        assertEquals(1, solution.maxBitwiseAnd(candidates));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] candidates = {0, 1, 2, 3};
+        assertEquals(0, solution.maxBitwiseAnd(candidates));
+    }
+}
+```

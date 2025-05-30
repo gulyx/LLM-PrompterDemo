@@ -1,0 +1,55 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1347;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1347.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+
+public class 1347_DescriptionOnly_testsTest {
+
+    @Test
+    public void testMinStepsToAnagram() {
+        Solution solution = new Solution();
+        String s = "leetcode";
+        String t = "practice";
+        int result = solution.minSteps(s, t);
+        assertEquals(5, result);
+    }
+
+    @Test
+    public void testMinStepsToAnagram_2() {
+        Solution solution = new Solution();
+        String s = "leetcode";
+        String t = "acttcc";
+        int result = solution.minSteps(s, t);
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void testMinStepsToAnagram_3() {
+        Solution solution = new Solution();
+        String s = "leetcode";
+        String t = "aabb";
+        int result = solution.minSteps(s, t);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testMinStepsToAnagram_4() {
+        Solution solution = new Solution();
+        String s = "leetcode";
+        String t = "aaabbb";
+        int result = solution.minSteps(s, t);
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void testMinStepsToAnagram_5() {
+        Solution solution = new Solution();
+        String s = "leetcode";
+        String t = "aaaaaa";
+        int result = solution.minSteps(s, t);
+        assertEquals(6, result);
+    }
+}

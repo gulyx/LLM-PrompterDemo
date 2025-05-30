@@ -1,0 +1,62 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExample {
+
+    @Test
+    public void testBuildTree() {
+        int[][] descriptions = {{20,15,1},{20,17,0},{50,20,1},{50,80,0},{80,19,1}};
+        TreeNode root = Solution.buildTree(descriptions);
+        assertEquals(50, root.val);
+        assertEquals(20, root.left.val);
+        assertEquals(80, root.right.val);
+    }
+
+    @Test
+    public void testBuildTree2() {
+        int[][] descriptions = {{1,2,1},{2,3,0},{3,4,1}};
+        TreeNode root = Solution.buildTree(descriptions);
+        assertEquals(1, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(4, root.right.val);
+    }
+
+    @Test
+    public void testBuildTree3() {
+        int[][] descriptions = {{20,15,1},{20,17,0},{50,20,1},{50,80,0}};
+        TreeNode root = Solution.buildTree(descriptions);
+        assertEquals(50, root.val);
+        assertEquals(20, root.left.val);
+        assertEquals(80, root.right.val);
+    }
+
+    @Test
+    public void testBuildTree4() {
+        int[][] descriptions = {{1,2,1},{2,3,0}};
+        TreeNode root = Solution.buildTree(descriptions);
+        assertEquals(1, root.val);
+        assertEquals(2, root.left.val);
+        assertNull(root.right);
+    }
+
+    @Test
+    public void testBuildTree5() {
+        int[][] descriptions = {{20,15,1},{50,80,0}};
+        TreeNode root = Solution.buildTree(descriptions);
+        assertEquals(50, root.val);
+        assertNull(root.left);
+        assertEquals(80, root.right.val);
+    }
+}
+
+class Solution {
+
+    public TreeNode buildTree(int[][] descriptions) {
+        // implementation of the buildTree method
+    }
+
+}
+```

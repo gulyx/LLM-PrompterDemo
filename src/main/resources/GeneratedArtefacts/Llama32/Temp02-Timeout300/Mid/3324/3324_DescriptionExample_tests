@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SolutionTests {
+
+    @Test
+    public void testExample1() {
+        Solution solution = new Solution();
+        String[] result = solution.findAndReplacePattern("abc");
+        assertEquals(new String[]{"a","aa","ab","aba","abb","abc"}, result);
+    }
+
+    @Test
+    public void testExample2() {
+        Solution solution = new Solution();
+        String[] result = solution.findAndReplacePattern("he");
+        assertEquals(new String[]{"a","b","c","d","e","f","g","h","ha","hb","hc","hd","he"}, result);
+    }
+
+    @Test
+    public void testExample3() {
+        Solution solution = new Solution();
+        String[] result = solution.findAndReplacePattern("a");
+        assertEquals(new String[]{"a"}, result);
+    }
+
+    @Test
+    public void testExample4() {
+        Solution solution = new Solution();
+        String[] result = solution.findAndReplacePattern("");
+        assertEquals(new String[]{""}, result);
+    }
+
+    @Test
+    public void testExample5() {
+        Solution solution = new Solution();
+        String[] result = solution.findAndReplacePattern("aabb");
+        assertEquals(new String[]{"aa","aab","aba","abb","baa","bab"}, result);
+    }
+}
+```

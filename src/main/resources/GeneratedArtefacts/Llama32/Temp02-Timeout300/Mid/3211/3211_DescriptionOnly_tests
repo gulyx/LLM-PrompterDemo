@@ -1,0 +1,49 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void testValidStrings() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryString(2);
+        assertEquals(4, result.length);
+        assertTrue(result[0].contains("1"));
+        assertTrue(result[1].contains("1"));
+        assertTrue(result[2].contains("1"));
+        assertTrue(result[3].contains("1"));
+    }
+
+    @Test
+    public void testValidStrings_WithOne() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryString(1);
+        assertEquals(2, result.length);
+        assertTrue(result[0].contains("1"));
+        assertTrue(result[1].contains("1"));
+    }
+
+    @Test
+    public void testValidStrings_Empty() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryString(0);
+        assertArrayEquals(new String[]{}, result);
+    }
+
+    @Test
+    public void testValidStrings_LessThanTwo() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryString(-1);
+        assertArrayEquals(new String[]{}, result);
+    }
+
+    @Test
+    public void testValidStrings_Negative() {
+        Solution solution = new Solution();
+        String[] result = solution.validBinaryString(-2);
+        assertArrayEquals(new String[]{}, result);
+    }
+}

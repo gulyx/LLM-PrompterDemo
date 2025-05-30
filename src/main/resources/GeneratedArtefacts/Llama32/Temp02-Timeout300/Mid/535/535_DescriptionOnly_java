@@ -1,0 +1,20 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.535;
+
+public class Solution {
+    private Map<String, String> map = new HashMap<>();
+    private int counter = 0;
+    
+    public Solution() {
+        // Initialize the object
+    }
+    
+    public String encode(String longUrl) {
+        String shortUrl = (counter == 0 ? "http://tinyurl.com/" : "http://tinyurl.com/") + counter;
+        map.put(shortUrl, longUrl);
+        return shortUrl;
+    }
+    
+    public String decode(String shortUrl) {
+        return map.get(shortUrl);
+    }
+}

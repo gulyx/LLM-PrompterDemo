@@ -1,0 +1,98 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1630_DescriptionExampleTest {
+
+    @Test
+    public void testArithmeticSequence() {
+        int[] nums = {4,6,5,9,3,7};
+        int[][] l = {{0},{0},{2}};
+        int[][] r = {{2},{3},{5}};
+
+        boolean[] answer = canMakePairs(nums, l, r);
+        for (boolean b : answer) {
+            assertTrue(b);
+        }
+    }
+
+    @Test
+    public void testArithmeticSequenceFalse() {
+        int[] nums = {-12,-9,-3,-12,-6,15,20,-25,-20,-15,-10};
+        int[][] l = {{0},{1},{6},{4},{8},{7}};
+
+        boolean[] answer = canMakePairs(nums, l, new int[0][]);
+        for (boolean b : answer) {
+            assertFalse(b);
+        }
+    }
+
+    @Test
+    public void testArithmeticSequenceSingleElement() {
+        int[] nums = {1};
+        int[][] l = {{0}};
+        int[][] r = {{0}};
+
+        boolean[] answer = canMakePairs(nums, l, r);
+        for (boolean b : answer) {
+            assertTrue(b);
+        }
+    }
+
+    @Test
+    public void testArithmeticSequenceEmptyRange() {
+        int[] nums = {1,2,3};
+        int[][] l = {{0},{1}};
+
+        boolean[] answer = canMakePairs(nums, l, new int[0][]);
+        for (boolean b : answer) {
+            assertTrue(b);
+        }
+    }
+
+    @Test
+    public void testArithmeticSequenceEmptyArray() {
+        int[] nums = {};
+        int[][] l = {{}};
+        int[][] r = {{}};
+
+        boolean[] answer = canMakePairs(nums, l, new int[0][]);
+        for (boolean b : answer) {
+            assertTrue(b);
+        }
+    }
+
+    private boolean[] canMakePairs(int[] nums, int[][] l, int[][] r) {
+        boolean[] answer = new boolean[l.length];
+        for (int i = 0; i < l.length; i++) {
+            int left = l[i][0];
+            int right = r[i][1];
+
+            if (left > right) {
+                int temp = left;
+                left = right;
+                right = temp;
+            }
+
+            boolean canMakeArithmeticSequence = true;
+
+            for (int j = left; j <= right; j++) {
+                for (int k = j + 1; k <= right; k++) {
+                    if ((nums[k] - nums[j]) != (r[i][1] - nums[j])) {
+                        canMakeArithmeticSequence = false;
+                        break;
+                    }
+                }
+
+                if (!canMakeArithmeticSequence) {
+                    break;
+                }
+            }
+
+            answer[i] = canMakeArithmeticSequence;
+        }
+
+        return answer;
+    }
+}

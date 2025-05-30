@@ -1,0 +1,58 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1315;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1315.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void testEvenGrandParentSum() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        int expected = 0;
+        assertEquals(expected, solution.sumEvenGrandparent(root));
+    }
+
+    @Test
+    public void testNoNodesWithEvenGrandParent() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        int expected = 0;
+        assertEquals(expected, solution.sumEvenGrandparent(root));
+    }
+
+    @Test
+    public void testOneNodeWithEvenGrandParent() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = null;
+        int expected = 0;
+        assertEquals(expected, solution.sumEvenGrandparent(root));
+    }
+
+    @Test
+    public void testMultipleNodesWithEvenGrandParent() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        int expected = 0;
+        assertEquals(expected, solution.sumEvenGrandparent(root));
+    }
+
+    @Test
+    public void testEmptyTree() {
+        Solution solution = new Solution();
+        TreeNode root = null;
+        int expected = 0;
+        assertEquals(expected, solution.sumEvenGrandparent(root));
+    }
+}

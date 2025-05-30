@@ -1,0 +1,67 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1123;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1123.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class Solution_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(5);
+        root.right = new TreeNode(1);
+        root.left.left = new TreeNode(6);
+        root.left.right = new TreeNode(2);
+        root.left.right.left = new TreeNode(0);
+        root.left.right.right = new TreeNode(8);
+        root.right.left = new TreeNode(7);
+        root.right.right = new TreeNode(4);
+
+        int[] result = solution.lowestCommonAncestor(root, new int[]{6, 7, 4});
+        assertArrayEquals(new int[]{2}, result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+
+        int[] result = solution.lowestCommonAncestor(root, new int[]{1});
+        assertArrayEquals(new int[]{1}, result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(3);
+
+        int[] result = solution.lowestCommonAncestor(root, new int[]{2});
+        assertArrayEquals(new int[]{2}, result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(0);
+
+        int[] result = solution.lowestCommonAncestor(root, new int[]{1});
+        assertArrayEquals(new int[]{1}, result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(2);
+
+        int[] result = solution.lowestCommonAncestor(root, new int[]{2});
+        assertArrayEquals(new int[]{2}, result);
+    }
+}
+```

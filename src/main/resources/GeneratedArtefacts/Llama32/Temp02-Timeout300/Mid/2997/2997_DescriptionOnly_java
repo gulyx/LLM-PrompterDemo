@@ -1,0 +1,19 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2997;
+
+public class Solution {
+    public int minOperations(int[] nums, int k) {
+        int xor = 0;
+        for (int num : nums) {
+            xor ^= num;
+        }
+        int target = xor ^ k;
+        int count = 0;
+        while (target > 0) {
+            if ((target & 1) == 1) {
+                count++;
+            }
+            target >>= 1;
+        }
+        return count;
+    }
+}

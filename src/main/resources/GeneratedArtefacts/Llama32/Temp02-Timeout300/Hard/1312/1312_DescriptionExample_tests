@@ -1,0 +1,55 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1312;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1312.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        String s = "zzazz";
+        int expectedOutput = 0;
+        int actualOutput = solution.minSteps(s);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        String s = "mbadm";
+        int expectedOutput = 2;
+        int actualOutput = solution.minSteps(s);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        String s = "leetcode";
+        int expectedOutput = 5;
+        int actualOutput = solution.minSteps(s);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        String s = "aabb";
+        int expectedOutput = 0;
+        int actualOutput = solution.minSteps(s);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        String s = "abba";
+        int expectedOutput = 0;
+        int actualOutput = solution.minSteps(s);
+        assertEquals(expectedOutput, actualOutput);
+    }
+}
+```

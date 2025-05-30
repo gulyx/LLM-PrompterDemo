@@ -1,0 +1,105 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1829_DescriptionOnly {
+
+    @Test
+    public void test1() {
+        int[] nums = {0, 1};
+        int maximumBit = 1;
+        int[][] answer = new int[2][];
+        answer[0] = getAnswer(nums, maximumBit);
+        assertArrayEquals(new int[]{0}, answer[0]);
+        assertArrayEquals(new int[]{1}, answer[1]);
+    }
+
+    @Test
+    public void test2() {
+        int[] nums = {0, 1};
+        int maximumBit = 2;
+        int[][] answer = new int[4][];
+        for (int i = 0; i < 4; i++) {
+            answer[i] = getAnswer(nums, maximumBit);
+        }
+        assertArrayEquals(new int[]{0}, answer[0]);
+        assertArrayEquals(new int[]{1}, answer[1]);
+        assertArrayEquals(new int[]{3}, answer[2]);
+        assertArrayEquals(new int[]{4}, answer[3]);
+    }
+
+    @Test
+    public void test3() {
+        int[] nums = {0, 1, 2};
+        int maximumBit = 2;
+        int[][] answer = new int[8][];
+        for (int i = 0; i < 8; i++) {
+            answer[i] = getAnswer(nums, maximumBit);
+        }
+    }
+
+    @Test
+    public void test4() {
+        int[] nums = {1, 2};
+        int maximumBit = 3;
+        int[][] answer = new int[16][];
+        for (int i = 0; i < 16; i++) {
+            answer[i] = getAnswer(nums, maximumBit);
+        }
+    }
+
+    @Test
+    public void test5() {
+        int[] nums = {1, 2, 3};
+        int maximumBit = 4;
+        int[][] answer = new int[32][];
+        for (int i = 0; i < 32; i++) {
+            answer[i] = getAnswer(nums, maximumBit);
+        }
+    }
+
+    private int[] getAnswer(int[] nums, int maximumBit) {
+        int n = nums.length;
+        int maxK = (1 << maximumBit) - 1;
+        int[][] dp = new int[n][maxK + 1];
+        for (int i = 0; i < n; i++) {
+            for (int k = 0; k <= maxK; k++) {
+                if (i == 0) {
+                    dp[i][k] = k;
+                } else {
+                    int xor = nums[i - 1];
+                    for (int j = 0; j < maxK; j++) {
+                        dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j ^ xor]);
+                    }
+                    dp[i][xor]++;
+                }
+            }
+        }
+
+        int[] answer = new int[n];
+        for (int i = n - 1; i >= 0; i--) {
+            for (int k = 0; k <= maxK; k++) {
+                if (i == n - 1) {
+                    answer[i] = Math.max(0, k);
+                } else {
+                    int xor = nums[i];
+                    for (int j = 0; j < maxK; j++) {
+                        if (dp[i][j] > dp[i + 1][j]) {
+                            answer[i] = j;
+                            break;
+                        }
+                    }
+                    for (int j = 0; j < maxK; j++) {
+                        if (dp[i][j ^ xor] > dp[i + 1][j]) {
+                            answer[i] = j ^ xor;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        return answer;
+    }
+}

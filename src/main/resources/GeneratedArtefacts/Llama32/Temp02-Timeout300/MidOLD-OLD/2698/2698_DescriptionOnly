@@ -1,0 +1,52 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnly {
+
+    @Test
+    public void testPunishmentNumber_1() {
+        int n = 1;
+        int expected = 0;
+        assertEquals(expected, punishmentNumber(n));
+    }
+
+    @Test
+    public void testPunishmentNumber_1000() {
+        int n = 1000;
+        int expected = 25000000;
+        assertEquals(expected, punishmentNumber(n));
+    }
+
+    @Test
+    public void testPunishmentNumber_10() {
+        int n = 10;
+        int expected = 55;
+        assertEquals(expected, punishmentNumber(n));
+    }
+
+    @Test
+    public void testPunishmentNumber_25() {
+        int n = 25;
+        int expected = 3000;
+        assertEquals(expected, punishmentNumber(n));
+    }
+
+    @Test
+    public void testPunishmentNumber_50() {
+        int n = 50;
+        int expected = 15577500;
+        assertEquals(expected, punishmentNumber(n));
+    }
+}
+
+public class Main {
+
+    public static int punishmentNumber(int n) {
+        // implement your logic here
+        return 0;
+    }
+}
+```

@@ -1,0 +1,46 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1551;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1551.Solution;
+
+public class 1551_DescriptionExample_testsTest {
+
+    public void testExample1() {
+        Solution solution = new Solution();
+        int n = 3;
+        int expectedOutput = 2;
+        int actualOutput = solution.makeArrayEqual(n);
+        assert actualOutput == expectedOutput : "Expected " + expectedOutput + ", but got " + actualOutput;
+    }
+
+    public void testExample2() {
+        Solution solution = new Solution();
+        int n = 6;
+        int expectedOutput = 9;
+        int actualOutput = solution.makeArrayEqual(n);
+        assert actualOutput == expectedOutput : "Expected " + expectedOutput + ", but got " + actualOutput;
+    }
+
+    public void testExample3() {
+        Solution solution = new Solution();
+        int n = 1;
+        int expectedOutput = 0;
+        int actualOutput = solution.makeArrayEqual(n);
+        assert actualOutput == expectedOutput : "Expected " + expectedOutput + ", but got " + actualOutput;
+    }
+
+    public void testExample4() {
+        Solution solution = new Solution();
+        int n = 2;
+        int expectedOutput = 1;
+        int actualOutput = solution.makeArrayEqual(n);
+        assert actualOutput == expectedOutput : "Expected " + expectedOutput + ", but got " + actualOutput;
+    }
+
+    public void testExample5() {
+        Solution solution = new Solution();
+        int n = 7;
+        int expectedOutput = 12;
+        int actualOutput = solution.makeArrayEqual(n);
+        assert actualOutput == expectedOutput : "Expected " + expectedOutput + ", but got " + actualOutput;
+    }
+}

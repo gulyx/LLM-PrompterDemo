@@ -1,0 +1,6 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '1310_DescriptionOnly_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1310;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1310.Solution;'). The class-under-test implements the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description for the class-under-test: 
+You are given an array "arr" of positive integers. You are also given the array "queries" where "queries[i] = [lefti, righti]".
+
+For each query "i" compute the XOR of elements from "lefti" to "righti" (that is, arr[lefti] XOR arr[lefti + 1] XOR ... XOR arr[righti]" ).
+
+Return an array "answer" where "answer[i]" is the answer to the "ith" query.

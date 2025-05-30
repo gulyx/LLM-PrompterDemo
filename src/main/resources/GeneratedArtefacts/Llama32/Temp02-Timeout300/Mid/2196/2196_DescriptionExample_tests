@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2196;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2196.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2196_DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[][] descriptions = {{20,15,1},{20,17,0},{50,20,1},{50,80,0},{80,19,1}};
+        TreeNode root = solution.buildTree(descriptions);
+        assertSame(root.val, 50);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[][] descriptions = {{1,2,1},{2,3,0},{3,4,1}};
+        TreeNode root = solution.buildTree(descriptions);
+        assertSame(root.val, 1);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[][] descriptions = {{20,15,1},{20,17,0},{50,20,1},{50,80,0}};
+        TreeNode root = solution.buildTree(descriptions);
+        assertSame(root.val, 50);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[][] descriptions = {{1,2,1},{2,3,0}};
+        TreeNode root = solution.buildTree(descriptions);
+        assertSame(root.val, 1);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[][] descriptions = {{20,15,1},{20,17,0},{50,80,0}};
+        TreeNode root = solution.buildTree(descriptions);
+        assertNull(root.left);
+    }
+}
+```

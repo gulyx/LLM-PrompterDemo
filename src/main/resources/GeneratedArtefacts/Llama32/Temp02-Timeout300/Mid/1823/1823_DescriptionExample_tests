@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1823;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1823.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class SolutionTests {
+
+    @Test
+    public void testExample1() {
+        Solution solution = new Solution();
+        int n = 5, k = 2;
+        int expectedOutput = 3;
+        assertEquals(expectedOutput, solution.findWinner(n, k));
+    }
+
+    @Test
+    public void testExample2() {
+        Solution solution = new Solution();
+        int n = 6, k = 5;
+        int expectedOutput = 1;
+        assertEquals(expectedOutput, solution.findWinner(n, k));
+    }
+
+    @Test
+    public void testExample3() {
+        Solution solution = new Solution();
+        int n = 7, k = 2;
+        int expectedOutput = 4;
+        assertEquals(expectedOutput, solution.findWinner(n, k));
+    }
+
+    @Test
+    public void testExample4() {
+        Solution solution = new Solution();
+        int n = 8, k = 3;
+        int expectedOutput = 5;
+        assertEquals(expectedOutput, solution.findWinner(n, k));
+    }
+
+    @Test
+    public void testExample5() {
+        Solution solution = new Solution();
+        int n = 9, k = 1;
+        int expectedOutput = 1;
+        assertEquals(expectedOutput, solution.findWinner(n, k));
+    }
+}
+```

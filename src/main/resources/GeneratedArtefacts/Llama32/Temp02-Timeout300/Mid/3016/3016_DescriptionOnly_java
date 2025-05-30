@@ -1,0 +1,22 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3016;
+
+public class Solution {
+    public int minPushButtons(String word) {
+        char[] letters = new char[10];
+        for (int i = 0; i < 3; i++) {
+            letters[i] = 'a' + i;
+        }
+        for (int i = 3; i <= 9; i++) {
+            int count = 1;
+            while ((i / count) * (count - 1) / 2 == i / count) {
+                count++;
+            }
+            letters[i] = letters[i - count];
+        }
+        int res = 0;
+        for (char c : word.toCharArray()) {
+            res += letters[c - 'a'] + 1;
+        }
+        return res;
+    }
+}

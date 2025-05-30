@@ -1,0 +1,22 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2433;
+
+public class Solution {
+    public int[] findArray(int[] pref) {
+        int n = pref.length;
+        int[] arr = new int[n];
+        arr[0] = pref[0];
+        for (int i = 1; i < n; i++) {
+            arr[i] = pref[i] ^ arr[i - 1];
+        }
+        return arr;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] result1 = solution.findArray(new int[]{5,2,0,3,1});
+        assert java.util.Arrays.equals(result1, new int[]{5,7,2,3,2});
+
+        int[] result2 = solution.findArray(new int[]{13});
+        assert java.util.Arrays.equals(result2, new int[]{13});
+    }
+}

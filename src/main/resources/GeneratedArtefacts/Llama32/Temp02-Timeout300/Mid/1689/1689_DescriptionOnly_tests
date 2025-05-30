@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1689;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1689.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 1689_DescriptionOnly_testsTest {
+
+    @Test
+    public void testExample1() {
+        Solution solution = new Solution();
+        int result = solution_minNumberOfOperations(5);
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void testExample2() {
+        Solution solution = new Solution();
+        int result = solution_minNumberOfOperations(14);
+        assertEquals(6, result);
+    }
+
+    @Test
+    public void testExample3() {
+        Solution solution = new Solution();
+        int result = solution_minNumberOfOperations(1);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void testExample4() {
+        Solution solution = new Solution();
+        int result = solution_minNumberOfOperations(2);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void testExample5() {
+        Solution solution = new Solution();
+        int result = solution_minNumberOfOperations(8);
+        assertEquals(3, result);
+    }
+}

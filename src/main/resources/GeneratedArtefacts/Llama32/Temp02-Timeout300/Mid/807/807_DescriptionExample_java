@@ -1,0 +1,63 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.807;
+
+public class Solution {
+    public int maxIncreaseKeepingSkyline(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int[][] left = new int[m][n];
+        int[][] right = new int[m][n];
+        int[][] up = new int[m][n];
+        int[][] down = new int[m][n];
+
+        for (int i = 0; i < m; i++) {
+            int maxLeft = 0;
+            int maxRight = 0;
+            for (int j = 0; j < n; j++) {
+                left[i][j] = Math.max(maxLeft, grid[i][j]);
+                maxLeft = Math.max(maxLeft, grid[i][j]);
+            }
+        }
+
+        for (int i = m - 1; i >= 0; i--) {
+            int maxRight = 0;
+            int maxDown = 0;
+            for (int j = n - 1; j >= 0; j--) {
+                right[i][j] = Math.max(maxRight, grid[i][j]);
+                maxRight = Math.max(maxRight, grid[i][j]);
+            }
+        }
+
+        for (int i = 0; i < m; i++) {
+            int maxUp = 0;
+            int maxDown = 0;
+            for (int j = n - 1; j >= 0; j--) {
+                up[i][j] = Math.max(maxUp, grid[i][j]);
+                maxUp = Math.max(maxUp, grid[i][j]);
+            }
+        }
+
+        for (int i = m - 1; i >= 0; i--) {
+            int maxDown = 0;
+            int maxRight = 0;
+            for (int j = 0; j < n; j++) {
+                down[i][j] = Math.max(maxDown, grid[i][j]);
+                maxDown = Math.max(maxDown, grid[i][j]);
+            }
+        }
+
+        int ans = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int minLeft = left[i][j];
+                int minRight = right[i][j];
+                int minUp = up[i][j];
+                int minDown = down[i][j];
+
+                if (minLeft == minRight && minLeft == minUp && minLeft == minDown) continue;
+                ans += Math.min(Math.max(left[i][j], right[i][j]), Math.max(up[i][j], down[i][j])) - grid[i][j];
+            }
+        }
+
+        return ans;
+    }
+}

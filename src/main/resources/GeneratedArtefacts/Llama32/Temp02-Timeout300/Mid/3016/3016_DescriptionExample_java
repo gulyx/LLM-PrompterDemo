@@ -1,0 +1,17 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3016;
+
+public class Solution {
+    public int minimumPushCount(String word) {
+        int[] count = new int[26];
+        for (char c : word.toCharArray()) {
+            count[c - 'a']++;
+        }
+        return Arrays.stream(count).sum();
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.minimumPushCount("abcde"));  // Output: 5
+        System.out.println(solution.minimumPushCount("xyzxyzxyzxyz"));  // Output: 12
+    }
+}

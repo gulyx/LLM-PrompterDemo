@@ -1,0 +1,15 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3016;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3016.Solution;
+
+public class DescriptionOnly_testsTest {
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.minPushCount("a")); // 1
+        System.out.println(solution.minPushCount("aa")); // 2
+        System.out.println(solution.minPushCount("aaa")); // 3
+        System.out.println(solution.minPushCount("abc")); // 4
+        System.out.println(solution.minPushCount("aaabbc")); // 8
+    }
+}

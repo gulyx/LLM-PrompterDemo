@@ -1,0 +1,51 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class 1028_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        TreeNode root = solution.recoverFromBinaryTreeString("3\n2 # 0\n0 # 1");
+        assertEquals(3, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(0, root.right.val);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        TreeNode root = solution.recoverFromBinaryTreeString("1\n1 # 0");
+        assertEquals(1, root.val);
+        assertEquals(1, root.left.val);
+        assertEquals(0, root.right.val);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        TreeNode root = solution.recoverFromBinaryTreeString("2\n1 # 0");
+        assertEquals(2, root.val);
+        assertEquals(1, root.left.val);
+        assertEquals(0, root.right.val);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        TreeNode root = solution.recoverFromBinaryTreeString("3\n2 # 1");
+        assertEquals(3, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(1, root.right.val);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        assertThrows(NullPointerException.class, () -> solution.recoverFromBinaryTreeString(null));
+    }
+}

@@ -1,0 +1,28 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2125;
+
+public class Solution {
+    public int countLaserBeams(String[][] bank) {
+        int rows = bank.length;
+        int cols = bank[0].length;
+        boolean[] rowPresent = new boolean[rows];
+        
+        for (int i = 0; i < rows; i++) {
+            for (char c : bank[i]) {
+                if (c == '1') {
+                    rowPresent[i] = true;
+                }
+            }
+        }
+
+        int count = 0;
+        for (int i = 0; i < rows - 1; i++) {
+            if (!rowPresent[i] && !rowPresent[i + 1]) {
+                count += 1;
+            }
+        }
+        
+        return count * cols;
+    }
+}
+```

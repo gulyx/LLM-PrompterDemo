@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
+
+public class 2405_DescriptionOnly {
+
+    @Test
+    public void test1() {
+        String s = "abc";
+        int expected = 3;
+        int actual = minPartition(s);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test2() {
+        String s = "aabbbcc";
+        int expected = 6;
+        int actual = minPartition(s);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test3() {
+        String s = "abcabcabc";
+        int expected = 1;
+        int actual = minPartition(s);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test4() {
+        String s = "aaaaaa";
+        int expected = 1;
+        int actual = minPartition(s);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test5() {
+        String s = "abcdefghijklmnopqrstuvwxyz";
+        int expected = 26;
+        int actual = minPartition(s);
+        assertEquals(expected, actual);
+    }
+}

@@ -1,0 +1,15 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1551;
+
+public class Solution {
+    public int minOperations(int n) {
+        return (n - 1) * n / 2;
+    }
+}
+
+[--Example 1--]
+Input: n = 3
+Output: 2
+
+[--Example 2--]
+Input: n = 6
+Output: 9

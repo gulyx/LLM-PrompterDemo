@@ -1,0 +1,44 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1877;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1877.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class 1877_DescriptionOnly_testsTest {
+
+    @Test
+    public void testMaxPairSum() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3,4};
+        assertEquals(6, solution.maxPairSum(nums));
+    }
+
+    @Test
+    public void testMaxPairSum_2() {
+        Solution solution = new Solution();
+        int[] nums = {5,7,9};
+        assertEquals(12, solution.maxPairSum(nums));
+    }
+
+    @Test
+    public void testMaxPairSum_3() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3,4,5,6};
+        assertEquals(8, solution.maxPairSum(nums));
+    }
+
+    @Test
+    public void testMaxPairSum_4() {
+        Solution solution = new Solution();
+        int[] nums = {10,20,30,40};
+        assertEquals(60, solution.maxPairSum(nums));
+    }
+
+    @Test
+    public void testMaxPairSum_5() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3,4,5,6,7,8};
+        assertEquals(12, solution.maxPairSum(nums));
+    }
+}

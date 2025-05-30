@@ -1,0 +1,33 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.980;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.980.Solution;
+
+public class DescriptionExampleTests {
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.numUniquePathsIII(new int[][]{{1,0,0,0},{0,0,0,0},{0,0,2,-1}}));
+        System.out.println(solution.numUniquePathsIII(new int[][]{{1,0,0,0},{0,0,0,0},{0,0,0,2}}));
+        System.out.println(solution.numUniquePathsIII(new int[][]{{0,1},{2,0}}));
+    }
+}
+
+class Solution {
+
+    public int numUniquePathsIII(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        boolean[] visited = new boolean[m * n];
+        return dfs(grid, 0, 0, visited);
+    }
+
+    private int dfs(int[][] grid, int i, int j, boolean[] visited) {
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == -1 || visited[j * m + i]) return 0;
+        if (grid[i][j] == 2) return 1;
+        visited[j * m + i] = true;
+        int count = dfs(grid, i + 1, j, visited) + dfs(grid, i - 1, j, visited) + dfs(grid, i, j + 1, visited) + dfs(grid, i, j - 1, visited);
+        return count;
+    }
+}
+```

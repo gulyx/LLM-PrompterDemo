@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1630;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1630.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1630_DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] nums = {4,6,5,9,3,7};
+        int[][] l = {{0},{0},{2}};
+        int[][] r = {{2},{3},{5}};
+        boolean[] answer = solution.checkRangeNumberThree(nums, l, r);
+        assertTrue(answer[0]);
+        assertFalse(answer[1]);
+        assertTrue(answer[2]);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] nums = {-12,-9,-3,-12,-6,15,20,-25,-20,-15,-10};
+        int[][] l = {{0},{1},{6},{4},{8},{7}};
+        int[][] r = {{4},{4},{9},{7},{9},{10}};
+        boolean[] answer = solution.checkRangeNumberThree(nums, l, r);
+        assertFalse(answer[0]);
+        assertTrue(answer[1]);
+        assertFalse(answer[2]);
+        assertFalse(answer[3]);
+        assertTrue(answer[4]);
+        assertTrue(answer[5]);
+    }
+
+}

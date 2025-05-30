@@ -1,0 +1,38 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.885;
+
+import java.util.*;
+
+public class Solution {
+    public int[] spiralMatrixIII(int rows, int cols) {
+        List<int[]> result = new ArrayList<>();
+        int rowStart = 0;
+        int colStart = 0;
+        boolean right = true;
+        int count = 1;
+        while (count <= rows * cols) {
+            for (int i = 0; i < cols && count <= rows * cols; i++) {
+                if (rowStart >= rows || colStart >= cols) break;
+                result.add(new int[]{rowStart, colStart});
+                count++;
+                if (right) {
+                    colStart++;
+                } else {
+                    rowStart++;
+                }
+            }
+            right = !right;
+            for (int i = 0; i < rows && count <= rows * cols; i++) {
+                if (colStart >= cols || rowStart >= rows) break;
+                result.add(new int[]{i, colStart});
+                count++;
+                if (right) {
+                    rowStart++;
+                } else {
+                    colStart--;
+                }
+            }
+        }
+        return result.stream().mapToInt(arr -> arr[0] * cols + arr[1]).toArray();
+    }
+
+}

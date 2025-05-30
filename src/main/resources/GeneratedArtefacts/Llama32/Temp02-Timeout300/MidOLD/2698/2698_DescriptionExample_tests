@@ -1,0 +1,67 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testPunishmentNumber_10() {
+        int n = 10;
+        int expectedOutput = 182;
+        assertEquals(expectedOutput, punishmentNumber(n));
+    }
+
+    @Test
+    public void testPunishmentNumber_37() {
+        int n = 37;
+        int expectedOutput = 1478;
+        assertEquals(expectedOutput, punishmentNumber(n));
+    }
+
+    @Test
+    public void testPunishmentNumber_1000() {
+        int n = 1000;
+        int expectedOutput = 25164150;
+        assertEquals(expectedOutput, punishmentNumber(n));
+    }
+
+    @Test
+    public void testPunishmentNumber_1() {
+        int n = 1;
+        int expectedOutput = 1;
+        assertEquals(expectedOutput, punishmentNumber(n));
+    }
+
+    @Test
+    public void testPunishmentNumber_0() {
+        int n = 0;
+        int expectedOutput = 0;
+        assertEquals(expectedOutput, punishmentNumber(n));
+    }
+}
+
+public class Solution {
+
+    public int punishmentNumber(int n) {
+        int result = 0;
+        for (int i = 1; i <= n; i++) {
+            String strI = Integer.toString(i * i);
+            for (int j = 0; j < strI.length(); j++) {
+                int sum = 0;
+                for (int k = j; k < strI.length(); k++) {
+                    sum += Character.getNumericValue(strI.charAt(k));
+                    if (sum == i) {
+                        result += i * i;
+                        break;
+                    } else if (sum > i) {
+                        break;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+}
+```

@@ -1,0 +1,15 @@
+As a professional Software Tester, generate a complete Junit class test file (name the class as :'1079_DescriptionExample', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description: 
+You have "n" "tiles", where each tile has one letter "tiles[i]" printed on it.
+
+Return the number of possible non-empty sequences of letters you can make using the letters printed on those "tiles".
+[--Example 1--]
+Input: tiles = "AAB"
+Output: 8
+
+[--Example 2--]
+Input: tiles = "AAABBC"
+Output: 188
+
+[--Example 3--]
+Input: tiles = "V"
+Output: 1

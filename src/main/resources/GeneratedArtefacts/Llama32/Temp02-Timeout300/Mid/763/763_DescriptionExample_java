@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.763;
+
+import java.util.*;
+
+public class Solution {
+    public List<Integer> partitionLabels(String s) {
+        Map<Character, Integer> lastOccurrence = new HashMap<>();
+        int[] result = new int[s.length()];
+        int lastIndex = 0;
+        
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (!lastOccurrence.containsKey(c) || lastOccurrence.get(c) == i) {
+                lastOccurrence.put(c, i);
+            }
+            lastIndex = Math.max(lastIndex, lastOccurrence.get(c));
+        }
+        
+        for (int i = 0; i < s.length(); i++) {
+            int rightBoundary = lastIndex;
+            while (i <= rightBoundary && lastOccurrence.containsKey(s.charAt(i))) {
+                rightBoundary = Math.max(rightBoundary, lastOccurrence.get(s.charAt(i)));
+                i++;
+            }
+            result[i] = rightBoundary - i + 1;
+        }
+        
+        return Arrays.asList(result);
+    }
+
+[--Example 1--]
+Input: s = "ababcbacadefegdehijhklij"
+Output: [9,7,8]
+
+[--Example 2--]
+Input: s = "eccbbbbdec"
+Output: [10]

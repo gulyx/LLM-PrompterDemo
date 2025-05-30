@@ -1,0 +1,67 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2149_DescriptionOnlyTest {
+
+    @Test
+    public void testPositiveNegativePair() {
+        int[] nums = {1, -2, 3, -4};
+        int[] expected = {-2, 1, -4, 3};
+        assertArrayEquals(expected, rearrangeArray(nums));
+    }
+
+    @Test
+    public void testOnlyPositive() {
+        int[] nums = {1, 2, 3, 4};
+        int[] expected = {1, 2, 3, 4};
+        assertArrayEquals(expected, rearrangeArray(nums));
+    }
+
+    @Test
+    public void testOnlyNegative() {
+        int[] nums = {-1, -2, -3, -4};
+        int[] expected = {-1, -2, -3, -4};
+        assertArrayEquals(expected, rearrangeArray(nums));
+    }
+
+    @Test
+    public void testNoPositiveNumber() {
+        int[] nums = {-1, -2, -3, -4};
+        int[] expected = {-1, -2, -3, -4};
+        assertArrayEquals(expected, rearrangeArray(nums));
+    }
+
+    @Test
+    public void testEmptyArray() {
+        int[] nums = {};
+        int[] expected = {};
+        assertArrayEquals(expected, rearrangeArray(nums));
+    }
+    
+    private int[] rearrangeArray(int[] nums) {
+        int positiveCount = 0;
+        for (int num : nums) {
+            if (num > 0) {
+                positiveCount++;
+            }
+        }
+
+        int left = 0;
+        int right = positiveCount - 1;
+
+        int[] result = new int[nums.length];
+        boolean isPositive = true;
+        while (left <= right) {
+            if (isPositive) {
+                result[left] = nums[right--];
+            } else {
+                result[right + 1] = nums[left++];
+            }
+            isPositive = !isPositive;
+        }
+
+        return result;
+    }
+}

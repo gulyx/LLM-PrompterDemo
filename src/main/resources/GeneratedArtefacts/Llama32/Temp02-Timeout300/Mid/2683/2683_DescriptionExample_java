@@ -1,0 +1,27 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2683;
+
+public class Solution {
+    public boolean validBinaryArray(int[] derived) {
+        int n = derived.length;
+        for (int i = 0; i < n - 1; i++) {
+            if ((derived[i] & 1) != (derived[i + 1] & 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] derived1 = {1, 1, 0};
+        System.out.println(solution.validBinaryArray(derived1)); // Output: true
+
+        int[] derived2 = {1, 1};
+        System.out.println(solution.validBinaryArray(derived2)); // Output: true
+
+        int[] derived3 = {1, 0};
+        System.out.println(solution.validBinaryArray(derived3)); // Output: false
+    }
+}
+```

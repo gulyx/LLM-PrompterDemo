@@ -1,0 +1,51 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
+
+public class 807_DescriptionOnly {
+
+    @Test
+    public void test1() {
+        int[][] grid = {{1,2,3},{4,5,6},{7,8,9}};
+        assertEquals(42, maxIncreaseHeight(grid));
+    }
+
+    @Test
+    public void test2() {
+        int[][] grid = {{0,0,0},{0,0,0},{0,0,0}};
+        assertEquals(0, maxIncreaseHeight(grid));
+    }
+
+    @Test
+    public void test3() {
+        int[][] grid = {{100,100,100},{100,100,100},{100,100,100}};
+        assertEquals(300, maxIncreaseHeight(grid));
+    }
+
+    @Test
+    public void test4() {
+        int[][] grid = {{1,2,3},{4,5,6},{7,8,9}};
+        int[][] result = new int[3][3];
+        for (int i=0; i<3; i++) {
+            for (int j=0; j<3; j++) {
+                result[i][j] = grid[i][j]+1;
+            }
+        }
+        assertEquals(42, maxIncreaseHeight(result));
+    }
+
+    @Test
+    public void test5() {
+        int[][] grid = {{100,100,100},{100,100,100},{100,100,100}};
+        int[][] result = new int[3][3];
+        for (int i=0; i<3; i++) {
+            for (int j=0; j<3; j++) {
+                result[i][j] = grid[i][j]+1;
+            }
+        }
+        assertEquals(300, maxIncreaseHeight(result));
+    }
+
+}

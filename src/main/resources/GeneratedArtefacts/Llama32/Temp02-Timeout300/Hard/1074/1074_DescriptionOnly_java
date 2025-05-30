@@ -1,0 +1,29 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1074;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Solution {
+    public int numSubmatrixSumTarget(int[][] matrix, int target) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int count = 0;
+        Map<Integer, Integer> sumMap = new HashMap<>();
+        sumMap.put(0, 1);
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                int currSum = matrix[r][c];
+                for (int left = 0; left <= c; left++) {
+                    int leftSum = 0;
+                    for (int down = r + 1; down < rows; down++) {
+                        leftSum += matrix[down - 1][left];
+                        if (!sumMap.containsKey(leftSum - target)) continue;
+                        count += sumMap.get(leftSum - target);
+                    }
+                }
+                sumMap.put(currSum, sumMap.getOrDefault(currSum, 0) + 1);
+            }
+        }
+        return count;
+    }
+}

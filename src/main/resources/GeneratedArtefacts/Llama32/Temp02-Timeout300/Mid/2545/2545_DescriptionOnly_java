@@ -1,0 +1,16 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2545;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class Solution {
+    public int[][] sortStudents(int[][] score, int k) {
+        return Arrays.stream(score)
+                .sorted(Comparator.comparingInt(row -> row[k]))
+                .boxed()
+                .mapToInt(row -> row)
+                .toArray(int[][]::new);
+    }
+}
+```

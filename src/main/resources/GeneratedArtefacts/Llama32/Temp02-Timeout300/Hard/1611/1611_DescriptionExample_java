@@ -1,0 +1,28 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1611;
+
+public class Solution {
+    public int minimumOneBitOperations(int n) {
+        int result = 0;
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                for (int i = 0; i < result; i++) {
+                    result++;
+                }
+            }
+            n >>= 1;
+        }
+        return result;
+    }
+
+    [--Example 1--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.minimumOneBitOperations(3));
+    }
+
+    [--Example 2--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.minimumOneBitOperations(6));
+    }
+}

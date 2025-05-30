@@ -1,0 +1,14 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '46_DescriptionExample_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.46;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.46.Solution;'). The class-under-test implements the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description for the class-under-test: 
+Given an array "nums" of distinct integers, return all the possible permutations. You can return the answer in any order.
+
+
+[--Example 1--]
+Input: nums = [1,2,3]
+Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+
+[--Example 2--]
+Input: nums = [0,1]
+Output: [[0,1],[1,0]]
+[--Example 3--]
+Input: nums = [1]
+Output: [[1]]

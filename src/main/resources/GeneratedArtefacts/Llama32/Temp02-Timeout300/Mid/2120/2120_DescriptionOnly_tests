@@ -1,0 +1,53 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2120;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2120.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SolutionTest {
+
+    @Test
+    public void testValidStartPos() {
+        int n = 5;
+        String s = "DRDL";
+        int[] startPos = {2, 1};
+        int[][] expectedAnswer = {{4},{3},{2},{1},{0}};
+        assertArrayEquals(expectedAnswer, new Solution().numInstructions(n, startPos, s));
+    }
+
+    @Test
+    public void testInvalidStartPos() {
+        int n = 5;
+        String s = "DRDL";
+        int[] startPos = {10, 1};
+        int[][] expectedAnswer = {{0},{3},{2},{1},{0}};
+        assertArrayEquals(expectedAnswer, new Solution().numInstructions(n, startPos, s));
+    }
+
+    @Test
+    public void testNoMoreInstructions() {
+        int n = 5;
+        String s = "DRDL";
+        int[] startPos = {4, 3};
+        int[][] expectedAnswer = {{0},{1},{2},{3},{4}};
+        assertArrayEquals(expectedAnswer, new Solution().numInstructions(n, startPos, s));
+    }
+
+    @Test
+    public void testMoveOffGrid() {
+        int n = 5;
+        String s = "DRDL";
+        int[] startPos = {0, 0};
+        int[][] expectedAnswer = {{1},{2},{3},{4},{5}};
+        assertArrayEquals(expectedAnswer, new Solution().numInstructions(n, startPos, s));
+    }
+
+    @Test
+    public void testEmptyString() {
+        int n = 5;
+        String s = "";
+        int[] startPos = {0, 0};
+        int[][] expectedAnswer = {{0},{0},{0},{0},{0}};
+        assertArrayEquals(expectedAnswer, new Solution().numInstructions(n, startPos, s));
+    }
+}

@@ -1,0 +1,32 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2275;
+
+public class Solution {
+    public int findMaxForm(int[] candidates, int m) {
+        int[][] count = new int[32][candidates.length];
+        for (int i = 0; i < candidates.length; i++) {
+            for (int j = 0; j < 32; j++) {
+                if ((candidates[i] >> j & 1) == 1) {
+                    count[j][i]++;
+                }
+            }
+        }
+
+        int[][] dp = new int[33][m + 1];
+        for (int i = 1; i <= m; i++) {
+            Arrays.fill(dp[0], -1);
+            for (int j = 0; j < 32; j++) {
+                if (count[j][0] > 0) {
+                    dp[j + 1][i] = Math.max(dp[j + 1][i], dp[j][i - count[j][0]]);
+                }
+            }
+        }
+
+        int max = 0;
+        for (int i = 31; i >= 0; i--) {
+            if (dp[i + 1][m] > max) {
+                max = dp[i + 1][m];
+            }
+        }
+        return max;
+    }
+}

@@ -1,0 +1,55 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2120;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2120.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SolutionTest {
+
+    @Test
+    public void testExample1() {
+        int n = 3;
+        int[] startPos = {0, 1};
+        String s = "RRDDLU";
+        int[] answer = new Solution().numInstructions(n, startPos, s);
+        assertEquals(new int[]{1, 5, 4, 3, 1, 0}, answer);
+    }
+
+    @Test
+    public void testExample2() {
+        int n = 2;
+        int[] startPos = {1, 1};
+        String s = "LURD";
+        int[] answer = new Solution().numInstructions(n, startPos, s);
+        assertEquals(new int[]{4, 1, 0, 0}, answer);
+    }
+
+    @Test
+    public void testExample3() {
+        int n = 1;
+        int[] startPos = {0, 0};
+        String s = "LRUD";
+        int[] answer = new Solution().numInstructions(n, startPos, s);
+        assertEquals(new int[]{0, 0, 0, 0}, answer);
+    }
+
+    @Test
+    public void testExample4() {
+        int n = 5;
+        int[] startPos = {2, 2};
+        String s = "DDUUUU";
+        int[] answer = new Solution().numInstructions(n, startPos, s);
+        assertEquals(new int[]{0, 0, 0, 0, 0}, answer);
+    }
+
+    @Test
+    public void testExample5() {
+        int n = 10;
+        int[] startPos = {1, 1};
+        String s = "UUURRR";
+        int[] answer = new Solution().numInstructions(n, startPos, s);
+        assertEquals(new int[]{0, 0, 2, 3, 4, 5, 6, 7, 8, 9}, answer);
+    }
+}
+```

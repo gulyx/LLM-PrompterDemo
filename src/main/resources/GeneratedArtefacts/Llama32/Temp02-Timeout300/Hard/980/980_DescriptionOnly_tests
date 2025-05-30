@@ -1,0 +1,44 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.980;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.980.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class 980_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,2},{3,4}};
+        assertEquals(2, solution.uniquePaths(grid));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,0,0},{0,-1,0},{0,0,1}};
+        assertEquals(6, solution.uniquePaths(grid));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,2,3},{4,5,6},{7,8,9}};
+        assertEquals(0, solution.uniquePaths(grid));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[][] grid = {{-1,-1,-1},{-1,0,-1},{-1,-1,-1}};
+        assertThrows(NullPointerException.class, () -> solution.uniquePaths(grid));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,2},{3,4}};
+        assertEquals(8, solution.uniquePaths(grid));
+    }
+}

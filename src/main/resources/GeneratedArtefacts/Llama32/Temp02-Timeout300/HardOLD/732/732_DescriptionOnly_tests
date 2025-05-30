@@ -1,0 +1,63 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.*;
+
+public class 732_DescriptionOnlyTest {
+
+    @Test
+    public void test1() {
+        MyCalendarThree myCalendarThree = new MyCalendarThree();
+        int book1 = myCalendarThree.book(0, 30);
+        int book2 = myCalendarThree.book(5, 10);
+        int book3 = myCalendarThree.book(15, 20);
+        assertEquals(2, book1);
+        assertEquals(1, book2);
+        assertEquals(1, book3);
+    }
+
+    @Test
+    public void test2() {
+        MyCalendarThree myCalendarThree = new MyCalendarThree();
+        int book1 = myCalendarThree.book(5, 8);
+        int book2 = myCalendarThree.book(4, 7);
+        int book3 = myCalendarThree.book(10, 12);
+        assertEquals(0, book1);
+        assertEquals(0, book2);
+        assertEquals(0, book3);
+    }
+
+    @Test
+    public void test3() {
+        MyCalendarThree myCalendarThree = new MyCalendarThree();
+        int book1 = myCalendarThree.book(5, 8);
+        int book2 = myCalendarThree.book(4, 7);
+        int book3 = myCalendarThree.book(10, 12);
+        assertEquals(0, book1);
+        assertEquals(0, book2);
+        assertEquals(0, book3);
+    }
+
+    @Test
+    public void test4() {
+        MyCalendarThree myCalendarThree = new MyCalendarThree();
+        int book1 = myCalendarThree.book(5, 8);
+        int book2 = myCalendarThree.book(4, 7);
+        int book3 = myCalendarThree.book(10, 12);
+        assertEquals(0, book1);
+        assertEquals(0, book2);
+        assertEquals(0, book3);
+    }
+
+    @Test
+    public void test5() {
+        MyCalendarThree myCalendarThree = new MyCalendarThree();
+        int book1 = myCalendarThree.book(5, 8);
+        int book2 = myCalendarThree.book(4, 7);
+        int book3 = myCalendarThree.book(10, 12);
+        assertEquals(0, book1);
+        assertEquals(0, book2);
+        assertEquals(0, book3);
+    }
+}

@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2130;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2130.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class 2130_DescriptionOnly_testsTest {
+
+    @Test
+    public void test_1() {
+        Solution solution = new Solution();
+        ListNode result = solution.maxTwinSum(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4)))));
+
+        assertEquals(10, result.val);
+    }
+
+    @Test
+    public void test_2() {
+        Solution solution = new Solution();
+        ListNode result = solution.maxTwinSum(new ListNode(5, new ListNode(6, new ListNode(7, new ListNode(8)))));
+
+        assertEquals(20, result.val);
+    }
+
+    @Test
+    public void test_3() {
+        Solution solution = new Solution();
+        ListNode result = solution.maxTwinSum(new ListNode(1, new ListNode(2)));
+
+        assertEquals(3, result.val);
+    }
+
+    @Test
+    public void test_4() {
+        Solution solution = new Solution();
+        ListNode result = solution.maxTwinSum(new ListNode(10, new ListNode(20, new ListNode(30))));
+
+        assertEquals(60, result.val);
+    }
+
+    @Test
+    public void test_5() {
+        Solution solution = new Solution();
+        ListNode result = solution.maxTwinSum(null);
+
+        assert null == result;
+    }
+}

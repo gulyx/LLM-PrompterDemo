@@ -1,0 +1,28 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1829;
+
+public class Solution {
+    public int[] maxXOR(int[] nums, int maximumBit) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        int[] prefixXor = new int[n + 1];
+        for (int i = 0; i < n; i++) {
+            prefixXor[i + 1] = prefixXor[i] ^ nums[i];
+        }
+        int currMax = Integer.MIN_VALUE;
+        for (int i = 0; i <= maximumBit; i++) {
+            int curr = prefixXor[n] ^ (1 << i);
+            if ((curr & (1 << (maximumBit - i))) != 0) {
+                continue;
+            }
+            currMax = Math.max(currMax, curr);
+        }
+        for (int i = n - 1; i >= 0; i--) {
+            int k = prefixXor[i] ^ currMax;
+            ans[n - i - 1] = k;
+            if ((k & (1 << maximumBit)) != 0) {
+                break;
+            }
+        }
+        return ans;
+    }
+}

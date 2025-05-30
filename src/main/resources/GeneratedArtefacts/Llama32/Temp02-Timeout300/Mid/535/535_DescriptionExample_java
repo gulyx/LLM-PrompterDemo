@@ -1,0 +1,56 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.535;
+
+public class Solution {
+    private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz0123456789";
+    private Map<String, String> map = new HashMap<>();
+
+    public Solution() {
+
+    }
+
+    public String encode(String longUrl) {
+        String shortUrl = "";
+        int i = 0;
+        while (i < longUrl.length()) {
+            if (longUrl.charAt(i) == '/') {
+                break;
+            }
+            shortUrl += ALPHABET.charAt((int)(longUrl.charAt(i++) - 'a'));
+        }
+
+        for (char c : longUrl.toCharArray()) {
+            if (c != '/' && c != '-') {
+                int index = (shortUrl.length() + 8) / 6;
+                String key = shortUrl.substring(0, index);
+                map.put(key, map.getOrDefault(key, "") + ALPHABET.charAt((int)(c - 'a')));
+                shortUrl = shortUrl.substring(index);
+            }
+        }
+
+        return "http://tinyurl.com/" + shortUrl;
+    }
+
+    public String decode(String shortUrl) {
+        int index = 7;
+        for (char c : shortUrl.toCharArray()) {
+            if (c != '-') {
+                int keyIndex = (shortUrl.length() - index) / 6;
+                String key = shortUrl.substring(keyIndex, index);
+                map.put(key, map.getOrDefault(key, "") + ALPHABET.charAt((int)(c - 'a')));
+                shortUrl = shortUrl.substring(index + 1);
+            } else {
+                int keyIndex = (shortUrl.length() - index) / 6;
+                String key = shortUrl.substring(keyIndex, index);
+                map.remove(key);
+                shortUrl = shortUrl.substring(index + 1);
+            }
+            index++;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (String s : map.keySet()) {
+            sb.append(s).append(map.get(s));
+        }
+        return "http://tinyurl.com/" + sb.toString();
+    }
+}

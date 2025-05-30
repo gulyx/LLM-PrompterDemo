@@ -1,0 +1,28 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2044;
+
+public class Solution {
+    public int countMaxOrSubsets(int[] nums) {
+        int maxOr = 0;
+        for (int num : nums) {
+            maxOr |= num;
+        }
+        return helper(nums, maxOr);
+    }
+
+    private int helper(int[] nums, int maxOr) {
+        boolean[] dp = new boolean[maxOr + 1];
+        dp[0] = true;
+        for (int num : nums) {
+            for (int i = maxOr; i >= num; i--) {
+                dp[i] |= dp[i - num];
+            }
+        }
+        int count = 0;
+        for (boolean b : dp) {
+            if (b) {
+                count++;
+            }
+        }
+        return count;
+    }
+}

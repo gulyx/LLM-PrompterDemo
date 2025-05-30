@@ -1,0 +1,14 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '1402_DescriptionOnly_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1402;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1402.Solution;'). The class-under-test implements the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description for the class-under-test: 
+A chef has collected data on the "satisfaction" level of his "n" dishes. Chef can cook any dish in 1 unit of time.
+
+Like-time coefficient of a dish is defined as the time taken to cook that dish including previous dishes multiplied by its satisfaction level i.e. "time[i] * satisfaction[I]".
+
+Return the maximum sum of like-time coefficient that the chef can obtain after preparing some amount of dishes.
+
+Dishes can be prepared in any order and the chef can discard some dishes to get this maximum value.
+
+Constraints:
+
+* "n == satisfaction.length"
+* "1 <= n <= 500"
+* "-1000 <= satisfaction[i] <= 1000"

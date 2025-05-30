@@ -1,0 +1,42 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2265;
+
+import java.util.HashMap;
+import java.util.Map;
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
+
+public class Solution {
+
+    public int averageOfSubtree(TreeNode root) {
+        return dfs(root);
+    }
+
+    private int dfs(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        Map<Integer, Integer> map = new HashMap<>();
+        int sum = 0;
+        dfsHelper(node, map, sum);
+        int avg = sum / node.val;
+        return (node.val == avg ? 1 : 0) + dfs(node.left) + dfs(node.right);
+    }
+
+    private void dfsHelper(TreeNode node, Map<Integer, Integer> map, int sum) {
+        if (node == null) {
+            return;
+        }
+        sum += node.val;
+        map.put(sum, map.getOrDefault(sum, 0) + 1);
+        dfsHelper(node.left, map, sum);
+        dfsHelper(node.right, map, sum);
+    }
+
+}
+```

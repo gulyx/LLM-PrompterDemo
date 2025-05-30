@@ -1,0 +1,54 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2196;
+
+import java.util.*;
+
+class Solution {
+    public TreeNode constructTree(int[][] descriptions) {
+        Map<Integer, List<int[]>> map = new HashMap<>();
+        for (int[] description : descriptions) {
+            int parent = description[0], child = description[1];
+            int isLeft = description[2];
+
+            if (!map.containsKey(parent)) {
+                map.put(parent, new ArrayList<>());
+            }
+            map.get(parent).add(new int[]{child, isLeft});
+        }
+
+        for (int[] description : descriptions) {
+            int parent = description[0], child = description[1];
+            int isLeft = description[2];
+
+            if (!map.containsKey(child)) {
+                map.put(child, new ArrayList<>());
+            }
+            map.get(child).add(new int[]{parent, 1 - isLeft});
+        }
+
+        return constructTree(map);
+    }
+
+    private TreeNode constructTree(Map<Integer, List<int[]>> map) {
+        for (Map.Entry<Integer, List<int[]>> entry : map.entrySet()) {
+            int parent = entry.getKey();
+            List<int[]> children = entry.getValue();
+
+            if (children.size() == 1 && children.get(0)[1] == 1) {
+                return new TreeNode(parent, constructTree(Collections.singletonMap(children.get(0)[0], Collections.singletonList(new int[]{parent, 0}))));
+            } else if (children.size() == 1 && children.get(0)[1] == 0) {
+                return new TreeNode(parent, null, constructTree(Collections.singletonMap(children.get(0)[0], Collections.singletonList(new int[]{parent, 1}))));
+            }
+        }
+
+        return null;
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) { val = x; }
+        TreeNode(int x, TreeNode left, TreeNode right) { this.val = x; this.left = left; this.right = right; }
+    }
+}

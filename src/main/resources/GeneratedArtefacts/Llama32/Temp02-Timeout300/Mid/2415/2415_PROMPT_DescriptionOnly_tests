@@ -1,0 +1,5 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '2415_DescriptionOnly_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2415;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2415.Solution;'). The class-under-test implements the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description for the class-under-test: 
+Given the "root" of a "perfect" binary tree, reverse the node values at each "odd" level of the tree.
+Return the root of the reversed tree.
+A binary tree is "perfect" if all parent nodes have two children and all leaves are on the same level.
+The "level" of a node is the number of edges along the path between it and the root node.

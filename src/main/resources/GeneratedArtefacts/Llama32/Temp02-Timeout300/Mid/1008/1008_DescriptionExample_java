@@ -1,0 +1,27 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1008;
+
+public class Solution {
+    public TreeNode buildTree(int[] preorder) {
+        if (preorder.length == 0)
+            return null;
+        TreeNode root = new TreeNode(preorder[0]);
+        int leftIndex = 1, rightIndex = preorder.length - 1;
+        while (leftIndex <= rightIndex) {
+            if (preorder[leftIndex] < preorder[0]) {
+                root.left = buildTree(new int[]{preorder[leftIndex], preorder[leftIndex + 1], ...});
+                leftIndex += 2;
+            } else {
+                root.right = buildTree(new int[]{preorder[rightIndex], preorder[rightIndex - 1], ...});
+                rightIndex -= 2;
+            }
+        }
+        return root;
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int x) { val = x; }
+    }
+}

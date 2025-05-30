@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1347;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1347.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 1347_DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int result = solution.minSteps("bab", "aba");
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int result = solution.minSteps("leetcode", "practice");
+        assertEquals(5, result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int result = solution.minSteps("anagram", "mangaar");
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int result = solution.minSteps("abc", "cba");
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int result = solution.minSteps("", "abc");
+        assertEquals(3, result);
+    }
+}

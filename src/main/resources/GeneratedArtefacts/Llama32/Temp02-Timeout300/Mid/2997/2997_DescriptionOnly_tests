@@ -1,0 +1,49 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2997;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2997.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] nums = {5, 3};
+        int k = 2;
+        assertEquals(1, solution.minOperations(nums, k));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] nums = {13, 2, 4, 8, 10};
+        int k = 14;
+        assertEquals(3, solution.minOperations(nums, k));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2, 3, 4, 5};
+        int k = 0;
+        assertEquals(0, solution.minOperations(nums, k));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] nums = {10, 20, 30, 40, 50};
+        int k = 15;
+        assertEquals(1, solution.minOperations(nums, k));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] nums = {1000, 2000, 3000, 4000, 5000};
+        int k = 10000;
+        assertEquals(4, solution.minOperations(nums, k));
+    }
+}

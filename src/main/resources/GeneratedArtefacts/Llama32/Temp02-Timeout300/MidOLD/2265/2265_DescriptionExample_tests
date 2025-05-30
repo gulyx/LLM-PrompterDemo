@@ -1,0 +1,69 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testAverageOfSubtree() {
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(8);
+        root.right = new TreeNode(5);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(1);
+        root.right.right = new TreeNode(6);
+
+        int actual = averageOfSubtree(root);
+        assertEquals(5, actual);
+    }
+
+    @Test
+    public void testAverageOfSubtreeSingleNode() {
+        TreeNode root = new TreeNode(1);
+
+        int actual = averageOfSubtree(root);
+        assertEquals(1, actual);
+    }
+
+    @Test
+    public void testAverageOfSubtreeEmptyTree() {
+        TreeNode root = null;
+
+        int actual = averageOfSubtree(root);
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void testAverageOfSubtreeMultipleNodes() {
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(8);
+        root.right = new TreeNode(5);
+
+        int actual = averageOfSubtree(root);
+        assertEquals(3, actual);
+    }
+
+    @Test
+    public void testAverageOfSubtreeLargeTree() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+
+        int actual = averageOfSubtree(root);
+        assertEquals(6, actual);
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) { val = x; }
+
+}
+```

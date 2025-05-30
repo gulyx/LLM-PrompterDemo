@@ -1,0 +1,23 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.950;
+
+public class Solution {
+    public int[] deckRevealedIncreasing(int[] deck) {
+        int n = deck.length;
+        boolean[] seen = new boolean[n];
+        int[] ans = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (!seen[i]) {
+                int j = i;
+                while (!seen[j]) {
+                    seen[j] = true;
+                    ans[j] = deck[i];
+                    j += n - 1;
+                    if (j >= n) {
+                        j -= n;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}

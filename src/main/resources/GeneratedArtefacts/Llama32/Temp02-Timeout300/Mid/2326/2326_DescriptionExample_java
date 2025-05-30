@@ -1,0 +1,32 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2326;
+
+public class Solution {
+    public int[][] generateMatrix(int m, int n, ListNode head) {
+        if (head == null || m == 0 || n == 0) return new int[0][];
+        int[][] res = new int[m][n];
+        int[] dir = {0, 1, 0, -1};
+        int[] cur = new int[]{0, 0};
+        int d = 0;
+        ListNode tmp = head;
+        while (tmp != null) {
+            res[cur[0]][cur[1]] = tmp.val;
+            int nextDir = (d + 1) % 4;
+            cur[0] += dir[d];
+            cur[1] += dir[nextDir];
+            if (res[cur[0]][cur[1]] == 0 && cur[0] >= 0 && cur[0] < m && cur[1] >= 0 && cur[1] < n) {
+                res[cur[0]][cur[1]] = -1;
+            }
+            tmp = tmp.next;
+            d = nextDir;
+        }
+        return res;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) { val = x; }
+    }
+}
+```

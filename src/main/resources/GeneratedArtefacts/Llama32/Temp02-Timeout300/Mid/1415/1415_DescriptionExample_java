@@ -1,0 +1,24 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1415;
+
+import java.util.*;
+
+public class Solution {
+    public String getHappyString(int n, int k) {
+        List<String> res = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            res.add(new StringBuilder("abc").replaceCharAt(i, 'a' + i));
+        }
+        while (res.size() < k) {
+            String s = res.get(res.size() - 1);
+            if (!s.contains("b")) {
+                res.add(s + "c");
+            } else if (!s.contains("c")) {
+                res.add(s + "a");
+            } else {
+                res.remove(res.size() - 1);
+            }
+        }
+        return res.get(k - 1) == null ? "" : res.get(k - 1);
+    }
+
+}

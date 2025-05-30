@@ -1,0 +1,8 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '1284_DescriptionOnly_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1284;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1284.Solution;'). The class-under-test implements the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description for the class-under-test: 
+Given a "m x n" binary matrix "mat". In one step, you can choose one cell and flip it and all the four neighbors of it if they exist (Flip is changing "1" to "0" and "0" to "1"). A pair of cells are called neighbors if they share one edge.
+
+Return the minimum number of steps required to convert "mat" to a zero matrix or "-1" if you cannot.
+
+A binary matrix is a matrix with all cells equal to "0" or "1" only.
+
+A zero matrix is a matrix with all cells equal to "0".

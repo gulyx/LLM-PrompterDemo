@@ -1,0 +1,32 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1476;
+
+import java.util.*;
+
+public class Solution {
+    private int[][] rectangle;
+    private List<Integer> rowValues = new ArrayList<>();
+    private List<Integer> colValues = new ArrayList<>();
+
+    public SubrectangleQueries(int[][] rectangle) {
+        this.rectangle = rectangle;
+        for (int i = 0; i < rectangle.length; i++) {
+            rowValues.add(i, 0);
+            colValues.add(0, 0);
+        }
+    }
+
+    public int getValue(int row, int col) {
+        return rectangle[row][col];
+    }
+
+    public void updateSubrectangle(int row1, int col1, int row2, int col2, int newValue) {
+        for (int i = row1; i <= row2; i++) {
+            for (int j = col1; j <= col2; j++) {
+                rectangle[i][j] = newValue;
+                rowValues.set(i, newValue);
+                colValues.set(j, newValue);
+            }
+        }
+    }
+
+}

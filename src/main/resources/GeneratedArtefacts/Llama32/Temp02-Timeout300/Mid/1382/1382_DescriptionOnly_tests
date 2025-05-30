@@ -1,0 +1,74 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1382;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1382.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void testBalancedTree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        expectedRoot.right = new TreeNode(3);
+        expectedRoot.left.left = new TreeNode(4);
+        expectedRoot.left.right = new TreeNode(5);
+
+        TreeNode actualRoot = solution.balanceBST(root);
+        assertEquals(expectedRoot, actualRoot);
+    }
+
+    @Test
+    public void testBalancedTreeWithOneNode() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+
+        TreeNode expectedRoot = new TreeNode(1);
+
+        TreeNode actualRoot = solution.balanceBST(root);
+        assertEquals(expectedRoot, actualRoot);
+    }
+
+    @Test
+    public void testUnbalancedTree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        expectedRoot.right = new TreeNode(3);
+
+        TreeNode actualRoot = solution.balanceBST(root);
+        assertEquals(expectedRoot, actualRoot);
+    }
+
+    @Test
+    public void testEmptyTree() {
+        Solution solution = new Solution();
+        TreeNode root = null;
+
+        TreeNode expectedRoot = null;
+
+        TreeNode actualRoot = solution.balanceBST(root);
+        assertEquals(expectedRoot, actualRoot);
+    }
+
+    @Test
+    public void testNullTree() {
+        Solution solution = new Solution();
+        TreeNode root = null;
+
+        assertThrows(NullPointerException.class, () -> solution.balanceBST(root));
+    }
+}
+```

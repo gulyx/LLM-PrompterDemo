@@ -1,0 +1,51 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2136;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2136.Solution;
+
+public class 2136_DescriptionExample_testsTest {
+
+    public void test1() {
+        Solution solution = new Solution();
+        int[] plantTime = {1,4,3};
+        int[] growTime = {2,3,1};
+        int expectedOutput = 9;
+        int actualOutput = solution.bloomDay(plantTime, growTime);
+        assert actualOutput == expectedOutput : "Test 1 failed";
+    }
+
+    public void test2() {
+        Solution solution = new Solution();
+        int[] plantTime = {1,2,3,2};
+        int[] growTime = {2,1,2,1};
+        int expectedOutput = 9;
+        int actualOutput = solution.bloomDay(plantTime, growTime);
+        assert actualOutput == expectedOutput : "Test 2 failed";
+    }
+
+    public void test3() {
+        Solution solution = new Solution();
+        int[] plantTime = {1};
+        int[] growTime = {1};
+        int expectedOutput = 2;
+        int actualOutput = solution.bloomDay(plantTime, growTime);
+        assert actualOutput == expectedOutput : "Test 3 failed";
+    }
+
+    public void test4() {
+        Solution solution = new Solution();
+        int[] plantTime = {1,2,3};
+        int[] growTime = {2,3,1};
+        int expectedOutput = 6;
+        int actualOutput = solution.bloomDay(plantTime, growTime);
+        assert actualOutput == expectedOutput : "Test 4 failed";
+    }
+
+    public void test5() {
+        Solution solution = new Solution();
+        int[] plantTime = {2,1};
+        int[] growTime = {3,2};
+        int expectedOutput = 6;
+        int actualOutput = solution.bloomDay(plantTime, growTime);
+        assert actualOutput == expectedOutput : "Test 5 failed";
+    }
+}

@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1980;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1980.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        String[] nums = {"01", "10"};
+        String result = solution.descriptionOnly(nums);
+        assertEquals("11", result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        String[] nums = {"00", "11"};
+        String result = solution.descriptionOnly(nums);
+        assertEquals("01", result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        String[] nums = {"0001", "1111", "0010", "1100", "1000", "1010"};
+        String result = solution.descriptionOnly(nums);
+        assertEquals("1111", result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        String[] nums = {"00001111", "11111111"};
+        String result = solution.descriptionOnly(nums);
+        assertEquals("00000000", result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        String[] nums = {"1010", "1101", "1001", "1110", "1000", "1111"};
+        String result = solution.descriptionOnly(nums);
+        assertEquals("0000", result);
+    }
+}
+```

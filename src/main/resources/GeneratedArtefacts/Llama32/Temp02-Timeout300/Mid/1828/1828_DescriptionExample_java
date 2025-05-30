@@ -1,0 +1,31 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1828;
+
+import java.util.*;
+
+public class Solution {
+    public int[] numPoints(int[][] points, int[][] queries) {
+        List<Set<Integer>> set = new ArrayList<>();
+        for (int i = 0; i < 1000001; i++) {
+            set.add(new HashSet<>());
+        }
+        for (int[] point : points) {
+            set.get(Math.sqrt(point[0] * point[0] + point[1] * point[1])).add(point[0] * point[0] + point[1] * point[1]);
+        }
+
+        int[] answer = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            Set<Integer> set2 = set.get(Math.sqrt(queries[i][0] * queries[0][0] + queries[i][1] * queries[0][1]));
+            int count = 0;
+            for (Integer num : set2) {
+                if (num <= queries[i][2] * queries[i][2]) {
+                    count++;
+                }
+            }
+            answer[i] = count;
+        }
+
+        return answer;
+    }
+}
+```

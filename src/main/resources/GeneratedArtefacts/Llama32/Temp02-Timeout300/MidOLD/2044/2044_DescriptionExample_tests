@@ -1,0 +1,64 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testMaxBitwiseOR() {
+        int[] nums = {3, 1};
+        int expected = 2;
+        assertEquals(expected, maxBitwiseOR(nums));
+    }
+
+    @Test
+    public void testMaxBitwiseOR_2() {
+        int[] nums = {2, 2, 2};
+        int expected = 7;
+        assertEquals(expected, maxBitwiseOR(nums));
+    }
+
+    @Test
+    public void testMaxBitwiseOR_3() {
+        int[] nums = {3, 2, 1, 5};
+        int expected = 6;
+        assertEquals(expected, maxBitwiseOR(nums));
+    }
+
+    @Test
+    public void testMaxBitwiseOR_EmptyArray() {
+        int[] nums = {};
+        int expected = 0;
+        assertEquals(expected, maxBitwiseOR(nums));
+    }
+
+    @Test
+    public void testMaxBitwiseOR_SingleElementArray() {
+        int[] nums = {1};
+        int expected = 1;
+        assertEquals(expected, maxBitwiseOR(nums));
+    }
+}
+
+public class Solution {
+
+    public int maxBitwiseOR(int[] nums) {
+        int maxOr = 0;
+        for (int num : nums) {
+            maxOr |= num;
+        }
+        return countSetBits(maxOr);
+    }
+
+    private int countSetBits(int n) {
+        int count = 0;
+        while (n != 0) {
+            count += n & 1;
+            n >>= 1;
+        }
+        return count;
+    }
+}
+```

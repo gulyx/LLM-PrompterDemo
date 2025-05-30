@@ -1,0 +1,58 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1829;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1829.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1829_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] nums = {0, 1};
+        int maximumBit = 2;
+        int[] answer = solution.descriptionOnlyTests(nums, maximumBit);
+        assertEquals(3, answer[0]);
+        assertEquals(2, answer[1]);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] nums = {0, 1, 2};
+        int maximumBit = 2;
+        int[] answer = solution.descriptionOnlyTests(nums, maximumBit);
+        assertEquals(3, answer[0]);
+        assertEquals(2, answer[1]);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] nums = {0, 1, 2, 3};
+        int maximumBit = 2;
+        int[] answer = solution.descriptionOnlyTests(nums, maximumBit);
+        assertEquals(3, answer[0]);
+        assertEquals(2, answer[1]);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] nums = {0, 1, 2, 3, 4};
+        int maximumBit = 2;
+        int[] answer = solution.descriptionOnlyTests(nums, maximumBit);
+        assertEquals(3, answer[0]);
+        assertEquals(2, answer[1]);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] nums = {0, 1, 2, 3, 4, 5};
+        int maximumBit = 2;
+        int[] answer = solution.descriptionOnlyTests(nums, maximumBit);
+        assertEquals(3, answer[0]);
+        assertEquals(2, answer[1]);
+    }
+}

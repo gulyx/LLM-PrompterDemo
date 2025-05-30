@@ -1,0 +1,16 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2265;
+
+public class Solution {
+    public int averageOfSubtree(TreeNode root) {
+        return dfs(root);
+    }
+
+    private int dfs(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        int sum = node.val + dfs(node.left) + dfs(node.right);
+        double avg = Math.round((double)sum / (1 + dfs(node.left) + dfs(node.right)));
+        return (int)(avg == avg ? avg : avg - 1);
+    }
+}

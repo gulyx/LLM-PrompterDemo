@@ -1,0 +1,77 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class MyCalendarThree {
+
+    private int[][] events = new int[7][2];
+    private int[] result = new int[7];
+
+    public void book(int startTime, int endTime) {
+        for (int i = 0; i < events.length; i++) {
+            if (events[i][0] <= startTime && endTime <= events[i][1]) {
+                result[i]++;
+            }
+            if (i > 0 && events[i-1][0] <= startTime && endTime <= events[i-1][1]) {
+                result[i]++;
+            }
+        }
+
+        int max = 0;
+        for (int i = 0; i < result.length; i++) {
+            max = Math.max(max, result[i]);
+        }
+
+        System.out.println(max);
+    }
+
+    @Test
+    public void testExample1() {
+        events[0][0] = 10;
+        events[0][1] = 20;
+        book();
+        assertEquals(1, result[0]);
+
+        events[1][0] = 50;
+        events[1][1] = 60;
+        book();
+        assertEquals(1, result[1]);
+    }
+
+    @Test
+    public void testExample2() {
+        events[2][0] = 10;
+        events[2][1] = 40;
+        book();
+        assertEquals(2, result[2]);
+
+        events[3][0] = 5;
+        events[3][1] = 15;
+        book();
+        assertEquals(3, result[3]);
+    }
+
+    @Test
+    public void testExample3() {
+        events[4][0] = 5;
+        events[4][1] = 10;
+        book();
+        assertEquals(3, result[4]);
+
+        events[5][0] = 25;
+        events[5][1] = 55;
+        book();
+        assertEquals(3, result[5]);
+    }
+
+    @Test
+    public void testExample4() {
+        events[6][0] = 25;
+        events[6][1] = 55;
+        book();
+        assertEquals(3, result[6]);
+    }
+}
+```

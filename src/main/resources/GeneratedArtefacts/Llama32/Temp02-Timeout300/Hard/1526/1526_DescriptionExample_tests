@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1526;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1526.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class SolutionTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] target = {1,2,3,2,1};
+        int result = solution.minOperations(target);
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] target = {3,1,1,2};
+        int result = solution.minOperations(target);
+        assertEquals(4, result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] target = {3,1,5,4,2};
+        int result = solution.minOperations(target);
+        assertEquals(7, result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] target = {0,0,0,0,0};
+        int result = solution.minOperations(target);
+        assertEquals(5, result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] target = {1,2,3,4,5};
+        int result = solution.minOperations(target);
+        assertEquals(10, result);
+    }
+}

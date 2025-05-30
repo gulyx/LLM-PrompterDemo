@@ -1,0 +1,29 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2396;
+
+public class Solution {
+    public boolean isStrictPalindromic(int n) {
+        for (int base = 2; base < n - 1; base++) {
+            int num = Integer.parseInt(Integer.toString(n, base));
+            String strNum = Integer.toString(num);
+            if (!isPalindrome(strNum)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isPalindrome(String s) {
+        int left = 0;
+        int right = s.length() - 1;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+}
+```

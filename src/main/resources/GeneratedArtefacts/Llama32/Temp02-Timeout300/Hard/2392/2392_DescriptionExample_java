@@ -1,0 +1,52 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2392;
+
+import java.util.*;
+
+public class Solution {
+    public int[][] constructMatrix(int k, int[][] rowConditions, int[][] colConditions) {
+        List<Integer> row = new ArrayList<>();
+        List<Integer> col = new ArrayList<>();
+
+        for (int[] condition : rowConditions) {
+            if (!row.contains(condition[1])) {
+                row.add(condition[0]);
+                row.add(condition[1]);
+            } else {
+                return new int[0][];
+            }
+        }
+
+        for (int[] condition : colConditions) {
+            if (!col.contains(condition[1])) {
+                col.add(condition[0]);
+                col.add(condition[1]);
+            } else {
+                return new int[0][];
+            }
+        }
+
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < k; i++) {
+            if (!row.contains(i + 1)) {
+                row.add(i + 1);
+            }
+            if (!col.contains(i + 1)) {
+                col.add(i + 1);
+            }
+        }
+
+        int[][] res = new int[k][k];
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < k; j++) {
+                if (!row.get(j).equals(i + 1)) {
+                    res[i][j] = row.get(j);
+                } else {
+                    res[i][j] = col.get(j);
+                }
+            }
+        }
+
+        return res;
+    }
+
+}

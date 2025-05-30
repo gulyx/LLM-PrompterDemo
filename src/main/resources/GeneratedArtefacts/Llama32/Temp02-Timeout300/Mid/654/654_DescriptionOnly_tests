@@ -1,0 +1,49 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.654;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.654.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 654_DescriptionOnly_testsTest {
+
+    @Test
+    public void testBuildTree() {
+        Solution solution = new Solution();
+        int[] nums = {3,2,1,5,6,4};
+        TreeNode root = solution.buildMaxTree(nums);
+        assertNotNull(root);
+    }
+
+    @Test
+    public void testBuildTree_EmptyArray() {
+        Solution solution = new Solution();
+        int[] nums = {};
+        TreeNode root = solution.buildMaxTree(nums);
+        assertNull(root);
+    }
+
+    @Test
+    public void testBuildTree_SingleElementArray() {
+        Solution solution = new Solution();
+        int[] nums = {1};
+        TreeNode root = solution.buildMaxTree(nums);
+        assertNotNull(root);
+    }
+
+    @Test
+    public void testBuildTree_DuplicateValues() {
+        Solution solution = new Solution();
+        int[] nums = {3,2,2,5,6,4};
+        TreeNode root = solution.buildMaxTree(nums);
+        assertNotNull(root);
+    }
+
+    @Test
+    public void testBuildTree_NullArray() {
+        Solution solution = new Solution();
+        int[] nums = null;
+        assertThrows(NullPointerException.class, () -> solution.buildMaxTree(nums));
+    }
+}
+```

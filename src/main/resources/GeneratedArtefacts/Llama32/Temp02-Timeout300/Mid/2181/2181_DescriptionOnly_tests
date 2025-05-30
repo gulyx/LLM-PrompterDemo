@@ -1,0 +1,92 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2181;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2181.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2181_DescriptionOnly_testsTest {
+
+    @Test
+    public void testMergeNodes() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(0);
+        head.next = new ListNode(1);
+        head.next.next = new ListNode(0);
+        head.next.next.next = new ListNode(3);
+        head.next.next.next.next = new ListNode(4);
+        head.next.next.next.next.next = new ListNode(2);
+        head.next.next.next.next.next.next = new ListNode(0);
+        head.next.next.next.next.next.next.next = new ListNode(5);
+
+        solution.mergeNodes(head);
+        ListNode expectedHead = new ListNode(6);
+        expectedHead.next = new ListNode(1);
+        expectedHead.next.next = new ListNode(2);
+        expectedHead.next.next.next = new ListNode(6);
+        expectedHead.next.next.next.next = new ListNode(4);
+        expectedHead.next.next.next.next.next = new ListNode(5);
+
+        assertEquals(expectedHead, head);
+    }
+
+    @Test
+    public void testMergeNodesWithOneNode() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(0);
+
+        solution.mergeNodes(head);
+        ListNode expectedHead = new ListNode(0);
+
+        assertEquals(expectedHead, head);
+    }
+
+    @Test
+    public void testMergeNodesWithTwoConsecutiveZeroes() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(0);
+        head.next.next = new ListNode(2);
+        head.next.next.next = new ListNode(3);
+
+        solution.mergeNodes(head);
+        ListNode expectedHead = new ListNode(3);
+        expectedHead.next = new ListNode(2);
+        expectedHead.next.next = new ListNode(1);
+
+        assertEquals(expectedHead, head);
+    }
+
+    @Test
+    public void testMergeNodesWithMultipleZeroes() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(0);
+        head.next = new ListNode(1);
+        head.next.next = new ListNode(0);
+        head.next.next.next = new ListNode(3);
+        head.next.next.next.next = new ListNode(4);
+        head.next.next.next.next.next = new ListNode(2);
+
+        solution.mergeNodes(head);
+        ListNode expectedHead = new ListNode(6);
+        expectedHead.next = new ListNode(1);
+        expectedHead.next.next = new ListNode(2);
+        expectedHead.next.next.next = new ListNode(10);
+
+        assertEquals(expectedHead, head);
+    }
+
+    @Test
+    public void testMergeNodesWithNoZeroes() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+
+        solution.mergeNodes(head);
+        ListNode expectedHead = new ListNode(1);
+        expectedHead.next = new ListNode(2);
+        expectedHead.next.next = new ListNode(3);
+
+        assertEquals(expectedHead, head);
+    }
+}

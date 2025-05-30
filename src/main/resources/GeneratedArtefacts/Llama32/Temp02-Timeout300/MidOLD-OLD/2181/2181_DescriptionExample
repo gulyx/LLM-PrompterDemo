@@ -1,0 +1,105 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2181_DescriptionExample {
+
+    public ListNode mergeNodes(ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode prev = dummy, curr = head;
+        int sum = 0;
+        while (curr != null) {
+            if (curr.val == 0 && prev.next != null && prev.next.val == 0) {
+                sum += curr.next.val;
+                prev.next = curr.next.next;
+            } else {
+                sum += curr.val;
+            }
+            prev = curr;
+            curr = curr.next;
+        }
+        ListNode newHead = dummy.next;
+        while (sum > 0) {
+            newHead.val = sum % 10;
+            sum /= 10;
+            newHead = newHead.next;
+        }
+        return newHead;
+    }
+
+    @Test
+    public void test1() {
+        ListNode head = new ListNode(0);
+        head.next = new ListNode(3);
+        head.next.next = new ListNode(1);
+        head.next.next.next = new ListNode(0);
+        head.next.next.next.next = new ListNode(4);
+        head.next.next.next.next.next = new ListNode(5);
+        head.next.next.next.next.next.next = new ListNode(2);
+        head.next.next.next.next.next.next.next = new ListNode(0);
+
+        ListNode result = mergeNodes(head);
+        ListNode expected = new ListNode(4);
+        expected.next = new ListNode(11);
+        assert(result == expected);
+    }
+
+    @Test
+    public void test2() {
+        ListNode head = new ListNode(0);
+        head.next = new ListNode(1);
+        head.next.next = new ListNode(0);
+        head.next.next.next = new ListNode(3);
+        head.next.next.next.next = new ListNode(0);
+        head.next.next.next.next.next = new ListNode(2);
+        head.next.next.next.next.next.next = new ListNode(2);
+
+        ListNode result = mergeNodes(head);
+        ListNode expected = new ListNode(1);
+        expected.next = new ListNode(3);
+        expected.next.next = new ListNode(4);
+        assert(result == expected);
+    }
+
+    @Test
+    public void test3() {
+        ListNode head = new ListNode(0);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(1);
+        head.next.next.next = new ListNode(0);
+
+        ListNode result = mergeNodes(head);
+        ListNode expected = new ListNode(2);
+        expected.next = new ListNode(3);
+        assert(result == expected);
+    }
+
+    @Test
+    public void test4() {
+        ListNode head = new ListNode(0);
+        head.next = new ListNode(1);
+        head.next.next = new ListNode(0);
+        head.next.next.next = new ListNode(2);
+
+        ListNode result = mergeNodes(head);
+        ListNode expected = new ListNode(1);
+        expected.next = new ListNode(3);
+        assert(result == expected);
+    }
+
+    @Test
+    public void test5() {
+        ListNode head = new ListNode(0);
+        head.next = new ListNode(4);
+        head.next.next = new ListNode(2);
+
+        ListNode result = mergeNodes(head);
+        ListNode expected = new ListNode(4);
+        expected.next = new ListNode(6);
+        assert(result == expected);
+    }
+}
+```

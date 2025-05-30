@@ -1,0 +1,31 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.980;
+
+public class Solution {
+    public int uniquePathsIII(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int startRow = 0, startCol = 0, endRow = 0, endCol = 0, emptyCount = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) startRow = i;
+                if (grid[i][j] == 2) endRow = i;
+                if (grid[i][j] == 0) emptyCount++;
+            }
+        }
+        return dfs(grid, startRow, startCol, 1, emptyCount);
+    }
+
+    private int dfs(int[][] grid, int row, int col, int step, int emptyCount) {
+        if (row < 0 || row >= grid.length || col < 0 || col >= grid[0].length || grid[row][col] == -1)
+            return 0;
+        if (grid[row][col] == 2 && step == emptyCount + 1)
+            return 1;
+        int res = 0;
+        int temp = grid[row][col];
+        grid[row][col] = -1;
+        for (int[] next : new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}) {
+            res += dfs(grid, row + next[0], col + next[1], step + 1, emptyCount);
+        }
+        grid[row][col] = temp;
+        return res;
+    }
+}

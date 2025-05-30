@@ -1,0 +1,6 @@
+As a professional Software Engineer, generate a complete Java class file (name the class as :'Solution', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1072;') for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
+You are given an "m x n" binary matrix "matrix".
+
+You can choose any number of columns in the matrix and flip every cell in that column (i.e., Change the value of the cell from "0" to "1" or vice versa).
+
+Return the maximum number of rows that have all values equal after some number of flips.

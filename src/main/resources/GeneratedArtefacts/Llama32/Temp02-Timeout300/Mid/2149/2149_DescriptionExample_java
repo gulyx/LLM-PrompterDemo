@@ -1,0 +1,34 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2149;
+
+public class Solution {
+    public int[] rearrangeArray(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+        int left = 0, right = 1;
+        while (right < n) {
+            if ((nums[left] > 0 && nums[right] < 0) || (nums[left] < 0 && nums[right] > 0)) {
+                result[Math.max(left, right)] = nums[left];
+                left++;
+            } else {
+                result[Math.min(left, right)] = nums[right];
+                right++;
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] nums1 = {3, 1, -2, -5, 2, -4};
+        int[] expectedOutput1 = {3, -2, 1, -5, 2, -4};
+        int[] actualOutput1 = solution.rearrangeArray(nums1);
+        assert java.util.Arrays.equals(expectedOutput1, actualOutput1);
+
+        int[] nums2 = {-1, 1};
+        int[] expectedOutput2 = {1, -1};
+        int[] actualOutput2 = solution.rearrangeArray(nums2);
+        assert java.util.Arrays.equals(expectedOutput2, actualOutput2);
+    }
+}
+```

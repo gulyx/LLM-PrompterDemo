@@ -1,0 +1,19 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324;
+
+import java.util.*;
+
+public class Solution {
+    public List<String> findDifferentStrings(String target) {
+        List<String> result = new ArrayList<>();
+        Deque<Character> stack = new ArrayDeque<>();
+        for (char c : target.toCharArray()) {
+            if (!stack.isEmpty() && stack.peekLast().equals(c)) {
+                stack.pollLast();
+            } else {
+                stack.offerLast(c);
+            }
+            result.add(String.valueOf(stack));
+        }
+        return result;
+    }
+}

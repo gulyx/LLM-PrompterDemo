@@ -1,0 +1,13 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '1689_DescriptionExample_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1689;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1689.Solution;'). The class-under-test implements the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword [--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description for the class-under-test: 
+A decimal number is called "deci-binary" if each of its digits is either "0" or "1" without any leading zeros. For example, "101" and "1100" are "deci-binary", while "112" and "3001" are not.
+
+Given a string "n" that represents a positive decimal integer, return the "minimum" number of positive "deci-binary" numbers needed so that they sum up to "n".
+[--Example 1--]
+Input: n = "32"
+Output: 3
+[--Example 2--]
+Input: n = "82734"
+Output: 8
+[--Example 3--]
+Input: n = "27346209830709182346"
+Output: 9

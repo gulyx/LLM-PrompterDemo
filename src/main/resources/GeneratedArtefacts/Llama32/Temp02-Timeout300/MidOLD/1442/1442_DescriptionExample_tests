@@ -1,0 +1,71 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void test_1() {
+        int[] arr = {2,3,1,6,7};
+        assertEquals(4, countTriplets(arr));
+    }
+
+    @Test
+    public void test_2() {
+        int[] arr = {1,1,1,1,1};
+        assertEquals(10, countTriplets(arr));
+    }
+
+    @Test
+    public void test_3() {
+        int[] arr = {1,2,3,4,5};
+        assertEquals(0, countTriplets(arr));
+    }
+
+    @Test
+    public void test_4() {
+        int[] arr = {1,1,1,1,1,1};
+        assertEquals(15, countTriplelets(arr));
+    }
+
+    @Test
+    public void test_5() {
+        int[] arr = {2,3,1,6,7,8};
+        assertEquals(0, countTriplets(arr));
+    }
+}
+
+public class Solution {
+
+    public int countTriplets(int[] arr) {
+        int n = arr.length;
+        long[] prefixXor = new long[n];
+        long[] suffixXor = new long[n];
+
+        prefixXor[0] = arr[0];
+        for (int i = 1; i < n; i++) {
+            prefixXor[i] = prefixXor[i - 1] ^ arr[i];
+        }
+
+        suffixXor[n - 1] = arr[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
+            suffixXor[i] = suffixXor[i + 1] ^ arr[i];
+        }
+
+        int count = 0;
+        for (int j = 0; j < n - 2; j++) {
+            for (int k = j + 1; k < n - 1; k++) {
+                long a = prefixXor[j] ^ prefixXor[k + 1];
+                long b = suffixXor[k] ^ suffixXor[j + 1];
+
+                if (a == b) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+
+}

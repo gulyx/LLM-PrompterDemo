@@ -1,0 +1,41 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void test1() {
+        int[] target = {1, 3};
+        int n = 3;
+        String[] result = new String[]{"Push","Push","Pop","Push"};
+        assertEquals(result, buildArray(target, n));
+    }
+
+    @Test
+    public void test2() {
+        int[] target = {1, 2, 3};
+        int n = 3;
+        String[] result = new String[]{"Push","Push","Push"};
+        assertEquals(result, buildArray(target, n));
+    }
+
+    @Test
+    public void test3() {
+        int[] target = {1, 2};
+        int n = 4;
+        String[] result = new String[]{"Push","Push"};
+        assertEquals(result, buildArray(target, n));
+    }
+
+    private String[] buildArray(int[] target, int n) {
+        StringBuilder sb = new StringBuilder();
+        for (int i : target) {
+            sb.append("Push").append("\n");
+        }
+        return sb.toString().split("\n");
+    }
+}
+```

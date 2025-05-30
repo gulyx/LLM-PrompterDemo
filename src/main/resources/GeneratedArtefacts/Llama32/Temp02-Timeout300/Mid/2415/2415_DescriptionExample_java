@@ -1,0 +1,66 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2415;
+
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
+
+public class Solution {
+
+    public TreeNode reverseOddLevels(TreeNode root) {
+        List<TreeNode> levels = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            List<Integer> levelValues = new ArrayList<>();
+            
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode node = queue.poll();
+                if (node == null) break;
+                
+                levelValues.add(node.val);
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
+            }
+            
+            if (levelValues.size() % 2 == 0) {
+                for (int i = 1; i < levelValues.size(); i += 2) {
+                    int temp = levelValues.get(i);
+                    levelValues.set(i, levelValues.get(i - 1));
+                    levelValues.set(i - 1, temp);
+                }
+            } else {
+                Collections.reverse(levelValues.subList(1, levelValues.size()));
+            }
+            
+            levels.add(new ArrayList<>(levelValues));
+        }
+        
+        for (int i = 0; i < levels.size(); i++) {
+            TreeNode node = root;
+            for (int j = 0; j < i; j++) {
+                if (node.left != null) node = node.left;
+                else break;
+            }
+            
+            for (Integer val : levels.get(i)) {
+                if (node == null) break;
+                
+                node.val = val;
+                if (node.left != null) node = node.left;
+                else break;
+            }
+        }
+        
+        return root;
+    }
+
+}
+```
