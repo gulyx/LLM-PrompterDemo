@@ -1,0 +1,30 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1630;
+
+import java.util.*;
+
+public class Solution {
+    public List<Boolean> checkPossibility(int[] nums, int[][] numsL, int[][] numsR) {
+        List<Boolean> answer = new ArrayList<>();
+        for (int i = 0; i < numsL.length; i++) {
+            boolean isValid = true;
+            Set<Integer> set = new HashSet<>();
+            for (int j = numsL[i][0]; j <= numsR[i][1]; j++) {
+                if (!set.add(nums[j])) {
+                    isValid = false;
+                    break;
+                }
+            }
+            int diff = -1;
+            for (int j = 0; j < numsL[i][0] || j <= numsR[i][1]; j++) {
+                if (j > 0 && nums[j] - nums[j - 1] != diff) {
+                    isValid = false;
+                    break;
+                }
+                if (diff == -1)
+                    diff = nums[j] - nums[j - 1];
+            }
+            answer.add(isValid);
+        }
+        return answer;
+    }
+}

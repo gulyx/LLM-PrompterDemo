@@ -1,0 +1,46 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1382;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1382.Solution;
+
+public class 1382_DescriptionOnly_testsTest {
+    Solution solution = new Solution();
+
+    @Test
+    public void test1() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(1);
+        expectedRoot.right = new TreeNode(3);
+        assertSame(root, solution.balanceBST(root));
+    }
+
+    @Test
+    public void test2() {
+        TreeNode root = new TreeNode(1);
+        assertNull(solution.balanceBST(root));
+    }
+
+    @Test
+    public void test3() {
+        TreeNode root = new TreeNode(1);
+        TreeNode expectedRoot = new TreeNode(1);
+        assertEquals(expectedRoot, solution.balanceBST(root));
+    }
+
+    @Test
+    public void test4() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        assertSame(root, solution.balanceBST(root));
+    }
+
+    @Test
+    public void test5() {
+        TreeNode root = new TreeNode(1);
+        TreeNode expectedRoot = new TreeNode(1);
+        assertEquals(expectedRoot, solution.balanceBST(root));
+    }
+}

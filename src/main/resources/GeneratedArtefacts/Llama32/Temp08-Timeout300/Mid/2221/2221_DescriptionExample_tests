@@ -1,0 +1,42 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2221;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2221.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 2221_DescriptionExample_testsTest {
+ 
+    @Test
+    public void testTriangularSum_SingleDigit() {
+        Solution solution = new Solution();
+        int[] nums = {5};
+        int expectedOutput = 5;
+        assertEquals(expectedOutput, solution.triangularSum(nums));
+    }
+    
+    @Test
+    public void testTriangularSum_MultipleDigits() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3,4,5};
+        int expectedOutput = 8;
+        assertEquals(expectedOutput, solution.triangularSum(nums));
+    }
+    
+    @Test
+    public void testTriangularSum_NegativeNumber() {
+        Solution solution = new Solution();
+        int[] nums = {-1,-2,-3,-4,-5};
+        int expectedOutput = 0;
+        assertEquals(expectedOutput, solution.triangularSum(nums));
+    }
+    
+    @Test
+    public void testTriangularSum_EmptyArray() {
+        Solution solution = new Solution();
+        int[] nums = {};
+        int expectedOutput = 0;
+        assertEquals(expectedOutput, solution.triangularSum(nums));
+    }
+}
+```

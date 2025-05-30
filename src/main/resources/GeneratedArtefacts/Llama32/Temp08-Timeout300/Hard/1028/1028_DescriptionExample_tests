@@ -1,0 +1,63 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1028_DescriptionExample_testsTest {
+
+    @Test
+    public void test RecoverTree1() {
+        String traversal = "1-2--3--4-5--6--7";
+        Solution solution = new Solution();
+        Node result = solution.recoverFromTrivia(traversal);
+        assertNotNull(result);
+        assertEquals(1, result.val);
+        assertSame(result.left, result.right); 
+        assertSame(null, result.left.left);
+    }
+
+    @Test
+    public void test RecoverTree2() {
+        String traversal = "1-2--3---4-5--6---7";
+        Solution solution = new Solution();
+        Node result = solution.recoverFromTrivia(traversal);
+        assertNotNull(result);
+        assertEquals(1, result.val);
+        assertSame(null, result.left); 
+        assertSame(result.right, null); 
+    }
+
+    @Test
+    public void test RecoverTree3() {
+        String traversal = "1-401--349---90--88";
+        Solution solution = new Solution();
+        Node result = solution.recoverFromTrivia(traversal);
+        assertNotNull(result);
+        assertEquals(1, result.val);
+        assertSame(null, result.left); 
+        assertSame(null, result.right.left);
+    }
+
+    @Test
+    public void test RecoverTree4() {
+        String traversal = "1-2-3-4";
+        Solution solution = new Solution();
+        Node result = solution.recoverFromTrivia(traversal);
+        assertNotNull(result);
+        assertEquals(1, result.val);
+        assertSame(null, result.left); 
+        assertSame(null, result.right); 
+    }
+
+    @Test
+    public void test RecoverTree5() {
+        String traversal = "1";
+        Solution solution = new Solution();
+        Node result = solution.recoverFromTrivia(traversal);
+        assertNotNull(result);
+        assertEquals(1, result.val);
+        assertSame(null, result.left); 
+        assertSame(null, result.right); 
+    }
+}

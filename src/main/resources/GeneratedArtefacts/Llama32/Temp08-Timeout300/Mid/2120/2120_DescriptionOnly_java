@@ -1,0 +1,92 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2120;
+
+import java.util.*;
+
+public class Solution {
+    public int[] findDistancesFromTo(int n, String[] startPos, String s) {
+        List<List<Integer>> paths = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            paths.add(new ArrayList<>());
+        }
+        Queue<State> queue = new LinkedList<>();
+        for (int i = 0; i <= n - 1; i++) {
+            if (i != startPos[0]) {
+                paths.get(startPos[0]).add(i);
+            } else {
+                queue.offer(new State(i, 0));
+            }
+        }
+        int[] result = new int[s.length()];
+        for (int i = s.length() - 1; i >= 0; i--) {
+            char c = s.charAt(i);
+            List<Integer> indices = paths.get(startPos[i] + 1);
+            if (c == 'R') {
+                while (!indices.isEmpty()) {
+                    int index = indices.remove(indices.size() - 1);
+                    State state = queue.poll();
+                    if (index < n - 1 && state.x != index) {
+                        State newState = new State(state.x, index + 1);
+                        queue.offer(newState);
+                        paths.get(state.y).add(index + 1);
+                    }
+                }
+            } else if (c == 'L') {
+                while (!indices.isEmpty()) {
+                    int index = indices.remove(indices.size() - 1);
+                    State state = queue.poll();
+                    if (index > 0 && state.x != index) {
+                        State newState = new State(index - 1, state.y);
+                        queue.offer(newState);
+                        paths.get(state.y).add(index - 1);
+                    }
+                }
+            } else if (c == 'U') {
+                while (!indices.isEmpty()) {
+                    int index = indices.remove(indices.size() - 1);
+                    State state = queue.poll();
+                    if (state.y != n - 1 && state.x != index) {
+                        State newState = new State(index, state.y + 1);
+                        queue.offer(newState);
+                        paths.get(newState.x).add(index + 1);
+                    }
+                }
+            } else if (c == 'D') {
+                while (!indices.isEmpty()) {
+                    int index = indices.remove(indices.size() - 1);
+                    State state = queue.poll();
+                    if (state.y != 0 && state.x != index) {
+                        State newState = new State(index, state.y - 1);
+                        queue.offer(newState);
+                        paths.get(newState.x).add(index + 1);
+                    }
+                }
+            } else {
+                while (!indices.isEmpty()) {
+                    int index = indices.remove(indices.size() - 1);
+                    State state = queue.poll();
+                    if (state.x == startPos[i]) {
+                        break;
+                    }
+                    if (state.y != startPos[i] || state.x != index) {
+                        State newState = new State(index, state.y);
+                        queue.offer(newState);
+                        paths.get(newState.x).add(index + 1);
+                    }
+                }
+            }
+            result[i] = indices.size();
+        }
+
+        return result;
+    }
+
+    private class State {
+        int x;
+        int y;
+
+        public State(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+}

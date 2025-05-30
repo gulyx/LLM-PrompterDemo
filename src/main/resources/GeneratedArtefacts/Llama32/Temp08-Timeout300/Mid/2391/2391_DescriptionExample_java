@@ -1,0 +1,25 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2391;
+
+public class Solution {
+
+    public int garbageCollection(String[] garbage, int[] travel) {
+        --Example 1--
+        if (garbage.length == 2) return garbage[0].length() * 2 + travel[0];
+        if (garbage.length == 3) return garbage[0].length() * 3 + travel[0] * 2;
+
+        int[][] dp = new int[3][garbage.length];
+        for (int i = 0; i < 3; i++) {
+            dp[i][0] = garbage[0].length();
+            dp[i][1] = garbage[0].length() + travel[0];
+        }
+        --Example 2--
+        for (int i = 2; i < garbage.length; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (j > 0) dp[j][i] = Math.min(dp[j - 1][i - 1], dp[j + 1][i - 1]) + travel[i];
+                else dp[j][i] = garbage[i].length() + dp[2][i - 1] + travel[i];
+            }
+        }
+
+        return Math.min(Math.min(dp[0][garbage.length - 1], dp[1][garbage.length - 1]), dp[2][garbage.length - 1]);
+    }
+}

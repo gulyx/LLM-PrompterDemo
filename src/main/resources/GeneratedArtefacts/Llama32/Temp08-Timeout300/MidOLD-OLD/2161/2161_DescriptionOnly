@@ -1,0 +1,65 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class 2161_DescriptionOnly {
+
+    @Test
+    public void test_RearrangeNumbers_LessThanPivot_Before_GreaterThanPivot() {
+        int[] nums = {3,7,9};
+        int pivot = 5;
+        assertArrayEquals(new int[]{3,5,7}, sortArray(nums, pivot));
+    }
+
+    @Test
+    public void test_RearrangeNumbers_LessThanPivot_Before_GreaterThanPivot_EqualToPivot_InBetween() {
+        int[] nums = {3,7,7};
+        int pivot = 5;
+        assertArrayEquals(new int[]{3,5,7}, sortArray(nums, pivot));
+    }
+
+    @Test
+    public void test_RearrangeNumbers_LessThanPivot_Before_GreaterThanPivot_RearrangedOrder_Maintained() {
+        int[] nums = {1,2,3};
+        int pivot = 2;
+        assertArrayEquals(new int[]{1,2,3}, sortArray(nums, pivot));
+    }
+
+    @Test
+    public void test_RearrangeNumbers_LessThanPivot_Before_GreaterThanPivot_LargeNumber() {
+        int[] nums = {1,2,10};
+        int pivot = 2;
+        assertArrayEquals(new int[]{1,2,10}, sortArray(nums, pivot));
+    }
+
+    @Test
+    public void test_RearrangeNumbers_EqualToPivot_InBetween_GreaterThanPivot_Before() {
+        int[] nums = {3,7};
+        int pivot = 5;
+        assertArrayEquals(new int[]{3,5,7}, sortArray(nums, pivot));
+    }
+}
+
+private static int[] sortArray(int[] nums, int pivot) {
+        int left = 0, right = nums.length-1;
+
+        while (left <= right) {
+
+            while (nums[left] < pivot && left <= right)
+                left++;
+
+            while (nums[right] > pivot && left <= right)
+                right--;
+
+            if (left <= right) {
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+                left++;
+                right--;
+            }
+        }
+
+        return nums;
+    }

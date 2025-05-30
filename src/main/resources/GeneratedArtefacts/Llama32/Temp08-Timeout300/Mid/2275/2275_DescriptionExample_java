@@ -1,0 +1,31 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2275;
+
+public class Solution {
+    public int findMaxForm(int[] candidates, int m) {
+        int n = candidates.length;
+        int[] cnt = new int[64];
+        for (int x : candidates)
+            for (int i = 0; x != 0; i++, x >>= 1)
+                cnt[i]++;
+        int[][] dp = new int[n + 1][m + 1];
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                int v = Integer.numberOfTrailingZeros(cnt[i - 1]);
+                dp[i][j] = Math.max(dp[i][j], dp[i - 1][j]);
+                if (j >= i)
+                    dp[i][j] = Math.max(dp[i][j], dp[i - 1][j - i] + v);
+            }
+        }
+        return dp[n][m];
+    }
+
+    [--Example 1--]
+    int[] candidates1 = {16,17,71,62,12,24,14};
+    int m1 = 4;
+    int expectedOutput1 = 4;
+
+    [--Example 2--]
+    int[] candidates2 = {8,8};
+    int m2 = 2;
+    int expectedOutput2 = 2;
+}

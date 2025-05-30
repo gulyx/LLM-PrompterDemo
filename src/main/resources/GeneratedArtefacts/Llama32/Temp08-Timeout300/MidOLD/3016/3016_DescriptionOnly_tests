@@ -1,0 +1,51 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionOnlyTest {
+
+    @Test
+    public void testPushes() {
+        String word = "word";
+        int expected = 4;
+        assertEquals(expected, minPushes(word));
+    }
+
+    @Test
+    public void testPushesNoRemapping() {
+        String word = "abc";
+        int expected = 3;
+        assertEquals(expected, minPushes(word));
+    }
+
+    @Test
+    public void testPushesTwoKeysRemapped() {
+        String word = "aab";
+        int expected = 2;
+        assertEquals(expected, minPushes(word));
+    }
+
+    @Test
+    public void testPushesThreeKeysRemapped() {
+        String word = "aaa";
+        int expected = 1;
+        assertEquals(expected, minPushes(word));
+    }
+
+    @Test
+    public void testPushesFourKeysRemapped() {
+        String word = "abcc";
+        int expected = 2;
+        assertEquals(expected, minPushes(word));
+    }
+}
+
+public class Solution {
+
+    public int minPushes(String word) {
+        // implement your solution here
+        return 0;
+    }
+
+}

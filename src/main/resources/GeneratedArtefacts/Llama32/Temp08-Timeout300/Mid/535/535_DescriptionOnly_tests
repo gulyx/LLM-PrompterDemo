@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.535;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.535.Solution;
+
+public class 535_DescriptionOnly_testsTest {
+
+    Solution solution = new Solution();
+
+    @Test
+    public void test_encode_decode() {
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = solution.encode(longUrl);
+        String decodedLongUrl = solution.decode(shortUrl);
+        assertEquals(longUrl, decodedLongUrl);
+    }
+
+    @Test
+    public void test_encode_decode_with_random_long_url() {
+        String randomLongUrl = "https://www.random-url.com/1234567890";
+        String shortUrl = solution.encode(randomLongUrl);
+        String decodedRandomLongUrl = solution.decode(shortUrl);
+        assertEquals(randomLongUrl, decodedRandomLongUrl);
+    }
+
+    @Test
+    public void test_encode_decode_with_short_url_1() {
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = solution.encode(longUrl);
+        String decodedShortUrl = solution.decode(shortUrl);
+        assertEquals(longUrl, decodedShortUrl);
+    }
+
+    @Test
+    public void test_encode_decode_with_long_url_1() {
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = solution.encode(longUrl);
+        String decodedLongUrl = solution.decode(shortUrl);
+        assertEquals(longUrl, decodedLongUrl);
+    }
+
+    @Test
+    public void test_encode_decode_with_long_url_2() {
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = solution.encode(longUrl);
+        String decodedLongUrl = solution.decode(shortUrl);
+        assertEquals(longUrl, decodedLongUrl);
+    }
+}

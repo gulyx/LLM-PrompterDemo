@@ -1,0 +1,35 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class TriangularSum {
+
+    public int triangularSum(int[] nums) {
+        while (nums.length > 1) {
+            int[] newNums = new int[nums.length - 1];
+            for (int i = 0; i < nums.length - 1; i++) {
+                newNums[i] = (nums[i] + nums[i+1]) % 10;
+            }
+            nums = newNums;
+        }
+        return nums[0];
+    }
+
+    @Test
+    public void testTriangularSum() {
+        int[] nums1 = {1,2,3,4,5};
+        assertEquals(8, triangularSum(nums1));
+
+        int[] nums2 = {5};
+        assertEquals(5, triangularSum(nums2));
+
+        int[] nums3 = {9, 5, 1};
+        assertEquals(8, triangularSum(nums3));
+
+        int[] nums4 = {7, 6, 3, 0, 3, 5, 8, 1, 2, 7, 9, 4, 0, 7, 8};
+        assertEquals(10, triangularSum(nums4));
+    }
+}
+```

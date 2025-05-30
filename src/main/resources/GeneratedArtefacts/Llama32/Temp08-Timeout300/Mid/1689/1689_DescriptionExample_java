@@ -1,0 +1,46 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1689;
+
+public class Solution {
+
+    public int minimumPartitions(String n) {
+        int result = Integer.MAX_VALUE;
+        for (int i = '0'; i <= n.charAt(0); i++) {
+            boolean valid = true;
+            long num = 0, power = 1;
+            for (int j = n.length() - 1; j >= 0 && valid; j--) {
+                int c = Character.getNumericValue(n.charAt(j));
+                if ((i == '1' || i == 0) && c > 1) {
+                    continue;
+                }
+                if (c > i) {
+                    valid = false;
+                    break;
+                }
+                num += c * power;
+                power *= 10;
+            }
+            result = Math.min(result, (int)num);
+        }
+        return result;
+    }
+
+    //--Example 1--
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.minimumPartitions("32"));
+    }
+
+    //--Example 2--
+    //public static void main(String[] args) {
+    //    Solution solution = new Solution();
+    //    System.out.println(solution.minimumPartitions("82734"));
+    //}
+
+    //--Example 3--
+    //public static void main(String[] args) {
+    //    Solution solution = new Solution();
+    //    System.out.println(solution.minimumPartitions("27346209830709182346"));
+    //}
+}
+```

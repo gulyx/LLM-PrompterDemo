@@ -1,0 +1,48 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1305;
+
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
+
+public class Solution {
+
+    public List<Integer> inorderTraversal(TreeNode root1, TreeNode root2) {
+        List<Integer> res = new ArrayList<>();
+        Deque<TreeNode> stack1 = new ArrayDeque<>();
+        Deque<TreeNode> stack2 = new ArrayDeque<>();
+
+        TreeNode temp = root1;
+        while (temp != null || !stack1.isEmpty()) {
+            if (temp != null) {
+                stack1.push(temp);
+                temp = temp.left;
+            } else {
+                temp = stack1.pop();
+                res.add(temp.val);
+                temp = temp.right;
+            }
+        }
+
+        temp = root2;
+        while (temp != null || !stack2.isEmpty()) {
+            if (temp != null) {
+                stack2.push(temp);
+                temp = temp.left;
+            } else {
+                temp = stack2.pop();
+                res.add(temp.val);
+                temp = temp.right;
+            }
+        }
+
+        return res;
+    }
+
+}
+```

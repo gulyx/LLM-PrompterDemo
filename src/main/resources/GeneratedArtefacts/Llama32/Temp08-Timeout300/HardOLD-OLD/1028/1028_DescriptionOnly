@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.*;
+
+public class Solution {
+    public TreeNode recoverFromPreorder(String traversal) {
+        int pointer = 0;
+        return buildTree(traversal, pointer);
+    }
+
+    private TreeNode buildTree(String traversal, int pointer) {
+        if (pointer >= traversal.length()) return null;
+
+        String str = "";
+        while (traversal.charAt(pointer) != '-' && traversal.charAt(pointer) != ' ') {
+            str += traversal.charAt(pointer);
+            pointer++;
+        }
+        int depth = Integer.parseInt(str);
+
+        TreeNode node = new TreeNode(Integer.parseInt(traversal.substring(pointer + 1, pointer + 1 + depth)));
+        if (traversal.charAt(pointer + 1 + depth) == '-') pointer += depth + 2;
+        else {
+            pointer++; // skip space
+            if (traversal.charAt(pointer) != 'L') throw new RuntimeException("Unexpected character in traversal string");
+            node.left = buildTree(traversal, pointer);
+            pointer++;
+        }
+        if (traversal.charAt(pointer) != 'R') throw new RuntimeException("Unexpected character in traversal string");
+        node.right = buildTree(traversal, pointer);
+        pointer++;
+
+        return node;
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode() {}
+    TreeNode(int val) { this.val = val; }
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}

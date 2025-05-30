@@ -1,0 +1,143 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2120;
+
+public class Solution {
+    public int[] executeInstructions(int n, int[] startPos, String s) {
+        boolean[][] visited = new boolean[n][n];
+        boolean[] stopped = new boolean[s.length()];
+        int[][][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int[] answer = new int[s.length()];
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+            boolean canMove = true;
+            for (int[] direction : directions) {
+                if ((startPos[0] + direction[0] < 0 || startPos[0] + direction[0] >= n) ||
+                        (startPos[1] + direction[1] < 0 || startPos[1] + direction[1] >= n)) {
+                    canMove = false;
+                    break;
+                }
+            }
+
+            if (!canMove) {
+                answer[i] = 0;
+                stopped[i] = true;
+                continue;
+            } else {
+                int[] currentPosition = new int[]{startPos[0], startPos[1]};
+                for (int j = i; j < s.length(); j++) {
+                    switch (s.charAt(j)) {
+                        case 'L':
+                            currentPosition[1]--;
+                            break;
+                        case 'R':
+                            currentPosition[1]++;
+                            break;
+                        case 'U':
+                            currentPosition[0]--;
+                            break;
+                        case 'D':
+                            currentPosition[0]++;
+                            break;
+                    }
+                    visited[currentPosition[0]][currentPosition[1]] = true;
+
+                    if ((i == j && canMove) || !canMove) {
+                        break;
+                    } else {
+                        answer[i] = j - i + 1;
+                    }
+                }
+
+                int[] position = currentPosition.clone();
+                for (int k = i; k < s.length(); k++) {
+                    switch (s.charAt(k)) {
+                        case 'L':
+                            if (position[0] > 0 && !visited[position[0] - 1][position[1]]) {
+                                answer[k]++;
+                                position[0]--;
+                            }
+                            break;
+                        case 'R':
+                            if (position[0] < n - 1 && !visited[position[0] + 1][position[1]]) {
+                                answer[k]++;
+                                position[0]++;
+                            }
+                            break;
+                        case 'U':
+                            if (position[1] > 0 && !visited[position[0]][position[1] - 1]) {
+                                answer[k]++;
+                                position[1]--;
+                            }
+                            break;
+                        case 'D':
+                            if (position[1] < n - 1 && !visited[position[0]][position[1] + 1]) {
+                                answer[k]++;
+                                position[1]++;
+                            }
+                            break;
+                    }
+                }
+
+            }
+        }
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (!stopped[i]) {
+                int[] currentPosition = new int[]{startPos[0], startPos[1]};
+                for (int j = i; j < s.length(); j++) {
+                    switch (s.charAt(j)) {
+                        case 'L':
+                            currentPosition[1]--;
+                            break;
+                        case 'R':
+                            currentPosition[1]++;
+                            break;
+                        case 'U':
+                            currentPosition[0]--;
+                            break;
+                        case 'D':
+                            currentPosition[0]++;
+                            break;
+                    }
+                    if ((i == j && canMove) || !canMove) {
+                        break;
+                    } else {
+                        answer[i] = j - i + 1;
+                    }
+                }
+
+                int[] position = currentPosition.clone();
+                for (int k = i; k < s.length(); k++) {
+                    switch (s.charAt(k)) {
+                        case 'L':
+                            if (position[0] > 0 && !visited[position[0] - 1][position[1]]) {
+                                answer[k]++;
+                                position[0]--;
+                            }
+                            break;
+                        case 'R':
+                            if (position[0] < n - 1 && !visited[position[0] + 1][position[1]]) {
+                                answer[k]++;
+                                position[0]++;
+                            }
+                            break;
+                        case 'U':
+                            if (position[1] > 0 && !visited[position[0]][position[1] - 1]) {
+                                answer[k]++;
+                                position[1]--;
+                            }
+                            break;
+                        case 'D':
+                            if (position[1] < n - 1 && !visited[position[0]][position[1] + 1]) {
+                                answer[k]++;
+                                position[1]++;
+                            }
+                            break;
+                    }
+                }
+
+            }
+        }
+
+        return answer;
+    }
+}

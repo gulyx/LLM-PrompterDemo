@@ -1,0 +1,35 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1368;
+
+public class Solution {
+    int m, n;
+    public int minCost(int[][] grid) {
+        this.m = grid.length;
+        this.n = grid[0].length;
+        
+        boolean[][] visited = new boolean[m][n];
+        int[] dx = {-1, 1, 0, 0};
+        int[] dy = {0, 0, -1, 1};
+        
+        return dfs(grid, visited, 0, 0, dx, dy);
+    }
+    
+    private int dfs(int[][] grid, boolean[][] visited, int i, int j, int[] dx, int[] dy){
+        if(i < 0 || i >= m || j < 0 || j >= n) return 1_000_000_000;
+        
+        int cost = grid[i][j];
+        if(cost != -1){
+            visited[i][j] = true;
+            
+            for(int k=0; k<4; k++){
+                int ni = i + dx[k];
+                int nj = j + dy[k];
+                if(!visited[ni][nj]){
+                    cost += dfs(grid, visited, ni, nj, dx, dy);
+                    break;
+                }
+            }
+        }
+        
+        return cost;
+    }
+}

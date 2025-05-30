@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1823;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1823.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1823_DescriptionOnly_testsTest {
+
+    @Test
+    public void testExample1() {
+        Solution s = new Solution();
+        int n = 5;
+        int k = 2;
+        assertEquals(4, s.friendNumberGame(n, k));
+    }
+
+    @Test
+    public void testExample2() {
+        Solution s = new Solution();
+        int n = 10;
+        int k = 3;
+        assertEquals(0, s.friendNumberGame(n, k));
+    }
+
+    @Test
+    public void testExample3() {
+        Solution s = new Solution();
+        int n = 500;
+        int k = 251;
+        assertEquals(1, s.friendNumberGame(n, k));
+    }
+
+    @Test
+    public void testConstraints_2() {
+        Solution s = new Solution();
+        int n = 5;
+        int k = 1;
+        assertEquals(0, s.friendNumberGame(n, k));
+    }
+
+    @Test
+    public void testConstraints_4() {
+        Solution s = new Solution();
+        int n = 6;
+        int k = 2;
+        assertEquals(3, s.friendNumberGame(n, k));
+    }
+}

@@ -1,0 +1,96 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    public Node constructNode(int val) {
+        return new Node(val);
+    }
+
+    public class Node {
+        int val;
+        Node left;
+        Node right;
+        Node() {}
+        Node(int val) { this.val = val; }
+        Node(int val, Node left, Node right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    @Test
+    public void testConvertToGreaterTree() {
+        Node root = constructNode(4);
+        root.left = constructNode(1);
+        root.right = constructNode(6);
+        root.left.left = constructNode(0);
+        root.left.right = constructNode(2);
+        root.right.right = constructNode(7);
+
+        GreaterTree greaterTree = new GreaterTree();
+        greaterTree.convertToGreaterTree(root);
+
+        Node expectedRoot = constructNode(30);
+        expectedRoot.left = constructNode(36);
+        expectedRoot.right = constructNode(21);
+        expectedRoot.left.left = constructNode(35);
+        expectedRoot.left.right = constructNode(26);
+        expectedRoot.left.left.left = constructNode(15);
+        expectedRoot.right.right = constructNode(33);
+
+        assertEquals(expectedRoot, greaterTree.root);
+    }
+
+    @Test
+    public void testConvertToGreaterTree_LowerBound() {
+        Node root = constructNode(0);
+        root.right = constructNode(1);
+
+        GreaterTree greaterTree = new GreaterTree();
+        greaterTree.convertToGreaterTree(root);
+
+        Node expectedRoot = constructNode(1);
+        expectedRoot.right = constructNode(1);
+
+        assertEquals(expectedRoot, greaterTree.root);
+    }
+
+    @Test
+    public void testConvertToGreaterTree_NoChildren() {
+        Node root = constructNode(0);
+
+        GreaterTree greaterTree = new GreaterTree();
+        greaterTree.convertToGreaterTree(root);
+
+        assertEquals(null, greaterTree.root.left);
+        assertEquals(null, greaterTree.root.right);
+    }
+
+    @Test
+    public void testConvertToGreaterTree_SingleElement() {
+        Node root = constructNode(1);
+
+        GreaterTree greaterTree = new GreaterTree();
+        greaterTree.convertToGreaterTree(root);
+
+        Node expectedRoot = constructNode(1);
+
+        assertEquals(expectedRoot, greaterTree.root);
+    }
+
+    @Test
+    public void testConvertToGreaterTree_EmptyTree() {
+        Node root = null;
+
+        GreaterTree greaterTree = new GreaterTree();
+        greaterTree.convertToGreaterTree(root);
+
+        assertEquals(null, greaterTree.root);
+    }
+}
+```

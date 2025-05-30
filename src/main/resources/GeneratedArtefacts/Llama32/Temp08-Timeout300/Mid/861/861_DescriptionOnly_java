@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.861;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Solution {
+    public int maxScore(int[][] grid) {
+        Map<String, Integer> counts = new HashMap<>();
+        for (int i = 0; i < grid.length; i++) {
+            StringBuilder row = new StringBuilder();
+            for (int j = 0; j < grid[i].length; j++) {
+                row.append(grid[i][j]);
+            }
+            counts.put(row.toString(), counts.getOrDefault(row.toString(), 0) + 1);
+        }
+
+        for (int j = 0; j < grid[0].length; j++) {
+            StringBuilder col = new StringBuilder();
+            for (int i = 0; i < grid.length; i++) {
+                col.append(grid[i][j]);
+            }
+            counts.put(col.toString(), counts.getOrDefault(col.toString(), 0) + 1);
+        }
+
+        int maxScore = 0;
+        for (Map.Entry<String, Integer> entry : counts.entrySet()) {
+            String binary = entry.getKey();
+            int count = entry.getValue();
+
+            if ((binary.startsWith("1") ? 1 : 0) * count > maxScore) {
+                maxScore = (binary.startsWith("1") ? 1 : 0) * count;
+            }
+        }
+
+        return maxScore;
+    }
+}

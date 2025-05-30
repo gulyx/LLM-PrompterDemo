@@ -1,0 +1,50 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1008;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1008.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+public class 1008_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] preorder = { 15,10,5,12,6,4,7 };
+        Object actualRoot = solution.bstFromPreorder(preorder);
+        assertEquals(15, ((Solution.Node)actualRoot).val);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] preorder = { 3,9,20,15 };
+        Object actualRoot = solution.bstFromPreorder(preorder);
+        assertEquals(3, ((Solution.Node)actualRoot).val);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] preorder = { 5,4,6,2 } ;
+        Object actualRoot = solution.bstFromPreorder(preorder);
+        assertNull(actualRoot);
+    }
+
+    @Test 
+    public void test4() {
+        Solution solution = new Solution();
+        int[] preorder = {};
+        Object actualRoot = solution.bstFromPreorder(preorder);
+        assertNull(actualRoot);
+    }
+    
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] preorder = {1, 2,3 };
+        Object actualRoot = solution.bstFromPreorder(preorder);
+        assertEquals(1, ((Solution.Node)actualRoot).val);
+    }
+
+}

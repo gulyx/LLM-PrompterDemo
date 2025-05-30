@@ -1,0 +1,38 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1689;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1689.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 1689_DescriptionExample_testsTest {
+
+    @Test
+    public void test_1() {
+        Solution solution = new Solution();
+        assertEquals(3, solution.minPartitions("32"));
+    }
+
+    @Test
+    public void test_2() {
+        Solution solution = new Solution();
+        assertEquals(8, solution.minPartitions("82734"));
+    }
+
+    @Test
+    public void test_3() {
+        Solution solution = new Solution();
+        assertEquals(9, solution.minPartitions("27346209830709182346"));
+    }
+
+    @Test
+    public void test_4() {
+        Solution solution = new Solution();
+        assertEquals(13, solution.minPartitions("20"));
+    }
+
+    @Test
+    public void test_5() {
+        Solution solution = new Solution();
+        assertEquals(6, solution.minPartitions("12"));
+    }
+}

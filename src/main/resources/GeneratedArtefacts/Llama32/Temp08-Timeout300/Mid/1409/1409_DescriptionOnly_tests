@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1409;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1409.Solution;
+
+public class 1409_DescriptionOnly_testsTest {
+
+    Solution solution = new Solution();
+
+    @Test
+    public void test1() {
+        int[] queries = {2,1};
+        int expectedOutput = [0,1];
+        assertArrayEquals(solution.processQueries(queries), expectedOutput);
+    }
+
+    @Test
+    public void test2() {
+        int[] queries = {3, 3, 3, 3, 3, 3, 4};
+        int expectedOutput = [9, 7, 6, 5, 4, 3, 0];
+        assertArrayEquals(solution.processQueries(queries), expectedOutput);
+    }
+
+    @Test
+    public void test3() {
+        int[] queries = {1, 2, 3};
+        int expectedOutput = [3, 2, 1];
+        assertArrayEquals(solution.processQueries(queries), expectedOutput);
+    }
+
+    @Test
+    public void test4() {
+        int[] queries = {};
+        int expectedOutput = [];
+        assertArrayEquals(solution.processQueries(queries), expectedOutput);
+    }
+
+    @Test
+    public void test5() {
+        int[] queries = {1, 2};
+        int expectedOutput = [2, 1];
+        assertArrayEquals(solution.processQueries(queries), expectedOutput);
+    }
+}

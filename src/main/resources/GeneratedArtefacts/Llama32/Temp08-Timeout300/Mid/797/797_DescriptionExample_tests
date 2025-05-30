@@ -1,0 +1,51 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.797;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.797.Solution;
+import org.junit.Test;
+import java.util.Arrays;
+import static org.junit.Assert.*;
+
+public class Solution_testsTest {
+
+    @Test
+    public void testAllPaths() {
+        int[][] graph = {{1,2},{3},{3},{}};
+        String result = new Solution().allPaths(graph);
+        assertNotNull(result);
+        assertTrue(result.contains("[0,1,3],"));
+        assertTrue(result.contains("[0,2,3],"));
+    }
+
+    @Test
+    public void testAllPathsOneNode() {
+        int[][] graph = {{}};
+        String result = new Solution().allPaths(graph);
+        assertNotNull(result);
+        assertTrue(result.contains("[0],"));
+    }
+
+    @Test
+    public void testAllPathsMultipleNodes() {
+        int[][] graph = {{1,2},{3},{3},{{4}}};
+        String result = new Solution().allPaths(graph);
+        assertNotNull(result);
+        assertTrue(result.contains("[0,1,3,4],"));
+        assertTrue(result.contains("[0,1,2,3,4],"));
+    }
+
+    @Test
+    public void testAllPathsNoNodes() {
+        int[][] graph = {};
+        String result = new Solution().allPaths(graph);
+        assertNotNull(result);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testAllPathsEmptyList() {
+        int[][] graph = {{}, {}};
+        String result = new Solution().allPaths(graph);
+        assertNotNull(result);
+        assertTrue(result.isEmpty());
+    }
+}

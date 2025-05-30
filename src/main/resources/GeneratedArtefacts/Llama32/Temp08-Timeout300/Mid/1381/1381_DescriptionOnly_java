@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1381;
+
+import java.util.*;
+
+public class Solution {
+    private int maxSize;
+    private Deque<Integer> stack;
+
+    public Solution(int maxSize) {
+        this.maxSize = maxSize;
+        stack = new ArrayDeque<>();
+    }
+
+    public void push(int x) {
+        if (stack.size() < maxSize) {
+            stack.offer(x);
+        }
+    }
+
+    public int pop() {
+        if (!stack.isEmpty()) {
+            return stack.poll();
+        } else {
+            return -1;
+        }
+    }
+
+    public void inc(int k, int val) {
+        for (int i = 0; i < Math.min(k, stack.size()); i++) {
+            stack.offer(stack.poll() + val);
+        }
+    }
+
+    private int getMinElementsInStack() {
+        int min = Integer.MAX_VALUE;
+        Deque<Integer> newDeque = new ArrayDeque<>();
+        for (Integer element : stack) {
+            if (element < min) {
+                min = element;
+                newDeque.offer(min);
+            } else if (element == min) {
+                newDeque.offer(min);
+            }
+        }
+
+        return newDeque.size();
+    }
+}

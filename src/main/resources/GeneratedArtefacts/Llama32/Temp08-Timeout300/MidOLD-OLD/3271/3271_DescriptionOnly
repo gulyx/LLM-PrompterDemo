@@ -1,0 +1,60 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 3271_DescriptionOnly {
+
+    @Test
+    public void test_Example1() {
+        String s = "leETcoDe";
+        int k = 3;
+        assertEquals("lec", solve(s, k));
+    }
+
+    @Test
+    public void test_Example2() {
+        String s = "rHy4P6e9q";
+        int k = 8;
+        assertEquals("hy4p6e", solve(s, k));
+    }
+
+    @Test
+    public void test_DivisibleByK() {
+        String s = "ab";
+        int k = 2;
+        assertEquals("a", solve(s, k));
+    }
+
+    @Test
+    public void test_InvalidInput() {
+        String s = "abc";
+        int k = 0;
+        assertNull(solve(s, k));
+    }
+
+    @Test
+    public void test_EmptyString() {
+        String s = "";
+        int k = 1;
+        assertEquals("", solve(s, k));
+    }
+}
+
+public class Solution {
+
+    public String solve(String s, int k) {
+        StringBuilder result = new StringBuilder();
+        for (int i=0; i < s.length(); i+=k){
+            StringBuilder substring = new StringBuilder(s.substring(i,k));
+            int sum = 0;
+            for(int j=0;j<substring.length();j++){
+                char c = substring.charAt(j);
+                sum += c-'a';
+            }
+            sum %= 26;
+            result.append((char) ('a'+sum));
+        }
+        return result.toString();
+    }
+}

@@ -1,0 +1,65 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1315;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1315.Solution;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void testSumEvenGrandparent() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(6);
+        root.left = new TreeNode(7);
+        root.right = new TreeNode(8);
+        root.left.left = new TreeNode(2);
+        root.left.right = new TreeNode(7);
+        root.right.right = new TreeNode(1);
+        root.left.left.left = new TreeNode(3);
+        root.left.left.right = new TreeNode(9);
+        root.left.left.left.left = new TreeNode(1);
+        root.left.left.left.right = new TreeNode(4);
+        root.left.left.left.left.left = new TreeNode(5);
+
+        int result = solution.sumEvenGrandparent(root);
+        assertEquals(18, result);
+    }
+
+    @Test
+    public void testSumEvenGrandparentNoNodes() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+
+        int result = solution.sumEvenGrandparent(root);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testSumEvenGrandparentEmptyTree() {
+        Solution solution = new Solution();
+        TreeNode root = null;
+
+        int result = solution.sumEvenGrandparent(root);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testSumEvenGrandparentOneNode() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+
+        int result = solution.sumEvenGrandparent(root);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testSumEvenGrandparentMultipleNodes() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(6);
+        root.left = new TreeNode(7);
+        root.right = new TreeNode(8);
+        root.left.left = new TreeNode(2);
+
+        int result = solution.sumEvenGrandparent(root);
+        assertEquals(0, result);
+    }
+
+}

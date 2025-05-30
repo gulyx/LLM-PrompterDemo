@@ -1,0 +1,22 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1823;
+
+public class Solution {
+    public int findTheWinner(int n, int k) {
+        int[] players = new int[n];
+        for (int i = 0; i < n; ++i)
+            players[i] = i + 1;
+        while (n > 1) {
+            int indexToEliminate = (k - 1 + players.length - 1) % players.length;
+            players = eliminatePlayer(players, indexToEliminate);
+            --n;
+        }
+        return players[0];
+    }
+
+    private static int[] eliminatePlayer(int[] players, int indexToEliminate) {
+        int[] newPlayers = new int[players.length - 1];
+        System.arraycopy(players, 0, newPlayers, 0, indexToEliminate);
+        System.arraycopy(players, indexToEliminate + 1, newPlayers, indexToEliminate, players.length - indexToEliminate - 1);
+        return newPlayers;
+    }
+}

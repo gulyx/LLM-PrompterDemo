@@ -1,0 +1,58 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1630;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1630.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class 1630_DescriptionOnly_testsTest {
+
+    @Test
+    public void testArithmeticSequence() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3,4};
+        int[][] l = {{0,1}};
+        int[][] r = {{0,1}};
+        boolean[] answer = solution.checkArithmeticSubarrays(nums,l,r);
+        assertTrue(answer[0]);
+    }
+
+    @Test
+    public void testNotArithmeticSequence() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3,4};
+        int[][] l = {{0,1},{0,1}};
+        int[][] r = {{0,1},{0,1}};
+        boolean[] answer = solution.checkArithmeticSubarrays(nums,l,r);
+        assertFalse(answer[0]);
+    }
+
+    @Test
+    public void testEmptyRange() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3,4};
+        int[][] l = {{0,0}};
+        int[][] r = {{0,0}};
+        boolean[] answer = solution.checkArithmeticSubarrays(nums,l,r);
+        assertTrue(answer[1]);
+    }
+
+    @Test
+    public void testNoCommonRange() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3,4};
+        int[][] l = {{0,1},{0,2}};
+        int[][] r = {{1,2},{1,2}};
+        boolean[] answer = solution.checkArithmeticSubarrays(nums,l,r);
+        assertFalse(answer[0]);
+    }
+
+    @Test
+    public void testEmptySequence() {
+        Solution solution = new Solution();
+        int[] nums = {};
+        int[][] l = {};
+        int[][] r = {};
+        boolean[] answer = solution.checkArithmeticSubarrays(nums,l,r);
+        assertTrue(answer.length == 1 && answer[0]);
+    }
+}

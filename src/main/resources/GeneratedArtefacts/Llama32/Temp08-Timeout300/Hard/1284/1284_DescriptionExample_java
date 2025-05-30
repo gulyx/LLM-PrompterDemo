@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1284;
+
+public class Solution {
+    public int minFlips(int[][] mat) {
+        if (mat[0][0] == 0) return 0;
+        boolean zero = true, one = false, first = false, last = false;
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[i].length; j++) {
+                if (mat[i][j] == 1) {
+                    if (zero) zero = false;
+                    else if (!one && first) one = true;
+                    else if (first && !last) last = true;
+                }
+            }
+        }
+        return one ? -1 : ((last) ? mat.length + mat[0].length - 2 : mat.length + mat[0].length);
+    }
+
+    [--Example 1--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[][] mat = {{0,0},{0,1}};
+        System.out.println(solution.minFlips(mat));
+    }
+    [--Example 2--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[][] mat = {{0}};
+        System.out.println(solution.minFlips(mat));
+    }
+    [--Example 3--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[][] mat = {{1,0,0},{1,0,0}};
+        System.out.println(solution.minFlips(mat));
+    }

@@ -1,0 +1,22 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2079;
+
+public class Solution {
+    public int wateringPlants(int[] plants, int capacity) {
+        if (plants.length == 0 || capacity == 0) return 0;
+        int steps = 0;
+        int water = capacity;
+        for (int i = 0; i < plants.length; i++) {
+            int plantWaterNeeded = plants[i];
+            if (water >= plantWaterNeeded) {
+                steps += 2 * i + 1;
+                water -= plantWaterNeeded;
+            } else {
+                water = capacity;
+                steps += 2 * i + 1;
+            }
+        }
+        return steps;
+    }
+}
+```

@@ -1,0 +1,53 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.*;
+
+public class DescriptionExampleTest {
+
+    public void testHappyString(int n, int k) {
+        String[] result = generateHappyStrings(n);
+        if (result.length >= k) {
+            System.out.println(result[k-1]);
+        } else {
+            System.out.println("");
+        }
+    }
+
+    private String[] generateHappyStrings(int n) {
+        List<String> happyStrings = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            if (n == 1 && i != 2) {
+                happyStrings.add((char)('a' + i));
+            } else if (n == 10 && i != 9) {
+                happyStrings.add(generateHappyString(n - 1, i));
+            } else {
+                for (int j = 0; j < n; j++) {
+                    char c = (char)('a' + j % 3);
+                    if (j > 0 && c == generateHappyString(j-1).charAt(0)) {
+                        continue;
+                    }
+                    happyStrings.add(String.valueOf(c));
+                }
+            }
+        }
+        Collections.sort(happyStrings);
+        return happyStrings.toArray(new String[0]);
+    }
+
+    private char generateHappyString(int n, int i) {
+        if (n == 1) {
+            return (char)('a' + i);
+        } else {
+            char[] chars = new char[n];
+            for (int j = 0; j < n - 1; j++) {
+                chars[j] = generateHappyString(j, i).charAt(0);
+                if (chars[j] == chars[j+1]) {
+                    return "";
+                }
+            }
+            chars[0] = 'a';
+            return new String(chars);
+        }
+    }
+
+}

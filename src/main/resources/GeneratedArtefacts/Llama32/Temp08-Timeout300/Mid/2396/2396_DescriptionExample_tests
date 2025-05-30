@@ -1,0 +1,40 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2396;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2396.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExample_testsTest {
+
+    @Test
+    public void testIsStrictlyPalindromic_WhenInputIs9_ReturnsFalse() {
+        Solution solution = new Solution();
+        assertTrue(!solution.isStrictlyPalindromic(9));
+    }
+
+    @Test
+    public void testIsStrictlyPalindromic_WhenInputIs4_ReturnsFalse() {
+        Solution solution = new Solution();
+        assertFalse(solution.isStrictlyPalindromic(4));
+    }
+
+    @Test
+    public void testIsStrictlyPalindromic_WhenInputIs23_ReturnsTrue() {
+        Solution solution = new Solution();
+        assertTrue(solution.isStrictlyPalindromic(23));
+    }
+
+    @Test
+    public void testIsStrictlyPalindromic_WhenInputIs24_ReturnsFalse() {
+        Solution solution = new Solution();
+        assertFalse(solution.isStrictlyPalindromic(24));
+    }
+
+    @Test
+    public void testIsStrictlyPalindromic_WhenInputIs25_ReturnsTrue() {
+        Solution solution = new Solution();
+        assertTrue(solution.isStrictlyPalindromic(25));
+    }
+}
+```

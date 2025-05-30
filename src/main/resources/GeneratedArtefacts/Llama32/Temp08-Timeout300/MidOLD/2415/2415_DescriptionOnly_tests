@@ -1,0 +1,96 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.*;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class2415_DescriptionOnlyTest {
+
+    @Before
+    public void setUp() {
+    }
+
+    @Test
+    public void testLevelOrderTraversalReturnsArraySameSizeAsRootNodeValue() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+
+        List<List<Integer>> expected = new ArrayList<>();
+        List<Integer> level1 = Arrays.asList(1);
+        expected.add(level1);
+
+        List<Integer> level2 = Arrays.asList(3, 2, 4, 5, 6, 7);
+        expected.add(level2);
+
+        TreeNode actualRoot = reverseOddLevel(root);
+        assertEquals(expected, levelOrderTraversal(actualRoot));
+    }
+
+    @Test
+    public void testLevelOrderTraversalReturnsEmptyListForEmptyTree() {
+        TreeNode root = null;
+        List<List<Integer>> expected = new ArrayList<>();
+
+        List<List<Integer>> result = levelOrderTraversal(root);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testReversingNodeValueAtOddLevelsDoesNotChangeParentNodesOrLeafs() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+
+        reverseOddLevel(root);
+
+        assertEquals(new ArrayList<>(Arrays.asList(1, 2)), levelOrderTraversal(root.left).get(0));
+        assertEquals(Arrays.asList(3), levelOrderTraversal(root.left.right).get(0));
+    }
+
+    @Test
+    public void testReversingNodeValueAtOddLevelsDoesNotChangeRootNodesOrLeftChilds() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(3);
+        root.left.right = new TreeNode(4);
+
+        reverseOddLevel(root);
+
+        assertEquals(new ArrayList<>(Arrays.asList(1)), levelOrderTraversal(root));
+        assertEquals(Arrays.asList(2), levelOrderTraversal(root.left).get(0));
+    }
+
+    @Test
+    public void testReversingNodeValueAtOddLevelsReturnsCorrectlyRootedTree() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        reverseOddLevel(root);
+
+        assertEquals(new ArrayList<>(Arrays.asList(1)), levelOrderTraversal(root).get(0));
+    }
+}
+
+class TreeNode{
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    public TreeNode (int val) {
+      this.val = val;
+      this.left = null;
+      this.right = null;
+    }
+}
+```

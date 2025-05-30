@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2482;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2482.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class 2482_DescriptionExample_testsTest {
+
+    @Test
+    public void test_Solution_given_grid_with_ones_and_zeros_returns_diff_matrix() {
+        Solution solution = new Solution();
+        int[][] grid = {{0,1,1},{1,0,1},{0,0,1}};
+        int[][] diff = solution.diff(grid);
+        assertEquals(new int[][]{{0, 0, 4}, {0, 0, 4}, {-2, -2, 2}}, diff);
+    }
+
+    @Test
+    public void test_Solution_given_grid_with_all_ones_returns_diff_matrix() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,1,1},{1,1,1}};
+        int[][] diff = solution.diff(grid);
+        assertEquals(new int[][]{{5, 5, 5}, {5, 5, 5}}, diff);
+    }
+
+    @Test
+    public void test_Solution_given_grid_with_ones_and_zeros_in_rows_returns_diff_matrix() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,0},{0,1},{1,1}};
+        int[][] diff = solution.diff(grid);
+        assertEquals(new int[][]{{2, 1}, {1, 2}}, diff);
+    }
+
+    @Test
+    public void test_Solution_given_grid_with_ones_and_zeros_in_columns_returns_diff_matrix() {
+        Solution solution = new Solution();
+        int[][] grid = {{0,1},{1,0}};
+        int[][] diff = solution.diff(grid);
+        assertEquals(new int[][]{{1, 1}, {1, 1}}, diff);
+    }
+
+    @Test
+    public void test_Solution_given_grid_with_empty_rows_returns_diff_matrix() {
+        Solution solution = new Solution();
+        int[][] grid = {{0},{0},{0}};
+        int[][] diff = solution.diff(grid);
+        assertEquals(new int[][]{{2, 0}, {0, 2}}, diff);
+    }
+}
+```

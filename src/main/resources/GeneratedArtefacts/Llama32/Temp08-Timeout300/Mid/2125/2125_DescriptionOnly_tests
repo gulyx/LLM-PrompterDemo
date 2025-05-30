@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2125;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2125.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 2125_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int result = solution numberOfBeams(new String[] {"00000", "11111", "11111", "00000"});
+        assertEquals(10, result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int result = solution.numberOfBeams(new String[] {"10101", "11111", "10000"});
+        assertEquals(8, result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int result = solution.numberOfBeams(new String[] {"00000", "11111", "01110", "10000"});
+        assertEquals(6, result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int result = solution.numberOfBeams(new String[] {"10101", "10111", "11111", "00000"});
+        assertEquals(8, result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int result = solution.numberOfBeams(new String[] {"11000", "10010", "01010", "00001"});
+        assertEquals(0, result);
+    }
+}

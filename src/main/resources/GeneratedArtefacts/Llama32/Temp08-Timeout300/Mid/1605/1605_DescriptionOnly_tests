@@ -1,0 +1,83 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1605;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1605.Solution;
+
+public class 1605_DescriptionOnly_testsTest {
+
+    public Solution solution;
+
+    @org.junit.Test
+    public void test1() {
+        int[][] rowSum = {{15}, {10}};
+        int[][] colSum = {{6}, {11}};
+        int[][] expected = {{4,7},{8,3}};
+        Solution solution = new Solution();
+        for (int i=0;i<rowSum.length;i++){
+            for(int j=0;j<colSum[0].length;j++){
+                if(rowSum[i][0]!=solution.getMatrix(i)[j] || colSum[0][j]!=solution.getMatrix()[i][j]){
+                    throw new org.junit.Assert.fail("Test failed: Row "+ i +" Col "+ j);
+                }
+            }
+        }
+    }
+
+    @org.junit.Test
+    public void test2() {
+        int[][] rowSum = {{3, 8}};
+        int[][] colSum = {{4}, {7}};
+        int[][] expected = {{1, 8},{3, 7}};
+        Solution solution = new Solution();
+        for (int i=0;i<rowSum.length;i++){
+            for(int j=0;j<colSum[0].length;j++){
+                if(rowSum[i][0]!=solution.getMatrix(i)[j] || colSum[0][j]!=solution.getMatrix()[i][j]){
+                    throw new org.junit.Assert.fail("Test failed: Row "+ i +" Col "+ j);
+                }
+            }
+        }
+    }
+
+    @org.junit.Test
+    public void test3() {
+        int[][] rowSum = {{2}, {1}};
+        int[][] colSum = {{3}, {5}};
+        int[][] expected = {{3, 2},{1, 5}};
+        Solution solution = new Solution();
+        for (int i=0;i<rowSum.length;i++){
+            for(int j=0;j<colSum[0].length;j++){
+                if(rowSum[i][0]!=solution.getMatrix(i)[j] || colSum[0][j]!=solution.getMatrix()[i][j]){
+                    throw new org.junit.Assert.fail("Test failed: Row "+ i +" Col "+ j);
+                }
+            }
+        }
+    }
+
+    @org.junit.Test
+    public void test4() {
+        int[][] rowSum = {{1}};
+        int[][] colSum = {{2}, {3}};
+        int[][] expected = {{1, 1},{1, 2}};
+        Solution solution = new Solution();
+        for (int i=0;i<rowSum.length;i++){
+            for(int j=0;j<colSum[0].length;j++){
+                if(rowSum[i][0]!=solution.getMatrix(i)[j] || colSum[0][j]!=solution.getMatrix()[i][j]){
+                    throw new org.junit.Assert.fail("Test failed: Row "+ i +" Col "+ j);
+                }
+            }
+        }
+    }
+
+    @org.junit.Test
+    public void test5() {
+        int[][] rowSum = {{12}, {8}};
+        int[][] colSum = {{9}, {15}};
+        int[][] expected = {{3, 6},{4, 7}};
+        Solution solution = new Solution();
+        for (int i=0;i<rowSum.length;i++){
+            for(int j=0;j<colSum[0].length;j++){
+                if(rowSum[i][0]!=solution.getMatrix(i)[j] || colSum[0][j]!=solution.getMatrix()[i][j]){
+                    throw new org.junit.Assert.fail("Test failed: Row "+ i +" Col "+ j);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,106 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Test;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testInsertGCD() {
+        ListNode head = new ListNode(18);
+        head.next = new ListNode(6);
+        head.next.next = new ListNode(10);
+        head.next.next.next = new ListNode(3);
+
+        Solution solution = new Solution();
+        ListNode result = solution.insertionSortList(head);
+
+        while (result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+    }
+
+    @Test
+    public void testInsertGCD_SingleNode() {
+        ListNode head = new ListNode(7);
+        Solution solution = new Solution();
+        ListNode result = solution.insertionSortList(head);
+
+        while (result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+    }
+
+    @Test
+    public void testInsertGCD_EmptyList() {
+        ListNode head = null;
+        Solution solution = new Solution();
+        ListNode result = solution.insertionSortList(head);
+
+        assertThrows(NullPointerException.class, () -> result);
+    }
+
+    @Test
+    public void testInsertGCD_NullHead() {
+        ListNode head = null;
+        Solution solution = new Solution();
+        ListNode result = solution.insertionSortList(head);
+
+        assertThrows(NullPointerException.class, () -> result);
+    }
+
+    @Test
+    public void testInsertGCD_ValuesEqual() {
+        ListNode head = new ListNode(10);
+        Solution solution = new Solution();
+        ListNode result = solution.insertionSortList(head);
+
+        while (result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+    }
+
+    private static class ListNode {
+        int val;
+        ListNode next;
+
+        public ListNode(int val) {
+            this.val = val;
+        }
+    }
+
+    private static class Solution {
+
+        public ListNode insertionSortList(ListNode head) {
+            if (head == null || head.next == null) return head;
+            ListNode dummy = new ListNode(0);
+            dummy.next = head;
+            ListNode current = head;
+            while (current != null && current.next != null) {
+                if (current.val <= current.next.val) {
+                    current = current.next;
+                } else {
+                    ListNode runner = dummy;
+                    while (runner.next != current) {
+                        runner = runner.next;
+                    }
+                    int tempVal = current.val;
+                    current.val = current.next.val;
+                    current.next.val = tempVal;
+
+                    while (runner.next != null && runner.next.val == tempVal) {
+                        runner = runner.next;
+                    }
+                }
+            }
+
+            return dummy.next;
+        }
+    }
+}
+```

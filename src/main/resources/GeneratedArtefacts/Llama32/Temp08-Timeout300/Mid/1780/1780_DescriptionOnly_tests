@@ -1,0 +1,39 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1780;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class 1780_DescriptionOnly_testsTest {
+
+    @Test
+    public void test_n_is_3() {
+        Solution solution = new Solution();
+        assertTrue(solution.descriptionOnly(3));
+    }
+
+    @Test
+    public void test_n_is_not_sum_of_distinct_powers_of_three() {
+        Solution solution = new Solution();
+        assertFalse(solution.descriptionOnly(1));
+    }
+
+    @Test
+    public void test_n_is_2_and_powers_of_3_is_9() {
+        Solution solution = new Solution();
+        assertTrue(solution.descriptionOnly(9));
+    }
+
+    @Test
+    public void test_n_is_not_sum_of_distinct_powers_of_three_2() {
+        Solution solution = new Solution();
+        assertFalse(solution.descriptionOnly(7));
+    }
+
+    @Test
+    public void test_n_is_sum_of_distinct_powers_of_three() {
+        Solution solution = new Solution();
+        assertTrue(solution.descriptionOnly(28));
+    }
+}
+```

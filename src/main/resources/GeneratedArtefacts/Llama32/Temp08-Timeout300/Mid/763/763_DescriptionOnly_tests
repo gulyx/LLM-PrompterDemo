@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.763;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.763.Solution;
+
+public class DescriptionOnlyTestsTest {
+
+    public void testExample1() {
+        Solution solution = new Solution();
+        int[] result = solution.descriptionOnly("ababcc");
+        assertArrayEquals(new int[]{3, 1}, result);
+    }
+
+    public void testInvalidPartition1() {
+        Solution solution = new Solution();
+        int[] result = solution.descriptionOnly("aba");
+        assertArrayEquals(new int[]{1, 2}, result);
+    }
+
+    public void testInvalidPartition2() {
+        Solution solution = new Solution();
+        int[] result = solution.descriptionOnly("aabbcc");
+        assertArrayEquals(new int[]{3, 2}, result);
+    }
+
+    public void testEmptyString() {
+        Solution solution = new Solution();
+        int[] result = solution.descriptionOnly("");
+        assertArrayEquals(new int[]{0}, result);
+    }
+
+    public void testSingleChar() {
+        Solution solution = new Solution();
+        int[] result = solution.descriptionOnly("a");
+        assertArrayEquals(new int[]{1}, result);
+    }
+}

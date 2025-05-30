@@ -1,0 +1,40 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testGenerateValidBinaryStrings_n_3() {
+        List<String> result = generateValidBinaryStrings(3);
+        assertEquals(Arrays.asList("010", "011", "101", "110", "111"), result);
+    }
+
+    @Test
+    public void testGenerateValidBinaryStrings_n_1() {
+        List<String> result = generateValidBinaryStrings(1);
+        assertEquals(Arrays.asList("0", "1"), result);
+    }
+
+    @Test
+    public void testGenerateValidBinaryStrings_n_2() {
+        List<String> result = generateValidBinaryStrings(2);
+        assertEquals(Arrays.asList("00", "01", "10", "11"), result);
+    }
+
+    @Test
+    public void testGenerateValidBinaryStrings_n_4() {
+        List<String> result = generateValidBinaryStrings(4);
+        assertEquals(Arrays.asList("0000", "0001", "0011", "0101", "0111", "1001", "1011", "1101", "1111"), result);
+    }
+
+    @Test
+    public void testGenerateValidBinaryStrings_n_5() {
+        List<String> result = generateValidBinaryStrings(5);
+        assertEquals(Arrays.asList("00000", "00001", "00011", "00111", "01011", "01111", "10011", "10111", "11011", "11111"), result);
+    }
+}
+```

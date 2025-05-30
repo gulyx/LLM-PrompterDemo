@@ -1,0 +1,46 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1463;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1463.Solution;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void testMaxCherries() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,2},{3,6}};
+        int expectedOutput = 17;
+        assertEquals(expectedOutput, solution.maxCherries(grid));
+    }
+
+    @Test
+    public void testEmptyGrid() {
+        Solution solution = new Solution();
+        int[][] grid = {};
+        int expectedOutput = 0;
+        assertEquals(expectedOutput, solution.maxCherries(grid));
+    }
+
+    @Test
+    public void testSingleCellGrid() {
+        Solution solution = new Solution();
+        int[][] grid = {{5}};
+        int expectedOutput = 5;
+        assertEquals(expectedOutput, solution.maxCherries(grid));
+    }
+
+    @Test
+    public void testLongGrid() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,2,3},{4,5,6},{7,8,9}};
+        int expectedOutput = 36;
+        assertEquals(expectedOutput, solution.maxCherries(grid));
+    }
+
+    @Test
+    public void testFullGrid() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,2,3},{4,5,6},{7,8,9}};
+        int expectedOutput = 33;
+        assertEquals(expectedOutput, solution.maxCherries(grid));
+    }
+}

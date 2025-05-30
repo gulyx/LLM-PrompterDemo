@@ -1,0 +1,86 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.773;
+
+import java.util.*;
+
+public class Solution {
+    private int moves = 0;
+    private Queue<Board> queue = new LinkedList<>();
+    public int slidingPuzzle(int[][] board) {
+
+        Board state = new Board(board);
+        queue.add(state);
+
+        while(!queue.isEmpty()){
+            Board currentState = queue.poll();
+            if (currentState.isSolved()) {
+                return moves;
+            }
+            for(int i = 0; i < 4;i++){
+                int[] position = {currentState.position[i],currentState.position[3-i]};
+                boolean valid=isValid(position);
+                if(valid){
+                    position = swapTile(board, position);
+                    Board newState = new Board(position);
+                    queue.add(newState);
+                }
+            }
+            moves++;
+        }
+
+        return -1;
+    }
+
+    private int[] swapTile(int[][] board,int[] tiles){
+        int temp = tiles[0];
+        tiles[0] = tiles[1];
+        tiles[1] = temp;
+
+        int[] result = new int[]{tiles[0],tiles[2]};
+        return result;
+    }
+    private boolean isValid(int[] tiles){
+
+        if(tiles[0]==0 || tiles[2]==0) {
+            return false;
+        }
+
+        if (Math.abs(tiles[1] - board[0][3]) > 1)
+            return false;
+
+        if (Math.abs(tiles[0] - board[0][2])) > 1
+            return false;
+
+        if(Math.abs(tiles[1]-board[1][2])+ Math.abs(tiles[0]-board[0][2])+ Math.abs(tiles[1]-board[0][1])>1)
+            return false;
+        return true;
+    }
+
+    public static class Board{
+        int[][] board;
+        Pair position[];
+
+        public Board(int[][] board) {
+            this.board = board;
+            position=new int[]{0, 1,2};
+        }
+
+        public boolean isSolved(){
+            for (int i=0;i<2;i++){
+                if(board[i][0]!=1 ||board[i][1]!=2 ||board[i][2]!=3 ||
+                board[0][1]!=4||board[1][1]!=5){
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    }
+    private static class Pair{
+        int first, second;
+
+        public Pair(int first, int second) {
+            this.first = first;
+            this.second = second;
+        }
+    }
+}

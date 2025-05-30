@@ -1,0 +1,53 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2130;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2130.Solution;
+
+public class 2130_DescriptionOnly_testsTest {
+
+    Solution solution = new Solution();
+
+    @Test
+    public void test_TwinSumForEvenLinkedList(){
+        ListNode listHead = new ListNode(1);
+        listHead.next = new ListNode(3);
+        listHead.next.next = new ListNode(2);
+        listHead.next.next.next = new ListNode(4);
+
+        int result = solution.twinSum(listHead);
+        assertEquals(8, result);
+    }
+
+    @Test
+    public void test_NoTwinForEvenLinkedList(){
+        ListNode listHead = new ListNode(1);
+        listHead.next = new ListNode(2);
+        listHead.next.next = new ListNode(3);
+
+        int result = solution.twinSum(listHead);
+        assertEquals(5, result);
+    }
+
+    @Test
+    public void test_NoTwinForEvenLinkedListAtEnd(){
+        ListNode listHead = new ListNode(1);
+        listHead.next = new ListNode(2);
+
+        int result = solution.twinSum(listHead);
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void test_EmptyList(){
+        ListNode listHead = null;
+
+        assertThrows(NullPointerException.class, () -> solution.twinSum(listHead));
+    }
+
+    @Test
+    public void test_LinksListWithOneNode(){
+        ListNode listHead = new ListNode(1);
+
+        int result = solution.twinSum(listHead);
+        assertEquals(0, result);
+    }
+}

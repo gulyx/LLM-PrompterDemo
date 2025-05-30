@@ -1,0 +1,26 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1980;
+
+public class Solution {
+    public String findDifferentBinaryString(String[] nums) {
+        int n = nums[0].length();
+        boolean[] count = new boolean[n];
+        
+        for (String num : nums) {
+            for (int i = 0; i < n; i++) {
+                if (num.charAt(i) == '1') {
+                    count[i] = true;
+                }
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (!count[i]) {
+                return new StringBuilder(String.valueOf('1')).repeat(n).toString();
+            }
+        }
+
+        throw new AssertionError("No solution exists");
+    }
+}
+```

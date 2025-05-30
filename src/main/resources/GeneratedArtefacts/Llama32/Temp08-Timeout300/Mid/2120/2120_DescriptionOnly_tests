@@ -1,0 +1,62 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2120;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2120.Solution;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+
+@RunWith(JUnit4.class)
+public class SolutionTests {
+
+    @Test
+    public void test1() {
+        int n = 2;
+        String[] startPos = {"0", "1"};
+        String s = "DRLUR";
+        Solution solution = new Solution();
+        int[] answer = solution.descriptionOnly(n, startPos, s);
+        assertArrayEquals(new int[]{4, 3}, answer);
+    }
+
+    @Test
+    public void test2() {
+        int n = 3;
+        String[] startPos = {"1", "2"};
+        String s = "DDUUUU";
+        Solution solution = new Solution();
+        int[] answer = solution.descriptionOnly(n, startPos, s);
+        assertArrayEquals(new int[]{0}, answer);
+    }
+
+    @Test
+    public void test3() {
+        int n = 4;
+        String[] startPos = {"1", "2"};
+        String s = "DDUUUR";
+        Solution solution = new Solution();
+        int[] answer = solution.descriptionOnly(n, startPos, s);
+        assertArrayEquals(new int[]{4}, answer);
+    }
+
+    @Test
+    public void test4() {
+        int n = 5;
+        String[] startPos = {"0", "0"};
+        String s = "";
+        Solution solution = new Solution();
+        int[] answer = solution.descriptionOnly(n, startPos, s);
+        assertArrayEquals(new int[]{0}, answer);
+    }
+
+    @Test
+    public void test5() {
+        int n = 1;
+        String[] startPos = {"0", "0"};
+        String s = "";
+        Solution solution = new Solution();
+        int[] answer = solution.descriptionOnly(n, startPos, s);
+        assertArrayEquals(new int[]{0}, answer);
+    }
+}
+```

@@ -1,0 +1,20 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1828;
+
+import java.util.*;
+
+public class Solution {
+    public List<Integer> countPoints(int[][] points, int[][] queries) {
+        List<Integer> answer = new ArrayList<>();
+        for (int[] query : queries) {
+            Set<String> uniquePoints = new HashSet<>();
+            for (int[] point : points) {
+                long distanceSquared = Math.pow(query[0] - point[0], 2) + Math.pow(query[1] - point[1], 2);
+                if (distanceSquared <= Math.pow(query[2], 2)) {
+                    uniquePoints.add(point[0] + "," + point[1]);
+                }
+            }
+            answer.add(uniquePoints.size());
+        }
+        return answer;
+    }
+}

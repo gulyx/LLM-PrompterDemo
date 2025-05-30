@@ -1,0 +1,35 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.861;
+
+public class Solution {
+    public int matrixScore(int[][] grid) {
+        int n = grid.length;
+        int m = grid[0].length;
+        if (n == 1) return 1;
+        if (m == 1) return 0;
+        for (int i = 0; i < n; i++) {
+            int ones = 0;
+            for (int j = 0; j < m; j++) {
+                if (grid[i][j] == 0) grid[i][j] = 1;
+                else ones++;
+            }
+            if (ones * 2 > m) {
+                for (int j = 0; j < m; j++) grid[i][j] = 1 - grid[i][j];
+            }
+        }
+        for (int j = 0; j < m; j++) {
+            int ones = 0;
+            for (int i = 0; i < n; i++) if (grid[i][j] == 1) ones++;
+            if (ones * 2 != m) {
+                for (int i = 0; i < n; i++) grid[i][j] = 1 - grid[i][j];
+            }
+        }
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            int num = 0;
+            for (int j = 0; j < m; j++) num += grid[i][j];
+            sum += Math.max(num, (m - num));
+        }
+        return sum;
+    }
+
+}

@@ -1,0 +1,53 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2433;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2433.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2433_DescriptionOnly_testsTest {
+
+    @Test
+    public void testOneElementArray() {
+        Solution solution = new Solution();
+        int[] pref = {1};
+        int[] arr = solution.singleElementArray(pref);
+        assertArrayEquals(new int[]{1}, arr);
+    }
+
+    @Test
+    public void testTwoElementArray() {
+        Solution solution = new Solution();
+        int[] pref = {2, 1};
+        int[] arr = solution.singleElementArray(pref);
+        assertEquals(1, arr[0]);
+        assertEquals(3, arr[1]);
+    }
+
+    @Test
+    public void testThreeElementArray() {
+        Solution solution = new Solution();
+        int[] pref = {7, 6, 5};
+        int[] arr = solution.singleElementArray(pref);
+        assertEquals(5, arr[0]);
+        assertEquals(2, arr[1]);
+        assertEquals(1, arr[2]);
+    }
+
+    @Test
+    public void testFourElementArray() {
+        Solution solution = new Solution();
+        int[] pref = {15, 10, 6, 11};
+        int[] arr = solution.singleElementArray(pref);
+        assertArrayEquals(new int[]{8, 4, 2, 9}, arr);
+    }
+
+    @Test
+    public void testFiveElementArray() {
+        Solution solution = new Solution();
+        int[] pref = {30, 10, 6, 11, 0};
+        int[] arr = solution.singleElementArray(pref);
+        assertArrayEquals(new int[]{8, 4, 2, 9, 18}, arr);
+    }
+}
+```

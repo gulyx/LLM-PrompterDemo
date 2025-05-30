@@ -1,0 +1,60 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.51;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.51.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class SolutionTests {
+
+    @Test
+    public void test_n_4() {
+        Solution solution = new Solution();
+        String[][] result = solution.solveNQueens(4);
+        int expectedSize = 2;
+        for (String[] row : result) {
+            assertEquals(expectedSize, row.length);
+        }
+    }
+
+    @Test
+    public void test_n_1() {
+        Solution solution = new Solution();
+        String[] result = solution.solveNQueens(1);
+        int expectedSize = 1;
+        for (String row : result) {
+            assertEquals(expectedSize, row.length());
+        }
+    }
+
+    @Test
+    public void test_n_2() {
+        Solution solution = new Solution();
+        String[][] result = solution.solveNQueens(2);
+        int expectedSize = 0;
+        for (String[] row : result) {
+            assertEquals(expectedSize, row.length);
+        }
+    }
+
+    @Test
+    public void test_n_3() {
+        Solution solution = new Solution();
+        String[][] result = solution.solveNQueens(3);
+        int expectedSize = 4;
+        for (String[] row : result) {
+            assertEquals(expectedSize, row.length);
+        }
+    }
+
+    @Test
+    public void test_n_0() {
+        Solution solution = new Solution();
+        String[][] result = solution.solveNQueens(0);
+        int expectedSize = 0;
+        for (String[] row : result) {
+            assertEquals(expectedSize, row.length);
+        }
+    }
+}
+```

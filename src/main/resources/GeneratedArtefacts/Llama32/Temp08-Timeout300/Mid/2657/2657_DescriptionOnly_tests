@@ -1,0 +1,53 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2657;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2657.Solution;
+
+public class 2657_DescriptionOnly_testsTest {
+
+    Solution solution;
+
+    @Before
+    public void setUp() {
+        solution = new Solution();
+    }
+
+    @Test
+    public void test1() {
+        int[] A = {2,5,4,1};
+        int[] B = {3,6,4,7};
+        int[] result = solution.prefixCommonArray(A, B);
+        assertArrayEquals(new int[]{3, 3, 3, 2}, result);
+    }
+
+    @Test
+    public void test2() {
+        int[] A = {};
+        int[] B = {1,2,3,4,5};
+        int[] result = solution.prefixCommonArray(A, B);
+        assertArrayEquals(new int[]{0, 0, 0, 0, 0}, result);
+    }
+
+    @Test
+    public void test3() {
+        int[] A = {1,2,3,4,5};
+        int[] B = {};
+        int[] result = solution.prefixCommonArray(A, B);
+        assertArrayEquals(new int[]{1, 1, 1, 1, 1}, result);
+    }
+
+    @Test
+    public void test4() {
+        int[] A = {1,2,3};
+        int[] B = {2,3,4};
+        int[] result = solution.prefixCommonArray(A, B);
+        assertArrayEquals(new int[]{2, 2, 2}, result);
+    }
+
+    @Test
+    public void test5() {
+        int[] A = {};
+        int[] B = {1,2,3};
+        int[] result = solution.prefixCommonArray(A, B);
+        assertArrayEquals(new int[]{0, 0, 0}, result);
+    }
+}

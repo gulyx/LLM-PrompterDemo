@@ -1,0 +1,60 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2415;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2415.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void testReverseOddLevels() {
+        Solution solution = new Solution();
+        Node root = solution.buildTree(1);
+        Node expectedRoot = new Node(2, new Node(4), new Node(7));
+        assertEquals(expectedRoot, solution.reverseOddLevels(root).root);
+    }
+
+    @Test
+    public void testReverseOddLevels_EmptyTree() {
+        Solution solution = new Solution();
+        Node root = null;
+        assertNull(solution.reverseOddLevels(root));
+    }
+
+    @Test
+    public void testReverseOddLevels_SingleNodeTree() {
+        Solution solution = new Solution();
+        Node root = new Node(1);
+        Node expectedRoot = new Node(1);
+        assertEquals(expectedRoot, solution.reverseOddLevels(root).root);
+    }
+
+    @Test
+    public void testReverseOddLevels_MultiLevelTree() {
+        Solution solution = new Solution();
+        Node root = solution.buildTree(1);
+        Node secondLevelLeft = root.left;
+        Node secondLevelRight = root.right;
+        Node expectedSecondLevelLeft = new Node(2);
+        Node expectedSecondLevelRight = new Node(4);
+        assertEquals(expectedSecondLevelLeft, secondLevelLeft.left);
+        assertEquals(expectedSecondLevelRight, secondLevelLeft.right);
+        assertEquals(expectedSecondLevelLeft, secondLevelRight.left);
+        assertEquals(expectedSecondLevelRight, secondLevelRight.right);
+        Node expectedRoot = new Node(2, expectedSecondLevelLeft, expectedSecondLevelRight);
+        assertEquals(expectedRoot, solution.reverseOddLevels(root).root);
+    }
+
+    @Test
+    public void testReverseOddLevels_PerfectTree() {
+        Solution solution = new Solution();
+        Node root = solution.buildTree(1);
+        for (Node node : solution.reverseOddLevels(root)) {
+            if (node != null) {
+                fail("Expected all nodes to be null after reversing odd levels");
+            }
+        }
+    }
+}
+```

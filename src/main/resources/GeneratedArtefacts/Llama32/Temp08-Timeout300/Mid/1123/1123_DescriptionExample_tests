@@ -1,0 +1,67 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1123;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1123.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class Solution {
+
+    @Test
+    public void testExample1() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(5);
+        root.right = new TreeNode(1);
+        root.left.left = new TreeNode(6);
+        root.left.right = new TreeNode(2);
+        root.left.right.left = new TreeNode(0);
+        root.left.right.right = new TreeNode(8);
+
+        int[] result = solution.lowestCommonAncestor(root, new int[]{5, 7});
+        assertEquals(new int[]{2}, result);
+    }
+
+    @Test
+    public void testExample2() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+
+        int[] result = solution.lowestCommonAncestor(root, new int[]{1});
+        assertEquals(new int[]{1}, result);
+    }
+
+    @Test
+    public void testExample3() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(3);
+
+        int[] result = solution.lowestCommonAncestor(root, new int[]{2});
+        assertEquals(new int[]{2}, result);
+    }
+
+    @Test
+    public void testExample4() {
+        Solution solution = new Solution();
+        // Test case 4
+    }
+
+    @Test
+    public void testExample5() {
+        Solution solution = new Solution();
+        // Test case 5
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int val) {
+        this.val = val;
+    }
+}
+```

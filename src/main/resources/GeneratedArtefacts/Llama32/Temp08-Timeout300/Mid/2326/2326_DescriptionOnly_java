@@ -1,0 +1,27 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2326;
+
+import java.util.*;
+
+class Solution {
+    public int[][] generateMatrix(int m, int n, ListNode head) {
+        if (m == 0 || n == 0)
+            return new int[0][0];
+        int[][] matrix = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if ((i + j) % 2 == 0)
+                    matrix[i][j] = head.val;
+                else
+                    matrix[i][j] = -1;
+                head = head.next;
+            }
+        }
+        return matrix;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) { val = x; }
+    }
+}

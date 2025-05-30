@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2317;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2317.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] nums = {3,2,4,6};
+        assertTrue(solution.maxBitwiseXor(nums) == 7);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3,9,2};
+        assertTrue(solution.maxBitwiseXor(nums) == 11);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] nums = {10,15,20,25};
+        assertTrue(solution.maxBitwiseXor(nums) == 31);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] nums = {7,12,16,24};
+        assertTrue(solution.maxBitwiseXor(nums) == 31);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3};
+        assertTrue(solution.maxBitwiseXor(nums) == 3);
+    }
+}

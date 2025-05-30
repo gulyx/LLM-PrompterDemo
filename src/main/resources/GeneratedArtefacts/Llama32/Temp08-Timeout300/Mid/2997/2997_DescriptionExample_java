@@ -1,0 +1,22 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2997;
+
+public class Solution {
+    public int minOperations(int[] nums, int k) {
+        int xorSum = 0;
+        for (int num : nums) {
+            xorSum ^= num;
+        }
+        
+        if (xorSum == k) {
+            return 0;
+        } else if ((xorSum & k) != 0) {
+            return Integer.bitCount(k);
+        } else {
+            int ops = Integer.bitCount(xorSum ^ k);
+            return Math.min(ops, Integer.bitCount(k));
+        }
+    }
+
+}
+```

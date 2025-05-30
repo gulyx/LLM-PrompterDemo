@@ -1,0 +1,75 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1302;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1302.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class SolutionTest {
+
+    @Test
+    public void test_SumOfValuesInDeepestLeaves() {
+        Solution solution = new Solution();
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.right = new Node(6);
+        root.left.left.left = new Node(7);
+        root.left.right.right = new Node(8);
+
+        assertEquals(15, solution.deepestLeavesSum(root));
+    }
+
+    @Test
+    public void test_SumOfValuesInDeepestLeaves_Two() {
+        Solution solution = new Solution();
+        Node root = new Node(6);
+        root.left = new Node(7);
+        root.right = new Node(8);
+        root.left.left = new Node(2);
+        root.left.right = new Node(7);
+        root.right.left = new Node(1);
+        root.right.right = new Node(3);
+        root.left.left.left = new Node(9);
+        root.left.right.right = new Node(1);
+        root.left.right.right.left = new Node(4);
+        root.left.right.right.right = new Node(5);
+
+        assertEquals(19, solution.deepestLeavesSum(root));
+    }
+
+    @Test
+    public void test_SumOfValuesInDeepestLeaves_Three() {
+        Solution solution = new Solution();
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+
+        assertEquals(6, solution.deepestLeavesSum(root));
+    }
+
+    @Test
+    public void test_SumOfValuesInDeepestLeaves_Four() {
+        Solution solution = new Solution();
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+
+        assertEquals(10, solution.deepestLeavesSum(root));
+    }
+
+    @Test
+    public void test_SumOfValuesInDeepestLeaves_Five() {
+        Solution solution = new Solution();
+        Node root = new Node(1);
+        root.right = new Node(2);
+        root.right.left = new Node(3);
+
+        assertEquals(6, solution.deepestLeavesSum(root));
+    }
+
+}
+```

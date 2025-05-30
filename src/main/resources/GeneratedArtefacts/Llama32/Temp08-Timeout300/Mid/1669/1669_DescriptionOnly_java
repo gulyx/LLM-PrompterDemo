@@ -1,0 +1,25 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1669;
+
+public class Solution {
+    public ListNode mergeInBetween(ListNode l1, int a, int b, ListNode l2) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = l1;
+        ListNode pre = dummy;
+
+        for (int i = 0; i < a - 1; i++) {
+            pre = pre.next;
+        }
+
+        for (int i = 0; i <= b - a + 1; i++) {
+            pre.next = l2.next();
+        }
+
+        while (pre.next != null && pre.next.next != null) {
+            ListNode tmp = pre.next;
+            pre.next = pre.next.next;
+            tmp.next = dummy.next.next;
+        }
+
+        return dummy.next;
+    }
+}

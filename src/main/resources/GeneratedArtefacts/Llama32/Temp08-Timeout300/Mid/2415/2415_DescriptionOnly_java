@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2415;
+
+public class Solution {
+    public TreeNode reverseOddLevel(TreeNode root) {
+        return helper(root, 0);
+    }
+
+    private TreeNode helper(TreeNode node, int level) {
+        if (node == null)
+            return null;
+        if ((level & 1) != 0) {
+            TreeNode[] nodes = new TreeNode[2];
+            nodes[0] = node.left;
+            nodes[1] = node.right;
+            node.left = reverseHelper(node.left, level + 1);
+            node.right = reverseHelper(node.right, level + 1);
+            return nodes[0 == node.left ? 1 : 0];
+        }
+        return helper(node.left, level + 1) == null ? 
+              helper(node.right, level + 1) :
+                helper(node.left, level + 1);
+    }
+
+    private TreeNode reverseHelper(TreeNode node, int level) {
+        if (node == null)
+            return null;
+        if ((level & 1) != 0) {
+            return new TreeNode(node.val);
+        }
+        return reverseHelper(node.right, level + 1) == null ? 
+              reverseHelper(node.left, level + 1) :
+                reverseHelper(node.right, level + 1);
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) { val = x; }
+    }
+}

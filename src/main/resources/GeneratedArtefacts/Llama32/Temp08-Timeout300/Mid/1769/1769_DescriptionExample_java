@@ -1,0 +1,34 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1769;
+
+public class Solution {
+    public int[] minOperations(String boxes) {
+        int n = boxes.length();
+        int[] result = new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+            for (char c : boxes.toCharArray()) {
+                if (c == '1') {
+                    sum += Math.abs(i - (n - 1) - (boxes.indexOf(c)));
+                }
+            }
+            result[i] = sum;
+        }
+        
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        
+        String boxes1 = "110";
+        int[] result1 = solution.minOperations(boxes1);
+        System.out.println(java.util.Arrays.toString(result1)); // [1, 1, 3]
+
+        String boxes2 = "001011";
+        int[] result2 = solution.minOperations(boxes2);
+        System.out.println(java.util.Arrays.toString(result2)); // [11, 8, 5, 4, 3, 4]
+    }
+}
+```

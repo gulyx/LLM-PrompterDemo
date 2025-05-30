@@ -1,0 +1,37 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1079;
+
+public class Solution {
+    public int numTilePossibilities(String tiles) {
+        char[] chars = new char[tiles.length()];
+        for (int i = 0; i < tiles.length(); i++) {
+            chars[i] = tiles.charAt(i);
+        }
+        return numTilePossibility(chars, 0, new boolean[chars.length], new Integer[chars.length]);
+    }
+
+    private int numTilePossibility(char[] chars, int index, boolean[] used, Integer[] counts) {
+        if (index == chars.length) {
+            return counts[new Integer.valueOf(new StringBuilder(String.valueOf(used)).reverse().toString())].intValue();
+        }
+        int res = 0;
+        for (int i = 0; i < chars[index]; i++) {
+            if (!used[i]) {
+                used[i] = true;
+                counts[i] = counts[i] == null ? 1 : counts[i];
+                res += numTilePossibility(chars, index + 1, used, counts);
+                counts[i]--;
+                used[i] = false;
+            }
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.numTilePossibilities("AAB")); //8
+        System.out.println(solution.numTilePossibilities("AAABBC")); //188
+        System.out.println(solution.numTilePossibilities("V")); //1
+    }
+}
+```

@@ -1,0 +1,4 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '3211_DescriptionOnly_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211.Solution;'). The class-under-test implements the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description for the class-under-test: 
+You are given a positive integer "n".
+A binary string "x" is "valid" if all substrings of "x" of length 2 contain "at least" one "1".
+Return all "valid" strings with length "n", in "any" order.

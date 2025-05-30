@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1441;
+
+import java.util.*;
+
+public class Solution {
+    public List<String> buildArray(int target, int n) {
+        List<String> result = new ArrayList<>();
+        Deque<Integer> stack = new ArrayDeque<>();
+        boolean flag = true;
+        
+        for (int i = 1; i <= n && flag; i++) {
+            if (!stack.isEmpty() && stack.peekFirst().equals(target)) {
+                while (!stack.isEmpty()) {
+                    result.add("Pop");
+                    stack.pollFirst();
+                }
+                continue;
+            } else if (target == i) {
+                target *= -1;
+                continue;
+            }
+            
+            if (target > 0) {
+                stack.push(i);
+                result.add("Push" + " " + i);
+            } else {
+                stack.push(-i);
+                result.add("-Push" + i);
+            }
+            
+            flag = false;
+        }
+        
+        return result;
+    }
+}

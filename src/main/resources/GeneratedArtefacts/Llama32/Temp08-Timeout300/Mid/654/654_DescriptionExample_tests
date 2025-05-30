@@ -1,0 +1,52 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.654;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.654.Solution;
+import org.junit.jupiter.api.Test;
+
+public class 654_DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] nums = {3,2,1,6,0,5};
+        TreeNode actual = solution.buildMaxTree(nums);
+        assert (actual.val == 6 && actual.left != null && actual.right != null && actual.left.val == 3 && actual.right.val == 5) :
+                "Test case 1 failed";
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] nums = {3,2,1};
+        TreeNode actual = solution.buildMaxTree(nums);
+        assert (actual.val == 3 && actual.left != null && actual.right != null && actual.left.val == 2 && actual.right.val == 1) :
+                "Test case 2 failed";
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3};
+        TreeNode actual = solution.buildMaxTree(nums);
+        assert (actual.val == 3 && actual.left != null && actual.right != null && actual.left.val == 2 && actual.right.val == 1) :
+                "Test case 3 failed";
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] nums = {1,1,2};
+        TreeNode actual = solution.buildMaxTree(nums);
+        assert (actual.val == 2 && actual.left != null && actual.right != null && actual.left.val == 1 && actual.right.val == 1) :
+                "Test case 4 failed";
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] nums = {0,1,2};
+        TreeNode actual = solution.buildMaxTree(nums);
+        assert (actual.val == 2 && actual.left != null && actual.right != null && actual.left.val == 1 && actual.right.val == 0) :
+                "Test case 5 failed";
+    }
+}

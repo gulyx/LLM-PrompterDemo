@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2149;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2149.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SolutionTest {
+
+    @Test
+    public void test_solution1() {
+        Solution s = new Solution();
+        int[] nums = {3, 1, -2, -5, 2, -4};
+        int[] expected = {3, -2, 1, -5, 2, -4};
+        assertArrayEquals(expected, s.descriptions(nums));
+    }
+
+    @Test
+    public void test_solution2() {
+        Solution s = new Solution();
+        int[] nums = {-1, 1};
+        int[] expected = {1, -1};
+        assertArrayEquals(expected, s.descriptions(nums));
+    }
+
+    @Test
+    public void test_solution3() {
+        Solution s = new Solution();
+        int[] nums = {1, 2, 3, 4, 5, 6};
+        String exceptionMessage = "Input array must have an even length";
+        assertThrows(NullPointerException.class, () -> s.descriptions(nums), exceptionMessage);
+    }
+
+    @Test
+    public void test_solution4() {
+        Solution s = new Solution();
+        int[] nums = {1, 2, -3, -4};
+        String exceptionMessage = "Input array must have an even length";
+        assertThrows(NullPointerException.class, () -> s.descriptions(nums), exceptionMessage);
+    }
+
+    @Test
+    public void test_solution5() {
+        Solution s = new Solution();
+        int[] nums = {1, 2, -3};
+        String exceptionMessage = "Input array must have an even length";
+        assertThrows(NullPointerException.class, () -> s.descriptions(nums), exceptionMessage);
+    }
+}
+```

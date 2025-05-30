@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1877;
+
+import java.util.*;
+
+public class Solution {
+
+    public int minPairSum(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
+
+        for (Integer count : map.values()) {
+            if (count % 2 == 1) {
+                throw new RuntimeException("Odd number of elements");
+            }
+            maxHeap.offer(count / 2);
+        }
+
+        int res = 0;
+        while (!maxHeap.isEmpty()) {
+            Integer first = maxHeap.poll();
+            maxHeap.offer(first - 1);
+            res += Math.min(first, maxHeap.peek());
+        }
+
+        return res;
+    }
+
+    [--Example 1--]
+    public void test1() {
+        int[] nums = {3,5,2,3};
+        assertEquals(7, new Solution().minPairSum(nums));
+    }
+
+    [--Example 2--]
+    public void test2() {
+        int[] nums = {3,5,4,2,4,6};
+        assertEquals(8, new Solution().minPairSum(nums));
+    }
+}

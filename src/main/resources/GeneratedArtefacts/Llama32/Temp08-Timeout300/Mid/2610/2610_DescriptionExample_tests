@@ -1,0 +1,45 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2610;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2610.Solution;
+
+public class 2610_DescriptionExample_testsTest {
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        test1(solution);
+        test2(solution);
+        test3(solution);
+        test4(solution);
+        test5(solution);
+    }
+
+    private static void test5(Solution solution){
+        int[][] nums = {{1, 3, 4}, {1, 3}, {1}};
+        int[][] expected = {{1, 3, 4, 2},{1, 3},{1}};
+        assertArrayEquals(expected, solution.getContainer();
+    }
+
+    private static void test4(Solution solution){
+        int[] nums = new int[]{1, 2, 3, 4};
+        int[][] expected = {{4, 3, 2, 1}};
+        assertArrayEquals(expected, solution.getContainer());
+    }
+
+    private static void test3(Solution solution){
+        int[] nums = {1, 3, 4, 1, 2, 3, 1};
+        int[][] expected = {{1, 3, 4, 2},{1, 3},{1}};
+        assertArrayEquals(expected, solution.getContainer());
+    }
+
+    private static void test2(Solution solution){
+        int[] nums = {1, 2, 3, 4};
+        int[][] expected = {{4, 3, 2, 1}};
+        assertArrayEquals(expected, solution.getContainer());
+    }
+
+    private static void test1(Solution solution){
+        int[] nums = new int[]{1, 1, 1, 1, 1};
+        int[][] expected = {{1, 1},{1, 1},{1, 1},{1, 1}};
+        assertArrayEquals(expected, solution.getContainer());
+    }
+}

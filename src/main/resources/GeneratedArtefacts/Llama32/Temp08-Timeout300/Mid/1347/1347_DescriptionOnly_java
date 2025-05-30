@@ -1,0 +1,37 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1347;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Solution {
+    public int minSteps(String s, String t) {
+        Map<Character, Integer> mapS = new HashMap<>();
+        Map<Character, Integer> mapT = new HashMap<>();
+
+        for (char c : s.toCharArray()) {
+            mapS.put(c, mapS.getOrDefault(c, 0) + 1);
+        }
+
+        for (char c : t.toCharArray()) {
+            mapT.put(c, mapT.getOrDefault(c, 0) + 1);
+        }
+
+        int steps = 0;
+
+        for (Map.Entry<Character, Integer> entry : mapS.entrySet()) {
+            char key = entry.getKey();
+            if (!mapT.containsKey(key)) continue;
+            int min = Math.min(entry.getValue(), mapT.get(key));
+            steps += min;
+            mapT.put(key, mapT.get(key) - min);
+        }
+
+        for (Map.Entry<Character, Integer> entry : mapT.entrySet()) {
+            char key = entry.getKey();
+            if (!mapS.containsKey(key)) continue;
+            int max = Math.max(entry.getValue(), mapS.get(key));
+            steps += max;
+        }
+        return steps;
+    }
+}

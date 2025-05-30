@@ -1,0 +1,38 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324.Solution;
+
+public class 3324_DescriptionOnly_testsTest {
+ 
+    Solution solution = new Solution();
+    
+    @Test
+    public void test1() {
+        String result = solution.descriptionOnly("leeT");
+        assertEquals("leeT", result);
+    }
+    
+    @Test
+    public void test2() {
+        String result = solution.descriptionOnly("aabbcc");
+        assertEquals("aaabbbccc", result);
+    }
+    
+    @Test
+    public void test3() {
+        String result = solution.descriptionOnly("abcdefghijklmnopqrstuvwxyz");
+        assertEquals("abcdefghijklmnopqrstuvwxyz", result);
+    }
+    
+    @Test
+    public void test4() {
+        String result = solution.descriptionOnly("aAAAaaa");
+        assertEquals("aaaaaaA AAAA", result);
+    }
+    
+    @Test
+    public void test5() {
+        String result = solution.descriptionOnly("abcddddefffghhiiijjklmmnnnooooopsppqqrrsssttuuuuvvwwwwwxyz");
+        assertEquals("aabbccddddeeffggghhhijjjkkkllmmmnnnooooopsppqqrrssssttuuuuvvwwwwxyz", result);
+    }
+}

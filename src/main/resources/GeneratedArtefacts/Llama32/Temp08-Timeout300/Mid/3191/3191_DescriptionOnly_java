@@ -1,0 +1,10 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3191;
+
+public class Solution {
+    public int minFlips(int[] nums) {
+        int res = 0;
+        for (int n : nums)
+            res += n == 0 ? 1 : 0;
+        return Math.min(res, nums.length - res);
+    }
+}

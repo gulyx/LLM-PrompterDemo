@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2130;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Solution {
+    public int maxTwinSum(ListNode head) {
+        Set<Integer> set = new HashSet<>();
+        ListNode prev = head.next;
+        set.add(prev.val);
+        int sum = 0;
+        while (head.next != null && head.next.next != null) {
+            int val1 = Math.min(head.val, prev.val);
+            int val2 = Math.max(head.val, prev.val);
+            if (set.contains(val1)) {
+                sum = Math.max(sum, val1 + val2);
+            } else if (!set.contains(val2)) {
+                sum = Math.max(sum, val1 + val2);
+            }
+            set.add(val2);
+            head = head.next;
+            prev = head.next;
+        }
+        return sum;
+    }
+
+}
+
+class ListNode {
+    int val;
+    ListNode next;
+
+    public ListNode(int x) {
+        val = x;
+    }
+}

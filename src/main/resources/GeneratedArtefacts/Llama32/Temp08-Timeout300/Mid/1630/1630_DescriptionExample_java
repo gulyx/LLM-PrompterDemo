@@ -1,0 +1,30 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1630;
+
+import java.util.*;
+
+public class Solution {
+    public List<Boolean> checkArithmeticSubarrays(int[] nums, int[][] l, int[][] r) {
+        List<Boolean> answer = new ArrayList<>();
+        for (int i = 0; i < l.length; i++) {
+            int left = l[i][0];
+            int right = r[i][1];
+
+            boolean canBeArithmetic = false;
+            int[] arrToCheck = Arrays.copyOfRange(nums, left, right+1);
+            Arrays.sort(arrToCheck);
+
+            for (int k = 0; k < arrToCheck.length-1; k++) {
+                if (arrToCheck[k+1] - arrToCheck[k] != arrToCheck[1]-arrToCheck[0]) {
+                    canBeArithmetic = false;
+                    break;
+                } else {
+                    canBeArithmetic = true;
+                }
+            }
+
+            answer.add(canBeArithmetic);
+        }
+
+        return answer;
+    }
+}

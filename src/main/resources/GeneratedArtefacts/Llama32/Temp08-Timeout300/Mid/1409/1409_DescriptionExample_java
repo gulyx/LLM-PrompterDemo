@@ -1,0 +1,16 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1409;
+
+public class Solution {
+    public int[] processQueries(int[] queries, int m) {
+        int[] result = new int[queries.length];
+        int position = 0;
+        for (int i : queries) {
+            result[position] = i - 1;
+            Arrays.sort(queries);
+            while (i == queries[position]) {
+                position++;
+            }
+        }
+        return result;
+    }
+}

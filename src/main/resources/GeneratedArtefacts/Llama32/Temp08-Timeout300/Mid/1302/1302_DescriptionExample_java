@@ -1,0 +1,42 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1302;
+
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode() {}
+    TreeNode(int val) { this.val = val; }
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
+
+public class Solution {
+    public int deepestLeavesSum(TreeNode root) {
+        return helper(root).sum;
+    }
+
+    private Map<Integer, List<Integer>> helper(TreeNode node) {
+        if (node == null) {
+            return new HashMap<>();
+        }
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        map.put(node.val, new ArrayList<>(Arrays.asList(node.val)));
+        node.left = helper(node.left);
+        node.right = helper(node.right);
+
+        for (Integer v : map.get(node.val)) {
+            if (!map.containsKey(v)) {
+                map.get(node.val).add(v);
+            }
+        }
+
+        return map;
+    }
+}
+```

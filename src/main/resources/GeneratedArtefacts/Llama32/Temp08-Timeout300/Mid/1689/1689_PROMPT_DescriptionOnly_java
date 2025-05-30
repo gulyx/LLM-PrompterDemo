@@ -1,0 +1,4 @@
+As a professional Software Engineer, generate a complete Java class file (name the class as :'Solution', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1689;') for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
+A decimal number is called "deci-binary" if each of its digits is either "0" or "1" without any leading zeros. For example, "101" and "1100" are "deci-binary", while "112" and "3001" are not.
+
+Given a string "n" that represents a positive decimal integer, return the "minimum" number of positive "deci-binary" numbers needed so that they sum up to "n".

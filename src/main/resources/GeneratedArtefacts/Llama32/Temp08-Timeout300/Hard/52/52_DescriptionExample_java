@@ -1,0 +1,41 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.52;
+
+public class Solution {
+    public int totalNQueens(int n) {
+        return solve(0, new char[n][n]);
+    }
+
+    private int solve(int row, char[][] board) {
+        if (row == n) {
+            return 1;
+        }
+        int count = 0;
+        for (int col = 0; col < n; col++) {
+            boolean valid = true;
+            for (int r = 0; r < row; r++) {
+                if (board[r][col] != '\0') {
+                    if (board[r][col] == board[row][col]) {
+                        valid = false;
+                        break;
+                    }
+                    int dCol = Math.abs(r - row) + col - col;
+                    int dRow = r < row ? r - row : row - r;
+                    if (dCol < 0 || dRow < 0) continue;
+
+                    if (board[dRow][dCol] != '\0') {
+                        valid = false;
+                        break;
+                    }
+                }
+            }
+
+            if (valid) {
+                board[row][col] = 'Q';
+                count += solve(row + 1, board);
+                board[row][col] = '\0';
+            }
+        }
+        return count;
+    }
+
+}

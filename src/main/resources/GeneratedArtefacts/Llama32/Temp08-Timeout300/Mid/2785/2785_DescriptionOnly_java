@@ -1,0 +1,39 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2785;
+
+public class Solution {
+    private static final String VOWELS = "aeiouAEIOU";
+    public String sortString(String s) {
+        StringBuilder res = new StringBuilder();
+        int[] charCount = new int[256];
+        for (char c : s.toCharArray()) {
+            if (VOWELS.indexOf(c) != -1)
+                charCount[c] += 1;
+        }
+
+        char[] chars = s.toCharArray();
+
+        while (true) {
+            for (int i=0; i<256; ++i) {
+                if (VOWELS.indexOf((char)i) == -1)
+                    continue;
+
+                if (charCount[i] > 0) {
+                    res.append((char) i);
+                    --charCount[i];
+                    break;
+                }
+            }
+
+            boolean allZero = true;
+            for (int i=0; i<256; ++i) {
+                if (VOWELS.indexOf((char)i) != -1)
+                    if (charCount[i] > 0)
+                        allZero = false;
+            }
+
+            if (allZero)
+                break;
+        }
+        return res.toString();
+    }
+}

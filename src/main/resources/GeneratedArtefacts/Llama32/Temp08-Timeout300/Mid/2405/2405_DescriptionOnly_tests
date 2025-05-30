@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2405;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2405.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 2405_DescriptionOnly_testsTest {
+
+    @Test
+    public void test_minSubarraysNoDuplicateChars() {
+        Solution solution = new Solution();
+        String s = "aabbcc";
+        assertEquals(4, solution.numUniqueCharSubstrings(s));
+    }
+
+    @Test
+    public void test_minSubarraysOneChar() {
+        Solution solution = new Solution();
+        String s = "abc";
+        assertEquals(1, solution.numUniqueCharSubstrings(s));
+    }
+
+    @Test
+    public void test_minSubarraysMultipleChars() {
+        Solution solution = new Solution();
+        String s = "abcdefghijklmnopqrstuvwxyz";
+        assertEquals(26, solution.numUniqueCharSubstrings(s));
+    }
+
+    @Test
+    public void test_minSubarraysSingleChar() {
+        Solution solution = new Solution();
+        String s = "a";
+        assertEquals(1, solution.numUniqueCharSubstrings(s));
+    }
+
+    @Test
+    public void test_minSubarraysEmptyString() {
+        Solution solution = new Solution();
+        String s = "";
+        assertEquals(0, solution.numUniqueCharSubstrings(s));
+    }
+}

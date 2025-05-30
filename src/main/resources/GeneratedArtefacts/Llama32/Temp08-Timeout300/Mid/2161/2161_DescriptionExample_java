@@ -1,0 +1,33 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2161;
+
+public class Solution {
+    public int[] pivotArray(int[] nums, int pivot) {
+        List<Integer> lessThanPivot = new ArrayList<>();
+        List<Integer> equalToPivot = new ArrayList<>();
+        List<Integer> greaterThanPivot = new ArrayList<>();
+
+        for (int num : nums) {
+            if (num < pivot) {
+                lessThanPivot.add(num);
+            } else if (num == pivot) {
+                equalToPivot.add(num);
+            } else {
+                greaterThanPivot.add(num);
+            }
+        }
+
+        int i = 0, j = 0;
+        for (int k = 0; k < nums.length; k++) {
+            if (nums[k] == pivot) {
+                nums[i++] = equalToPivot.get(j++);
+            } else if (nums[k] < pivot) {
+                nums[i++] = lessThanPivot.get(j);
+            } else {
+                nums[k + 1] = greaterThanPivot.get(i++);
+            }
+        }
+
+        return nums;
+    }
+
+}

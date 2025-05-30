@@ -1,0 +1,97 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1579;
+
+import java.util.*;
+
+public class Solution {
+    public int maxNumEdgesToRemove(int n, int[][] edges) {
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i < n + 2; i++) {
+            graph.add(new ArrayList<>());
+        }
+        for (int[] edge : edges) {
+            if (edge[0] == 1 || edge[0] == 3) {
+                graph.get(edge[1]).add(edge[2]);
+                graph.get(edge[2]).add(edge[1]);
+            } else if (edge[0] == 2 || edge[0] == 3) {
+                graph.get(n + 1).add(edge[1]);
+                graph.get(edge[1]).add(n + 1);
+                graph.get(n + 1).add(edge[2]);
+                graph.get(edge[2]).add(n + 1);
+            }
+        }
+
+        int alice = -1;
+        int bob = n + 1;
+
+        for (int i = 0; i < n + 1; i++) {
+            if (graph.get(i).size() == 0) continue;
+            if (alice == -1) {
+                alice = i;
+                dfs(graph, i, alice);
+            } else if (bob == n + 1) {
+                bob = i;
+                dfs(graph, i, bob);
+            }
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+        boolean[] visitedA = new boolean[n + 2];
+        boolean[] visitedB = new boolean[n + 2];
+
+        queue.add(alice);
+        visitedA[alice] = true;
+
+        while (!queue.isEmpty()) {
+            int u = queue.poll();
+            for (int v : graph.get(u)) {
+                if (!visitedB[v]) {
+                    queue.add(v);
+                    visitedB[v] = true;
+                }
+            }
+        }
+
+        queue.clear();
+        boolean[] visitedC = new boolean[n + 2];
+
+        queue.add(bob);
+        visitedB[bob] = true;
+
+        while (!queue.isEmpty()) {
+            int u = queue.poll();
+            for (int v : graph.get(u)) {
+                if (!visitedA[v]) {
+                    queue.add(v);
+                    visitedA[v] = true;
+                }
+            }
+        }
+
+        Set<Integer> A = new HashSet<>();
+        Set<Integer> B = new HashSet<>();
+
+        for (int i = 0; i < n + 1; i++) {
+            if (visitedA[i]) A.add(i);
+            if (visitedB[i]) B.add(i);
+        }
+
+        int res = 0;
+        Queue<int[]> queue2 = new LinkedList<>();
+        while (!queue2.isEmpty()) {
+            int[] arr = queue2.poll();
+            int u = arr[0];
+            int v = arr[1];
+
+            if ((A.contains(u) && !B.contains(v)) || (B.contains(u) && !A.contains(v))) res++;
+        }
+
+        return edges.length - res;
+    }
+
+    private void dfs(List<List<Integer>> graph, int i, int j) {
+        for (int k : graph.get(i)) {
+            if (k == j) continue;
+            dfs(graph, k, j);
+        }
+    }
+}

@@ -1,0 +1,55 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.980;
+
+public class Solution {
+    private static final int[] directions = {0,1,-1,0,{0,-1,0,1}};
+    public int uniquePathsIII(int[][] grid) {
+        if(grid.length == 0 || grid[0].length == 0)
+            return 0;
+        int emptyCells = 0, startX = 0, startY = 0, endX = 0, endY = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if(grid[i][j] == 1) {
+                    startX = i;
+                    startY = j;
+                } else if(grid[i][j] == -1) {
+                    continue;
+                } else if(grid[i][j] == 2) {
+                    endX = i;
+                    endY = j;
+                }
+                emptyCells++;
+            }
+        }
+        int visited = 0, ways = 0;
+        boolean foundEnd = false;
+        dfs(startX,startY,grid, directions, emptyCells, visited,foundEnd);
+        return foundEnd?ways:0;
+    }
+
+    private void dfs(int x,int y,int[][] grid, int[] directions, int emptyCells, int visited,boolean foundEnd) {
+        if(x<0 || x >=grid.length || y < 0 || y >=grid[0].length)
+            return ;
+        if(grid[x][y] == -1 || visited > emptyCells )
+            return;
+        visited++;
+        if(grid[x][y] == 2 && foundEnd){
+            ways += getCombinations(emptyCells-visited);
+            return;
+        }
+        grid[x][y] = -1;
+        dfs(x + directions[0], y + directions[1], grid, directions, emptyCells, visited,foundEnd);
+        dfs(x + directions[2], y + directions[3], grid, directions, emptyCells, visited,foundEnd);
+        grid[x][y] = 1;
+    }
+
+    private int getCombinations(int n) {
+        if(n == 0)
+            return 1;
+
+        int sum = 0;
+        for (int i = 1; i <=n ; i++) {
+            sum += getCombinations(n - i);
+        }
+        return sum;
+    }
+}

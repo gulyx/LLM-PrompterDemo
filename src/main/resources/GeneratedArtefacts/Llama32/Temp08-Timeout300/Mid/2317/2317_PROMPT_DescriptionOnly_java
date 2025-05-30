@@ -1,0 +1,12 @@
+As a professional Software Engineer, generate a complete Java class file (name the class as :'Solution', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2317;') for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
+You are given a 0-indexed integer array "nums". In one operation, select any non-negative integer x and an index i, then update "nums[i]" to be equal to "nums[i] AND (nums[i] XOR x)".
+
+Note that "AND" is the bitwise AND operation and "XOR" is the bitwise XOR operation.
+
+Return the maximum possible bitwise XOR of all elements of "nums" after applying the operation any number of times.
+
+
+Constraints:
+
+* "1 <= nums.length <= 10^5"
+* "0 <= nums[i] <= 10^8"

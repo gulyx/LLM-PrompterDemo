@@ -1,0 +1,38 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class SolutionTest {
+
+    @Test
+    public void testMaxLikeTimeCoefficient_Example1() {
+        int[] satisfaction = {-1, -8, 0, 5, -9};
+        assertEquals(14, maxLikeTimeCoefficient(satisfaction));
+    }
+
+    @Test
+    public void testMaxLikeTimeCoefficient_Example2() {
+        int[] satisfaction = {4, 3, 2};
+        assertEquals(20, maxLikeTimeCoefficient(satisfaction));
+    }
+
+    @Test
+    public void testMaxLikeTimeCoefficient_Example3() {
+        int[] satisfaction = {-1, -4, -5};
+        assertEquals(0, maxLikeTimeCoefficient(satisfaction));
+    }
+
+    @Test
+    public void testMaxLikeTimeCoefficient_EmptyArray() {
+        int[] satisfaction = {};
+        assertEquals(0, maxLikeTimeCoefficient(satisfaction));
+    }
+
+    @Test
+    public void testMaxLikeTimeCoefficient_NullArray() {
+        assertThrows(NullPointerException.class, () -> maxLikeTimeCoefficient(null));
+    }
+}
+```

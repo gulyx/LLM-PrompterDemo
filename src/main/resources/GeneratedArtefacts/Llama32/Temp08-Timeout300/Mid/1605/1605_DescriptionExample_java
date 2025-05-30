@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1605;
+
+public class Solution {
+    public int[][] restoreMatrix(int[] rowSum, int[] colSum) {
+        int m = rowSum.length;
+        int n = colSum.length;
+        int[][] matrix = new int[m][n];
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int min = Math.min(rowSum[i], colSum[j]);
+                rowSum[i] -= min;
+                colSum[j] -= min;
+                matrix[i][j] = min;
+            }
+        }
+
+        return matrix;
+    }
+
+    [--Example 1--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] rowSum = {3,8};
+        int[] colSum = {4,7};
+        int[][] result = solution.restoreMatrix(rowSum, colSum);
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result[0].length; j++) {
+                System.out.print(result[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    [--Example 2--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] rowSum = {5,7,10};
+        int[] colSum = {8,6,8};
+        int[][] result = solution.restoreMatrix(rowSum, colSum);
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result[0].length; j++) {
+                System.out.print(result[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+```

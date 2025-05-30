@@ -1,0 +1,60 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1347;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1347.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class 1347_DescriptionOnly_testsTest {
+
+    @Test
+    public void testMinStepsAnagram() {
+        Solution solution = new Solution();
+        String s = "leetcode";
+        String t = "practice";
+        int expected = 5;
+        int actual = solution.minSteps(s, t);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testMinStepsAnagram_T_1 () {
+        Solution solution = new Solution();
+        String s = "aabbcc";
+        String t = "adbbcc";
+        int expected = 3;
+        int actual = solution.minSteps(s, t);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testMinStepsAnagram_T_2 () {
+        Solution solution = new Solution();
+        String s = "aaabaaabbabbcaadcbdcbaa";
+        String t = "aaacccaaaccbbaaabbbcacdddaabcbaa";
+        int expected = 7;
+        int actual = solution.minSteps(s, t);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testMinStepsAnagram_T_3 () {
+        Solution solution = new Solution();
+        String s = "abacabaabbcbcaadcbdcbaa";
+        String t = "aaacccaaaccbbaaabbbcacdddaabcbaa";
+        int expected = 7;
+        int actual = solution.minSteps(s, t);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testMinStepsAnagram_T_4 () {
+        Solution solution = new Solution();
+        String s = "babbadcbacaadacbaaaabcaabcdcaba";
+        String t = "aabbccaddddbbbabdcabcaaaabccabab";
+        int expected = 8;
+        int actual = solution.minSteps(s, t);
+        assertEquals(expected, actual);
+    }
+
+}

@@ -1,0 +1,56 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.51;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.51.Solution;
+
+public class 51_DescriptionOnly_testsTest {
+
+    public void testSolution1() {
+        Solution solution = new Solution();
+        char[][] expected = {
+            {'Q','.','.','.','.','.','.'},
+            {'.','.",".",".",".",".","."},
+            {'.','.','.','.','.','.","."}
+        };
+        assertArrayEquals(expected, solution.solve(4));
+    }
+
+    public void testSolution2() {
+        Solution solution = new Solution();
+        char[][] expected = {
+            {".",".",".",".",".",".","Q"},
+            {".",".",".",".",".",".","."},
+            {".",".",".",".",".",".","."}
+        };
+        assertArrayEquals(expected, solution.solve(1));
+    }
+
+    public void testSolution3() {
+        Solution solution = new Solution();
+        char[][] expected = {
+            {'Q','.','.','.','.','.','.'},
+            {'.','.','.','.','.','.','.'},
+            {'.','.','.','.','.','.','.'}
+        };
+        assertArrayEquals(expected, solution.solve(2));
+    }
+
+    public void testSolution4() {
+        Solution solution = new Solution();
+        char[][] expected = {
+            {'Q','.','.','.','.','.','.'},
+            {'.','.','.','.','.','.','.'},
+            {'.','.','.','.','.','.','.'}
+        };
+        assertArrayEquals(expected, solution.solve(3));
+    }
+
+    public void testSolution5() {
+        Solution solution = new Solution();
+        char[][] expected = {
+            {'Q','.','.','.','.','.','.'},
+            {'.','.','.','.','.','.','.'},
+            {'.','.','.','.','.','.','.'}
+        };
+        assertArrayEquals(expected, solution.solve(4));
+    }
+}

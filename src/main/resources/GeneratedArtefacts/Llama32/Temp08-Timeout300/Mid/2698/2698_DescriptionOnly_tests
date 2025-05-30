@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2698;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2698.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class 2698_DescriptionOnly_testsTest {
+
+    @Test
+    void testSolution1() {
+        Solution solution = new Solution();
+        int n = 4;
+        int actual = solution.punishmentNumber(n);
+        assertEquals(30, actual);
+    }
+
+    @Test
+    void testSolution2() {
+        Solution solution = new Solution();
+        int n = 13;
+        int actual = solution.punishmentNumber(n);
+        assertEquals(1563, actual);
+    }
+
+    @Test
+    void testSolution3() {
+        Solution solution = new Solution();
+        int n = 1000;
+        int actual = solution.punishmentNumber(n);
+        assertEquals(250000000, actual);
+    }
+
+    @Test
+    void testSolution4() {
+        Solution solution = new Solution();
+        int n = 2;
+        int actual = solution.punishmentNumber(n);
+        assertEquals(5, actual);
+    }
+
+    @Test
+    void testSolution5() {
+        Solution solution = new Solution();
+        int n = 1;
+        int actual = solution.punishmentNumber(n);
+        assertEquals(1, actual);
+    }
+}

@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1079;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1079.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.Arrays;
+
+public class 1079_DescriptionOnly_testsTest {
+    @Test
+    public void test_1() {
+        Solution solution = new Solution();
+        int result = solution.numTilePossibilities("AAB");
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void test_2() {
+        Solution solution = new Solution();
+        int result = solution.numTilePossibilities("AA");
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void test_3() {
+        Solution solution = new Solution();
+        int result = solution.numTilePossibilities("");
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void test_4() {
+        Solution solution = new Solution();
+        int result = solution.numTilePossibilities("ABCD");
+        assertEquals(5, result);
+    }
+
+    @Test
+    public void test_5() {
+        Solution solution = new Solution();
+        int result = solution.numTilePossibilities("");
+        assertEquals(0, result);
+    }
+}

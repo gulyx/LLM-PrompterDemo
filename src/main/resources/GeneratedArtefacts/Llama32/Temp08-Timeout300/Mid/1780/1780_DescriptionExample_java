@@ -1,0 +1,31 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1780;
+
+public class Solution {
+    public boolean checkPowersOfThree(int n) {
+        while (n != 0) {
+            if ((n & 1) == 1) return false;
+            n >>= 1;
+        }
+        return true;
+    }
+
+    //--Example 1--
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.checkPowersOfThree(12));  // Output: true
+    }
+
+    //--Example 2--
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.checkPowersOfThree(91));  // Output: true
+    }
+
+    //--Example 3--
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.checkPowersOfThree(21));  // Output: false
+    }
+}
+```

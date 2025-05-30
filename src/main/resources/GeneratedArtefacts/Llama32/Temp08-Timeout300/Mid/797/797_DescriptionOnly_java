@@ -1,0 +1,29 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.797;
+
+import java.util.*;
+
+public class Solution {
+    public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+        List<List<Integer>> result = new ArrayList<>();
+        int n = graph.length;
+        boolean[] visited = new boolean[n];
+        dfs(0, new ArrayList<>(), result, graph, visited);
+        return result;
+    }
+
+    private void dfs(int node, List<Integer> path, List<List<Integer>> result, int[][] graph, boolean[] visited) {
+        if (node == graph.length - 1) {
+            result.add(new ArrayList<>(path));
+            return;
+        }
+        for (int next : graph[node]) {
+            if (!visited[next]) {
+                visited[next] = true;
+                path.add(next);
+                dfs(next, path, result, graph, visited);
+                path.remove(path.size() - 1);
+                visited[next] = false;
+            }
+        }
+    }
+}

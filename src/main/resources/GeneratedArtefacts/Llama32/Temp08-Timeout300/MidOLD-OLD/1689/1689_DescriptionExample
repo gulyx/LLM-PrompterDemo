@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+public class DescriptionExample {
+
+    @Test
+    public void test1() {
+        String n = "32";
+        int expected = 3;
+        int actual = minPartitions(n);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test2() {
+        String n = "82734";
+        int expected = 8;
+        int actual = minPartitions(n);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test3() {
+        String n = "27346209830709182346";
+        int expected = 9;
+        int actual = minPartitions(n);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test4() {
+        String n = "1000";
+        int expected = 1;
+        int actual = minPartitions(n);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test5() {
+        String n = "1";
+        int expected = 1;
+        int actual = minPartitions(n);
+        assertEquals(expected, actual);
+    }
+}

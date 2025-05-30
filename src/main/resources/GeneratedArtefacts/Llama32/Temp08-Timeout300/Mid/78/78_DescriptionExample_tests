@@ -1,0 +1,38 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.78;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.78.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DescriptionExample_testsTest {
+
+    @Test
+    public void testGenerateSubsets() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2, 3};
+        assertArrayEquals(new String[][]{{"","1","2","3"},{"","1","2"},{"","1","3"},{"","2","3"},{"","1","2","3"}}, solution.generateSubsets(nums));
+    }
+
+    @Test
+    public void testGenerateSubsetsWithZero() {
+        Solution solution = new Solution();
+        int[] nums = {0};
+        assertArrayEquals(new String[][]{{"","0"}}, solution.generateSubsets(nums));
+    }
+
+    @Test
+    public void testGenerateSubsetsWithSingleElement() {
+        Solution solution = new Solution();
+        int[] nums = {1};
+        assertArrayEquals(new String[][]{{"","1"}}, solution.generateSubsets(nums));
+    }
+
+    @Test
+    public void testGenerateSubsetsEmptyArray() {
+        Solution solution = new Solution();
+        int[] nums = {};
+        assertArrayEquals(new String[][]{{"",""}}, solution.generateSubsets(nums));
+    }
+}
+```

@@ -1,0 +1,32 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1079;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Solution {
+    public int numTilePossibilities(String tiles) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (char tile : tiles.toCharArray()) {
+            map.put(tile, map.getOrDefault(tile, 0) + 1);
+        }
+        return helper(map);
+    }
+
+    private int helper(Map<Character, Integer> map) {
+        if (map.isEmpty())
+            return 1;
+        int count = 0;
+        for (int freq : map.values()) {
+            count += freq * helper(getMapWithoutOneChar(map));
+        }
+        return count;
+    }
+
+    private Map<Character, Integer> getMapWithoutOneChar(Map<Character, Integer> map) {
+        Map<Character, Integer> newMap = new HashMap<>();
+        for (char key : map.keySet())
+            if (map.get(key) != 1)
+                newMap.put(key, map.get(key));
+        return newMap;
+    }
+}

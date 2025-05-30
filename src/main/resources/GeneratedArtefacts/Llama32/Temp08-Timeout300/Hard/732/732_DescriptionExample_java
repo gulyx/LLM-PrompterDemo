@@ -1,0 +1,32 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.732;
+
+import java.util.*;
+
+public class Solution {
+    private TreeSet<Integer> start;
+    private TreeSet<Integer> end;
+
+    public Solution() {
+        start = new TreeSet<>();
+        end = new TreeSet<>();
+    }
+
+    public int book(int startTime, int endTime) {
+        if (start.contains(startTime) || end.contains(endTime)) return 0;
+        if (start.isEmpty()) return 1;
+        if (end.ceiling(endTime) != null && start.ceiling(endTime) == start.last() && start.last() - end.ceiling(endTime) < endTime - startTime){
+            return start.last() - end.ceiling(endTime) + 1;
+        }
+        --start Ceil endStartTime = end.higher(start.first());
+        if (ceilEndStartTime != null){
+            if (end.ceil(ceilEndStartTime).equals(end.first())){
+                return ceilEndStartTime - start.first() + 1;
+            }else{
+                return ceilEndStartTime - start.first();
+            }
+        }
+        return 1;
+
+    }
+
+}

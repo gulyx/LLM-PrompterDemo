@@ -1,0 +1,41 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1780;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1780.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+
+public class DescriptionExample_testsTest {
+
+    @Test
+    public void testSolution_ReturnsTrue_WhenSumOfDistinctPowersOfThree() {
+        Solution solution = new Solution();
+        assertTrue(solution.descriptionExample(12));
+    }
+
+    @Test
+    public void testSolution_ReturnsTrue_WhenSumOfDistinctPowersOfThree_91() {
+        Solution solution = new Solution();
+        assertTrue(solution.descriptionExample(91));
+    }
+
+    @Test
+    public void testSolution_ReturnsFalse_WhenNotSumOfDistinctPowersOfThree() {
+        Solution solution = new Solution();
+        assertFalse(solution.descriptionExample(21));
+    }
+
+    @Test
+    public void testSolution_DescriptionExample_0() {
+        Solution solution = new Solution();
+        assertTrue(solution.descriptionExample(0));
+    }
+
+    @Test
+    public void testSolution_DescriptionExample_1() {
+        Solution solution = new Solution();
+        assertTrue(solution.descriptionExample(1));
+    }
+}
+```

@@ -1,0 +1,45 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2136;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2136.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2136_DescriptionExample_testsTest {
+    Solution solution = new Solution();
+
+    @Test
+    public void test1() {
+        int[] plantTime = {1,4,3};
+        int[] growTime = {2,3,1};
+        assertTrue(solution.getEarlyDayTo Bloom(plantTime,growTime) == 9);
+    }
+
+    @Test
+    public void test2() {
+        int[] plantTime = {1,2,3,2};
+        int[] growTime = {2,1,2,1};
+        assertTrue(solution.getEarlyDayToBloom(plantTime,growTime) == 9);
+    }
+
+    @Test
+    public void test3() {
+        int[] plantTime = {1};
+        int[] growTime = {1};
+        assertEquals(solution.getEarlyDayToBloom(plantTime,growTime),2);
+    }
+
+    @Test
+    public void test4() {
+        int[] plantTime = {1,2,3,4};
+        int[] growTime = {1,2,3,4};
+        assertTrue(solution.getEarlyDayTo Bloom(plantTime,growTime) == 10);
+    }
+ 
+    @Test
+    public void test5() {
+        int[] plantTime = {1,2,3};
+        int[] growTime = {1,2,3};
+        assertTrue(solution.getEarlyDayToBloom(plantTime,growTime) == 6);
+    }
+
+}

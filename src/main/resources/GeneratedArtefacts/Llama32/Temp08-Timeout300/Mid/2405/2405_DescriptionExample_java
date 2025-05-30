@@ -1,0 +1,30 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2405;
+
+public class Solution {
+    public int minPartition(String s) {
+        boolean[] charOccur = new boolean[26];
+        int res = 0;
+        for (char c : s.toCharArray()) {
+            if (charOccur[c - 'a']) {
+                res++;
+                charOccur = new boolean[26];
+            }
+            charOccur[c - 'a'] = true;
+        }
+        return s.length() - res + 1;
+    }
+
+    [--Example 1--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.minPartition("abacaba")); // 4
+    }
+
+    [--Example 2--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.minPartition("ssssss")); // 6
+    }
+}
+```

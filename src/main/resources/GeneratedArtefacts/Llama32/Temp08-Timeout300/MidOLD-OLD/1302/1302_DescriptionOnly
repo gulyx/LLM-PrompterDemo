@@ -1,0 +1,83 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.ArrayList;
+import java.util.List;
+public class DescriptionOnly {
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() { val = 0; }
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    @Test
+    public void test_DeepstLeavesSum() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        int expectedResult = 15;
+        int actualResult = solution.deepstLeavesSum(root);
+        assertEquals(expectedResult,actualResult);
+    }
+
+    @Test
+    public void test_EmptyTree() {
+        Solution solution = new Solution();
+        TreeNode root = null;
+        int expectedResult = 0;
+        int actualResult = solution.deepstLeavesSum(root);
+        assertEquals(expectedResult,actualResult);
+    }
+
+    @Test
+    public void test_OneNodeTree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        int expectedResult = 1;
+        int actualResult = solution.deepstLeavesSum(root);
+        assertEquals(expectedResult,actualResult);
+    }
+
+    @Test
+    public void test_LargeTree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+        root.left.left.left = new TreeNode(8);
+        root.left.left.right = new TreeNode(9);
+        int expectedResult = 24;
+        int actualResult = solution.deepstLeavesSum(root);
+        assertEquals(expectedResult,actualResult);
+    }
+
+    @Test
+    public void test_MultipleLevels() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        int expectedResult = 7;
+        int actualResult = solution.deepstLeavesSum(root);
+        assertEquals(expectedResult,actualResult);
+    }
+
+}

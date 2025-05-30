@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1402;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1402.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void testExample1() {
+        Solution solution = new Solution();
+        int[] satisfaction = {-10, -5, 0, 3};
+        long result = solution.maxSatisfaction(satisfaction);
+        assertEquals(15, result);
+    }
+
+    @Test
+    public void testExample2() {
+        Solution solution = new Solution();
+        int[] satisfaction = {1, 2, 3, 4};
+        long result = solution.maxSatisfaction(satisfaction);
+        assertEquals(24, result);
+    }
+
+    @Test
+    public void testInvalidInput1() {
+        Solution solution = new Solution();
+        int[] satisfaction = {-1000,-500,0,3000};
+        assertThrows(NullPointerException.class,
+                () -> solution.maxSatisfaction(satisfaction));
+    }
+
+    @Test
+    public void testInvalidInput2() {
+        Solution solution = new Solution();
+        int[] satisfaction = {1, 2};
+        assertThrows(NullPointerException.class,
+                () -> solution.maxSatisfaction(satisfaction));
+    }
+
+    @Test
+    public void testEmptyArray() {
+        Solution solution = new Solution();
+        int[] satisfaction = {};
+        long result = solution.maxSatisfaction(satisfaction);
+        assertEquals(0, result);
+    }
+}

@@ -1,0 +1,27 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1072;
+
+public class Solution {
+    public int maxEqualRowsAfterFlips(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        boolean[][] flipMask = new boolean[cols][1];
+        int res = 0;
+        for (int row = 0; row < rows; ++row) {
+            boolean[] equal = new boolean[cols];
+            for (int col = 0; col < cols; ++col) {
+                if (matrix[row][col] == matrix[row][col ^ 1]) {
+                    equal[col] = true;
+                }
+            }
+            boolean flippedEqual = false;
+            for (boolean val : equal) {
+                if (!val) {
+                    flippedEqual = true;
+                    break;
+                }
+            }
+            res = Math.max(res, ++flipMask[col] ? flipMask[col] + 1 : 1);
+        }
+        return res;
+    }
+}

@@ -1,0 +1,55 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2125;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2125.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class Solution_testsTest {
+
+    @Test
+    public void testExample1() {
+        Solution solution = new Solution();
+        String[][] bank = {{"011001"}, {"000000"}, {"010100"}, {"001000"}};
+        int expectedOutput = 8;
+        int actualOutput = solution.numLaserBeams(bank);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testExample2() {
+        Solution solution = new Solution();
+        String[][] bank = {{"000"}, {"111"}, {"000"}};
+        int expectedOutput = 0;
+        int actualOutput = solution.numLaserBeams(bank);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testExample3() {
+        Solution solution = new Solution();
+        String[][] bank = {{"101010"}, {"000000"}};
+        int expectedOutput = 2;
+        int actualOutput = solution.numLaserBeams(bank);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testExample4() {
+        Solution solution = new Solution();
+        String[][] bank = {{"111111"}, {"000000"}};
+        int expectedOutput = 7;
+        int actualOutput = solution.numLaserBeams(bank);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testExample5() {
+        Solution solution = new Solution();
+        String[][] bank = {{"0110"}, {"0011"}};
+        int expectedOutput = 2;
+        int actualOutput = solution.numLaserBeams(bank);
+        assertEquals(expectedOutput, actualOutput);
+    }
+}
+```

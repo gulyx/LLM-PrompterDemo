@@ -1,0 +1,24 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3271;
+
+public class Solution {
+    public String makeGood(String s) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < s.length(); i += 26) {
+            int start = i;
+            while (start < s.length() && Character.toLowerCase(s.charAt(start)) == Character.toLowerCase(s.charAt(i))) {
+                start++;
+            }
+            int sum = 0;
+            for (int j = i; j < start; j++) {
+                sum += s.charAt(j) - 'a' + 1;
+            }
+            int hashedChar = sum % 26;
+            if ('a'.charAt(0) <= s.charAt(i) && s.charAt(i) <= 'z'.charAt(0)) {
+                result.append((char) ('a'.charAt(hashedChar)));
+            } else {
+                result.append(s.charAt(i));
+            }
+        }
+        return result.toString();
+    }
+}

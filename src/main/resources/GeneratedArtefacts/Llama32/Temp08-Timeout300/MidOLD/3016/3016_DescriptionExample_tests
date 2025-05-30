@@ -1,0 +1,78 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void test1() {
+        String word = "abcde";
+        int expected = 5;
+        assertEquals(expected, minPushes(word));
+    }
+
+    @Test
+    public void test2() {
+        String word = "xyzxyzxyzxyz";
+        int expected = 12;
+        assertEquals(expected, minPushes(word));
+    }
+
+    @Test
+    public void test3() {
+        String word = "";
+        int expected = 0;
+        assertEquals(expected, minPushes(word));
+    }
+
+    @Test
+    public void test4() {
+        String word = "a";
+        int expected = 1;
+        assertEquals(expected, minPushes(word));
+    }
+
+    @Test
+    public void test5() {
+        String word = "ab";
+        int expected = 2;
+        assertEquals(expected, minPushes(word));
+    }
+}
+
+public class Main {
+
+    private static int[] keysToNumbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+    public int minPushes(String word) {
+        char[] chars = word.toCharArray();
+        int[][] map = new int[10][26];
+        for (int i = 0; i < keysToNumbers.length; i++) {
+            map[keysToNumbers[i]][chars[i]-'a'] = i+1;
+        }
+        int sumPushes = 0;
+        for (char c : chars) {
+            if (c == ' ') continue;
+            sumPushes += findNumber(map[c-'a']);
+        }
+        return sumPushes;
+    }
+
+    private static int findNumber(int[][] map) {
+        int minCount = Integer.MAX_VALUE;
+        for (int i = 0; i < 26; i++) {
+            if (map[0][i] == 0) continue;
+            int count = Integer.MAX_VALUE;
+            for (int j = 1; j <= 9; j++) {
+                if (map[j][i] == 0) break;
+                else
+                    count = Math.min(count, map[j][i]);
+            }
+            minCount = Math.min(minCount, count);
+        }
+        return minCount;
+    }
+}
+```

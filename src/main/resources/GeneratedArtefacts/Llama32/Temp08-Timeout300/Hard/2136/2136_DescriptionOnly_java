@@ -1,0 +1,27 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2136;
+
+import java.util.PriorityQueue;
+import java.util.Comparator;
+
+public class Solution {
+    public int minDays(int[] plantTime, int[] growTime) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.comparingInt(x -> plantTime[x]));
+        for (int i: plantTime)
+            pq.add(i);
+        
+        long days = 0;
+        while (!pq.isEmpty()) {
+            boolean bloomed = false;
+            for (int seed : pq) {
+                if (++days == growTime[seed-1]) {
+                    pq.remove();
+                    bloomed = true;
+                }
+            }
+            if (!bloomed)
+                ++days;
+        }
+        
+        return days + 1;
+    }
+}

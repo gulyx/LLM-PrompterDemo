@@ -1,0 +1,38 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1823;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1823.Solution;
+
+public class 1823_DescriptionExample_testsTest {
+
+    public void testExample1() {
+        Solution solution = new Solution();
+        int result = solution.findWinner(5, 2);
+        org.junit.Assert.assertEquals(result, 3);
+    }
+
+    public void testExample2() {
+        Solution solution = new Solution();
+        int result = solution.findWinner(6, 5);
+        org.junit.Assert.assertEquals(result, 1);
+    }
+
+    public void testExample3() {
+        Solution solution = new Solution();
+        int result = solution.findWinner(7, 3);
+        org.junit.Assert.assertEquals(result, 4);
+    }
+
+    public void testExample4() {
+        Solution solution = new Solution();
+        int result = solution.findWinner(500, 1);
+        org.junit.Assert.assertEquals(result, 501);
+    }
+
+    public void testExample5() {
+        Solution solution = new Solution();
+        int result = solution.findWinner(3, 2);
+        org.junit.Assert.assertEquals(result, 1);
+    }
+}
+```

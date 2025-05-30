@@ -1,0 +1,54 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1669;
+
+public class Solution {
+    public ListNode cutList(ListNode head1, int a, int b, ListNode head2) {
+        if (head1 == null || head2 == null)
+            return head1 != null ? head1 : head2;
+        int n = getLength(head1);
+        int m = getLength(head2);
+
+        if ((n - b - 1 < m) || (a > n))
+            return head2;
+
+        ListNode dummyHead = new ListNode(0);
+        ListNode p1 = head1, p2 = head2;
+        ListNode curr = dummyHead;
+        for (int i = 0; i < Math.min(a - 1, m); i++)
+            curr.next = p2;
+            p2 = p2.next;
+
+        curr.next = p1;
+            p1 = p1.next;
+
+        while (p1 != null && p1.next != null) {
+            if (p1 == p2 || p1.next == p2)
+                break;
+            curr.next = p1;
+            curr = curr.next;
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+
+        while (p1 != null && p1.next != null) {
+            curr.next = p1.next;
+            curr = curr.next;
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        if (p1 == p2)
+            curr.next = p1.next;
+        else
+            curr.next = p2;
+
+        return dummyHead.next;
+    }
+
+    private int getLength(ListNode head) {
+        int count = 0;
+        while (head != null) {
+            count++;
+            head = head.next;
+        }
+        return count;
+    }
+}

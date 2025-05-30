@@ -1,0 +1,3 @@
+As a professional Software Engineer, generate a complete Java class file (name the class as :'Solution', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.78;') for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
+Given an integer array "nums" of unique elements, return all possible subsets (the power set).
+The solution set must not contain duplicate subsets. Return the solution in any order.

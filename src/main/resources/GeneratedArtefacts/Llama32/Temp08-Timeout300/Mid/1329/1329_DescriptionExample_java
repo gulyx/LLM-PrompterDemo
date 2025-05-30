@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1329;
+
+import java.util.*;
+
+public class Solution {
+    public int[] diagonalSort(int[][] mat) {
+
+        Map<Integer, PriorityQueue<Integer>> diagonalMap = new HashMap<>();
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[0].length; j++) {
+                int key = i + j;
+                diagonalMap.computeIfAbsent(key, k -> new PriorityQueue<>()).add(mat[i][j]);
+            }
+        }
+
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[0].length; j++) {
+                int key = i + j;
+                diagonalMap.get(key).remove(mat[i][j]);
+                mat[i][j] = diagonalMap.get(key).poll();
+            }
+        }
+
+        return mat;
+    }
+
+    [--Example 1--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[][] mat = {{3,3,1,1},{2,2,1,2},{1,1,1,2}};
+        int[] result = solution.diagonalSort(mat);
+        System.out.println(Arrays.toString(result));
+    }
+
+    [--Example 2--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[][] mat = {{11,25,66,1,69,7},{23,55,17,45,15,52},{75,31,36,44,58,8},{22,27,33,25,68,4},{84,28,14,11,5,50}};
+        int[] result = solution.diagonalSort(mat);
+        System.out.println(Arrays.toString(result));
+    }
+}

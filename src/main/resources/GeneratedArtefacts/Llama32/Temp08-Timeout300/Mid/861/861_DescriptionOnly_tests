@@ -1,0 +1,38 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.861;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.861.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SolutionTest {
+
+    @Test
+    public void testMaxScore() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,0},{1,1}};
+        assertEquals(3, solution.maxScore(grid));
+    }
+
+    @Test
+    public void testMaxScore_emptyMatrix() {
+        Solution solution = new Solution();
+        int[][] grid = {};
+        assertEquals(0, solution.maxScore(grid));
+    }
+
+    @Test
+    public void testMaxScore_singleRow() {
+        Solution solution = new Solution();
+        int[][] grid = {{1}};
+        assertEquals(1, solution.maxScore(grid));
+    }
+
+    @Test
+    public void testMaxScore_twoRows() {
+        Solution solution = new Solution();
+        int[][] grid = {{0, 1}, {1, 0}};
+        assertEquals(2, solution.maxScore(grid));
+    }
+}
+```

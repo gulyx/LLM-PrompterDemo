@@ -1,0 +1,64 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2482;
+
+public class Solution {
+    public int[][] updateMatrix(int[][] grid) {
+        int m = grid.length;
+        if (m == 0) return new int[0][0];
+        int n = grid[0].length;
+        if (n == 0) return new int[0][0];
+        int[][] diff = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            int onesRow = 0;
+            int zerosRow = 0;
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) onesRow++;
+                else zerosRow++;
+            }
+            diff[i][0] = onesRow + getOnesCol(grid[0], n) - zerosRow - getZerosCol(grid, i);
+        }
+        for (int j = 1; j < n; j++) {
+            int onesCol = 0;
+            int zerosCol = 0;
+            for (int i = 0; i < m; i++) {
+                if (grid[i][j] == 1) onesCol++;
+                else zerosCol++;
+            }
+            for (int i = 0; i < m; i++) {
+                diff[i][j] = getOnesRow(grid, i) + onesCol - zerosCol - getZerosRow(grid, i);
+            }
+        }
+        return diff;
+    }
+
+    private int getOnesRow(int[][] grid, int row) {
+        int count = 0;
+        for (int j = 0; j < grid[0].length; j++) {
+            if (grid[row][j] == 1) count++;
+        }
+        return count;
+    }
+
+    private int getZerosRow(int[][] grid, int row) {
+        int count = 0;
+        for (int j = 0; j < grid[0].length; j++) {
+            if (grid[row][j] == 0) count++;
+        }
+        return count;
+    }
+
+    private int getOnesCol(int[] col) {
+        int count = 0;
+        for (int i = 0; i < col.length; i++) {
+            if (col[i] == 1) count++;
+        }
+        return count;
+    }
+
+    private int getZerosCol(int[][] grid, int col) {
+        int count = 0;
+        for (int i = 0; i < grid.length; i++) {
+            if (grid[i][col] == 0) count++;
+        }
+        return count;
+    }
+}

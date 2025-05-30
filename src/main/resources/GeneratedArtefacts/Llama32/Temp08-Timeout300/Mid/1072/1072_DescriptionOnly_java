@@ -1,0 +1,57 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1072;
+
+import java.util.*;
+
+public class Solution {
+    public int maxEqualRowsAfterFlips(int[][] matrix) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < matrix.length; i++) {
+            if (!map.containsKey(matrix[i][0])) {
+                map.put(matrix[i][0], 1);
+            } else {
+                int count = map.get(matrix[i][0]);
+                map.put(matrix[i][0], count + 1);
+            }
+        }
+
+        for (int[] row : matrix) {
+            boolean isFlipped = true;
+            int flippedRow = flip(row);
+            if (!map.containsKey(flippedRow)) {
+                continue;
+            } else {
+                int count = map.get(flippedRow);
+                if (count == 1) {
+                    return i + 1;
+                }
+                count--;
+                map.put(flippedRow, count);
+                isFlipped = false;
+            }
+
+            if (!isFlipped) {
+                continue;
+            } else {
+                map.remove(row[0]);
+                int count = map.size();
+                if (count == 1) {
+                    return i + 1;
+                }
+                map.put(row[0], 1);
+            }
+        }
+
+        return matrix.length;
+    }
+
+    private int flip(int[] row) {
+        for (int i = 0; i < row.length; i++) {
+            if (row[i] == 0) {
+                row[i] = 1;
+            } else {
+                row[i] = 0;
+            }
+        }
+        return row;
+    }
+}

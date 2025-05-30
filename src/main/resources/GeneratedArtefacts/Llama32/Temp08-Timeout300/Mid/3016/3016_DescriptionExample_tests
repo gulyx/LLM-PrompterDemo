@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3016;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3016.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 3016_DescriptionExample_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        String word = "abcde";
+        int expectedOutput = 5;
+        assertEquals(expectedOutput, solution.minimumPushes(word));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        String word = "xyzxyzxyzxyz";
+        int expectedOutput = 12;
+        assertEquals(expectedOutput, solution.minimumPushes(word));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        String word = "aabbcc";
+        int expectedOutput = 6;
+        assertEquals(expectedOutput, solution.minimumPushes(word));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        String word = "aaaabbbccc";
+        int expectedOutput = 9;
+        assertEquals(expectedOutput, solution.minimumPushes(word));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        String word = "";
+        int expectedOutput = 0;
+        assertEquals(expectedOutput, solution.minimumPushes(word));
+    }
+}

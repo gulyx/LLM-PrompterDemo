@@ -1,0 +1,73 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 2375_DescriptionOnly {
+
+    @Test
+    public void test01_Example1() {
+        String pattern = "ID";
+        String num = "239";
+        assertEquals(num, getSmallestNumber(pattern));
+    }
+
+    @Test
+    public void test02_Example2() {
+        String pattern = "IDD";
+        String num = "1349";
+        assertEquals(num, getSmallestNumber(pattern));
+    }
+
+    @Test
+    public void test03_Example3() {
+        String pattern = "IIDD";
+        String num = "1493";
+        assertEquals(num, getSmallestNumber(pattern));
+    }
+
+    @Test
+    public void test04_Example4() {
+        String pattern = "DIDDD";
+        String num = "9871";
+        assertEquals(num, getSmallestNumber(pattern));
+    }
+
+    @Test
+    public void test05_Example5() {
+        String pattern = "";
+        String num = "1234567890";
+        assertEquals(num, getSmallestNumber(pattern));
+    }
+    
+    private String getSmallestNumber(String pattern) {
+        if (pattern == null || pattern.length() == 0)
+            return new StringBuilder("1234567890").toString();
+        
+        char[] chars = new char[pattern.length()];
+        for (int i = 0; i < pattern.length(); i++) {
+            chars[i] = (char)(i+1);
+        }
+        return sortString(chars, pattern);
+    }
+
+    private String sortString(char[] nums, String pattern) {
+        int n = nums.length;
+        
+        if (n == 1)
+            return String.valueOf(nums[0]);
+        
+        StringBuilder sb = new StringBuilder();
+        boolean increasing = pattern.charAt(0) == 'I';
+        for (int i = 0; i < n-1; i++) {
+            char ch = (char)(nums[i] + (pattern.charAt(i) == 'D' ? -1 : 1));
+            
+            while (ch > nums[i+1]) {
+                ch--;
+            }
+            sb.append(ch);
+        }
+        return sb.toString();
+    }
+
+}

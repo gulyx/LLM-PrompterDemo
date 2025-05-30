@@ -1,0 +1,50 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1312;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1312.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
+
+public class 1312_DescriptionOnly_testsTest {
+ 
+    @Test
+    public void testMakePalindrome() {
+        Solution solution = new Solution();
+        String s = "ab";
+        int result = solution.makePalindrome(s);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void testNoChange() {
+        Solution solution = new Solution();
+        String s = "a";
+        int result = solution.makePalindrome(s);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testLongString() {
+        Solution solution = new Solution();
+        String s = "abcba";
+        int result = solution.makePalindrome(s);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testNoChange2() {
+        Solution solution = new Solution();
+        String s = "aa";
+        int result = solution.makePalindrome(s);
+        assertEquals(0, result);
+    }
+ 
+    @Test
+    public void testMakePalindromeLongString() {
+        Solution solution = new Solution();
+        String s = "abcdcba";
+        int result = solution.makePalindrome(s);
+        assertEquals(0, result);
+    }
+
+}

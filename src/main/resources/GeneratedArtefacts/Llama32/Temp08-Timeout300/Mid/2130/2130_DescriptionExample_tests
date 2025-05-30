@@ -1,0 +1,46 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2130;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2130.Solution;
+
+public class DescriptionExample_testsTest {
+
+    @Test
+    public void testMaxTwinSum() {
+        Solution solution = new Solution();
+        int[] head = {5,4,2,1};
+        int expectedOutput = 6;
+        assertEquals(expectedOutput, solution.maxTwinSum(head));
+    }
+
+    @Test
+    public void testMaxTwinSumExample2() {
+        Solution solution = new Solution();
+        int[] head = {4,2,2,3};
+        int expectedOutput = 7;
+        assertEquals(expectedOutput, solution.maxTwinSum(head));
+    }
+
+    @Test
+    public void testMaxTwinSumEmptyList() {
+        Solution solution = new Solution();
+        int[] head = {};
+        int expectedOutput = -1;
+        assertEquals(expectedOutput, solution.maxTwinSum(head));
+    }
+
+    @Test
+    public void testMaxTwinSumEvenLength() {
+        Solution solution = new Solution();
+        int[] head = {2,4,6};
+        int expectedOutput = 12;
+        assertEquals(expectedOutput, solution.maxTwinSum(head));
+    }
+
+    @Test
+    public void testMaxTwinSumLargeList() {
+        Solution solution = new Solution();
+        int[] head = {100,99,98,97,96,95,94,93};
+        int expectedOutput = 199;
+        assertEquals(expectedOutput, solution.maxTwinSum(head));
+    }
+}

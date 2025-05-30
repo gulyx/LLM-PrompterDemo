@@ -1,0 +1,14 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2433;
+
+public class Solution {
+    public int[] findArray(int[] pref) {
+        int n = pref.length;
+        int[] arr = new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            arr[i] = pref[n - 1] ^ pref[i];
+        }
+        
+        return arr;
+    }
+}

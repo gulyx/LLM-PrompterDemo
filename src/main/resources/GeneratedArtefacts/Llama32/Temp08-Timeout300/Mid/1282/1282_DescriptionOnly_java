@@ -1,0 +1,47 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1282;
+
+import java.util.*;
+
+public class Solution {
+    public List<List<Integer>> findGroups(int[] groupSizes) {
+        Map<Integer, List<Integer>> groupMap = new HashMap<>();
+        for (int i = 0; i < groupSizes.length; i++) {
+            if (!groupMap.containsKey(groupSizes[i])) {
+                groupMap.put(groupSizes[i], new ArrayList<>());
+            }
+            groupMap.get(groupSizes[i]).add(i);
+        }
+
+        List<List<Integer>> groups = new ArrayList<>();
+        for (List<Integer> group : groupMap.values()) {
+            if (group.size() == groupSizes[0]) {
+                groups.add(group);
+            } else {
+                int groupSize = groupSizes[0];
+                while (true) {
+                    int index = findIndex(group, groupSize);
+                    if (index != -1) {
+                        group.remove(index);
+                        if (group.isEmpty()) {
+                            break;
+                        }
+                        groups.add(group);
+                        groupSize++;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+        return groups;
+    }
+
+    private int findIndex(List<Integer> group, int size) {
+        for (int i = 0; i < group.size(); i++) {
+            if (group.get(i) % size == 0) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}

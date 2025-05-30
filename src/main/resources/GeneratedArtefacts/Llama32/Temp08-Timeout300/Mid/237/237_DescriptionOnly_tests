@@ -1,0 +1,58 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.237;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.237.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.Arrays;
+
+public class SolutionTest {
+
+    @Test
+    public void testDeleteNode() {
+        Solution solution = new Solution();
+        int[][] head = {{1,2,3},{4,5,6}};
+        int[] node = {2,3};
+        int[] expected = {4,5};
+
+        int[][] actual = solution.deleteNode(head[0], node);
+        assertEquals(expected, actual[0]);
+    }
+
+    @Test
+    public void testDeleteNode_WithTwoNodes() {
+        Solution solution = new Solution();
+        int[][] head = {{1,2}};
+        int[] node = {1,2};
+        int[] expected = {};
+
+        int[][] actual = solution.deleteNode(head[0], node);
+        assertEquals(expected, actual[0]);
+    }
+
+    @Test
+    public void testDeleteNode_WithThreeNodes() {
+        Solution solution = new Solution();
+        int[][] head = {{1,2,3}};
+        int[] node = {2,3};
+        int[] expected = {1};
+
+        int[][] actual = solution.deleteNode(head[0], node);
+        assertEquals(expected, actual[0]);
+    }
+
+    @Test
+    public void testDeleteNode_Null() {
+        Solution solution = new Solution();
+        int[][] head = null;
+        int[] node = {};
+        assertThrows(NullPointerException.class, () -> solution.deleteNode(head, node));
+    }
+
+    @Test
+    public void testDeleteNode_EmptyList() {
+        Solution solution = new Solution();
+        int[][] head = {};
+        int[] node = {};
+        assertThrows(IndexOutOfBoundsException.class, () -> solution.deleteNode(head[0], node));
+    }
+}

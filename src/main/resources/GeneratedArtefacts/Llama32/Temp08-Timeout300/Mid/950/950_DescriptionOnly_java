@@ -1,0 +1,31 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.950;
+
+public class Solution {
+    public int[] deckRevealedIncreasing(int[] deck) {
+        if (deck.length == 0) return new int[0];
+        List<Integer> list = new ArrayList<>();
+        for (int card : deck) list.add(card);
+        int n = list.size();
+        boolean[] seen = new boolean[n];
+        Queue<Integer> queue = new LinkedList<>();
+        int[] res = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (seen[i]) continue;
+            seen[i] = true;
+            queue.offer(i);
+            while (!queue.isEmpty()) {
+                int idx = queue.poll();
+                list.set(idx, -1);
+                if (idx + 1 < n && !seen[idx + 1]) {
+                    seen[idx + 1] = true;
+                    queue.offer(idx + 1);
+                }
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            if (list.get(i) >= 0)
+                res[list.get(i)] = i;
+        }
+        return res;
+    }
+}

@@ -1,0 +1,128 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2392;
+
+import java.util.*;
+
+public class Solution {
+    public int[][] solve(int k, int[][] rowConditions, int[][] colConditions) {
+        List<Integer> nums = new ArrayList<>();
+        for (int i = 1; i <= k; i++) {
+            nums.add(i);
+        }
+        return buildMatrix(nums, rowConditions, colConditions);
+    }
+
+    private int[][] buildMatrix(List<Integer> nums, int[][] rowConditions, int[][] colConditions) {
+        Set<Integer> usedRow = new HashSet<>();
+        Set<Integer> usedCol = new HashSet<>();
+
+        List<Integer>[] rowValues = new List[k + 1];
+        List<Integer>[] colValues = new List[k + 1];
+
+        for (int i = 0; i <= k; i++) {
+            rowValues[i] = new ArrayList<>();
+            colValues[i] = new ArrayList<>();
+        }
+
+        int[][] res = new int[k][k];
+
+        for (int[] conditions : rowConditions) {
+            if (!usedRow.contains(conditions[1])) {
+                usedRow.add(conditions[0]);
+                usedRow.add(conditions[1]);
+            } else {
+                return new int[0][];
+            }
+        }
+
+        for (int i = 0; i < nums.size(); i++) {
+            int num = nums.get(i);
+            if (!usedCol.contains(num)) {
+                usedCol.add(num);
+            } else {
+                continue;
+            }
+
+            res[rowValues.length - 1].add(num);
+
+            rowValues[rowValues.length - 1].add(res[0].length - 1);
+        }
+
+        for (int i = nums.size() - 2; i >= 0; i--) {
+            int num = nums.get(i);
+            if (!usedCol.contains(num)) {
+                usedCol.add(num);
+            } else {
+                continue;
+            }
+
+            res[rowValues.length - rowValues.length - 1].add(num);
+
+            for (int j = colValues.length - 1; j >= 0; j--) {
+                int value = colValues[j].get(colValues[j].size() - 1);
+                if (!usedRow.contains(value)) {
+                    usedCol.add(value);
+                    break;
+                }
+            }
+
+            rowValues[rowValues.length - 2].add(res[0].length - 1);
+        }
+
+        for (int i = nums.size() - 1; i >= 0; i--) {
+            int num = nums.get(i);
+            if (!usedRow.contains(num)) {
+                usedRow.add(num);
+            } else {
+                continue;
+            }
+
+            res[rowValues.length - rowValues.length - 1].add(num);
+
+            for (int j = colValues.length - 1; j >= 0; j--) {
+                int value = colValues[j].get(colValues[j].size() - 1);
+                if (!usedRow.contains(value)) {
+                    usedCol.add(value);
+                    break;
+                }
+            }
+
+            rowValues[rowValues.length - 1].add(res[0].length - 1);
+        }
+
+        for (int i = nums.size() - 2; i >= 0; i--) {
+            int num = nums.get(i);
+            if (!usedCol.contains(num)) {
+                usedCol.add(num);
+            } else {
+                continue;
+            }
+
+            res[rowValues.length - rowValues.length - 1].add(num);
+
+            for (int j = colValues.length - 1; j >= 0; j--) {
+                int value = colValues[j].get(colValues[j].size() - 1);
+                if (!usedRow.contains(value)) {
+                    usedCol.add(value);
+                    break;
+                }
+            }
+
+            rowValues[rowValues.length - 2].add(res[0].length - 1);
+        }
+
+        for (int i = 0; i < nums.size(); i++) {
+            int num = nums.get(i);
+            if (!usedRow.contains(num)) {
+                return new int[0][];
+            }
+        }
+
+        for (int[] row : res) {
+            for (int value : row) {
+                colValues[value].add(num);
+            }
+        }
+
+        return res;
+    }
+}

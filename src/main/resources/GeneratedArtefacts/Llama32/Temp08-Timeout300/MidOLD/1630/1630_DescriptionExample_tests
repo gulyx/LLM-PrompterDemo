@@ -1,0 +1,66 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void [--Example 1--]void testExample1() {
+        int[] nums = {4,6,5,9,3,7};
+        int[][] l = {{0},{0},{2}};
+        int[][] r = {{2},{3},{5}};
+        boolean[] answer = new boolean[l.length];
+        for (int i = 0; i < l.length; i++) {
+            answer[i] = canMakeArithmeticSequence(nums, l[i], r[i]);
+        }
+        assertArrayEquals(new boolean[]{true,false,true}, answer);
+    }
+
+    @Test
+    public void [--Example 2--]void testExample2() {
+        int[] nums = {-12,-9,-3,-12,-6,15,20,-25,-20,-15,-10};
+        int[][] l = {{0},{1},{6},{4},{8},{7}};
+
+        int[][] r = {{4},{4},{9},{7},{9},{10}};
+        boolean[] answer = new boolean[l.length];
+        for (int i = 0; i < l.length; i++) {
+            answer[i] = canMakeArithmeticSequence(nums, l[i], r[i]);
+        }
+        assertArrayEquals(new boolean[]{false,true,false,false,true,true}, answer);
+    }
+
+    public boolean canMakeArithmeticSequence(int[] nums, int[] left, int[] right) {
+        int leftIndex = left[0];
+        int rightIndex = right[0];
+
+        int n = nums.length;
+        if (leftIndex > rightIndex) {
+            int temp = leftIndex;
+            leftIndex = rightIndex;
+            rightIndex = temp;
+        }
+
+        boolean result = true;
+
+        for (int i = 1; i <= rightIndex - leftIndex + 1; i++) {
+            int diff = nums[leftIndex + i] - nums[leftIndex];
+            boolean flag = false;
+            for (int j = 1; j < i; j++) {
+                if (diff == nums[rightIndex + j] - nums[rightIndex]) {
+                    flag = true;
+                    break;
+                }
+            }
+
+            if (!flag) {
+                result = false;
+                break;
+            }
+        }
+
+        return result;
+    }
+}
+```

@@ -1,0 +1,74 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void oneZeroOneMatrix() {
+        int[][] matrix = {{0,1,1,1},{1,1,1,1},{0,1,1,1}};
+        assertEquals(15, numberOfOnesSubmatrices(matrix));
+    }
+
+    @Test
+    public void allOnesMatrix() {
+        int[][] matrix = {{1,1,1,1},{1,1,1,1},{1,1,1,1}};
+        assertEquals(12, numberOfOnesSubmatrices(matrix));
+    }
+
+    @Test
+    public void oneOneZeroMatrix() {
+        int[][] matrix = {{0,1,0},{0,1,0},{1,0,1}};
+        assertEquals(7, numberOfOnesSubmatrices(matrix));
+    }
+
+    @Test
+    public [--Example 3--]
+    public void twoZeroOneOneMatrix() {
+        int[][] matrix = {{0,1,1,0},{1,1,1,0},{1,1,1,0}};
+        assertEquals(12, numberOfOnesSubmatrices(matrix));
+    }
+
+    @Test
+    public [--Example 4--]
+    public void allZeroesMatrix() {
+        int[][] matrix = {{0,0,0,0},{0,0,0,0},{0,0,0,0}};
+        assertEquals(0, numberOfOnesSubmatrices(matrix));
+    }
+
+    @Test
+    public [--Example 5--]
+    public void allOnesMatrix() {
+        int[][] matrix = {{1,1,1,1},{1,1,1,1},{1,1,1,1}};
+        assertEquals(3, numberOfOnesSubmatrices(matrix));
+    }
+
+    private static int numberOfOnesSubmatrices(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int count = 0;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (matrix[i][j] == 1) {
+                    count++;
+                    int x = -1, y = -1;
+                    for (int k = i; k >= 0; k--) {
+                        for (int l = j; l <= cols; l++) {
+                            if (x != -1 && y != -1)
+                                count += Math.min(x + 1, rows - k) * Math.min(y + 1, cols - l);
+                            x++;
+                            y++;
+                            if (matrix[k][l] == 0) break;
+                        }
+                    }
+                }
+            }
+        }
+
+        return count;
+    }
+}
+```

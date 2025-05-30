@@ -1,0 +1,39 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1476;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1476.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class DescriptionOnly_testsTest {
+
+    Solution solution = new Solution(new int[][]{{1, 2}, {3, 4}});
+
+    @Test
+    void testUpdateSubrectangle() {
+        solution.updateSubrectangle(0, 0, 1, 1, 5);
+        assertEquals(5, solution.getValue(0, 0));
+    }
+
+    @Test
+    void testUpdateSubrectangleBounds() {
+        solution.updateSubrectangle(2, 2, 3, 3, 10);
+        assertEquals(10, solution.getValue(2, 2));
+    }
+
+    @Test
+    void testGetValueWithinBounds() {
+        assertEquals(4, solution.getValue(0, 1));
+    }
+
+    @Test
+    void testUpdateSubrectangleEmptyArea() {
+        solution.updateSubrectangle(100, 100, 100, 100, 5);
+        assertEquals(5, solution.getValue(100, 100));
+    }
+
+    @Test
+    void testGetValueOutOfBounds() {
+        assertThrows(IndexOutOfBoundsException.class, () -> solution.getValue(10, 10));
+    }
+}

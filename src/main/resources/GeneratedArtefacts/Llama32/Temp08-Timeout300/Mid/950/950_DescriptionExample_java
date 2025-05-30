@@ -1,0 +1,31 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.950;
+
+public class Solution {
+    public int[] shuffleDeck(int[] deck) {
+        // shuffle the array
+        for (int i = 0; i < deck.length - 1; i++) {
+            int j = (int) (Math.random() * (i + 1));
+            int temp = deck[i];
+            deck[i] = deck[j];
+            deck[j] = temp;
+        }
+
+        // sort the array
+        java.util.Arrays.sort(deck);
+
+        return deck;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] deck1 = {17,13,11,2,3,5,7};
+        int[] output1 = solution.shuffleDeck(deck1);
+        assert java.util.Arrays.equals(output1, new int[]{2,13,3,11,5,17,7});
+
+        int[] deck2 = {1,1000};
+        int[] output2 = solution.shuffleDeck(deck2);
+        assert java.util.Arrays.equals(output2, new int[]{1,1000});
+    }
+}
+```

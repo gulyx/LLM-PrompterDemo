@@ -1,0 +1,38 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.763;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.763.Solution;
+
+public class 763_DescriptionExample_testsTest {
+
+    Solution solution = new Solution();
+
+    @Test
+    public void test1() {
+        int[] result = solution.descriptionExample("ababcbacadefegdehijhklij");
+        assertEquals(new int[]{9,7,8}, result);
+    }
+
+    @Test
+    public void test2() {
+        int[] result = solution.descriptionExample("eccbbbbdec");
+        assertEquals(new int[]{10}, result);
+    }
+
+    @Test
+    public void test3() {
+        int[] result = solution.descriptionExample("aaaaaaabbbbbb");
+        assertEquals(new int[]{6, 4}, result);
+    }
+
+    @Test
+    public void test4() {
+        int[] result = solution.descriptionExample("");
+        assertEquals(new int[]{0}, result);
+    }
+
+    @Test
+    public void test5() {
+        int[] result = solution.descriptionExample("a");
+        assertEquals(new int[]{1}, result);
+    }
+}

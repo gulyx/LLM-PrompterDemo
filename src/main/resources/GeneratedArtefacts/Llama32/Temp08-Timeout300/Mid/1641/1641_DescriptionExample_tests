@@ -1,0 +1,55 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1641;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1641.Solution;
+import org.junit.jupiter.api.Test;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void testOne() {
+        Solution solution = new Solution();
+        int result = solution.countVowelStrings(1);
+        int expected = 5;
+        assertEqual(result, expected);
+    }
+
+    @Test
+    public void testTwo() {
+        Solution solution = new Solution();
+        int result = solution.countVowelStrings(2);
+        int expected = 15;
+        assertEqual(result, expected);
+    }
+
+    @Test
+    public void testThree() {
+        Solution solution = new Solution();
+        int result = solution.countVowelStrings(33);
+        long expected = 66045L;
+        assertEqual(result, expected);
+    }
+
+    @Test
+    public void testFour() {
+        Solution solution = new Solution();
+        int result = solution.countVowelStrings(4);
+        int expected = 370305;
+        assertEqual(result, expected);
+    }
+
+    @Test
+    public void testFive() {
+        Solution solution = new Solution();
+        int result = solution.countVowelStrings(50);
+        long expected = 18796929215L;
+        assertEqual(result, expected);
+    }
+
+    private static void assertEqual(int actual, int expected) {
+        if (actual != expected) {
+            throw new AssertionError("Expected " + expected + ", but got " + actual);
+        }
+    }
+}
+```

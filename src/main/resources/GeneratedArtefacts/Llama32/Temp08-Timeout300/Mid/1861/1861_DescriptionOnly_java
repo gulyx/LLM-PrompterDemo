@@ -1,0 +1,38 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1861;
+
+public class Solution {
+    public char[][] rotateTheBox(char[][] boxGrid) {
+        int m = boxGrid.length;
+        int n = boxGrid[0].length;
+
+        char[][] result = new char[n][m];
+
+        for (int j = 0; j < m; j++) {
+            for (int i = n - 1; i >= 0; i--) {
+                if (boxGrid[j][i] == '.') {
+                    result[i][j] = '.';
+                } else if (boxGrid[j][i] == '*') {
+                    while (i > 0 && boxGrid[j][i - 1] != '.') {
+                        i--;
+                    }
+                    result[i][j] = '*';
+                } else {
+                    int count = 0;
+                    for (int k = n - 1; k >= 0; k--) {
+                        if (boxGrid[j][k] == '#') {
+                            break;
+                        }
+                        count++;
+                    }
+
+                    while (i < count) {
+                        result[i][j] = '#';
+                        i++;
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+}

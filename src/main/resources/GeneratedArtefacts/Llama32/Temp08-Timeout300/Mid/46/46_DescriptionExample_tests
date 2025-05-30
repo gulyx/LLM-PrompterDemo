@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.46;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.46.Solution;
+import org.junit.Test;
+import java.util.Arrays;
+import static org.junit.Assert.*;
+public class 46_DescriptionExample_testsTest {
+    @Test
+    public void test_PermutationsForGivenArray() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3};
+        assertEquals(Arrays.deepToString(solution.permute(nums)), "[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]", solution.permute(nums));
+    }
+
+    @Test
+    public void test_PermutationsForGivenArrayWithZero() {
+        Solution solution = new Solution();
+        int[] nums = {0,1};
+        assertEquals(Arrays.deepToString(solution.permute(nums)), "[[0,1],[1,0]]", solution.permute(nums));
+    }
+
+    @Test
+    public void test_PermutationsForGivenArrayWithOneElement() {
+        Solution solution = new Solution();
+        int[] nums = {1};
+        assertArrayEquals(new int[]{1}, solution.permute(nums));
+    }
+
+    @Test
+    public void test_WhenAllPermutationsAreGenerated() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3};
+        assertEquals(6, solution.permute(nums).length);
+    }
+
+    @Test
+    public void test_PermutationsForGivenArrayWithNegativeNumbers() {
+        Solution solution = new Solution();
+        int[] nums = {-1,-2,0};
+        assertEquals(Arrays.deepToString(solution.permute(nums)), "[[-1,-2,0],[-1,0,-2],[0,-1,-2],[0,-2,-1],[-2,0,-1],[-2,-1,0]]", solution.permute(nums));
+    }
+}

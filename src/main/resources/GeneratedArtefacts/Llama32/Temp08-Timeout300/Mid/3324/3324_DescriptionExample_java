@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324;
+
+import java.util.*;
+
+public class Solution {
+    public List<String> findMinStep(String target) {
+        if (target == null || target.length() == 0) return new ArrayList<>();
+        int n = target.length();
+        char[] chars = target.toCharArray();
+
+        boolean[][] visited = new boolean[n + 1][26];
+        Set<String> res = new HashSet<>();
+
+        Deque<String> dq = new LinkedList<>();
+        dq.addLast("");
+        visited[0][chars[0] - 'a'] = true;
+
+        int cur = 0;
+        while (!dq.isEmpty()) {
+            String now = dq.removeFirst();
+            if (now.length() == n) {
+                res.add(now);
+                continue;
+            }
+            for (int i = 0; i < 26; i++) {
+                char c = (char) ('a' + i);
+                if (visited[cur][i]) continue;
+                visited[cur][i] = true;
+                dq.addLast(now + c);
+                cur++;
+            }
+
+        }
+        List<String> list = new ArrayList<>(res);
+        Collections.sort(list, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return Integer.compare(o1.length(), o2.length());
+            }
+        });
+        return list;
+    }
+}

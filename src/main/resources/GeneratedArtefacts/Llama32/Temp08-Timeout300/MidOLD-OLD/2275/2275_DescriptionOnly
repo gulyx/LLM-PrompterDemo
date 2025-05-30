@@ -1,0 +1,60 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2275_DescriptionOnly {
+
+    @Test
+    public void testZero() {
+        int[] nums = {1,2,3};
+        assertEquals(0, findMaxAnd(nums));
+    }
+
+    @Test
+    public void testOne() {
+        int[] nums = {1};
+        assertEquals(1, findMaxAnd(nums));
+    }
+
+    @Test
+    public void testTwo() {
+        int[] nums = {5, 3};
+        assertEquals(1, findMaxAnd(nums));
+    }
+
+    @Test
+    public void testThree() {
+        int[] nums = {7, 10, 15};
+        assertEquals(7, findMaxAnd(nums));
+    }
+
+    @Test
+    public void testFour() {
+        int[] nums = {17, 68, 1234};
+        assertEquals(0, findMaxAnd(nums));
+    }
+}
+
+public class Solution {
+     public int findMaxAnd(int[] candidates) {
+         int maxAnd = Integer.MIN_VALUE;
+         for (int i = 0; i < (1 << candidates.length); i++) {
+             int and = candidates[0];
+             for (int j = 1; j < candidates.length; j++)
+                 if ((i & (1 << j)) > 0) and &= candidates[j];
+
+             if (and > maxAnd) maxAnd = and;
+         }
+         return maxAnd == Integer.MIN_VALUE ? 0 : countBits(maxAnd);
+     }
+
+     public int countBits(int num) {
+        int bitsCount = 0;
+        while (num != 0) {
+            bitsCount++;
+            num &= num-1;
+        }
+        return bitsCount;
+    }
+}

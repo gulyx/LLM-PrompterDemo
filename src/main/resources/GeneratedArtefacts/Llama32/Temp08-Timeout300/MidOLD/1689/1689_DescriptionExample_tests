@@ -1,0 +1,66 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void test1() {
+        int n = 32;
+        int expected = 3;
+        assertEquals(expected, minDeciBinaryNumbers(n));
+    }
+
+    @Test
+    public void test2() {
+        int n = 82734;
+        int expected = 8;
+        assertEquals(expected, minDeciBinaryNumbers(n));
+    }
+
+    @Test
+    public void test3() {
+        int n = 27346209830709182346;
+        int expected = 9;
+        assertEquals(expected, minDeciBinaryNumbers(n));
+    }
+
+    @Test
+    public void test4() {
+        int n = 10;
+        int expected = 2;
+        assertEquals(expected, minDeciBinaryNumbers(n));
+    }
+
+    @Test
+    public void test5() {
+        int n = 0;
+        int expected = 0;
+        assertEquals(expected, minDeciBinaryNumbers(n));
+    }
+}
+
+public class Main {
+
+    public static int minDeciBinaryNumbers(String n) {
+        int sum = 0;
+        for (char c : n.toCharArray()) {
+            sum += Character.getNumericValue(c);
+        }
+        return binToDecimal(new StringBuilder().append("1").repeat(sum).toString());
+    }
+
+    private static int binToDecimal(String binaryNum) {
+        int decimalNum = 0, power = 0;
+        for (int i = binaryNum.length() - 1; i >= 0; i--) {
+            if (binaryNum.charAt(i) == '1') {
+                decimalNum += Math.pow(2, power);
+            }
+            power++;
+        }
+        return decimalNum;
+    }
+}
+```

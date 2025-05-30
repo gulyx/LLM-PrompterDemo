@@ -1,0 +1,19 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2265;
+
+public class Solution {
+    public int averageOfSubTree(TreeNode root) {
+        return dfs(root);
+    }
+
+    private int dfs(TreeNode node){
+        if(node == null) return 0;
+        int left = dfs(node.left);
+        int right = dfs(node.right);
+        int avg = (node.val + left + right) / 3;
+
+        int count = Math.max(0, avg - left) + Math.max(0, avg - right);
+
+        node.left = null; node.right = null;
+        return count + 1;
+    }
+}

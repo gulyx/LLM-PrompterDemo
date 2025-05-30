@@ -1,0 +1,60 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExample {
+
+    @Test
+    public void test_LaserBeams_WithRows() {
+        String[][] bank = {{"011001", "000000", "010100", "001000"}, {"111", "0","111"},{"111","0","111"},{"111","0","111"}};
+        assertEquals(8, countLaserBeams(bank));
+    }
+
+    @Test
+    public void test_LaserBeams_NoRows() {
+        String[][] bank = {{"000", "111", "000"}, {"111", "0","111"},{"111","0","111"},{"111","0","111"}};
+        assertEquals(0, countLaserBeams(bank));
+    }
+
+    @Test
+    public void test_LaserBeams_NoSecurityDevices() {
+        String[][] bank = {{"000", "000"}, {"000", "000"},{"000", "000"},{"000", "000"}};
+        assertEquals(6, countLaserBeams(bank));
+    }
+
+    @Test
+    public void test_LaserBeams_SingleRow() {
+        String[][] bank = {{"111"}, {"0"}, {"111"} };
+        assertEquals(2, countLaserBeams(bank));
+    }
+
+    @Test
+    public void test_LaserBeams_EmptyBank() {
+        String[][] bank = {};
+        assertEquals(0, countLaserBeams(bank));
+    }
+}
+
+public class Solution {
+    public int countLaserBeams(String[][] bank) {
+        if (bank.length == 0 || bank[0].length == 0)
+            return 0;
+        boolean[] securityDevicesRow = new boolean[bank.length];
+        for (String row : bank)
+            for (char cell : row.toCharArray())
+                if (cell == '1')
+                    securityDevicesRow[Integer.parseInt(row.substring(0, 1)) - 1] = true;
+
+        int laserBeams = 0;
+        for (int i = 0; i < bank.length-1; ++i) {
+            boolean hasDevice = securityDevicesRow[i];
+            if (!hasDevice && !securityDevicesRow[i + 1])
+                laserBeams += 1;
+        }
+        return laserBeams * 2;
+
+    }
+}
+```

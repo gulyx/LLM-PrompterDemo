@@ -1,0 +1,50 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1861;
+
+import java.util.*;
+
+public class Solution {
+    public char[][] rotateTheBox(char[][] boxGrid) {
+        int m = boxGrid.length;
+        int n = boxGrid[0].length;
+        char[][] rotatedBox = new char[n][m];
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (boxGrid[i][j] == '.') {
+                    int currCol = j, currRow = i;
+                    while (currRow < m) {
+                        rotatedBox[j][currRow++] = '.';
+                        if (isObstacle(rotatedBox[j][currRow])) break;
+                        if (isStone(rotatedBox[j][currRow])) {
+                            if (j == 0 || rotatedBox[j-1][currRow] != '.')
+                                rotatedBox[j-1][currRow] = '.';
+                            else
+                                rotatedBox[j-1][currRow] = '#';
+                            j--;
+                        }
+                    }
+                } else if (boxGrid[i][j] == '*') {
+                    for (int k = 0; k < m; k++) {
+                        rotatedBox[j][k] = '*';
+                    }
+                } else {
+                    int currCol = j, currRow = i;
+                    while (currRow >= 0) {
+                        if (!isObstacle(rotatedBox[currCol][currRow])) break;
+                        if (rotatedBox[currCol][currRow] == '.') rotatedBox[currCol--][currRow++] = '#';
+                    }
+                }
+            }
+        }
+
+        return rotatedBox;
+    }
+
+    private boolean isObstacle(char c) {
+        return c == '*' || c == '#';
+    }
+
+    private boolean isStone(char c) {
+        return c == '#';
+    }
+}

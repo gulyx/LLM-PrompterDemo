@@ -1,0 +1,58 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertArrayEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testSortStudentsByScores() {
+        int[][] score = {{10, 6, 9, 1}, {7, 5, 11, 2}, {4, 8, 3, 15}};
+        int k = 2;
+        int[][] expected = {{7, 5, 11, 2}, {10, 6, 9, 1}, {4, 8, 3, 15}};
+        assertArrayEquals(expected, sortStudentsByScores(score, k));
+    }
+
+    @Test
+    public void testSortStudentsByScores_K_0() {
+        int[][] score = {{3, 4}, {5, 6}};
+        int k = 0;
+        int[][] expected = {{5, 6}, {3, 4}};
+        assertArrayEquals(expected, sortStudentsByScores(score, k));
+    }
+
+    @Test
+    public void testSortStudentsByScores_EmptyMatrix() {
+        int[][] score = {};
+        int k = 2;
+        int[][] expected = {};
+        assertArrayEquals(expected, sortStudentsByScores(score, k));
+    }
+
+    @Test
+    public void testSortStudentsByScores_NullScore() {
+        int[][] score = null;
+        int k = 2;
+        try {
+            sortStudentsByScores(score, k);
+            assert false;
+        } catch (NullPointerException e) {
+            assert true;
+        }
+    }
+
+    @Test
+    public void testSortStudentsByScores_NoScores() {
+        int[][] score = {{0}};
+        int k = 2;
+        int[][] expected = {};
+        assertArrayEquals(expected, sortStudentsByScores(score, k));
+    }
+
+    private int[][] sortStudentsByScores(int[][] score, int k) {
+        // Implementation goes here
+        return new int[][]{}; // TODO: implement this method
+    }
+}
+```

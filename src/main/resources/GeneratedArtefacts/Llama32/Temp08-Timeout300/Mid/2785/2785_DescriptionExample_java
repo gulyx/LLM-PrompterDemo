@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2785;
+
+public class Solution {
+    public String sortString(String s) {
+        char[] chars = s.toCharArray();
+        int n = s.length();
+
+        // Separate consonants and vowels into two arrays
+        int[] vowels = new int[256];
+        int[] consonants = new int[256];
+
+        for (int i = 0; i < n; i++) {
+            if ("aeiouAEIOU".indexOf(s.charAt(i)) != -1) {
+                vowels[s.charAt(i)]++;
+            } else {
+                consonants[s.charAt(i)]++;
+            }
+        }
+
+        // Sort the vowels in non-decreasing order
+        for (int c = 0; c < 256; c++) {
+            if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+                for (int i = 0; i <= c - 'A'; i++) {
+                    while (vowels[c] > 0) {
+                        chars[i]++;
+                        vowels[c]--;
+                        if ("aeiouAEIOU".indexOf(chars[i]) != -1) {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        return new String(chars);
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.sortString("lEetcOde"));
+        System.out.println(solution.sortString("lYmpH"));
+    }
+}
+```

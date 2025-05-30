@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2079;
+
+public class Solution {
+    public int waterPlants(int[] plants, int capacity) {
+        int steps = 0;
+        int currentCapacity = capacity;
+        for (int i = 0; i < plants.length; i++) {
+            if (currentCapacity >= plants[i]) {
+                steps += Math.abs(i - (i % 2));
+                currentCapacity -= plants[i];
+            } else {
+                steps += 2 * Math.abs(i - (i % 2)) + 1;
+                currentCapacity = capacity;
+            }
+        }
+        return steps;
+    }
+
+ [--Example 1--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] plants = {2, 2, 3, 3};
+        int capacity = 5;
+        System.out.println(solution.waterPlants(plants, capacity)); // 14
+    }
+
+ [--Example 2--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] plants = {1, 1, 1, 4, 2, 3};
+        int capacity = 4;
+        System.out.println(solution.waterPlants(plants, capacity)); // 30
+    }
+
+ [--Example 3--]
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] plants = {7, 7, 7, 7, 7, 7, 7};
+        int capacity = 8;
+        System.out.println(solution.waterPlants(plants, capacity)); // 49
+    }
+}

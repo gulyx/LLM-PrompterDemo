@@ -1,0 +1,82 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1861;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1861.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1861_DescriptionOnly_testsTest {
+
+    @Test
+    public void testEmptyBox() {
+        Solution solution = new Solution();
+        char[][] boxGrid = new char[][]{
+            {'.'},
+            {'.'}
+        };
+        char[][] result = solution.stoneGameIV(boxGrid);
+        assertEquals(new char[][]{
+                {'#'},
+                {'#'}
+        },result);
+    }
+
+    @Test
+    public void testSingleRowStone() {
+        Solution solution = new Solution();
+        char[][] boxGrid = new char[][]{
+            {'.#'},
+            {'.#'}
+        };
+        char[][] result = solution.stoneGameIV(boxGrid);
+        assertEquals(new char[][]{
+                {'#'},
+                {'.'}
+        },result);
+    }
+
+    @Test
+    public void testSingleRowObstacle() {
+        Solution solution = new Solution();
+        char[][] boxGrid = new char[][]{
+            {('*.)'},
+            {('.*)'}
+        };
+        char[][] result = solution.stoneGameIV(boxGrid);
+        assertEquals(new char[][]{
+                {'*'},
+                {'*'}
+        },result);
+    }
+
+    @Test
+    public void testFullBox() {
+        Solution solution = new Solution();
+        char[][] boxGrid = new char[][]{
+            {'.#.#.#'},
+            {'.##.#.*'},
+            {'###.*..'}
+        };
+        char[][] result = solution.stoneGameIV(boxGrid);
+        assertEquals(new char[][]{
+                {'*'},
+                {'#'},
+                {'.'},
+                {'.'}
+        },result);
+
+    }
+
+    @Test
+    public void testSingleElementBox() {
+        Solution solution = new Solution();
+        char[][] boxGrid = new char[][]{
+            {".#"}
+        };
+        char[][] result = solution.stoneGameIV(boxGrid);
+        assertEquals(new char[][]{
+                {"#"}
+        },result);
+
+    }
+
+}

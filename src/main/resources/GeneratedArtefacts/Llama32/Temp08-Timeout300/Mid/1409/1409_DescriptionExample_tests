@@ -1,0 +1,60 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1409;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1409.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertArrayEquals;
+
+public class SolutionTestsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] queries = {3, 1, 2, 1};
+        int m = 5;
+        int[] expectedOutput = {2, 1, 2, 1};
+        int[] result = solution.processQueries(queries, m);
+        assertArrayEquals(expectedOutput, result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] queries = {4, 1, 2, 2};
+        int m = 4;
+        int[] expectedOutput = {3, 1, 2, 0};
+        int[] result = solution.processQueries(queries, m);
+        assertArrayEquals(expectedOutput, result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] queries = {7, 5, 5, 8, 3};
+        int m = 8;
+        int[] expectedOutput = {6, 5, 0, 7, 5};
+        int[] result = solution.processQueries(queries, m);
+        assertArrayEquals(expectedOutput, result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] queries = {1, 2, 3};
+        int m = 3;
+        int[] expectedOutput = {0, 1, 2};
+        int[] result = solution.processQueries(queries, m);
+        assertArrayEquals(expectedOutput, result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] queries = {1000000, 999999, 999998};
+        int m = 2000001;
+        int[] expectedOutput = {2000000, 1999999, 1999998};
+        int[] result = solution.processQueries(queries, m);
+        assertArrayEquals(expectedOutput, result);
+    }
+}
+```

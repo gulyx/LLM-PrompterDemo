@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2391;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2391.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class 2391_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        String[] garbage = new String[] {"MPG", "GG"};
+        int[] travel = new int[] {2,3};
+        assertEquals(14, solution.minMinutes(garbage, travel));
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        String[] garbage = new String[] {"G", "P", "MP", "PG"};
+        int[] travel = new int[] {3,1,5};
+        assertEquals(10, solution.minMinutes(garbage, travel));
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        String[] garbage = new String[] {"G", "P", "MP", "PG"};
+        int[] travel = new int[] {1,5};
+        assertEquals(10, solution.minMinutes(garbage, travel));
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        String[] garbage = new String[] {"G", "P", "MP", "PG"};
+        int[] travel = new int[] {1,5};
+        assertEquals(10, solution.minMinutes(garbage, travel));
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        String[] garbage = new String[] {"G", "P", "MP", "PG"};
+        int[] travel = new int[] {1,2};
+        assertEquals(8, solution.minMinutes(garbage, travel));
+    }
+}

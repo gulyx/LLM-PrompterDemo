@@ -1,0 +1,46 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.885;
+
+public class Solution {
+
+    public int[][] spiralMatrix(int rows, int cols, int rStart, int cStart) {
+        int[][] result = new int[rows * cols][2];
+        int index = 0;
+        int[][] dirs = {{0,1},{1,0},{0,-1},{-1,0}};
+        int dirIndex = 0;
+        int r = rStart, c = cStart;
+
+        while (index < rows * cols) {
+            result[index++] = new int[] {r,c};
+
+            int nextDirIndex = (dirIndex + 1) % 4;
+            int[][] nextDir = dirs[nextDirIndex];
+            int dr = nextDir[0], dc = nextDir[1];
+
+            if (r < rows && r >= 0 && c < cols && c >= 0) {
+                r += dr;
+                c += dc;
+            } else {
+                dirIndex = nextDirIndex;
+                r += dirs[dirIndex][0];
+                c += dirs[dirIndex][1];
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+
+        int[][] result1 = solution.spiralMatrix(1, 4, 0, 0);
+        for (int[] coord : result1) {
+            System.out.print("[" + coord[0] + "," + coord[1] + "] ");
+        }
+        System.out.println();
+
+        int[][] result2 = solution.spiralMatrix(5, 6, 1, 4);
+        for (int[] coord : result2) {
+            System.out.print("[" + coord[0] + "," + coord[1] + "] ");
+        }
+    }
+}

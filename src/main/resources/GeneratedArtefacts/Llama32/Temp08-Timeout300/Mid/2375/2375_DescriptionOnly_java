@@ -1,0 +1,31 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2375;
+
+public class Solution {
+    public String smallestNumber(String pattern) {
+        int n = pattern.length();
+        char[] num = new char[n + 1];
+        boolean[] visited = new boolean[10];
+
+        for (int i = 0; i < n; i++) {
+            if (pattern.charAt(i) == 'I') {
+                for (int j = 9; j >= 0; j--) {
+                    if (!visited[j] && (i == 0 || num[i - 1] > j)) {
+                        num[i] = (char)(j + '0');
+                        visited[j] = true;
+                        break;
+                    }
+                }
+            } else {
+                for (int j = 0; j < 9; j++) {
+                    if (!visited[j] && (i == 0 || num[i - 1] < j)) {
+                        num[i] = (char)(j + '0');
+                        visited[j] = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        return new String(num);
+    }
+}

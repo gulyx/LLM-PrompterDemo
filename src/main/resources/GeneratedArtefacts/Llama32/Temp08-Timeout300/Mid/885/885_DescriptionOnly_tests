@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.885;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.885.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
+public class 885_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[][] result = solution.spiralMatrixIII(3, 3, 3);
+        int[][] expected = {{0, 1, 2}, {0, 2, 1}, {1, 0, 2}, {2, 1, 0}};
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[][] result = solution.spiralMatrixIII(3, 3, 8);
+        int[][] expected = {{0, 1, 2}, {0, 2, 1}, {1, 0, 2}, {2, 1, 0}};
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[][] result = solution.spiralMatrixIII(5, 5, 4);
+        int[][] expected = {{0, 1, 2, 3, 4}, {20, 21, 22, 23, 24}, {40, 41, 42, 43, 44}, {60, 61, 62, 63, 64}, {80, 81, 82, 83, 84}};
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[][] result = solution.spiralMatrixIII(1, 1, 10);
+        int[][] expected = {{0}, {1}, {2}, {3}};
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[][] result = solution.spiralMatrixIII(2, 2, 6);
+        int[][] expected = {{0, 1}, {2, 3}};
+        assertArrayEquals(expected, result);
+    }
+}
+```

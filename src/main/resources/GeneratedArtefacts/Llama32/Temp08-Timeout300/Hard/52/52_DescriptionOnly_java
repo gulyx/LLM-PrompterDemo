@@ -1,0 +1,28 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.52;
+
+public class Solution {
+    public int totalNQueens(int n) {
+        return solve(n, new boolean[n]);
+    }
+
+    private int solve(int n, boolean[] col, boolean[] diag1, boolean[] diag2) {
+        if (col.length == n)
+            return 1;
+        int res = 0;
+
+        for (int i=0;i<n;i++) {
+            if (!col[i] && !diag1[i] && !diag2[i]) {
+                col[i] = true;
+                diag1[i] = true;
+                diag2[i] = true;
+
+                res += solve(n, col, diag1, diag2);
+                col[i] = false;
+                diag1[i] = false;
+                diag2[i] = false;
+            }
+        }
+
+        return res;
+    }
+}

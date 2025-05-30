@@ -1,0 +1,51 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2161;
+
+public class Solution {
+    public int wiggleSort(int[] nums, int pivot) {
+        int left = 0;
+        int right = nums.length - 1;
+        int mid = 0;
+        Integer[] lessPivot = new Integer[nums.length];
+        Integer[] morePivot = new Integer[nums.length];
+
+        while (left <= right) {
+
+            if (nums[left] < pivot) {
+                lessPivot[mid] = nums[left];
+                left++;
+                mid++;
+
+            } else if (nums[right] > pivot) {
+                morePivot[mid] = nums[right];
+                mid++;
+                right--;
+
+            } else {
+                lessPivot[mid] = nums[left];
+                morePivot[mid] = nums[right];
+                left++;
+                right--;
+                mid++;
+            }
+        }
+
+        for (int i = 0; i < lessPivot.length; i++) {
+            if (lessPivot[i] != null) {
+                nums[i] = lessPivot[i].intValue();
+            }
+        }
+
+        int j = 1;
+        while (j < nums.length && nums[j-1] == pivot) {
+            nums[j++] = pivot;
+        }
+
+        for (int i = 0; i < morePivot.length; i++) {
+            if (morePivot[i] != null) {
+                nums[lessPivot.length + i] = morePivot[i].intValue();
+            }
+        }
+
+        return nums.length;
+    }
+}

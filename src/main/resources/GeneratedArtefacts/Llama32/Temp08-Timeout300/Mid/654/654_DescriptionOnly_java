@@ -1,0 +1,21 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.654;
+
+import java.util.Arrays;
+
+class Solution {
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+        if (nums.length == 0)
+            return null;
+        int index = Arrays.asList(nums).indexOf(Math.max(nums));
+        TreeNode root = new TreeNode(nums[index]);
+        root.left = constructMaximumBinaryTree(Arrays.copyOfRange(nums, 0, index));
+        root.right = constructMaximumBinaryTree(Arrays.copyOfRange(nums, index + 1, nums.length));
+        return root;
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }

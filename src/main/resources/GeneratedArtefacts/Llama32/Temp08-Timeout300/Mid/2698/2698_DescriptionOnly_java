@@ -1,0 +1,17 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2698;
+
+public class Solution {
+    public int squarePartition(int n) {
+        boolean[] can = new boolean[n + 1];
+        for (int i = 1; i <= n; i++) {
+            can[i] = true;
+        }
+        int sum = i * i;
+        for (int i = 2; i * i < sum; i++) {
+            for (int j = i * i; j <= n; j += i * i) {
+                can[j] = false;
+            }
+        }
+        return can[n] ? n : -1;
+    }
+}

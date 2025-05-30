@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2136;
+
+public class Solution {
+    public int minDays(int[] plantTime, int[] growTime) {
+        int n = plantTime.length;
+        int[][] dp = new int[n][n + 1];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= n; j++) {
+                if (i == 0)
+                    dp[i][j] = growTime[0] + j;
+                else
+                    dp[i][j] = Integer.MAX_VALUE;
+                for (int k = 1; k <= i; k++)
+                    dp[i][j] = Math.min(dp[i][j], dp[k - 1][j - plantTime[k - 1]] + growTime[i]);
+            }
+        }
+        return dp[n - 1][n];
+    }
+
+[--Example 1--)
+public static void main(String[] args) {
+    Solution solution = new Solution();
+    int[] plantTime = {1,4,3};
+    int[] growTime = {2,3,1};
+    System.out.println(solution.minDays(plantTime, growTime));
+}
+
+[--Example 2--)
+public static void main(String[] args) {
+    Solution solution = new Solution();
+    int[] plantTime = {1,2,3,2};
+    int[] growTime = {2,1,2,1};
+    System.out.println(solution.minDays(plantTime, growTime));
+}
+
+[--Example 3--)
+public static void main(String[] args) {
+    Solution solution = new Solution();
+    int[] plantTime = {1};
+    int[] growTime = {1};
+    System.out.println(solution.minDays(plantTime, growTime));
+}

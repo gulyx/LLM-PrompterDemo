@@ -1,0 +1,51 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1255;
+
+import java.util.*;
+
+public class Solution {
+    public int maxScoreWords(String[] words, char[] letters, int[] score) {
+        int totalScore = 0;
+        for (String word : words) {
+            int wordScore = 0;
+            boolean[] usedLetters = new boolean[26];
+            for (char c : word.toCharArray()) {
+                if (!usedLetters[c - 'a']) {
+                    if (letters.length == 0 || letters.length < 1) {
+                        break;
+                    }
+                    char letter = letters[0];
+                    usedLetters[letter - 'a'] = true;
+                    if (score[letter - 'a'] > 0) {
+                        wordScore += score[letter - 'a'];
+                        letters = removeLetter(letter, letters);
+                    } else {
+                        break;
+                    }
+                }
+            }
+            totalScore += wordScore;
+        }
+        return totalScore;
+    }
+
+    private char[] removeLetter(char letter, char[] letters) {
+        int index = Arrays.asList(letters).indexOf(letter);
+        if (index != -1) {
+            char[] newLetters = new char[letters.length - 1];
+            System.arraycopy(letters, 0, newLetters, 0, index);
+            System.arraycopy(letters, index + 1, newLetters, index, letters.length - index - 1);
+            return newLetters;
+        }
+        return letters;
+    }
+
+    private int calculateScore(char[] letters, int score[]) {
+        int totalScore = 0;
+        for (char letter : letters) {
+            if (letter != '\u0000') {
+                totalScore += score[letter - 'a'];
+            }
+        }
+        return totalScore;
+    }
+}

@@ -1,0 +1,32 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2551;
+
+public class Solution {
+    public int minCost(int[] weights, int k) {
+        long[] prefixSum = new long[weights.length + 1];
+        for (int i = 0; i < weights.length; i++) {
+            prefixSum[i + 1] = prefixSum[i] + weights[i];
+        }
+        long maxScore = Long.MIN_VALUE;
+        long minScore = Long.MAX_VALUE;
+        for (int l = 0; l < weights.length; l++) {
+            for (int r = l + 1; r <= weights.length; r++) {
+                long scoreL = prefixSum[r] - prefixSum[l];
+                long scoreR = prefixSum[weights.length] - prefixSum[r] - prefixSum[l];
+                if (scoreL != scoreR) continue;
+                long sumWeightsL = sumWeight(weights, l + 1, r);
+                long sumWeightsR = sumWeight(weights, l, r - 1);
+                maxScore = Math.max(maxScore, 2 * sumWeightsL);
+                minScore = Math.min(minScore, sumWeightsL + sumWeightsR);
+            }
+        }
+        return (int) (maxScore - minScore);
+    }
+
+    private long sumWeight(int[] weights, int l, int r) {
+        long res = 0;
+        for (int i = l; i < r; i++) {
+            res += weights[i];
+        }
+        return res;
+    }
+}

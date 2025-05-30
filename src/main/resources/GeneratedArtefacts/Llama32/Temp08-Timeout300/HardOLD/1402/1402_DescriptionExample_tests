@@ -1,0 +1,44 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class SolutionTest {
+
+    @Test
+    public void testMaximumLikeTimeCoefficient() {
+        int[] time = {1};
+        int[] satisfaction = {-1, -8, 0, 5, -9};
+        int expectedOutput = 14;
+        assertEquals(expectedOutput, solution.maxLikeTimeCoefficient(time, satisfaction));
+    }
+
+    @Test
+    public void testMaximumLikeTimeCoefficient_2() {
+        int[] time = {};
+        int[] satisfaction = {4,3,2};
+        int expectedOutput = 20;
+        assertEquals(expectedOutput, solution.maxLikeTimeCoefficient(time, satisfaction));
+    }
+
+    @Test
+    public void testMaximumLikeTimeCoefficient_NegativeNumbers() {
+        int[] time = {1};
+        int[] satisfaction = {-1,-4,-5};
+        int expectedOutput = 0;
+        assertEquals(expectedOutput, solution.maxLikeTimeCoefficient(time, satisfaction));
+    }
+}
+
+class Solution {
+
+    public static int maxLikeTimeCoefficient(int[] time, int[] satisfaction) {
+        return Arrays.stream(satisfaction)
+                .boxed()
+                .sorted((a, b) -> (b.compareTo(a)))
+                .map(t -> t * time[0])
+                .sum();
+    }
+}
+```

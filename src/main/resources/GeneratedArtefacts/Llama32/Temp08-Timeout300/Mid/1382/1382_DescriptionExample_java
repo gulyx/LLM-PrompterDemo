@@ -1,0 +1,54 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1382;
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right)
+ *     {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    private int minVal = Integer.MAX_VALUE;
+    private int maxVal = Integer.MIN_VALUE;
+
+    public TreeNode balanceBST(TreeNode root) {
+        // Inorder traversal to find the minimum and maximum values
+        inorderTraversal(root);
+        
+        // Create a balanced BST from the in-order traversal
+        return buildBalancedTree(minVal, maxVal);
+    }
+
+    private void inorderTraversal(TreeNode node) {
+        if (node == null) return;
+        inorderTraversal(node.left);
+        minVal = Math.min(minVal, node.val);
+        maxVal = Math.max(maxVal, node.val);
+        inorderTraversal(node.right);
+    }
+
+    private TreeNode buildBalancedTree(int minVal, int maxVal) {
+        // Base case: if the range is empty
+        if (minVal > maxVal) return null;
+
+        // Find the middle of the range
+        int mid = minVal + (maxVal - minVal) / 2;
+        
+        TreeNode node = new TreeNode(mid);
+        node.left = buildBalancedTree(minVal, mid - 1);
+        node.right = buildBalancedTree(mid + 1, maxVal);
+
+        return node;
+    }
+}
+```

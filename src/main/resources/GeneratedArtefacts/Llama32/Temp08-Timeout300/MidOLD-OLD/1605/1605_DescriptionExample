@@ -1,0 +1,44 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertArrayEquals;
+
+public class DescriptionExample {
+
+    @Test
+    public void test_1() {
+        int[] rowSum = {3, 8};
+        int[][] colSum = {{4, 7}};
+        assertArrayEquals(new int[][]{{3, 0}, {1, 7}}, findMatrix(rowSum, colSum));
+    }
+
+    @Test
+    public void test_2() {
+        int[] rowSum = {5, 7, 10};
+        int[][] colSum = {{8, 6, 8}};
+        assertArrayEquals(new int[][]{{0, 5, 0}, {6, 1, 0}, {2, 0, 8}}, findMatrix(rowSum, colSum));
+    }
+
+    @Test
+    public void test_3() {
+        int[] rowSum = {15};
+        int[][] colSum = {{10}};
+        assertArrayEquals(new int[][]{{7, 8}}, findMatrix(rowSum, colSum));
+    }
+
+    @Test
+    public void test_4() {
+        int[] rowSum = {1, 1, 1};
+        int[][] colSum = {{2}, {3}, {4}};
+        assertArrayEquals(new int[][]{{0, 0, 1}, {0, 2, 0}, {1, 0, 0}}, findMatrix(rowSum, colSum));
+    }
+
+    @Test
+    public void test_5() {
+        int[] rowSum = {10};
+        int[][] colSum = {{4}};
+        assertArrayEquals(new int[][]{{3, 7}}, findMatrix(rowSum, colSum));
+    }
+}
+```

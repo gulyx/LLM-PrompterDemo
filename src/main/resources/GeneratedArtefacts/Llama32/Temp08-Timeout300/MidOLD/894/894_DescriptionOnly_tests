@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class 894_DescriptionOnlyTest {
+
+    @Test
+    public void test_buildTree_WithZeroNodes() {
+        int n = 0;
+        Tree root = new Tree();
+        List<Tree> ans = allPossibleFullBinaryTrees(n);
+        assertTrue(ans.isEmpty());
+    }
+
+    @Test
+    public void test_buildTree_WithOneNode() {
+        int n = 1;
+        Tree root = new Tree(0);
+        List<Tree> ans = allPossibleFullBinaryTrees(n);
+        assertEquals(1, ans.size());
+    }
+
+    @Test
+    public void test_buildTree_WithTwoNodes() {
+        int n = 2;
+        List<Tree> ans = allPossibleFullBinaryTrees(n);
+        assertEquals(2, ans.size());
+    }
+
+    @Test
+    public void test_buildTree_WithThreeNodes() {
+        int n = 3;
+        List<Tree> ans = allPossibleFullBinaryTrees(n);
+        assertEquals(4, ans.size());
+    }
+
+    @Test
+    public void test_buildTree_MoreThanThreeNodes() {
+        int n = 4;
+        List<Tree> ans = allPossibleFullBinaryTrees(n);
+        assertTrue(ans.size() == (int)Math.pow(2,n));
+    }
+}

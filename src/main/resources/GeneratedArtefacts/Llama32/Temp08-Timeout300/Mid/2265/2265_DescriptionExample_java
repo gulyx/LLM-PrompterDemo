@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2265;
+
+import java.util.*;
+
+public class Solution {
+    int countNodes(TreeNode root) {
+        if (root == null)
+            return 0;
+        int average = getAverage(root);
+        int count = 0;
+        if (average == root.val)
+            count++;
+        return count + countNodes(root.left) + countNodes(root.right);
+    }
+
+    private double getAverage(TreeNode node) {
+        double sum = 0;
+        int levelCount = 0;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(node);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; ++i) {
+                TreeNode current = queue.poll();
+                sum += current.val;
+                levelCount++;
+                if (current.left != null)
+                    queue.add(current.left);
+                if (current.right != null)
+                    queue.add(current.right);
+            }
+        }
+        return Math.round(sum / levelCount);
+    }
+
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}

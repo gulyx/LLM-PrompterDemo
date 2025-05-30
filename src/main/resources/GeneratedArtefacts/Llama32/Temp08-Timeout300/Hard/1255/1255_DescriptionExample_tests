@@ -1,0 +1,55 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1255;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1255.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 1255_DescriptionExample_testsTest {
+
+    @Test
+    public void example1() {
+        Solution solution = new Solution();
+        String[] words = {"dog","cat","dad","good"};
+        char[] letters = {'a', 'a', 'c', 'd', 'd', 'd', 'g', 'o', 'o'};
+        int[] score = {1,0,9,5,0,0,3,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0};
+        assertEquals(23, solution.maxScoreWords(words, letters, score));
+    }
+
+    @Test
+    public void example2() {
+        Solution solution = new Solution();
+        String[] words = {"xxxz","ax","bx","cx"};
+        char[] letters = {'z','a','b','c','x','x','x'};
+        int[] score = {4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,10};
+        assertEquals(27, solution.maxScoreWords(words, letters, score));
+    }
+
+    @Test
+    public void example3() {
+        Solution solution = new Solution();
+        String[] words = {"leetcode"};
+        char[] letters = {'l','e','t','c','o','d'};
+        int[] score = {0,0,1,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0};
+        assertEquals(0, solution.maxScoreWords(words, letters, score));
+    }
+
+    @Test
+    public void example4() {
+        Solution solution = new Solution();
+        String[] words = {"apple","pen"};
+        char[] letters = {'a','p','l','e','n'};
+        int[] score = {1,0,5,1,8};
+        assertEquals(9, solution.maxScoreWords(words, letters, score));
+    }
+
+    @Test
+    public void example5() {
+        Solution solution = new Solution();
+        String[] words = {"cat","bt","hat","tree"};
+        char[] letters = {'a','b','t','r'};
+        int[] score = {1,2,4,0,3};
+        assertEquals(6, solution.maxScoreWords(words, letters, score));
+    }
+}
+```

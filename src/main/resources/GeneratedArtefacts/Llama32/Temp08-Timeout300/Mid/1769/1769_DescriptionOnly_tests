@@ -1,0 +1,52 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1769;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1769.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class 1769_DescriptionOnly_testsTest {
+ 
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] result = solution.minOperations("001100");
+        assertEquals(3, result[0]);
+        assertEquals(1, result[2]);
+        assertEquals(1, result[4]);
+    }
+ 
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] result = solution.minOperations("111000");
+        assertEquals(0, result[0]);
+        assertEquals(5, result[3]);
+        assertEquals(5, result[6]);
+    }
+ 
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] result = solution.minOperations("010110");
+        assertEquals(4, result[0]);
+        assertEquals(1, result[1]);
+        assertEquals(2, result[7]);
+    }
+ 
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] result = solution.minOperations("");
+        assertArrayEquals(new int[]{}, result);
+    }
+ 
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] result = solution.minOperations("0000");
+        assertEquals(0, result[0]);
+        assertEquals(0, result[1]);
+        assertEquals(0, result[2]);
+        assertEquals(0, result[3]);
+    }
+}

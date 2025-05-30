@@ -1,0 +1,41 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1611;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1611.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class SolutionTest {
+
+    @Test
+    public void binaryGapTest() {
+        Solution solution = new Solution();
+        assertEquals(2, solution.binaryGap(5));
+    }
+
+    @Test
+    public void zeroInputTest() {
+        Solution solution = new Solution();
+        assertTrue(solution.binaryGap(0) == 0);
+    }
+
+    @Test
+    public void singleBitInputTest() {
+        Solution solution = new Solution();
+        assertEquals(2, solution.binaryGap(1));
+    }
+
+    @Test
+    public void largeInputTest() {
+        Solution solution = new Solution();
+        assertEquals(12, solution.binaryGap(1000000005));
+    }
+
+    @Test
+    public void edgeCaseTest() {
+        Solution solution = new Solution();
+        assertEquals(2, solution.binaryGap(0b11));
+    }
+}
+```

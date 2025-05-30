@@ -1,0 +1,52 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2196;
+
+import java.util.*;
+
+class Solution {
+    public TreeNode constructTree(int[][] descriptions) {
+        Map<Integer, List<int[]>> adjacencyList = new HashMap<>();
+        for (int[] description : descriptions) {
+            int parent = description[0], child = description[1];
+            boolean isLeft = description[2] == 1;
+            adjacencyList.computeIfAbsent(parent, k -> new ArrayList<>()).add(new int[]{child, isLeft});
+            adjacencyList.computeIfAbsent(child, k -> new ArrayList<>()).add(new int[]{parent, !isLeft});
+        }
+        return constructTree(0, descriptions.length - 1, adjacencyList);
+    }
+
+    private TreeNode constructTree(int start, int end, Map<Integer, List<int[]>> adjacencyList) {
+        if (start > end) {
+            return null;
+        }
+        int parent = start;
+        while (!adjacencyList.containsKey(parent)) {
+            parent++;
+        }
+        int index = 0;
+        for (int[] description : adjacencyList.get(parent)) {
+            if (description[1]) {
+                index = description[0];
+            } else {
+                return constructTree(index, end, adjacencyList);
+            }
+        }
+        return new TreeNode(parent, constructTree(start, index - 1, adjacencyList), constructTree(index + 1, end, adjacencyList));
+    }
+
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) {
+        val = x;
+    }
+
+    TreeNode(int x, TreeNode left, TreeNode right) {
+        this.val = x;
+        this.left = left;
+        this.right = right;
+    }
+}

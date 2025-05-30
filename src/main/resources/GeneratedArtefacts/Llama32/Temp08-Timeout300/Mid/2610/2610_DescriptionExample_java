@@ -1,0 +1,42 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2610;
+
+public class Solution {
+
+    public int[][] distinctRows(int[] nums) {
+        int n = nums.length;
+        int[][] res = new int[n / 2 + 1][];
+        int currRow = 0, numInCurrRow = 0;
+        boolean[] seen = new boolean[n + 1];
+
+        for (int i = 0; i < n; ++i) {
+            if (!seen[nums[i]]) {
+                res[currRow++] = new int[]{nums[i]};
+                seen[nums[i]] = true;
+                numInCurrRow++;
+            } else {
+                seen[nums[i]] = false;
+                nums[i] = -1; // Mark as invalid
+            }
+        }
+
+        while (numInCurrRow > 0) {
+            for (int i = n - 1; i >= 0; --i) {
+                if (nums[i] != -1 && !seen[nums[i]]) {
+                    res[currRow++] = new int[]{nums[i]};
+                    seen[nums[i]] = true;
+                    numInCurrRow--;
+                    break;
+                }
+            }
+        }
+
+        while (currRow < res.length) {
+            res[currRow++] = new int[0];
+        }
+
+        return java.util.Arrays.copyOf(res, currRow);
+    }
+
+}
+```

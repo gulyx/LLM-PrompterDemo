@@ -1,0 +1,48 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.46;
+
+import java.util.*;
+
+public class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        backtrack(result, new ArrayList<>(), nums);
+        return result;
+    }
+
+    private void backtrack(List<List<Integer>> result, List<Integer> tempList, int[] nums) {
+        if (tempList.size() == nums.length) {
+            result.add(new ArrayList<>(tempList));
+            return;
+        }
+        for (int num : nums) {
+            if (!tempList.contains(num)) {
+                tempList.add(num);
+                backtrack(result, tempList, nums);
+                tempList.remove(tempList.size() - 1);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] nums1 = {1,2,3};
+        List<List<Integer>> result1 = solution.permute(nums1);
+        for (List<Integer> list : result1) {
+            System.out.println(list);
+        }
+        
+        int[] nums2 = {0,1};
+        List<List<Integer>> result2 = solution.permute(nums2);
+        for (List<Integer> list : result2) {
+            System.out.println(list);
+        }
+        
+        int[] nums3 = {1};
+        List<List<Integer>> result3 = solution.permute(nums3);
+        for (List<Integer> list : result3) {
+            System.out.println(list);
+        }
+    }
+}
+```

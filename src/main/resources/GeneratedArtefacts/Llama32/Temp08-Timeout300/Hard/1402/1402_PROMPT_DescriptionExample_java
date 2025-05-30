@@ -1,0 +1,23 @@
+As a professional Software Engineer, generate a complete Java class file (name the class as :'Solution', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1402;') for the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword[--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description: 
+A chef has collected data on the "satisfaction" level of his "n" dishes. Chef can cook any dish in 1 unit of time.
+
+Like-time coefficient of a dish is defined as the time taken to cook that dish including previous dishes multiplied by its satisfaction level i.e. "time[i] * satisfaction[I]".
+
+Return the maximum sum of like-time coefficient that the chef can obtain after preparing some amount of dishes.
+
+Dishes can be prepared in any order and the chef can discard some dishes to get this maximum value.
+
+Constraints:
+
+* "n == satisfaction.length"
+* "1 <= n <= 500"
+* "-1000 <= satisfaction[i] <= 1000"
+[--Example 1--]
+Input: satisfaction = [-1,-8,0,5,-9]
+Output: 14
+[--Example 2--]
+Input: satisfaction = [4,3,2]
+Output: 20
+[--Example 3--]
+Input: satisfaction = [-1,-4,-5]
+Output: 0

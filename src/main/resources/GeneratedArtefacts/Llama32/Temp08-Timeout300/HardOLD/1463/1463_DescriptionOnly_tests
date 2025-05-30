@@ -1,0 +1,67 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
+
+public class DescriptionOnlyTest {
+    public int[] findMaxCherries(int[][] grid) {
+        if (grid == null || grid.length == 0)
+            return new int[0];
+        
+        int n = grid.length, m = grid[0].length;
+        int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}};
+        int[][][] memo = new int[n][m][3];
+        int result = helper(grid, n, m, 0, 0, 0, dirs, memo);
+        return new int[]{result};
+    }
+
+    public int helper(int[][] grid, int r, int c, int i, int j, int bot1, int bot2, int[][][] memo) {
+        if (i >= r || j < 0 || j >= c)
+            return 0;
+        
+        if (bot1 > bot2 && grid[i][j] == 0)
+            return 0;
+        
+        if (memo[i][j][bot1] != -1)
+            return memo[i][j][bot1];
+        
+        int res = grid[i][j];
+        for(int[] dir : Arrays.asList(new int[]{new int[]{-1, 0}, new int[]{1, 0}, new int[]{0, -1}})) {
+            res += helper(grid, r, c, i+dir[0], j+dir[1], bot1, bot2, memo);
+        }
+        
+        return memo[i][j][bot1] = res;
+    }
+
+}
+
+public class DescriptionOnlyTest2 extends DescriptionOnlyTest{
+    @Test
+    public void test1() {
+        int[][] grid = {{1, 0, 0}, {1, 0, 0}};
+        int[] result = findMaxCherries(grid);
+        assertEquals(4, result[0]);
+    }
+
+    @Test
+    public void test2() {
+        int[][] grid = {{0}};
+        int[] result = findMaxCherries(grid);
+        assertEquals(0, result[0]);
+    }
+
+    @Test
+    public void test3() {
+        int[][] grid = {{1, 2}, {3, 4}};
+        int[] result = findMaxCherries(grid);
+        assertEquals(10, result[0]);
+    }
+
+    @Test
+    public void test4() {
+        int[][] grid = {{5,6},{7,8}};
+        int[] result = findMaxCherries(grid);
+        assertEquals(20, result[0]);
+    }
+}

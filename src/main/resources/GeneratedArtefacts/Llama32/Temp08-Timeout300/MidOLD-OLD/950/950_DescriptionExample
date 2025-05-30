@@ -1,0 +1,27 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 950_DescriptionExample {
+
+    public int deckRevealedIncreasing(int[] deck) {
+        return deck[0];
+    }
+
+    @Test
+    [--Example 1--]
+    public void testDeckRevealedIncreasing_Example1() {
+        int[] result = deckRevealedIncreasing(new int[]{17,13,11,2,3,5,7});
+        assertArrayEquals(new int[]{2,13,3,11,5,17,7},result);
+    }
+
+    @Test
+    [--Example 2--]
+    public void testDeckRevealedIncreasing_Example2() {
+        int[] result = deckRevealedIncreasing(new int[]{1,1000});
+        assertArrayEquals(new int[]{1,1000},result);
+    }
+}
+```

@@ -1,0 +1,13 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2442;
+
+public class Solution {
+    public int findDifferentInteger(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            String s = Integer.toString(num);
+            StringBuilder reversed = new StringBuilder(s).reverse();
+            set.add(Integer.parseInt(reversed.toString()));
+        }
+        return set.size();
+    }
+}

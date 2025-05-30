@@ -1,0 +1,79 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2415;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2415.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class DescriptionExample_testsTest {
+
+    @Test
+    public void testReverseLevelOrder() {
+        Solution s = new Solution();
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(5);
+        root.left.left = new TreeNode(8);
+        root.left.right = new TreeNode(13);
+        root.right.left = new TreeNode(21);
+        root.right.right = new TreeNode(34);
+        TreeNode reversedRoot = s.reverseLevelOrder(root);
+        assertEquals(new TreeNode(2), reversedRoot.val);
+    }
+
+    @Test
+    public void testReverseEvenLevels() {
+        Solution s = new Solution();
+        TreeNode root = new TreeNode(7);
+        root.left = new TreeNode(13);
+        root.right = new TreeNode(11);
+        TreeNode reversedRoot = s.reverseLevelOrder(root);
+        assertEquals(new TreeNode(7), reversedRoot.val);
+    }
+
+    @Test
+    public void testAllLeafNodesOnSameLevel() {
+        Solution s = new Solution();
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(2);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(0);
+        root.right.left = new TreeNode(0);
+        root.right.right = new TreeNode(1);
+        root.right.right.left = new TreeNode(0);
+        root.right.right.right = new TreeNode(1);
+        root.right.right.right.left = new TreeNode(2);
+        root.right.right.right.right = new TreeNode(2);
+        TreeNode reversedRoot = s.reverseLevelOrder(root);
+        assertEquals(new TreeNode(0), reversedRoot.val);
+    }
+
+    @Test
+    public void testReverseOddLevels() {
+        Solution s = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(0);
+        root.right = new TreeNode(2);
+        TreeNode reversedRoot = s.reverseLevelOrder(root);
+        assertEquals(new TreeNode(1), reversedRoot.val);
+    }
+
+    @Test
+    public void testReverseAllLevels() {
+        Solution s = new Solution();
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(2);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(0);
+        root.right.left = new TreeNode(0);
+        root.right.right = new TreeNode(1);
+        root.right.right.left = new TreeNode(0);
+        root.right.right.right = new TreeNode(1);
+        root.right.right.right.left = new TreeNode(2);
+        root.right.right.right.right = new TreeNode(2);
+        TreeNode reversedRoot = s.reverseLevelOrder(root);
+        assertEquals(new TreeNode(0), reversedRoot.val);
+    }
+}
+```

@@ -1,0 +1,87 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2149_DescriptionOnlyTest {
+
+    @Test
+    public void testPositiveIntegersFirst() {
+        int[] nums = {-1, -2, -3, 4, 5};
+        int[] result = rearrangeArray(nums);
+        assertEquals(nums.length, result.length);
+        assertTrue(result[0] > 0);
+        for (int i = 0; i < result.length / 2; i++) {
+            assertFalse(result[i * 2 + 1] >= 0);
+        }
+    }
+
+    @Test
+    public void testNegativeIntegersFirst() {
+        int[] nums = {4, 5, -1, -2, -3};
+        int[] result = rearrangeArray(nums);
+        assertEquals(nums.length, result.length);
+        assertTrue(result[0] < 0);
+        for (int i = 0; i < result.length / 2; i++) {
+            assertTrue(result[i * 2 + 1] <= 0);
+        }
+    }
+
+    @Test
+    public void testMixedSigns() {
+        int[] nums = {4, -5, -3, -7, -8};
+        int[] result = rearrangeArray(nums);
+        assertEquals(nums.length, result.length);
+        assertTrue(result[0] > 0);
+        for (int i = 0; i < Math.ceil((double)nums.length / 2); i++) {
+            if ((i * 2 + 1 >= nums.length)) break;
+            assertFalse(result[i * 2 + 1] >= 0);
+        }
+    }
+
+    @Test
+    public void testAllPositive() {
+        int[] nums = {1, 2, 3, 4, 5};
+        int[] result = rearrangeArray(nums);
+        assertEquals(nums.length, result.length);
+        assertTrue(result[0] > 0);
+        for (int i = 0; i < nums.length / 2; i++) {
+            assertFalse(result[i * 2 + 1] >= 0);
+        }
+    }
+
+    @Test
+    public void testAllNegative() {
+        int[] nums = {-1, -2, -3, -4, -5};
+        int[] result = rearrangeArray(nums);
+        assertEquals(nums.length, result.length);
+        assertTrue(result[0] < 0);
+        for (int i = 0; i < Math.ceil((double)nums.length / 2); i++) {
+            if ((i * 2 + 1 >= nums.length)) break;
+            assertTrue(result[i * 2 + 1] <= 0);
+        }
+    }
+
+    private int[] rearrangeArray(int[] nums) {
+        int pos = 0, neg = 0;
+        for (int num : nums) {
+            if (num > 0) {
+                pos++;
+            } else {
+                neg++;
+            }
+        }
+
+        int[] res = new int[nums.length];
+        while (pos < nums.length && neg > 0) {
+            res[pos++] = nums[neg--];
+            res[pos++] = -nums[neg--];
+        }
+        if (neg > 0)
+            for (; neg > 0; pos++, neg--) {
+                res[pos] = -nums[neg-1];
+            }
+
+        return res;
+    }
+}

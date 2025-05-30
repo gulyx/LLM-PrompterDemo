@@ -1,0 +1,21 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class DescriptionExample {
+
+    @Test
+    public void testReverseAndAdd() {
+        int[] nums = {1, 13, 10, 12, 31};
+        assertEquals(6, reverseAndAdd(nums));
+    }
+
+    @Test
+    public void testSameNumber() {
+        int[] nums = {2, 2, 2};
+        assertEquals(1, reverseAndAdd(nums));
+    }
+}
+```

@@ -1,0 +1,78 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2482;
+
+public class Solution {
+    public int[][] computeDiff(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int[][] diff = new int[m][n];
+
+        for (int i = 0; i < m; i++) {
+            int onesRow = 0, zerosRow = 0;
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) {
+                    onesRow++;
+                } else if (grid[i][j] == 0) {
+                    zerosRow++;
+                }
+                diff[i][j] = onesRow + getOnesInCol(grid, i, j) - zerosRow - getZerosInRow(grid, i);
+            }
+        }
+
+        for (int j = 0; j < n; j++) {
+            int onesCol = 0, zerosCol = 0;
+            for (int i = 0; i < m; i++) {
+                if (grid[i][j] == 1) {
+                    onesCol++;
+                } else if (grid[i][j] == 0) {
+                    zerosCol++;
+                }
+                diff[i][j] += getOnesInRow(grid, i, j) - zerosCol;
+            }
+        }
+
+        return diff;
+    }
+
+    private int getOnesInCol(int[][] grid, int row, int col) {
+        int ones = 0;
+        for (int i = 0; i < grid.length; i++) {
+            if (grid[i][col] == 1) {
+                ones++;
+            }
+        }
+        return ones;
+    }
+
+    private int getOnesInRow(int[][] grid, int row, int col) {
+        int ones = 0;
+        for (int j = 0; j < grid[0].length; j++) {
+            if (grid[row][j] == 1) {
+                ones++;
+            }
+        }
+        return ones;
+    }
+
+    private int getZerosInRow(int[][] grid, int row) {
+        int zeros = 0;
+        for (int col = 0; col < grid[0].length; col++) {
+            if (grid[row][col] == 0) {
+                zeros++;
+            }
+        }
+        return zeros;
+    }
+
+    private int getZerosInCol(int[][] grid, int col) {
+        int zeros = 0;
+        for (int row = 0; row < grid.length; row++) {
+            if (grid[row][col] == 0) {
+                zeros++;
+            }
+        }
+        return zeros;
+    }
+
+}
+```

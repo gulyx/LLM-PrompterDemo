@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2405;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2405.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void testMinUniqueSubstrings() {
+        Solution solution = new Solution();
+        String s = "abacaba";
+        int result = solution.minUniqueSubstrings(s);
+        assertEquals(4, result);
+    }
+
+    @Test
+    public void testMinUniqueSubstrings2() {
+        Solution solution = new Solution();
+        String s = "ssssss";
+        int result = solution.minUniqueSubstrings(s);
+        assertEquals(6, result);
+    }
+
+    @Test
+    public void testMinUniqueSubstrings3() {
+        Solution solution = new Solution();
+        String s = "abcabcabcabc";
+        int result = solution.minUniqueSubstrings(s);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void testMinUniqueSubstrings4() {
+        Solution solution = new Solution();
+        String s = "aaaaaaa";
+        int result = solution.minUniqueSubstrings(s);
+        assertEquals(5, result);
+    }
+
+    @Test
+    public void testMinUniqueSubstrings5() {
+        Solution solution = new Solution();
+        String s = "";
+        int result = solution.minUniqueSubstrings(s);
+        assertEquals(0, result);
+    }
+}
+```

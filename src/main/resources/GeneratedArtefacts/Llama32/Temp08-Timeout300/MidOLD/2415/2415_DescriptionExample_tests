@@ -1,0 +1,100 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescritionExampleTest {
+
+    @Test
+    public void testReversingOddLevels() {
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(5);
+        root.left.left = new TreeNode(8);
+        root.left.right = new TreeNode(13);
+        root.right.left = new TreeNode(21);
+        root.right.right = new TreeNode(34);
+
+        TreeNode expectedRoot = new TreeNode(2);
+        expectedRoot.left = new TreeNode(5);
+        expectedRoot.right = new TreeNode(3);
+        expectedRoot.left.left = new TreeNode(8);
+        expectedRoot.left.right = new TreeNode(13);
+        expectedRoot.right.left = new TreeNode(21);
+        expectedRoot.right.right = new TreeNode(34);
+
+        reverseLevel(root, 0);
+        assertEquals(expectedRoot, root);
+    }
+
+    @Test
+    public void testReversingOddLevelsWithLessNodes() {
+        TreeNode root = new TreeNode(7);
+        root.left = new TreeNode(13);
+        root.right = new TreeNode(11);
+
+        TreeNode expectedRoot = new TreeNode(7);
+        expectedRoot.left = new TreeNode(11);
+        expectedRoot.right = new TreeNode(13);
+
+        reverseLevel(root, 0);
+        assertEquals(expectedRoot, root);
+    }
+
+    @Test
+    public void testReversingOddLevelsWithEmptyTree() {
+        TreeNode root = null;
+
+        reverseLevel(root, 0);
+        assertNull(root);
+    }
+
+    @Test
+    public void testReversingEvenLevels() {
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(5);
+
+        TreeNode expectedRoot = new TreeNode(5);
+        expectedRoot.left = new TreeNode(3);
+        expectedRoot.right = new TreeNode(2);
+
+        reverseLevel(root, 1);
+        assertEquals(expectedRoot, root);
+    }
+
+    @Test
+    public void testReversingOddLevelsWithOneNodeTree() {
+        TreeNode root = new TreeNode(0);
+
+        TreeNode expectedRoot = new TreeNode(0);
+
+        reverseLevel(root, 0);
+        assertEquals(expectedRoot, root);
+    }
+
+    private void reverseLevel(TreeNode node, int level) {
+        if (node == null) return;
+
+        if (level % 2 != 0) {
+            TreeNode temp = node.val;
+            node.val = node.left.val;
+            node.left.val = temp;
+            reverseLevel(node.left, level + 1);
+            reverseLevel(node.right, level + 1);
+        } else {
+            reverseLevel(node.left, level + 1);
+            reverseLevel(node.right, level + 1);
+        }
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) { val = x; }
+    }
+}
+```

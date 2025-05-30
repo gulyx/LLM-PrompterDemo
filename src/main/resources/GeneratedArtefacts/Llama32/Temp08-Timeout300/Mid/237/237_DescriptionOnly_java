@@ -1,0 +1,17 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.237;
+
+public class Solution {
+
+    public static ListNode deleteNode(ListNode head, ListNode node) {
+        ListNode current = head;
+        while (current.next != null && current.next.val != node.val)
+            current = current.next;
+        if (current.next == null || current.next.next == null)
+            return head;
+        ListNode nextTemp = current.next.next;
+        current.next = current.next.next;
+        current.next.next.val = current.next.val;
+        return head;
+    }
+
+}

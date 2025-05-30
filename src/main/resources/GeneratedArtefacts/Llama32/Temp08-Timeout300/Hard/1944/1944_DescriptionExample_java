@@ -1,0 +1,42 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1944;
+
+public class Solution {
+    public int[] canSeeNeighbors(int[] heights) {
+        int n = heights.length;
+        int[] answer = new int[n];
+        for (int i = 0; i < n; i++) {
+            int maxLeft = 0;
+            for (int j = 0; j <= i; j++) {
+                maxLeft = Math.max(maxLeft, heights[j]);
+            }
+            int count = 0;
+            for (int j = i + 1; j < n; j++) {
+                if (heights[i] > heights[j]) {
+                    count++;
+                } else {
+                    break;
+                }
+            }
+            answer[i] = count;
+        }
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] heights1 = {10,6,8,5,11,9};
+        int[] result1 = solution.canSeeNeighbors(heights1);
+        for (int i : result1) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        int[] heights2 = {5,1,2,3,10};
+        int[] result2 = solution.canSeeNeighbors(heights2);
+        for (int i : result2) {
+            System.out.print(i + " ");
+        }
+    }
+}
+```

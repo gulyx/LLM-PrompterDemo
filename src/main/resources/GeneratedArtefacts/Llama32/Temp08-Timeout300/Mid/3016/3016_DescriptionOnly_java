@@ -1,0 +1,28 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3016;
+
+import java.util.*;
+
+public class Solution {
+    public int minPushButtons(String word) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : "23456789".toCharArray()) {
+            String key = "" + c;
+            if (!map.containsKey(key)) {
+                List<Character> list = new ArrayList<>(key.length());
+                for (int i = 0; i < key.length(); i++) {
+                    char k = key.charAt(i);
+                    if (k != '0') list.add(k - '1');
+                }
+                map.put(key, list.size());
+            }
+        }
+
+        int count = 0;
+        for (char c : word.toCharArray()) {
+            String key = "" + c;
+            if (!map.containsKey(key)) continue;
+            count += map.get(key);
+        }
+        return count;
+    }
+}

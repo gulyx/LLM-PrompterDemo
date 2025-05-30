@@ -1,0 +1,68 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1579;
+
+import java.util.*;
+
+public class Solution {
+    public int maxNumEdgesToRemove(int n, int[][] edges) {
+        if (n == 0 || Arrays.stream(edges).allMatch(edge -> edge[1] == edge[2])) return -1;
+        
+        List<Integer> alice = new ArrayList<>();
+        List<Integer> bob = new ArrayList<>();
+        for (int[] edge : edges) {
+            if (edge[0] == 3) {
+                alice.add(edge[1]);
+                alice.add(edge[2]);
+                bob.add(edge[1]);
+                bob.add(edge[2]);
+            }
+        }
+
+        int minDegreeAlice = Integer.MAX_VALUE;
+        int minDegreeBob = Integer.MAX_VALUE;
+
+        for (int degree : alice) {
+            minDegreeAlice = Math.min(minDegreeAlice, degree);
+        }
+
+        for (int degree : bob) {
+            minDegreeBob = Math.min(minDegreeBob, degree);
+        }
+
+        if (minDegreeAlice == minDegreeBob || minDegreeAlice == Integer.MAX_VALUE || minDegreeBob == Integer.MAX_VALUE) return -1;
+
+        int numEdgesToRemove = 0;
+        boolean[] visited = new boolean[n];
+
+        for (int edge : alice) {
+            if (!visited[edge]) {
+                dfs(edge, visited);
+                numEdgesToRemove++;
+            }
+        }
+
+        for (int edge : bob) {
+            if (!visited[edge]) {
+                dfs(edge, visited);
+                numEdgesToRemove++;
+            }
+        }
+
+        return edges.length - 2 * numEdgesToRemove;
+    }
+
+    private void dfs(int node, boolean[] visited) {
+        visited[node] = true;
+
+        for (int neighbor : alice) {
+            if (neighbor != node && !visited[neighbor]) {
+                dfs(neighbor, visited);
+            }
+        }
+
+        for (int neighbor : bob) {
+            if (neighbor != node && !visited[neighbor]) {
+                dfs(neighbor, visited);
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+As a professional Software Engineer, generate a complete Java class file (name the class as :'Solution', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1780;') for the following description in natural language with examples. Specifically below the description, each example is introduced by the keyword[--Example XX--] (where XX is a number), and it is composed by an input tuple and an expected output. Emit only the Java code, without any other tag or text.  Here is the description: 
+Given an integer "n", return "true" if it is possible to represent "n" as the sum of distinct powers of three. Otherwise, return "false".
+
+An integer "y" is a power of three if there exists an integer "x" such that "y == 3x".
+[--Example 1--]
+Input: n = 12
+Output: true
+[--Example 2--]
+Input: n = 91
+Output: true
+[--Example 3--]
+Input: n = 21
+Output: false

@@ -1,0 +1,44 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2392;
+
+public class Solution {
+    public int[][] constructMatrix(int k, int[][] rowConditions, int[][] colConditions) {
+        List<Integer> row = new ArrayList<>();
+        List<Integer> col = new ArrayList<>();
+
+        for (int i = 1; i <= k; i++) {
+            row.add(i);
+            col.add(i);
+        }
+
+        for (int[] condition : rowConditions) {
+            int a = condition[0], b = condition[1];
+
+            while (row.get(a - 1) == null || row.get(b - 1) != null) {
+                row.set(a - 1, null);
+            }
+            row.set(a - 1, row.remove((int) b - 1));
+        }
+
+        for (int[] condition : colConditions) {
+            int a = condition[0], b = condition[1];
+
+            while (col.get(a - 1) == null || col.get(b - 1) != null) {
+                col.set(a - 1, null);
+            }
+            col.set(a - 1, col.remove((int) b - 1));
+        }
+
+        int[][] result = new int[k][k];
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < k; j++) {
+                if (row.get(i) != null && col.get(j) != null) {
+                    result[i][j] = row.get(i);
+                    row.set(i, null);
+                    col.set(j, null);
+                }
+            }
+        }
+
+        return result;
+    }
+}

@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324.Solution;
+
+public class 3324_DescriptionExample_testsTest {
+    public static Solution solution = new Solution();
+
+    @Test
+    public void test1() {
+        Object[] input = { "abc" };
+        Object[] expectedOutput = { "a", "aa", "ab", "aba", "abb", "abc" };
+        assertArrayEquals(expectedOutput, solution.getLetterViews(input));
+    }
+
+    @Test
+    public void test2() {
+        Object[] input = { "he" };
+        Object[] expectedOutput = { "a", "b", "c", "d", "e", "f", "g", "h", "ha", "hb", "hc", "hd", "he" };
+        assertArrayEquals(expectedOutput, solution.getLetterViews(input));
+    }
+
+    @Test
+    public void test3() {
+        Object[] input = { "a" };
+        Object[] expectedOutput = { "a" };
+        assertArrayEquals(expectedOutput, solution.getLetterViews(input));
+    }
+
+    @Test
+    public void test4() {
+        Object[] input = { "" };
+        Object[] expectedOutput = { "" };
+        assertArrayEquals(expectedOutput, solution.getLetterViews(input));
+    }
+
+    @Test
+    public void test5() {
+        Object[] input = { "aaa" };
+        Object[] expectedOutput = { "a", "aa", "aaa" };
+        assertArrayEquals(expectedOutput, solution.getLetterViews(input));
+    }
+}

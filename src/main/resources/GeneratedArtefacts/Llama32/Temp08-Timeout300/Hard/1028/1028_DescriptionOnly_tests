@@ -1,0 +1,54 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class 1028_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1(){
+        Solution s = new Solution();
+        TreeNode root = s.recoverFromBinaryTreeString("3\n2 # 0\n0 # None");
+        assertEquals(0,root.val);
+        assertEquals(-1,root.left.val);
+        assertEquals(2,root.right.val);
+
+    }
+    @Test
+    public void test2(){
+        Solution s = new Solution();
+        TreeNode root = s.recoverFromBinaryTreeString("4\n# # # \n # # 3");
+        assertEquals(0,root.val);
+        assertEquals(-1,root.left.val);
+        assertEquals(-1,root.right.val);
+        assertEquals(3,root.right.right.val);
+
+    }
+     @Test
+    public void test3(){
+        Solution s = new Solution();
+        TreeNode root = s.recoverFromBinaryTreeString("4\n# # 0\n # # 2");
+        assertEquals(0,root.val);
+        assertEquals(-1,root.left.val);
+        assertEquals(2,root.right.val);
+
+    }
+     @Test
+    public void test4(){
+        Solution s = new Solution();
+        TreeNode root = s.recoverFromBinaryTreeString("5\n# # 3\n # # 4 \n   # # 7");
+        assertEquals(0,root.val);
+        assertEquals(-1,root.left.val);
+        assertEquals(4,root.right.val);
+
+    }
+     @Test
+    public void test5(){
+        Solution s = new Solution();
+        assertThrows(IllegalArgumentException.class,()->s.recoverFromBinaryTreeString("invalid"));
+
+    }
+
+}

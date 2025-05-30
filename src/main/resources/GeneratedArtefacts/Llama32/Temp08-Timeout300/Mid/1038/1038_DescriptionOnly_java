@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1038;
+
+public class Solution {
+
+    public TreeNode convertBST(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        convertBST(root.right);
+        root.val += sumOfNodes(root.right);
+        root.right = convertBST(root.left);
+        return root;
+    }
+
+    private int sumOfNodes(TreeNode node) {
+        if (node == null) {
+            return 0;
+        } else {
+            return sumOfNodes(node.left) + node.val;
+        }
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode() {}
+    TreeNode(int val) { this.val = val; }
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}

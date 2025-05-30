@@ -1,0 +1,36 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.894;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.894.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SolutionTest {
+
+    @Test
+    public void testConstructTrees() {
+        Solution solution = new Solution();
+        String[] expected = { "[[0,0,0,null,null,0,0,null,null,0,0],[0,0,0,null,null,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,null,null,null,null,0,0],[0,0,0,0,0,null,null,0,0]]";
+        String actual = solution.genTrees(7).toString();
+        assertEquals(expected[0], actual);
+    }
+
+    @Test
+    public void testConstructTrees_n1() {
+        Solution solution = new Solution();
+        String[] expected = "[[0,0,0]]";
+        String actual = solution.genTrees(3).toString();
+        assertEquals(expected[0], actual);
+    }
+
+    @Test
+    public void testConstructTrees_negativeInput() {
+        assertThrows(IllegalArgumentException.class, () -> new Solution().genTrees(-1));
+    }
+
+    @Test
+    public void testConstructTrees_emptyInput() {
+        assertThrows(IllegalArgumentException.class, () -> new Solution().genTrees(0));
+    }
+}
+```

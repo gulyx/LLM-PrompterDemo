@@ -1,0 +1,58 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324;
+
+import java.util.*;
+
+public class Solution {
+    public List<String> findDifferentString(String target) {
+        Set<String> set = new HashSet<>();
+        List<String> result = new ArrayList<>();
+
+        for (char c : target.toCharArray()) {
+            StringBuilder sb = new StringBuilder();
+            int idx = 0;
+            while (idx < target.length() && set.contains(sb.toString())) {
+                if (sb.charAt(idx) == 'a') {
+                    sb.append('a');
+                    result.add(sb.toString());
+                } else {
+                    break;
+                }
+                idx++;
+            }
+
+            if (!set.contains(sb.toString())) {
+                int curr = c - 'a';
+                String nxt = getNxt(c, curr);
+                if (nxt != null) {
+                    set.add(sb.toString() + nxt);
+                    result.add(sb.toString() + nxt);
+                } else {
+                    set.add(sb.toString());
+                    result.add(sb.toString());
+                }
+            }
+
+            sb.append(c);
+        }
+
+        return result;
+    }
+
+    private String getNxt(char c, int curr) {
+        char[] arr = new char[26];
+        for (int i = 0; i < arr.length; i++) {
+            if ((i + 'a') == curr) {
+                continue;
+            }
+            arr[i] = (char)(i + 'a');
+        }
+
+        for (char ch : arr) {
+            if (ch == c) {
+                return String.valueOf((char)(curr + 1));
+            }
+        }
+
+        return null;
+    }
+}

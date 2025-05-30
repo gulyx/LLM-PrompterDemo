@@ -1,0 +1,56 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2265;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2265.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class 2265_DescriptionOnly_testsTest {
+    @Test
+    public void testAverageOfSubtree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(10);
+        root.left = new TreeNode(8);
+        root.right = new TreeNode(12);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(14);
+        int actual = solution.averageOfSubtree(root);
+        assertEquals(1,actual);
+    }
+
+    @Test
+    public void testAverageOfSubtree_SameNode() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(10);
+        int actual = solution.averageOfSubtree(root);
+        assertEquals(3,actual);
+    }
+
+    @Test
+    public void testAverageOfSubtree_TwoSameNodes() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(10);
+        root.left = new TreeNode(8);
+        root.right = new TreeNode(8);
+        int actual = solution.averageOfSubtree(root);
+        assertEquals(2,actual);
+    }
+
+    @Test
+    public void testAverageOfSubtree_AverageNotInteger() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(10.0);
+        root.left = new TreeNode(8.0);
+        root.right = new TreeNode(12.0);
+        root.left.left = new TreeNode(4.0);
+        root.left.right = new TreeNode(14.0);
+        double actual = solution.averageOfSubtree(root);
+        assertEquals(2.7,actual);
+    }
+
+    @Test
+    public void testAverageOfSubtree_Null() {
+        Solution solution = new Solution();
+        assertThrows(null, () -> solution.averageOfSubtree(null));
+    }
+}

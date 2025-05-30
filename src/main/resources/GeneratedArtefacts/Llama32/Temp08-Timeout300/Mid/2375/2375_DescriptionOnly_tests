@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2375;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2375.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2375_DescriptionOnly_testsTest {
+
+    @Test
+    public void testCase1() {
+        Solution solution = new Solution();
+        String pattern = "IID";
+        String num = solution.descriptionOnly(pattern);
+        assertEquals("159", num);
+    }
+
+    @Test
+    public void testCase2() {
+        Solution solution = new Solution();
+        String pattern = "DDI";
+        String num = solution.descriptionOnly(pattern);
+        assertEquals("890", num);
+    }
+
+    @Test
+    public void testCase3() {
+        Solution solution = new Solution();
+        String pattern = "IDI";
+        String num = solution.descriptionOnly(pattern);
+        assertEquals("1349", num);
+    }
+
+    @Test
+    public void testCase4() {
+        Solution solution = new Solution();
+        String pattern = "IID";
+        String num = solution.descriptionOnly(pattern);
+        assertEquals("2468", num);
+    }
+
+    @Test
+    public void testCase5() {
+        Solution solution = new Solution();
+        String pattern = "IIID";
+        String num = solution.descriptionOnly(pattern);
+        assertEquals("159876", num);
+    }
+}

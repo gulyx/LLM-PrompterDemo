@@ -1,0 +1,24 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2405;
+
+import java.util.*;
+
+public class Solution {
+    public int minPartition(String s) {
+        HashSet<Character> seen = new HashSet<>();
+        int result = 0;
+        
+        for (char c : s.toCharArray()) {
+            if (!seen.add(c)) {
+                result++;
+                seen.clear();
+                seen.add(c);
+            }
+        }
+        
+        if (!seen.isEmpty()) {
+            result++;
+        }
+        return result;
+    }
+
+}

@@ -1,0 +1,47 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1261;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1261.Solution;
+
+public class 1261_DescriptionExample_testsTest {
+    Solution solution = new Solution();
+
+    @Test
+    public void test1() {
+        Object[] input = {"FindElements", "find", "find"};
+        int[][] expected = { {-1, false, true}};
+        Object[] result = solution.find(input);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void test2() {
+        Object[] input = {"FindElements", "find", "find","find"};
+        int[][] expected = { {-1, true, true, false}};
+        Object[] result = solution.find(input);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void test3() {
+        Object[] input = {{"FindElements","find","find","find","find"}};
+        int[][] expected = { {-1, true, false, false, true}};
+        Object[] result = solution.find(input);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void test4() {
+        Object[] input = {"FindElements", "find", "find","find","find"};
+        int[][] expected = { {-1, true, false, false, true}};
+        Object[] result = solution.find(input);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void test5() {
+        Object[] input = {"FindElements", "find", "find","find","find"};
+        int[][] expected = { {-1, true, false, false, true}};
+        Object[] result = solution.find(input);
+        assertArrayEquals(expected, result);
+    }
+}

@@ -1,0 +1,38 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.894;
+
+import java.util.*;
+
+public class Solution {
+    public List<TreeNode> generateTrees(int n) {
+        return generateTrees(1, n);
+    }
+
+    private List<TreeNode> generateTrees(int start, int end) {
+        if (start > end) {
+            return new ArrayList<>();
+        }
+        List<TreeNode> result = new ArrayList<>();
+
+        for (int i = start; i <= end; i++) {
+            TreeNode node = new TreeNode(i);
+
+            for (TreeNode left : generateTrees(start, i - 1)) {
+                for (TreeNode right : generateTrees(i + 1, end)) {
+                    node.left = left;
+                    node.right = right;
+
+                    result.add(node);
+                }
+            }
+        }
+
+        return result;
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}

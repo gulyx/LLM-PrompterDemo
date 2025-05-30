@@ -1,0 +1,28 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.732;
+
+import java.util.*;
+
+public class Solution {
+    private final TreeMap<Integer, Integer> startEndMap = new TreeMap<>();
+    private int totalOverlappingCount;
+    
+    public Solution() {
+        // Empty constructor
+    }
+    
+    public int book(int startTime, int endTime) {
+        startEndMap.put(startTime, startEndMap.getOrDefault(startTime, 0) + 1);
+        startEndMap.put(endTime, startEndMap.getOrDefault(endTime, 0) - 1);
+
+        int overlappingCount = 0;
+        for (int count : startEndMap.values()) {
+            if (count > 0) {
+                overlappingCount++;
+            }
+        }
+
+        totalOverlappingCount += overlappingCount;
+
+        return totalOverlappingCount;
+    }
+}

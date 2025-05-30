@@ -1,0 +1,39 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1980;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1980.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class 1980_DescriptionOnly_testsTest {
+    Solution solution = new Solution();
+
+    @Test
+    public void testDescriptionOnlyTests() {
+        String[] nums = {"101", "110", "100"};
+        assertEquals("011", solution.findDifferentBinaryString(nums));
+    }
+
+    @Test
+    public void testDescriptionOnlyTests2() {
+        String[] nums = {"001", "111", "000"};
+        assertEquals("010", solution.findDifferentBinaryString(nums));
+    }
+
+    @Test
+    public void testDescriptionOnlyTests3() {
+        String[] nums = {"10", "01", "11"};
+        assertEquals("00", solution.findDifferentBinaryString(nums));
+    }
+
+    @Test
+    public void testDescriptionOnlyTests4() {
+        String[] nums = {"0", "1", "00", "11"};
+        assertEquals("10", solution.findDifferentBinaryString(nums));
+    }
+
+    @Test
+    public void testDescriptionOnlyTests5() {
+        String[] nums = {"1", "0", "01", "10"};
+        assertEquals("00", solution.findDifferentBinaryString(nums));
+    }
+}

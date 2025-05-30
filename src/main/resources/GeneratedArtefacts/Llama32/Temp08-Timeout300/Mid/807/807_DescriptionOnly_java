@@ -1,0 +1,38 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.807;
+
+public class Solution {
+
+    public int maxIncreaseKeepingSkyline(int[][] grid) {
+        int rows = grid.length;
+        int cols = grid[0].length;
+        int totalMaxHeight = 0;
+        
+        // Get maximum height for each column
+        int[] columnMax = new int[cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                columnMax[j] = Math.max(columnMax[j], grid[i][j]);
+            }
+        }
+
+        // Get maximum height for each row
+        int[] rowMax = new int[rows];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                rowMax[i] = Math.max(rowMax[i], grid[i][j]);
+            }
+        }
+
+        // Iterate over the grid again
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                // Increase height of current building to be maximum of its row and column maximum
+                int increase = Math.min(rowMax[i], columnMax[j]) - grid[i][j];
+                totalMaxHeight += increase;
+            }
+        }
+
+        return totalMaxHeight;
+    }
+
+}

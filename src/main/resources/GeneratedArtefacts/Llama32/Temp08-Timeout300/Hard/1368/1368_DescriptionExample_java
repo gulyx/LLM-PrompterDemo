@@ -1,0 +1,87 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1368;
+
+public class Solution {
+    public int minCost(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int[][] cost = new int[m][n];
+        boolean[][] visited = new boolean[m][n];
+
+        cost[0][0] = 0;
+        for (int j = 0; j < n; j++) {
+            if (grid[0][j] == 3 || grid[0][j] == 4) {
+                cost[0][j] = 1;
+                visited[0][j] = true;
+            }
+        }
+
+        for (int i = 1; i < m; i++) {
+            if (grid[i][0] == 2 || grid[i][0] == 4) {
+                cost[i][0] = 1;
+                visited[i][0] = true;
+            }
+        }
+
+        int minCostSoFar = cost[0][0];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+
+                if ((grid[i][j] == 1 && j != n - 1) || (grid[i][j] == 2 && j != 0) ||
+                        (grid[i][j] == 3 && i != m - 1) || (grid[i][j] == 4 && i != 0)) {
+                    if (!visited[i][j]) {
+                        int costToMoveLeft = cost[i][j];
+                        int costToMoveDown = cost[i][j];
+
+                        if (i < m - 1)
+                            costToMoveDown += grid[i][j];
+                        if (j > 0)
+                            costToMoveLeft += grid[i][j];
+
+                        minCostSoFar = Math.min(minCostSoFar, Math.min(costToMoveLeft,
+                                costToMoveDown));
+
+                        int temp = costToMoveRight;
+                        if (i < m - 1) {
+                            temp += grid[i][j];
+                        }
+                        if (j > 0) {
+                            temp += grid[i][j];
+                        }
+
+                        cost[i + 1][j] = Math.min(cost[i + 1][j], minCostSoFar +
+                                temp);
+                    }
+                } else {
+                    if (!visited[i][j]) {
+                        int costToMoveRight = cost[i][j] + 1;
+                        int costToMoveUp = cost[i][j] + 1;
+
+                        if (i > 0)
+                            costToMoveUp += grid[i][j];
+
+                        if (j < n - 1) {
+                            costToMoveRight += grid[i][j];
+                        }
+
+                        minCostSoFar = Math.min(minCostSoFar, Math.min(costToMoveRight,
+                                costToMoveUp));
+
+                        int temp = costToMoveLeft;
+                        if (i > 0) {
+                            temp += grid[i][j];
+                        }
+                        if (j < n - 1) {
+                            temp += grid[i][j];
+                        }
+
+                        cost[i][j + 1] = Math.min(cost[i][j + 1], minCostSoFar +
+                                temp);
+                    }
+                }
+
+            }
+        }
+
+        return minCostSoFar;
+    }
+}

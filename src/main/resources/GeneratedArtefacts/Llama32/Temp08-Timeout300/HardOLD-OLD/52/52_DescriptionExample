@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class Solution {
+    public int totalNQueens(int n) {
+        return backtrack(new int[n], 0);
+    }
+
+    private int backtrack(int[] cols, int row) {
+        if (row == n) {
+            return 1;
+        }
+        int count = 0;
+        for (int col = 0; col < n; col++) {
+            boolean valid = true;
+            for (int r = row; r >= 0; r--) {
+                if (cols[r] == col || 
+                    cols[r] - r == col - row || 
+                    cols[r] + r == col + row) {
+                    valid = false;
+                    break;
+                }
+            }
+            if (valid) {
+                cols[row] = col;
+                count += backtrack(cols, row+1);
+            }
+        }
+        return count;
+    }
+
+    @Test
+    public void testTotalNQueens_4() {
+        assertEquals(2, new Solution().totalNQueens(4));
+    }
+
+    @Test
+    public void testTotalNQueens_1() {
+        assertEquals(1, new Solution().totalNQueens(1));
+    }
+}
+```

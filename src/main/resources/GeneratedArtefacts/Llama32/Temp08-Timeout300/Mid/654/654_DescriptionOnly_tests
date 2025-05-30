@@ -1,0 +1,56 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.654;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.654.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 654_DescriptionOnly_testsTest {
+
+    @Test
+    public void testBuildMaxBinaryTree() {
+        Solution solution = new Solution();
+        int[] nums = {3,2,1,5,6,4};
+        TreeNode actualRoot = solution.convertToBst(nums);
+        TreeNode expectedLeft = new TreeNode(5);
+        TreeNode expectedRight = new TreeNode(6);
+        expectedLeft.left = new TreeNode(4);
+        expectedLeft.right = new TreeNode(2);
+        expectedRight.left = new TreeNode(1);
+        expectedRight.right = new TreeNode(3);
+        assertSame(expectedRoot, actualRoot);
+    }
+
+    @Test
+    public void testBuildMaxBinaryTree_EmptyArray() {
+        Solution solution = new Solution();
+        int[] nums = {};
+        TreeNode actualRoot = solution.convertToBst(nums);
+        assertNull(actualRoot);
+    }
+
+    @Test
+    public void testBuildMaxBinaryTree_SingleElementArray() {
+        Solution solution = new Solution();
+        int[] nums = {1};
+        TreeNode actualRoot = solution.convertToBst(nums);
+        assertSame(new TreeNode(1), actualRoot);
+    }
+
+    @Test
+    public void testBuildMaxBinaryTree_DuplicateValues() {
+        Solution solution = new Solution();
+        int[] nums = {1, 2, 3, 3, 4};
+        TreeNode actualRoot = solution.convertToBst(nums);
+        assertSame(new TreeNode(4), actualRoot);
+    }
+
+    @Test
+    public void testBuildMaxBinaryTree_NegativeValues() {
+        Solution solution = new Solution();
+        int[] nums = {-10, -20, -5};
+        TreeNode actualRoot = solution.convertToBst(nums);
+        assertSame(new TreeNode(-5), actualRoot);
+    }
+}
+```

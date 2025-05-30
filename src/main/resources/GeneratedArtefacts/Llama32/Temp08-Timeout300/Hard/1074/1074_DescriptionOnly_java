@@ -1,0 +1,53 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1074;
+
+public class Solution {
+
+    public int numSubmatrixSumTarget(int[][] matrix, long target) {
+        if (target == 0 || matrix.length == 1 || matrix[0].length == 1)
+            return matrix.length * matrix[0].length;
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        boolean[][] present = new boolean[rows][cols];
+        for (int i = 0; i < rows; ++i) {
+            long sum = 0;
+            for (int j = 0; j < cols; ++j)
+                if (matrix[i][j] > 0)
+                    sum += matrix[i][j];
+                else
+                    present[i][j] = true;
+                if (sum == target || i == rows - 1) {
+                    int[] prevSum = new int[cols + 2];
+                    long curSum = 0;
+                    for (int j = 0; j < cols; ++j)
+                        if (present[i][j])
+                            curSum += matrix[i][j];
+                        else
+                            curSum -= matrix[i][j];
+                    prevSum[1] = -curSum + target;
+
+                    long curRowSum = 0;
+                    for (int j = 0; j < cols; ++j) {
+                        if (present[i][j])
+                            curRowSum += matrix[i][j];
+                        else
+                            curRowSum -= matrix[i][j];
+                        if (i > 0 && present[i - 1][j]) {
+                            prevSum[j + 1] = Math.min(prevSum[j + 1], curRowSum);
+                        }
+                    }
+
+                    int count = 0;
+                    for (int j = 0; j < cols; ++j) {
+                        if (prevSum[j + 1] >= 0)
+                            ++count;
+                    }
+                    sum = target - curSum;
+
+                    if (i == rows - 2 && sum == target)
+                        count += 1;
+                }
+        }
+        return count;
+    }
+
+}

@@ -1,0 +1,50 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2317;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2317.Solution;
+
+public class DescriptionOnly_testsTest {
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        test1(solution);
+        test2(solution);
+        test3(solution);
+        test4(solution);
+        test5(solution);
+    }
+
+    public static void test1(Solution solution) {
+        int[] nums = { 3, 10, 5 };
+        int expectedOutput = 15;
+        int actualOutput = solution.maxXOR(nums);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    public static void test2(Solution solution) {
+        int[] nums = { 1, 2, 4 };
+        int expectedOutput = 3;
+        int actualOutput = solution.maxXOR(nums);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    public static void test3(Solution solution) {
+        int[] nums = { 5, 9, 1 };
+        int expectedOutput = 7;
+        int actualOutput = solution.maxXOR(nums);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    public static void test4(Solution solution) {
+        int[] nums = { 2, 3, 6 };
+        int expectedOutput = 7;
+        int actualOutput = solution.maxXOR(nums);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    public static void test5(Solution solution) {
+        int[] nums = { 1, 4, 8 };
+        int expectedOutput = 15;
+        int actualOutput = solution.maxXOR(nums);
+        assertEquals(expectedOutput, actualOutput);
+    }
+}

@@ -1,0 +1,29 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2317;
+
+public class Solution {
+    public int findMaximumXOR(int[] nums) {
+        int maxBit = (int)(Math.log(nums[nums.length -1]) / Math.log(2)) + 1;
+        int[][] dp = new int[maxBit][nums.length];
+        for (int i = 0; i < dp[0].length; i++) {
+            dp[0][i] = nums[i];
+        }
+        for (int bit = 1; bit < maxBit; bit++) {
+            for (int i = 0; i < dp[bit - 1].length; i++) {
+                int temp = dp[bit - 1][i];
+                for (int j = 0; j < nums.length; j++) {
+                    if (((nums[j] >> bit) & 1) == 0)
+                        dp[bit][j] |= temp;
+                    else
+                        dp[bit][j] |= temp ^ (1 << bit);
+                }
+            }
+        }
+
+        int maxBitXOR = 0;
+        for (int i = 0; i < dp[maxBit - 1].length; i++) {
+            maxBitXOR = Math.max(maxBitXOR, dp[maxBit - 1][i]);
+        }
+        return maxBitXOR;
+
+    }
+}

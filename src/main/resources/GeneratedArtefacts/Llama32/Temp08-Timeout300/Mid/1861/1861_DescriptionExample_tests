@@ -1,0 +1,21 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1861;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1861.Solution;
+
+public class 1861_DescriptionExample_testsTest {
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        testRotateTheGrid(solution, new String[][]{{"#","."},{"#","."}});
+        testRotateTheGrid(solution, new String[][]{{"#",".","#"},{"#","#","*"},{"#","#","."}}});
+        testRotateTheGrid(solution, new String[][]{{"#","#","*",".","*","."},{ "#","#","#","*",".","."},{ "#","#","#",".","#","."}}});
+    }
+
+    public static void testRotateTheGrid(Solution solution, String[][] boxGrid) {
+        Solution.SolutionResult result = solution.rotateTheGrid(boxGrid);
+        for (String[] row : result.grid) {
+            System.out.println(String.join("",row));
+        }
+        System.out.println();
+    }
+}

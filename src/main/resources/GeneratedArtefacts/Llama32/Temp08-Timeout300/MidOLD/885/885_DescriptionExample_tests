@@ -1,0 +1,68 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.*;
+
+public class 885_DescriptionExampleTest {
+
+    @Test
+    public void test_SpiralOrder_1x4() {
+        int rows = 1;
+        int cols = 4;
+        int rStart = 0;
+        int cStart = 0;
+        List<List<Integer>> result = spiralOrder(rows, cols, rStart, cStart);
+        assertEquals(4, result.size());
+        List<Integer> expected = Arrays.asList(
+            Arrays.asList(0, 0),
+            Arrays.asList(0, 1),
+            Arrays.asList(0, 2),
+            Arrays.asList(0, 3)
+        );
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void test_SpiralOrder_5x6() {
+        int rows = 5;
+        int cols = 6;
+        int rStart = 1;
+        int cStart = 4;
+        List<List<Integer>> result = spiralOrder(rows, cols, rStart, cStart);
+        assertEquals(31, result.size());
+    }
+
+    @Test
+    public void test_SpiralOrder_3x3() {
+        int rows = 3;
+        int cols = 3;
+        int rStart = 1;
+        int cStart = 4;
+        List<List<Integer>> result = spiralOrder(rows, cols, rStart, cStart);
+        assertEquals(9, result.size());
+    }
+
+    @Test
+    public void test_SpiralOrder_7x8() {
+        int rows = 7;
+        int cols = 8;
+        int rStart = 0;
+        int cStart = 0;
+        List<List<Integer>> result = spiralOrder(rows, cols, rStart, cStart);
+        assertEquals(64, result.size());
+    }
+
+    @Test
+    public void test_SpiralOrder_10x10() {
+        int rows = 10;
+        int cols = 10;
+        int rStart = 0;
+        int cStart = 0;
+        List<List<Integer>> result = spiralOrder(rows, cols, rStart, cStart);
+        assertEquals(100, result.size());
+    }
+
+}
+```

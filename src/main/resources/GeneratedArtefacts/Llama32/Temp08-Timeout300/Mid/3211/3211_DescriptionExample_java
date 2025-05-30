@@ -1,0 +1,21 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211;
+
+public class Solution {
+    public String[] validBinaryStrings(int n) {
+        if (n == 1) return new String[]{"0", "1"};
+        List<String> res = new ArrayList<>();
+        for (String x : new String[]{"01", "10"}) {
+            boolean ok = true;
+            for (int i = 0; i < n - 2; i++) {
+                if (!res.contains(x.substring(i, i + 2))) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) res.add(x);
+        }
+        return res.toArray(new String[0]);
+    }
+}
+```

@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2044;
+
+public class Solution {
+
+    public int countMaxOrSubsets(int[] nums) {
+        int maxBitwiseOr = 0;
+        int maxCount = 0;
+
+        for (int i = 31; i >= 0; i--) {
+            boolean bitSetInNums = false;
+            int countWithThisBitset = 0;
+
+            for (int num : nums) {
+                if ((num >> i & 1) == 1) {
+                    bitSetInNums = true;
+                }
+            }
+
+            if (!bitSetInNums) {
+                maxCount += Math.pow(2, nums.length);
+                continue;
+            }
+
+            for (int num : nums) {
+                if ((num >> i & 1) == 1) {
+                    countWithThisBitset++;
+                }
+            }
+
+            int bitwiseOrWithThisBitset = (1 << i) | maxBitwiseOr;
+
+            if (countWithThisBitset > 0) {
+                int countWithoutThisBitset = countMaxOrSubsets(java.util.Arrays.copyOf(nums, nums.length));
+                countWithoutThisBitset -= Math.pow(2, countWithThisBitset);
+                return countWithoutThisBitset + countWithThisBitset;
+            } else if (countWithThisBitset == 0) {
+                maxCount += Math.pow(2, countWithThisBitset);
+            }
+        }
+
+        return maxCount;
+    }
+}

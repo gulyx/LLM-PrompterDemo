@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1980;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1980.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SolutionTest {
+
+    @Test
+    public void testExample1() {
+        String[] nums = {"01", "10"};
+        String result = new Solution().descriptionExample();
+        assertEquals("11", result);
+    }
+
+    @Test
+    public void testExample2() {
+        String[] nums = {"00", "01"};
+        String result = new Solution().descriptionExample();
+        assertEquals("11", result);
+    }
+
+    @Test
+    public void testExample3() {
+        String[] nums = {"111", "011", "001"};
+        String result = new Solution().descriptionExample();
+        assertEquals("101", result);
+    }
+
+    @Test
+    public void testExample4() {
+        String[] nums = {"000", "110"};
+        String result = new Solution().descriptionExample();
+        assertEquals("101", result);
+    }
+
+    @Test
+    public void testExample5() {
+        String[] nums = {"010","011","111"};
+        String result = new Solution().descriptionExample();
+        assertEquals("100", result);
+    }
+}

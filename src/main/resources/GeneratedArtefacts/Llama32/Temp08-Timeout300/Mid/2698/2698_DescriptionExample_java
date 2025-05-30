@@ -1,0 +1,37 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2698;
+
+public class Solution {
+    public int squareNumber(int n) {
+        int sum = 0;
+        for (int i = 1; i <= n; i++) {
+            String sI = Integer.toString(i * i);
+            for (int j = 1; j < sI.length(); j++) {
+                if (sI.charAt(j - 1) == '0' && sI.charAt(j) != '0') {
+                    continue;
+                }
+                int sumSubstrings = 0;
+                for (int k = j; k < sI.length(); k++) {
+                    sumSubstrings += Character.getNumericValue(sI.charAt(k));
+                    if (sumSubstrings == i) {
+                        break;
+                    } else if (sumSubstrings > i) {
+                        break;
+                    }
+                }
+                if (sumSubstrings == i) {
+                    sum += i * i;
+                    break;
+                }
+            }
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.squareNumber(10));  // Output: 182
+        System.out.println(solution.squareNumber(37));  // Output: 1478
+    }
+}
+```

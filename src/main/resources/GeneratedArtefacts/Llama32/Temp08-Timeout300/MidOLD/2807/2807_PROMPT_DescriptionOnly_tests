@@ -1,0 +1,8 @@
+As a professional Software Tester, generate a complete Junit class test file (name the class as :'2807_DescriptionOnlyTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen') with 5 different JUnit tests for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
+Given the head of a linked list "head", in which each node contains an integer value.
+
+Between every pair of adjacent nodes, insert a new node with a value equal to the "greatest common divisor" of them.
+
+Return the linked list after insertion.
+
+The "greatest common divisor" of two numbers is the largest positive integer that evenly divides both numbers.

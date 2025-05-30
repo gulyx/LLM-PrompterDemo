@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2326;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2326.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2326_DescriptionOnly_testsTest {
+
+    @Test
+    public void testGenerateMatrix_2x2() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(2,2);
+        int[][] expected = {{1,-1},{-1,-1}};
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testGenerateMatrix_3x3() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(3,3);
+        int[][] expected = {{1,2,3},{8,9,4},{7,6,-1}};
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testGenerateMatrix_1x1() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(1,1);
+        int[][] expected = {{1}};
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testGenerateMatrix_0x2() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(0,2);
+        int[][] expected = { {-1,-1} };
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testGenerateMatrix_2x4() {
+        Solution solution = new Solution();
+        int[][] result = solution.generateMatrix(2,4);
+        int[][] expected = {{1,2,3,4},{12,13,-1,-1}};
+        assertArrayEquals(expected, result);
+    }
+}
+```

@@ -1,0 +1,38 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.763;
+
+import java.util.*;
+
+public class Solution {
+    public int[] partitionLabel(String s) {
+        List<Integer> res = new ArrayList<>();
+        Set<Character> seen = new HashSet<>();
+        int i = 0;
+        while (i < s.length()) {
+            int j = i + 1;
+            while (j <= s.length() && !seen.contains(s.charAt(j))) {
+                seen.add(s.charAt(j));
+                j++;
+            }
+            res.add(j - i);
+            seen.clear();
+            i = j;
+        }
+        return res.stream().mapToInt(x -> x).toArray();
+    }
+
+    --Example 1--
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        String s = "ababcbacadefegdehijhklij";
+        int[] result = solution.partitionLabel(s);
+        System.out.println(Arrays.toString(result));
+    }
+
+    --Example 2--
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        String s = "eccbbbbdec";
+        int[] result = solution.partitionLabel(s);
+        System.out.println(Arrays.toString(result));
+    }
+}

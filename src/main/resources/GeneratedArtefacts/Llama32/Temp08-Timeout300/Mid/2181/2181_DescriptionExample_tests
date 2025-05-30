@@ -1,0 +1,44 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2181;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2181.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class DescriptionExample_testsTest {
+
+    @Test
+    public void test_Simple_merging() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(0, new ListNode(3, new ListNode(1, new ListNode(0, new ListNode(4, new ListNode(5, new ListNode(2, new ListNode(0)))))))));
+        assertEquals(new int[]{4,11}, solution.getMiddle(head));
+    }
+
+    @Test
+    public void test_Simple_merging_edge() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(0);
+        assertEquals(new int[]{1}, solution.getMiddle(head));
+    }
+
+    @Test
+    public void test_Multiple_consecutive_zeros() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(0, new ListNode(0, new ListNode(3, new ListNode(1, new ListNode(0, new ListNode(4, new ListNode(5)))))));
+        assertEquals(new int[]{11}, solution.getMiddle(head));
+    }
+
+    @Test
+    public void test_Multiple_consecutive_zeros_edge() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(0);
+        head.next = new ListNode(0);
+        assertEquals(new int[]{1,2}, solution.getMiddle(head));
+    }
+
+    @Test
+    public void test_Linking_merging() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(0, new ListNode(3, new ListNode(1, new ListNode(0, new ListNode(4, new ListNode(5, new ListNode(2)))))));
+        assertEquals(new int[]{7}, solution.getMiddle(head));
+    }
+}

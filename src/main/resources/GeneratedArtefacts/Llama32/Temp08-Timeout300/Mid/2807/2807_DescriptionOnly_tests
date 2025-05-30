@@ -1,0 +1,67 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2807;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2807.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 2807_DescriptionOnly_testsTest {
+
+    @Test
+    public void testGreatestCommonDivisor() {
+        Solution solution = new Solution();
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        solution.addOne(head);
+    }
+
+    @Test
+    public void testGCDAfterInsertion() {
+        Solution solution = new Solution();
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        solution.addOne(head);
+        assertEquals(1, head.val); // g.c.d. of 1 and 1 is 1
+        assertEquals(1, head.next.val); // g.c.d. of 1 and 2 is 1
+        assertEquals(1, head.next.next.val); // g.c.d. of 1 and 3 is 1
+    }
+
+    @Test
+    public void testGCDMultipleNumbers() {
+        Solution solution = new Solution();
+        Node head = new Node(5);
+        head.next = new Node(10);
+        head.next.next = new Node(15);
+        solution.addOne(head);
+        assertEquals(5, head.val); // g.c.d. of 5 and 5 is 5
+        assertEquals(5, head.next.val); // g.c.d. of 5 and 10 is 5
+        assertEquals(5, head.next.next.val); // g.c.d. of 5 and 15 is 5
+    }
+
+    @Test
+    public void testNoGCDValue() {
+        Solution solution = new Solution();
+        Node head = new Node(7);
+        head.next = new Node(11);
+        head.next.next = new Node(13);
+        solution.addOne(head);
+        assertNull(head.val); // no g.c.d. value between any two nodes
+    }
+
+    @Test
+    public void testEmptyList() {
+        Solution solution = new Solution();
+        Node head = null;
+        solution.addOne(head);
+    }
+}
+
+class Node {
+    int val;
+    Node next;
+
+    public Node(int val) {
+        this.val = val;
+    }
+}

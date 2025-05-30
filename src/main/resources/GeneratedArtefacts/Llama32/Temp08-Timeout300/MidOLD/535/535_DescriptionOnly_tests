@@ -1,0 +1,45 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 535_DescriptionOnlyTest {
+    Solution solution = new Solution();
+
+    @Test
+    public void testEncodeAndDecode() {
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = solution.encode(longUrl);
+        String decodedLongUrl = solution.decode(shortUrl);
+        assertEquals(longUrl, decodedLongUrl);
+    }
+
+    @Test
+    public void testEncodeToShorterThan4Characters() {
+        String longUrl = "http://localhost:8080/";
+        String shortUrl = solution.encode(longUrl);
+        assertNotEquals(3, shortUrl.length());
+    }
+
+    @Test
+    public void testDecodeWith4CharactersShortUrl() {
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = solution.encode(longUrl).substring(0, 4);
+        String decodedLongUrl = solution.decode(shortUrl);
+        assertEquals(longUrl, decodedLongUrl);
+    }
+
+    @Test
+    public void testDecodeWithMoreThan4CharactersShortUrl() {
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String shortUrl = solution.encode(longUrl).substring(0, 5);
+        assertNotEquals("http://tinyurl.com/4e9iAk", shortUrl);
+    }
+
+    @Test
+    public void testDecodeWithInvalidShortUrl() {
+        String longUrl = "https://leetcode.com/problems/design-tinyurl";
+        String invalidShortUrl = "http://tinyurl.com/invalidCode";
+        assertThrows(NullPointerException.class, () -> solution.decode(invalidShortUrl));
+    }
+}

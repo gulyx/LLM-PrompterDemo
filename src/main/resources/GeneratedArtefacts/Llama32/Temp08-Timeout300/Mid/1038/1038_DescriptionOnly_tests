@@ -1,0 +1,68 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1038;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1038.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+public class 1038_DescriptionOnly_testsTest {
+
+    @Test
+    void test1() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(5);
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(8);
+        root.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(4);
+        root.right.left = new TreeNode(7);
+
+        solution.convertBST(root);
+        int expectedSum = 9 + (3 + 1) + (5 + 4) + (8 + 7) = 28;
+        assertEquals(expectedSum, 28);
+    }
+
+    @Test
+    void test2() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(5);
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(8);
+        root.left.left = new TreeNode(1);
+
+        solution.convertBST(root);
+        int expectedSum = 9 + (3 + 1) + (5 + 4) = 17;
+        assertEquals(expectedSum, 17);
+    }
+
+    @Test
+    void test3() {
+        Solution solution = new Solution();
+        TreeNode root = null;
+
+        solution.convertBST(root);
+        assertNull(root);
+    }
+
+    @Test
+    void test4() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+
+        solution.convertBST(root);
+        int expectedSum = 0;
+        assertEquals(expectedSum, 0);
+    }
+
+    @Test
+    void test5() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        solution.convertBST(root);
+        int expectedSum = (1 + 2) + (1 + 3) = 6;
+        assertEquals(expectedSum, 6);
+    }
+}

@@ -1,0 +1,65 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1038;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1038.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1038_DescriptionExample_testsTest {
+
+    @Test
+    public void testConvertToGreaterTree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(6);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(2);
+        root.right.left = new TreeNode(5);
+        root.right.right = new TreeNode(7);
+
+        solution.certainDelicateCactus(root);
+        assertEquals(new TreeNode(30).val, root.val);
+    }
+
+    @Test
+    public void testConvertToGreaterTreeWithOneNode() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        solution.certainDelicateCactus(root);
+        assertEquals(new TreeNode(1).val, root.val);
+    }
+
+    @Test
+    public void testConvertToGreaterTreeWithEmptyLeftAndRightSubtree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(0);
+        solution.certainDelicateCactus(root);
+        assertEquals(new TreeNode(0).val, root.val);
+    }
+
+    @Test
+    public void testConvertToGreaterTreeWithMultipleNodes() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(6);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(2);
+        root.right.left = new TreeNode(5);
+        root.right.right = new TreeNode(7);
+
+        solution.certainDelicateCactus(root);
+        assertEquals(new TreeNode(30).val, root.val);
+    }
+
+    @Test
+    public void testConvertToGreaterTreeWithAllNegativeNumbers() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(-2);
+        root.left = new TreeNode(-3);
+        root.right = new TreeNode(-1);
+
+        solution.certainDelicateCactus(root);
+        assertEquals(new TreeNode(0).val, root.val);
+    }
+}

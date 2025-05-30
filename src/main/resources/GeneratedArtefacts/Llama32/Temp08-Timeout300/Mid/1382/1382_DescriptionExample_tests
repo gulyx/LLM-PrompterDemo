@@ -1,0 +1,58 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1382;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1382.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void testBalanceBST_firstTree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        assertEquals(2, solution.balanceBST(root).val);
+    }
+
+    @Test
+    public void testBalanceBST_secondTree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        assertEquals(2, solution.balanceBST(root).val);
+    }
+
+    @Test
+    public void testBalanceBST_thirdTree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(3);
+        assertEquals(2, solution.balanceBST(root).val);
+    }
+
+    @Test
+    public void testBalanceBST_fourthTree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(5);
+        root.left.left = new TreeNode(1);
+        assertEquals(4, solution.balanceBST(root).val);
+    }
+
+    @Test
+    public void testBalanceBST_fifthTree() {
+        Solution solution = new Solution();
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(3);
+        assertEquals(2, solution.balanceBST(root).val);
+    }
+}
+```

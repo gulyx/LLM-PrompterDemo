@@ -1,0 +1,63 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1669_DescriptionOnly {
+
+    @Test
+    public void testRemoveNodes() {
+        ListNode l1 = new ListNode(1, new ListNode(2, new ListNode(4)));
+        ListNode l2 = new ListNode(1, new ListNode(3, new ListNode(4)));
+        ListNode result = removeNodes(l1, 2, 4);
+        while (result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+    }
+
+    @Test
+    public void testRemoveNodesWithOneNode() {
+        ListNode l1 = new ListNode(1, new ListNode(2));
+        ListNode l2 = new ListNode(1);
+        ListNode result = removeNodes(l1, 0, 1);
+        while (result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+    }
+
+    @Test
+    public void testRemoveNodesWithTwoNode() {
+        ListNode l1 = new ListNode(1, new ListNode(2));
+        ListNode l2 = new ListNode(3);
+        ListNode result = removeNodes(l1, 0, 1);
+        while (result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+    }
+
+    @Test
+    public void testRemoveNodesWithTwoNodeAndEqual() {
+        ListNode l1 = new ListNode(1, new ListNode(2));
+        ListNode l2 = new ListNode(2);
+        ListNode result = removeNodes(l1, 0, 1);
+        while (result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+    }
+
+    @Test
+    public void testRemoveNodesWithTwoNodeAndNotEqual() {
+        ListNode l1 = new ListNode(1, new ListNode(2));
+        ListNode l2 = new ListNode(3);
+        ListNode result = removeNodes(l1, 0, 2);
+        while (result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+    }
+
+}

@@ -1,0 +1,49 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testExample1() {
+        String[] nums = {"01", "10"};
+        String expectedOutput = "11";
+        String output = Solution.getUniqueBinaryString(nums);
+        assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void testExample2() {
+        String[] nums = {"00", "01"};
+        String expectedOutput = "11";
+        String output = Solution.getUniqueBinaryString(nums);
+        assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void testExample3() {
+        String[] nums = {"111", "011", "001"};
+        String expectedOutput = "101";
+        String output = Solution.getUniqueBinaryString(nums);
+        assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void testExample4() {
+        String[] nums = {"000", "000"};
+        String expectedOutput = "111";
+        String output = Solution.getUniqueBinaryString(nums);
+        assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void testExample5() {
+        String[] nums = {"1111", "0000"};
+        String expectedOutput = "1100";
+        String output = Solution.getUniqueBinaryString(nums);
+        assertEquals(expectedOutput, output);
+    }
+}
+```

@@ -1,0 +1,21 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1611;
+
+public class Solution {
+
+    public int minimumOneBitOperations(int n) {
+        int res = 0;
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                for (int i = Integer.highestOneBit(n); i >= 1; i >>= 1) {
+                    res += i;
+                }
+                break;
+            } else {
+                res += n & -n;
+            }
+            n &= n - 1;
+        }
+        return res;
+    }
+
+}

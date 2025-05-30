@@ -1,0 +1,21 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1689;
+
+public class Solution {
+
+    public int findMinBinaryNumbers(String n) {
+        long num = Long.parseLong(n);
+        if (num == 1) return 1;
+        int res = Integer.MAX_VALUE, i = 0;
+        while (i <= num) {
+            long cnt = 0;
+            for (long j = 2; j < (1L << i); ++j) {
+                cnt += Long.parseLong(Long.toBinaryString((int) j));
+            }
+            if (cnt > num) break;
+            res = Math.min(res, i);
+            i++;
+        }
+        return res + 1;
+    }
+
+}

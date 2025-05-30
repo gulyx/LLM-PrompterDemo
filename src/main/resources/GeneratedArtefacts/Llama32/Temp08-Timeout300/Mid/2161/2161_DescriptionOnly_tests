@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2161;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2161.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class 2161_DescriptionOnly_testsTest {
+
+    @Test
+    public void test_Example1() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3};
+        int pivot = 2;
+        assertArrayEquals(new int[]{1,2,3},solution.reorderArray(nums,pivot));
+    }
+
+    @Test
+    public void test_Example2() {
+        Solution solution = new Solution();
+        int[] nums = {4,5,6,1,7,0};
+        int pivot = 4;
+        assertArrayEquals(new int[]{0, 1, 4, 5, 6, 7},solution.reorderArray(nums,pivot));
+    }
+
+    @Test
+    public void test_Example3() {
+        Solution solution = new Solution();
+        int[] nums = {3,1,2};
+        int pivot = 3;
+        assertArrayEquals(new int[]{1, 2, 3},solution.reorderArray(nums,pivot));
+    }
+
+    @Test
+    public void test_EmptyArray() {
+        Solution solution = new Solution();
+        int[] nums = {};
+        int pivot = 5;
+        assertArrayEquals(new int[]{},solution.reorderArray(nums,pivot));
+    }
+
+    @Test
+    public void test_NoEqualPivot() {
+        Solution solution = new Solution();
+        int[] nums = {1,2,3};
+        int pivot = 10;
+        assertArrayEquals(new int[]{1,2,3},solution.reorderArray(nums,pivot));
+    }
+}

@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3016;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3016.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class DescriptionOnly_testsTest {
+
+    @Test
+    public void testRemap2to9() {
+        Solution solution = new Solution();
+        String result = solution.numPushes("ed");
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void testNoRemapping() {
+        Solution solution = new Solution();
+        String result = solution.numPushes("aa");
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void testTwoCharsSameKey() {
+        Solution solution = new Solution();
+        String result = solution.numPushes("aab");
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void testLongerString() {
+        Solution solution = new Solution();
+        String result = solution.numPushes("abcba");
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void testTwoKeysSameLetter() {
+        Solution solution = new Solution();
+        String result = solution.numPushes("aaabbbccc");
+        assertEquals(3, result);
+    }
+}

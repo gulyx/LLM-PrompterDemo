@@ -1,0 +1,19 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2997;
+
+public class Solution {
+    public int minOperations(int[] nums, int k) {
+        int ans = 0;
+        for (int n : nums)
+            ans ^= n;
+        if ((ans ^ k) == 0)
+            return 0;
+        int count = Integer.bitCount(ans);
+        ans |= k;
+        while ((ans ^ k) != 0) {
+            ans &= (ans - 1);
+            ans++;
+            count++;
+        }
+        return count;
+    }
+}

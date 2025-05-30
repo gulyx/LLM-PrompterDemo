@@ -1,0 +1,75 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTest {
+
+    @Test
+    public void testBalancedBST() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        TreeNode expectedLeft = new TreeNode(2);
+        TreeNode expectedRight = new TreeNode(3);
+
+        TreeNode actualLeft = findBalancedBST(root.left);
+        TreeNode actualRight = findBalancedBST(root.right);
+
+        assertTrue(actualLeft.val == expectedLeft.val);
+        assertTrue(actualRight.val == expectedRight.val);
+    }
+
+    @Test
+    public void testUnbalancedBST1() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+
+        TreeNode expectedLeft = new TreeNode(2);
+        TreeNode expectedRight = findBalancedBST(root.right);
+
+        assertTrue(expectedLeft.val == 2);
+    }
+
+    @Test
+    public void testUnbalancedBST2() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        TreeNode actual = findBalancedBST(root);
+        assertFalse(actual == null);
+    }
+
+    @Test
+    public void testSingleNode() {
+        TreeNode root = new TreeNode(1);
+
+        TreeNode expected = root;
+
+        TreeNode actual = findBalancedBST(root);
+
+        assertTrue(actual.val == expected.val);
+    }
+
+    @Test
+    public void testEmptyTree() {
+        TreeNode root = null;
+
+        TreeNode expected = null;
+
+        TreeNode actual = findBalancedBST(root);
+
+        assertTrue(expected.equals(actual));
+    }
+}
+
+class TreeNode {
+     int val;
+     TreeNode left;
+     TreeNode right;
+     TreeNode(int x) { val = x; }
+}

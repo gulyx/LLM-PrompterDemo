@@ -1,0 +1,46 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2482;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2482.Solution;
+
+public class 2482_DescriptionOnly_testsTest {
+
+    public void test1() {
+        Solution solution = new Solution();
+        int[][] grid = {{1,0,0},{0,0,1}};
+        int[][] expectedDiff = {{2, -1}, {-1, 1}};
+        int[][] actualDiff = solution.differenceMatrix(grid);
+        assertArrayEquals(expectedDiff, actualDiff);
+    }
+
+    public void test2() {
+        Solution solution = new Solution();
+        int[][] grid = {{0,0,0},{0,0,0},{0,0,0}};
+        int[][] expectedDiff = {{3,-3}, {-3,3}};
+        int[][] actualDiff = solution.differenceMatrix(grid);
+        assertArrayEquals(expectedDiff, actualDiff);
+    }
+
+    public void test3() {
+        Solution solution = new Solution();
+        int[][] grid = {{1, 1, 0},{1, 1, 0}};
+        int[][] expectedDiff = {{2,-2}, {-2,2}};
+        int[][] actualDiff = solution.differenceMatrix(grid);
+        assertArrayEquals(expectedDiff, actualDiff);
+    }
+
+    public void test4() {
+        Solution solution = new Solution();
+        int[][] grid = {{1, 0, 0},{0, 0, 1},{0, 0, 0}};
+        int[][] expectedDiff = {{2,-2}, {-2,1}};
+        int[][] actualDiff = solution.differenceMatrix(grid);
+        assertArrayEquals(expectedDiff, actualDiff);
+    }
+
+    public void test5() {
+        Solution solution = new Solution();
+        int[][] grid = {{1, 0},{0, 1}};
+        int[][] expectedDiff = {{2,-1}, {-1,1}};
+        int[][] actualDiff = solution.differenceMatrix(grid);
+        assertArrayEquals(expectedDiff, actualDiff);
+    }
+}

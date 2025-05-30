@@ -1,0 +1,22 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2275;
+
+public class Solution {
+    public int findMaximumXOR(int[] nums) {
+        int max = 0;
+        int n = nums.length;
+        int [] ans = new int[n];
+        for (int i=0; i<n; i++) {
+            int curr = nums[i];
+            ans[i] = Integer.MAX_VALUE;
+            for (int j=0; j<n; j++)
+                if (i != j) {
+                    int a = curr & nums[j], b = curr ^ nums[j], c = nums[j];
+                    if ((a < b) || (a == b && c > ans[i]))
+                        ans[i] = c;
+                }
+        }
+        for (int i=0; i<n; i++)
+            max += Integer.bitCount(ans[i]);
+        return max;
+    }
+}

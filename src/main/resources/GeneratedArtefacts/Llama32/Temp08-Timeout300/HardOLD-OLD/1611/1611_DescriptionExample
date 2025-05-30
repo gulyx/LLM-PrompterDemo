@@ -1,0 +1,61 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptiveExample {
+
+    @Test
+    public void test1() {
+        int input1 = 3;
+        int expectedOutput1 = 2;
+        assertEquals(expectedOutput1, minOperations(input1));
+    }
+
+    @Test
+    public void test2() {
+        int input2 = 6;
+        int expectedOutput2 = 4;
+        assertEquals(expectedOutput2, minOperations(input2));
+    }
+
+    @Test
+    public void test3() {
+        int input3 = 0;
+        int expectedOutput3 = 0;
+        assertEquals(expectedOutput3, minOperations(input3));
+    }
+
+    @Test
+    public void test4() {
+        int input4 = 1;
+        int expectedOutput4 = 2;
+        assertEquals(expectedOutput4, minOperations(input4));
+    }
+
+    @Test
+    public void test5() {
+        int input5 = 2147483647; // max possible value in an integer
+        int expectedOutput5 = 12;
+        assertEquals(expectedOutput5, minOperations(input5));
+    }
+
+    private int minOperations(int n) {
+        int operations = 0;
+        while (n != 0) {
+            if ((n & 1) == 1) {
+                for (int i = 1; i < operations + 1; i++) {
+                    if (((n >> i - 1) & 1) == 1) {
+                        n &= ~(1 << (i - 1));
+                        break;
+                    }
+                }
+            } else {
+                operations++;
+            }
+            n >>= 1;
+        }
+        return operations;
+    }
+
+}

@@ -1,0 +1,16 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1302;
+
+public class Solution {
+    public int deepestLeavesSum(TreeNode root) {
+        return helper(root, 0);
+    }
+
+    private int helper(TreeNode node, int depth) {
+        if (node == null)
+            return 0;
+        else if (node.left == null && node.right == null)
+            return depth * node.val;
+        else
+            return Math.max(helper(node.left, depth + 1), helper(node.right, depth + 1));
+    }
+}

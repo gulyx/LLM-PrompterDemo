@@ -1,0 +1,45 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2785;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2785.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 2785_DescriptionExample_testsTest {
+
+    @Test
+    public void test_example_1() {
+        Solution solution = new Solution();
+        String result = solution.sortString("lEetcOde");
+        assertEquals("lEOtcede", result);
+    }
+
+    @Test
+    public void test_example_2() {
+        Solution solution = new Solution();
+        String result = solution.sortString("lYmpH");
+        assertEquals("lYmpH", result);
+    }
+
+    @Test
+    public void test_example_3() {
+        Solution solution = new Solution();
+        String result = solution.sortString("aeiou");
+        assertEquals("aieou", result);
+    }
+
+    @Test
+    public void test_example_4() {
+        Solution solution = new Solution();
+        String result = solution.sortString("abcdefghijklmnopqrstuvwxyz");
+        assertEquals("abcdefgihjklmnopqrstuvwxyz", result);
+    }
+
+    @Test
+    public void test_example_5() {
+        Solution solution = new Solution();
+        String result = solution.sortString("");
+        assertEquals("", result);
+    }
+}
+```

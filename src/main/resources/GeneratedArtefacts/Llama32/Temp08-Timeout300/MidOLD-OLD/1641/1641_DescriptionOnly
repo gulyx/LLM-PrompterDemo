@@ -1,0 +1,47 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.*;
+
+public class 1641_DescriptionOnly {
+
+    @Test
+    public void test_01() {
+        int n = 3;
+        int expected = 10;
+        assertEquals(expected, numVowelStrings(n));
+    }
+
+    @Test
+    public void test_02() {
+        int n = 50;
+        long expected = (long)Math.pow(5,n) - 1;
+        assertEquals(expected, numVowelStrings(n));
+    }
+
+    @Test
+    public void test_03() {
+        int n = 1;
+        int expected = 1;
+        assertEquals(expected, numVowelStrings(n));
+    }
+
+    @Test
+    public void test_04() {
+        int n = 2;
+        long expected = 7;
+        assertEquals(expected, numVowelStrings(n));
+    }
+
+    @Test
+    public void test_05() {
+        int n = 5;
+        long expected = 1023;
+        assertEquals(expected, numVowelStrings(n));
+    }
+}
+
+    public static int numVowelStrings(int n) {
+
+  }

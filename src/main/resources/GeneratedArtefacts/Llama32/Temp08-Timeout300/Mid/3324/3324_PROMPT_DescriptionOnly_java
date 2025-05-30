@@ -1,0 +1,16 @@
+As a professional Software Engineer, generate a complete Java class file (name the class as :'Solution', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3324;') for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
+You are given a string "target".
+
+Alice is going to type "target" on her computer using a special keyboard that has only two keys:
+
+* Key 1 appends the character ""a"" to the string on the screen.
+* Key 2 changes the last character of the string on the screen to its next character in the English alphabet. For example, ""c"" changes to ""d"" and ""z"" changes to ""a"".
+Note that initially there is an empty string """" on the screen, so she can only press key 1.
+
+Return a list of all strings that appear on the screen as Alice types "target", in the order they appear, using the minimum key presses.
+
+
+Constraints:
+
+* "1 <= target.length <= 400"
+* "target" consists only of lowercase English letters.

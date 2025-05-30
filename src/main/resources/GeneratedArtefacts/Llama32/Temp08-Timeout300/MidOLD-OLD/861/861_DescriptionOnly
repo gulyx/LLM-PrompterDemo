@@ -1,0 +1,61 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionOnly {
+
+    @Test
+    public void testExample1() {
+        int[][] grid = {{0, 1}, {1, 0}};
+        assertEquals(1, getScore(grid));
+    }
+
+    @Test
+    public void testExample2() {
+        int[][] grid = {{1, 1, 1}, {1, 0, 1}, {1, 1, 0}};
+        assertEquals(5, getScore(grid));
+    }
+
+    @Test
+    public void testExample3() {
+        int[][] grid = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
+        assertEquals(0, getScore(grid));
+    }
+
+    @Test
+    public void testEmptyMatrix() {
+        int[][] grid = {};
+        assertEquals(0, getScore(grid));
+    }
+
+    @Test
+    public void testAllOnes() {
+        int[][] grid = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+        assertEquals(3, getScore(grid));
+    }
+}
+
+public class Main {
+
+    private static int getScore(int[][] grid) {
+        int m = grid.length;
+        if (m == 0)
+            return 0;
+
+        int n = grid[0].length;
+        if (n == 0)
+            return 0;
+
+        int score = 0;
+        for (int i = 0; i < m; i++) {
+            int num = 0;
+            for (int j = 0; j < n; j++)
+                num = num * 2 + grid[i][j];
+            score += num;
+        }
+        return score;
+    }
+}
+```

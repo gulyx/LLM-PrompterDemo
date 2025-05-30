@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1442;
+
+import java.util.*;
+
+public class Solution {
+    public int findTriplets(int[] arr) {
+        Arrays.sort(arr);
+        int triplets = 0;
+        for (int i = 0; i < arr.length - 2; i++) {
+            if (i > 0 && arr[i] == arr[i-1]) continue;
+            int j = i + 1, k = arr.length - 1;
+            while (j < k) {
+                long xorA = arr[i];
+                long xorB = arr[j] ^ arr[k];
+                if (xorA == xorB) {
+                    triplets += (k - j);
+                    while (j < k && arr[j] == arr[j + 1]) j++;
+                    while (j < k && arr[k] == arr[k - 1]) k--;
+                    j++; k--;
+                } else if (xorA < xorB) {
+                    j++;
+                } else {
+                    k--;
+                }
+            }
+        }
+        return triplets;
+    }
+
+    [--Example 1--]
+    int[] arr = {2,3,1,6,7};
+    long output1 = findTriplets(arr);
+
+    [--Example 2--]
+    int[] arr2 = {1,1,1,1,1};
+    long output2 = findTriplets(arr2);

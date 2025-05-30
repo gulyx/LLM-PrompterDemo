@@ -1,0 +1,16 @@
+As a professional Software Engineer, generate a complete Java class file (name the class as :'Solution', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2551;') for the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description: 
+You have "k" bags. You are given a 0-indexed integer array "weights" where "weights[I]" is the weight of the "i^th" marble. You are also given the integer "k".
+
+Divide the marbles into the "k" bags according to the following rules:
+
+* No bag is empty.
+* If the "i^th" marble and "j^th" marble are in a bag, then all marbles with an index between the "i^th" and "j^th" indices should also be in that same bag.
+* If a bag consists of all the marbles with an index from "i" to "j" inclusively, then the cost of the bag is "weights[i] + weights[j]".
+The score after distributing the marbles is the sum of the costs of all the k bags.
+
+Return the difference between the maximum and minimum scores among marble distributions.
+
+Constraints:
+
+* "1 <= k <= weights.length <= 10^5"
+* "1 <= weights[i] <= 10^9"

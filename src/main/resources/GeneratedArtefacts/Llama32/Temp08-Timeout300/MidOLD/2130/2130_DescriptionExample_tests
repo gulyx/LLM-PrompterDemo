@@ -1,0 +1,49 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DescriptionExampleTest {
+
+    public ListNode removeZeroSumGroups(ListNode head) {
+        // implementation of removeZeroSumGroups method
+        return null; // replace with actual implementation
+    }
+
+    @Test
+    [--Example 1--]
+    public void testRemoveZeroSumGroups_Example_1() {
+        ListNode head = new ListNode(5, new ListNode(4, new ListNode(2, new ListNode(1))));
+        assertEquals(6, removeZeroSumGroups(head).val);
+    }
+
+    @Test
+    [--Example 2--]
+    public void testRemoveZeroSumGroups_Example_2() {
+        ListNode head = new ListNode(4, new ListNode(2, new ListNode(2, new ListNode(3))));
+        assertEquals(7, removeZeroSumGroups(head).val);
+    }
+
+    @Test
+    [--Example 3--]
+    public void testRemoveZeroSumGroups_EmptyList() {
+        ListNode head = null;
+        assertEquals(null, removeZeroSumGroups(head));
+    }
+
+    @Test
+    [--Example 4--]
+    public void testRemoveZeroSumGroups_SingleElement() {
+        ListNode head = new ListNode(1);
+        assertEquals(null, removeZeroSumGroups(head));
+    }
+
+    @Test
+    [--Example 5--]
+    public void testRemoveZeroSumGroups_NoTwinNodes() {
+        ListNode head = new ListNode(2, new ListNode(3));
+        assertEquals(head, removeZeroSumGroups(head));
+    }
+}
+```

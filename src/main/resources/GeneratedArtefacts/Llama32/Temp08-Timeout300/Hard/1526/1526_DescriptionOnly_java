@@ -1,0 +1,16 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1526;
+
+public class Solution {
+    public int minOperations(int[] target) {
+        if (target == null || target.length == 0) return -1;
+        for (int i = 0; i < target.length; i++) {
+            if (target[i] < 0) return -1;
+        }
+        int sum = 0, maxDiff = 0;
+        for (int num : target) {
+            sum += num;
+            maxDiff = Math.max(maxDiff, sum);
+        }
+        return sum - maxDiff;
+    }
+}

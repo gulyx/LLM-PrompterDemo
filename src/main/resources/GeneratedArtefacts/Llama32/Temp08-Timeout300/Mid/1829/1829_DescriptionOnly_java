@@ -1,0 +1,47 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1829;
+
+public class Solution {
+
+    public int[] getMaximumXOR(int[] nums, int maximumBit) {
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 0);
+        
+        int res = 0;
+        for (int x : nums) {
+            int y = res ^ x;
+            if (!map.containsKey(y)) {
+                map.put(x, map.getOrDefault(res, 0));
+            } else {
+                map.put(res, map.get(x) + 1);
+            }
+            res = x;
+        }
+
+        List<Integer> list = new ArrayList<>();
+        for (int i = (1 << maximumBit) - 1; i >= 1; --i) {
+            int temp = i * 2;
+            if (map.containsKey(temp)) {
+                temp = i * 2 + 1;
+            }
+            if (temp > 0 && map.containsKey(temp) && map.get(temp) > 0) {
+                list.add(i);
+            } else if (temp == 0) {
+                list.add(i);
+            }
+        }
+
+        int answer[] = new int[nums.length];
+        for (int i = 0; i < nums.length; ++i) {
+            int lsb = nums[i] & -nums[i];
+            int result = 0;
+            for (int j : list) {
+                if ((j ^ lsb) == 0 || map.containsKey(j ^ lsb)) {
+                    result = j;
+                    break;
+                }
+            }
+            answer[i] = result;
+        }
+        return answer;
+    }
+}

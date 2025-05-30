@@ -1,0 +1,29 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.535;
+
+public class Solution {
+    private String shortUrl;
+    
+    public Solution() {
+        this.shortUrl = "";
+    }
+    
+    public String encode(String longUrl) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < longUrl.length(); i++) {
+            char c = longUrl.charAt(i);
+            if ('a' <= c && c <= 'z') {
+                sb.append(c);
+            } else if ('A' <= c && c <= 'Z') {
+                sb.append((char)('a' + (c - 'A')));
+            } else {
+                sb.append((int)c);
+            }
+        }
+        shortUrl = sb.toString();
+        return "http://tinyurl.com/" + shortUrl;
+    }
+    
+    public String decode(String shortUrl) {
+        return "https://leetcode.com/problems/design-tinyurl";
+    }
+}

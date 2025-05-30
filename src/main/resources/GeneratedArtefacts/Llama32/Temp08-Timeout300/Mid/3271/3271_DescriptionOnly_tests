@@ -1,0 +1,47 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3271;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3271.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 3271_DescriptionOnly_testsTest {
+
+    @Test
+    public void test_SimpleCase() {
+        Solution solution = new Solution();
+        String result = solution.descriptionOnly("leetcode", 3);
+        assertEquals("ldo", result);
+    }
+
+    @Test
+    public void test_LargeString() {
+        Solution solution = new Solution();
+        String result = solution.descriptionOnly("abcdefghijklmnopqrstuvwxyz" + "a".repeat(1000), 3);
+        assertTrue(result.length() > 0 && result.length() < 333);
+    }
+
+    @Test
+    public void test_EmptyString() {
+        Solution solution = new Solution();
+        String result = solution.descriptionOnly("", 3);
+        assertTrue(result.length() == 0);
+    }
+
+    @Test
+    public void test_NegativeLengthInput() {
+        Solution solution = new Solution();
+        try {
+            solution.descriptionOnly("-".repeat(100), 3);
+            fail("Expected IndexOutOfBoundsException");
+        } catch (Exception e) {}
+    }
+
+    @Test
+    public void test_ZeroDivision() {
+        Solution solution = new Solution();
+        try {
+            solution.descriptionOnly("abc", 0);
+            fail("Expected ArithmeticException");
+        } catch (Exception e) {}
+    }
+}

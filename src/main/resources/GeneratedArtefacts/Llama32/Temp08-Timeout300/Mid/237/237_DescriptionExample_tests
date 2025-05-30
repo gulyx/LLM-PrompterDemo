@@ -1,0 +1,95 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.237;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.237.Solution;
+import org.junit.jupiter.api.Test;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void testDeleteNode1() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(4);
+        head.next = new ListNode(5);
+        head.next.next = new ListNode(1);
+        head.next.next.next = new ListNode(9);
+
+        solution.deleteNode(head, 5);
+
+        ListNode expectedHead = new ListNode(4);
+        expectedHead.next = new ListNode(1);
+        expectedHead.next.next = new ListNode(9);
+
+        assert head == expectedHead;
+    }
+
+    @Test
+    public void testDeleteNode2() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(4);
+        head.next = new ListNode(5);
+        head.next.next = new ListNode(1);
+        head.next.next.next = new ListNode(9);
+
+        solution.deleteNode(head, 1);
+
+        ListNode expectedHead = new ListNode(4);
+        expectedHead.next = new ListNode(5);
+        expectedHead.next.next = new ListNode(9);
+
+        assert head == expectedHead;
+    }
+
+    @Test
+    public void testDeleteNode3() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+
+        solution.deleteNode(head, 3);
+
+        ListNode expectedHead = new ListNode(1);
+        expectedHead.next = new ListNode(2);
+        expectedHead.next.next = new ListNode(4);
+
+        assert head == expectedHead;
+    }
+
+    @Test
+    public void testDeleteNode4() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(7);
+        head.next = new ListNode(5);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(9);
+
+        solution.deleteNode(head, 2);
+
+        ListNode expectedHead = new ListNode(7);
+        expectedHead.next = new ListNode(5);
+        expectedHead.next.next = new ListNode(9);
+
+        assert head == expectedHead;
+    }
+
+    @Test
+    public void testDeleteNode5() {
+        Solution solution = new Solution();
+        ListNode head = new ListNode(0);
+        head.next = new ListNode(1);
+        head.next.next = new ListNode(7);
+        head.next.next.next = new ListNode(3);
+
+        solution.deleteNode(head, 4);
+
+        ListNode expectedHead = new ListNode(0);
+        expectedHead.next = new ListNode(1);
+        expectedHead.next.next = new ListNode(7);
+        expectedHead.next.next.next = new ListNode(3);
+
+        assert head == expectedHead;
+    }
+}
+```

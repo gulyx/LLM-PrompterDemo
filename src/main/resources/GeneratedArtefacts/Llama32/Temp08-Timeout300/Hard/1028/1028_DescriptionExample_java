@@ -1,0 +1,29 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028;
+
+public class Solution {
+    public TreeNode buildTree(String traversal) {
+        String[] nodes = traversal.split("-");
+        return buildTree(nodes, 0);
+    }
+
+    private TreeNode buildTree(String[] nodes, int index) {
+        if (index >= nodes.length || nodes[index].isEmpty()) {
+            return null;
+        }
+        TreeNode node = new TreeNode(Integer.parseInt(nodes[index]));
+        index++;
+        node.left = buildTree(nodes, index);
+        node.right = buildTree(nodes, index);
+        return node;
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) { val = x; }
+    }
+}
+```

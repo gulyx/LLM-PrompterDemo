@@ -1,0 +1,63 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1829;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1829.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1829_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] nums = {0, 2};
+        int maximumBit = 1;
+        int[] answer = solution.describeNumbers(nums, maximumBit);
+        assertEquals(3, answer[0]);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] nums = {0, 2, 3, 4};
+        int maximumBit = 1;
+        int[] answer = solution.describeNumbers(nums, maximumBit);
+        assertEquals(3, answer[0]);
+        assertEquals(5, answer[1]);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] nums = {0, 2, 3, 4};
+        int maximumBit = 2;
+        int[] answer = solution.describeNumbers(nums, maximumBit);
+        assertEquals(3, answer[0]);
+        assertEquals(5, answer[1]);
+        assertEquals(7, answer[2]);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] nums = {0, 2, 3, 4};
+        int maximumBit = 3;
+        int[] answer = solution.describeNumbers(nums, maximumBit);
+        assertEquals(3, answer[0]);
+        assertEquals(5, answer[1]);
+        assertEquals(7, answer[2]);
+        assertEquals(15, answer[3]);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] nums = {0, 2, 3, 4};
+        int maximumBit = 4;
+        int[] answer = solution.describeNumbers(nums, maximumBit);
+        assertEquals(3, answer[0]);
+        assertEquals(5, answer[1]);
+        assertEquals(7, answer[2]);
+        assertEquals(15, answer[3]);
+        assertEquals(31, answer[4]);
+    }
+}

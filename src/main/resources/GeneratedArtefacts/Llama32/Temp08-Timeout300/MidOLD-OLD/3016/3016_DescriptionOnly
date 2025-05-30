@@ -1,0 +1,51 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.HashMap;
+public class Main {
+
+    @Test
+    public void testPushCounts() {
+        String word = "hello";
+        HashMap<Character, Integer> keyMap = new HashMap<>();
+        keyMap.put('h', 4);
+        keyMap.put('e', 3);
+        keyMap.put('l', 2);
+        keyMap.put('o', 1);
+        assertEquals(8, pushCount(word, keyMap));
+    }
+
+    @Test
+    public void testPushCounts2() {
+        String word = "lllo";
+        HashMap<Character, Integer> keyMap = new HashMap<>();
+        keyMap.put('l', 2);
+        keyMap.put('o', 1);
+        assertEquals(6, pushCount(word, keyMap));
+    }
+
+    @Test
+    public void testPushCounts3() {
+        String word = "aaa";
+        HashMap<Character, Integer> keyMap = new HashMap<>();
+        keyMap.put('a', 1);
+        assertEquals(2, pushCount(word, keyMap));
+    }
+
+    @Test
+    public void testPushCounts4() {
+        String word = "aaa";
+        HashMap<Character, Integer> keyMap = new HashMap<>();
+        keyMap.put('a', 3);
+        assertEquals(5, pushCount(word, keyMap));
+    }
+
+    @Test
+    public void testPushCounts5() {
+        String word = "aaaaaa";
+        HashMap<Character, Integer> keyMap = new HashMap<>();
+        keyMap.put('a', 1);
+        assertEquals(6, pushCount(word, keyMap));
+    }
+}

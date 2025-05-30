@@ -1,0 +1,77 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1829;
+
+public class Solution {
+    int n;
+    int maximumBit;
+    long[] nums;
+
+    public long[] getMaximumXor(long[] nums, int maximumBit) {
+        this.n = nums.length;
+        this.maximumBit = maximumBit;
+        this.nums = nums;
+
+        answer = new long[n];
+        for (int i = 0; i < n; i++) {
+            answer[i] = findK();
+            removeLastElement();
+        }
+
+        return answer;
+    }
+
+    private void removeLastElement() {
+        nums = Arrays.copyOfRange(nums, 0, nums.length - 1);
+    }
+
+    public long getAnswer(int i) {
+        if (i >= n)
+            return answer[i - n];
+        else
+            return answer[i] ^ getK();
+    }
+
+    public void setNums(long[] nums) {
+        this.nums = nums;
+    }
+
+    public int getN() {
+        return n;
+    }
+
+    public long getMaximumBit() {
+        return maximumBit;
+    }
+
+    private long findK() {
+        int halfMask = (1 << maximumBit) / 2;
+
+        long answer = 0;
+        for (int i = 0; i < n; i++) {
+            if (i % 2 == 0)
+                answer ^= nums[i];
+            else
+                answer ^= halfMask ^ nums[i];
+        }
+
+        return answer;
+    }
+
+    private long getK() {
+        int halfMask = (1 << maximumBit) / 2;
+
+        long answer = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            if (i % 2 == 0)
+                answer ^= nums[i];
+            else
+                answer ^= halfMask ^ nums[i];
+
+            if (answer > 0) // find k that will give the maximum XOR value
+                break;
+        }
+
+        return answer;
+    }
+
+    private long[] answer = new long[n];
+}

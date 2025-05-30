@@ -1,0 +1,46 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.894;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.List;
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.894.Solution;
+
+public class 894_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        List<List<Integer>> result = solution.generateTrees(0);
+        assertEquals(1, result.size());
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        List<List<Integer>> result = solution.generateTrees(1);
+        assertEquals(3, result.size());
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        List<List<Integer>> result = solution.generateTrees(2);
+        assertEquals(5, result.size());
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        List<List<Integer>> result = solution.generateTrees(3);
+        assertEquals(11, result.size());
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        List<List<Integer>> result = solution.generateTrees(4);
+        assertEquals(27, result.size());
+    }
+}
+```

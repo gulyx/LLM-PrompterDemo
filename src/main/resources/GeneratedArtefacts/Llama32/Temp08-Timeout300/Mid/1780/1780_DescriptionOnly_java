@@ -1,0 +1,10 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1780;
+
+public class Solution {
+    public boolean checkPowersOfThree(int n) {
+        while (n != 0 && n % 3 == 0) {
+            n /= 3;
+        }
+        return n == 0;
+    }
+}

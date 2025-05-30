@@ -1,0 +1,26 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2130;
+
+public class Solution {
+    public int maxTwinSum(ListNode head) {
+        ListNode left = head;
+        ListNode right = head.next;
+        int result = Integer.MIN_VALUE;
+        
+        while (left != null && right != null) {
+            result = Math.max(result, left.val + right.val);
+            left = left.next;
+            if (right.next == null) break; // move the pointer to a twin node
+            else right = right.next.next;
+        }
+        
+        return result;
+    }
+}
+
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode() {}
+    ListNode(int val) { this.val = val; }
+    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+}

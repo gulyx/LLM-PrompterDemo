@@ -1,0 +1,42 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class 1561_DescriptionExample {
+
+    @Test
+    public void test_PilesWithDifferentAmounts() {
+        int[] piles = {2,4,1,2,7,8};
+        int expectedOutput = 9;
+        assertEquals(expectedOutput, maxCoins(piles));
+    }
+
+    @Test
+    public void test_PilesWithEqualAmounts() {
+        int[] piles = {2,4,5};
+        int expectedOutput = 4;
+        assertEquals(expectedOutput, maxCoins(piles));
+    }
+
+    @Test
+    public void test_PilesInDecreasingOrder() {
+        int[] piles = {9,8,7,6,5,1,2,3,4};
+        int expectedOutput = 18;
+        assertEquals(expectedOutput, maxCoins(piles));
+    }
+
+    @Test
+    public void test_PilesWithSmallAmounts() {
+        int[] piles = {1,2,3,4,5};
+        int expectedOutput = 6;
+        assertEquals(expectedOutput, maxCoins(piles));
+    }
+
+    @Test
+    public void test_PilesWithVeryLargeAmounts() {
+        int[] piles = {1000000,999999,998999,997999,996999,995999,994999,993999,992999};
+        int expectedOutput = 2799801;
+        assertEquals(expectedOutput, maxCoins(piles));
+    }
+}

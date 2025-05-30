@@ -1,0 +1,57 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 654_DescriptionOnlyTest {
+
+    @Test
+    public void testBuildTreeFromEmptyArray() {
+        int[] nums = {};
+        Node root = buildMaxBinaryTree(nums);
+        assertNull(root);
+    }
+
+    @Test
+    public void testBuildTreeFromSingleElementArray() {
+        int[] nums = {1};
+        Node root = buildMaxBinaryTree(nums);
+        assertEquals(1, root.val);
+        assertNull(root.left);
+        assertNull(root.right);
+    }
+
+    @Test
+    public void testBuildTreeFromMultipleElementsArray() {
+        int[] nums = {3,2,1};
+        Node root = buildMaxBinaryTree(nums);
+        assertEquals(3, root.val);
+        assertNotNull(root.left);
+        assertEquals(2, root.left.val);
+        assertNotNull(root.right);
+        assertEquals(1, root.right.val);
+    }
+
+    @Test
+    public void testBuildTreeFromArrayWithMultipleBranches() {
+        int[] nums = {3,2,1,5};
+        Node root = buildMaxBinaryTree(nums);
+        assertEquals(5, root.val);
+        assertNotNull(root.left);
+        assertEquals(2, root.left.val);
+        assertNotNull(root.right);
+        assertEquals(3, root.right.val);
+    }
+
+    @Test
+    public void testBuildTreeFromArrayWithMultipleBranchesAndLeafNodes() {
+        int[] nums = {3,2,1,5,4};
+        Node root = buildMaxBinaryTree(nums);
+        assertEquals(5, root.val);
+        assertNotNull(root.left);
+        assertEquals(4, root.left.val);
+        assertNotNull(root.right);
+        assertEquals(3, root.right.val);
+    }
+
+}

@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void testValidBinaryStrings_When_n_is_Greater_than_2_Returns CorrectOutput() {
+        Solution solution = new Solution();
+        String[] result = solution.generateBinary(int[][] input, int n);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testValidBinaryStrings_When_n_is_Two_ReturnsCorrectOutput() {
+        Solution solution = new Solution();
+        String[] result = solution.generateBinary(new int[][]{{0, 1}, {1, 0}}, 2);
+        assertEquals("01", result[0]);
+    }
+
+    @Test
+    public void testValidBinaryStrings_When_n_is_Zero_ReturnsEmptyArray() {
+        Solution solution = new Solution();
+        String[] result = solution.generateBinary(new int[][]{{0, 1}, {1, 0}}, 0);
+        assertTrue(result.length == 0);
+    }
+
+    @Test
+    public void testValidBinaryStrings_When_n_is_one_ReturnsCorrectOutput() {
+        Solution solution = new Solution();
+        String[] result = solution.generateBinary(new int[][]{{0, 1}, {1, 0}}, 1);
+        assertEquals("0", result[0]);
+        assertEquals("1", result[1]);
+    }
+
+    @Test
+    public void testValidBinaryStrings_When_n_is_three_ReturnsCorrectOutput() {
+        Solution solution = new Solution();
+        String[] result = solution.generateBinary(new int[][]{{0, 1}, {1, 0}}, 3);
+        assertTrue(java.util.Arrays.asList(result).contains("010"));
+        assertTrue(java.util.Arrays.asList(result).contains("011"));
+        assertTrue(java.util.Arrays.asList(result).contains("101"));
+        assertTrue(java.util.Arrays.asList(result).contains("110"));
+        assertTrue(java.util.Arrays.asList(result).contains("111"));
+    }
+}
+```

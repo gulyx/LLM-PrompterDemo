@@ -1,0 +1,39 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.535;
+
+public class Solution {
+    private static final Random random = new Random();
+    private Map<String, String> shortUrls;
+    private int size;
+
+    public Solution() {
+        shortUrls = new HashMap<>();
+        size = 0;
+    }
+
+    public String encode(String longUrl) {
+        while (true) {
+            int length = Math.max(6, (int) (Math.random() * 10));
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < length; ++i) {
+                char c = 'a' + random.nextInt('z' - 'a' + 1);
+                sb.append(c);
+            }
+            String shortUrl = "http://tinyurl.com/" + sb.toString();
+
+            if (!shortUrls.containsValue(shortUrl)) {
+                shortUrls.put(sb.toString(), longUrl);
+                size++;
+                return shortUrl;
+            }
+        }
+    }
+
+    public String decode(String shortUrl) {
+        for (String key : shortUrls.keySet()) {
+            if (key.equals(shortUrl)) {
+                return shortUrls.get(key);
+            }
+        }
+        return "";
+    }
+}

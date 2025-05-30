@@ -1,0 +1,48 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1074;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1074.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class 1074_DescriptionOnly_testsTest {
+
+    @Test
+    public void testGetSubmatrix() {
+        Solution solution = new Solution();
+        int[][] matrix = {{-1,-2,3},{0,1,1},{5,-3,2}};
+        long target = -6;
+        assertEquals(9, solution.numSubmatrix(matrix, target));
+    }
+
+    @Test
+    public void testGetSubmatrix2() {
+        Solution solution = new Solution();
+        int[][] matrix = {{-1,0}};
+        long target = 0;
+        assertEquals(2, solution.numSubmatrix(matrix, target));
+    }
+
+    @Test
+    public void testGetSubmatrix3() {
+        Solution solution = new Solution();
+        int[][] matrix = {{1,-2,-4},{-5,3,-9},{8,5,9}};
+        long target = 0;
+        assertEquals(10, solution.numSubmatrix(matrix, target));
+    }
+
+    @Test
+    public void testGetSubmatrix4() {
+        Solution solution = new Solution();
+        int[][] matrix = {{-1,-2,3},{0,1,1},{5,-3,2}};
+        long target = 9;
+        assertEquals(10, solution.numSubmatrix(matrix, target));
+    }
+
+    @Test
+    public void testGetSubmatrix5() {
+        Solution solution = new Solution();
+        int[][] matrix = {{-100,-90,-80},{0,-80,70},{-30,40,60}};
+        long target = 50;
+        assertEquals(1, solution.numSubmatrix(matrix, target));
+    }
+}

@@ -1,0 +1,22 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1123;
+
+public class Solution {
+    public TreeNode lcaDeepestLeaves(TreeNode root) {
+        int maxDepth = 0;
+        int maxNode = null;
+        dfs(root, 0);
+        return maxNode;
+    }
+
+    private void dfs(TreeNode node, int depth) {
+        if (node == null || (node.left == null && node.right == null)) {
+            if (depth > maxDepth) {
+                maxDepth = depth;
+                maxNode = node;
+            }
+            return;
+        }
+        dfs(node.left, depth + 1);
+        dfs(node.right, depth + 1);
+    }
+}

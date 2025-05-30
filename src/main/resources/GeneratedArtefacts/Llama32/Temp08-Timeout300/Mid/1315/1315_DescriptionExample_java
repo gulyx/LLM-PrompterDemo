@@ -1,0 +1,63 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1315;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Solution {
+    public int sumEvenGrandparent(TreeNode root) {
+        Map<TreeNode, Integer> parentMap = new HashMap<>();
+        Map<TreeNode, Integer> childMap = new HashMap<>();
+
+        dfs(root, -1, 0, parentMap, childMap);
+
+        int sum = 0;
+        for (TreeNode node : parentMap.keySet()) {
+            if (parentMap.get(node) % 2 == 0) {
+                sum += getGrandChildSum(childMap, node, true);
+            }
+        }
+
+        return sum;
+    }
+
+    private void dfs(TreeNode node, int parent, int depth, Map<TreeNode, Integer> parentMap, Map<TreeNode, Integer> childMap) {
+        if (node == null) {
+            return;
+        }
+
+        parentMap.put(node, parent);
+        childMap.put(node, depth);
+
+        dfs(node.left, node.val, depth + 1, parentMap, childMap);
+        dfs(node.right, node.val, depth + 1, parentMap, childMap);
+    }
+
+    private int getGrandChildSum(Map<TreeNode, Integer> childMap, TreeNode node, boolean isLeft) {
+        if (childMap.get(node) % 2 == 0) {
+            return node.val;
+        } else {
+            if (isLeft && childMap.containsKey(node.left)) {
+                return childMap.get(node.left);
+            } else if (!isLeft && childMap.containsKey(node.right)) {
+                return childMap.get(node.right);
+            }
+        }
+
+        return 0;
+    }
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode() {}
+    TreeNode(int val) { this.val = val; }
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
+```

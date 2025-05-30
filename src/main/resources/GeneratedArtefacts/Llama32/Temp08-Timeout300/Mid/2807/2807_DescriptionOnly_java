@@ -1,0 +1,52 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2807;
+
+public class Solution {
+    public ListNode addGCD(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
+        
+        int gcd = getGcd(head.val, head.next.val);
+        
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode curr = dummy;
+        
+        while (curr.next != null && curr.next.next != null) {
+            int newGCD = getGcd(curr.next.val, curr.next.next.val);
+            
+            if (newGCD > gcd) {
+                ListNode insertNode = new ListNode(newGCD);
+                
+                curr.next = insertNode;
+                insertNode.next = curr.next.next;
+                curr.next.next.prev = insertNode;
+            } else {
+                curr = curr.next;
+            }
+            
+            gcd = newGCD;
+        }
+        
+        return dummy.next;
+    }
+    
+    private int getGcd(int a, int b) {
+        while (b != 0) {
+            int tmp = b;
+            b = a % b;
+            a = tmp;
+        }
+        
+        return Math.abs(a);
+    }
+}
+
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode prev;
+    
+    public ListNode(int x) {
+        val = x;
+    }
+}

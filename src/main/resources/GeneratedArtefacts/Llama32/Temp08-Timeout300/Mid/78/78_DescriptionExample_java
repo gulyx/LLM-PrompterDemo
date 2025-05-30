@@ -1,0 +1,27 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.78;
+
+import java.util.*;
+
+public class Solution {
+
+    public List<List<Integer>> subsets(int[] nums) {
+        Set<List<Integer>> res = new HashSet<>();
+        backtrack(res, new ArrayList<>(), nums);
+        return new ArrayList<>(res);
+    }
+
+    private void backtrack(Set<List<Integer>> res, List<Integer> path, int[] nums) {
+        res.add(new ArrayList<>(path));
+        for (int num : nums) {
+            if (!path.contains(num)) {
+                path.add(num);
+                backtrack(res, path, nums);
+                path.remove(path.size() - 1);
+            }
+        }
+    }
+
+}
+
+```

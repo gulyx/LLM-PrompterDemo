@@ -1,0 +1,43 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3211.Solution;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionOnlyTestsTest {
+
+    @Test
+    public void validStrings_ReturnsValidBinaryStringsWithLength_n() {
+        Solution solution = new Solution();
+        int[] result = solution.validBinaryStrings(2);
+        assertEquals(4, result.length);
+    }
+
+    @Test
+    public void allSubstringsOfLength1ContainAtLeastOne1() {
+        Solution solution = new Solution();
+        String result = solution.validBinaryString(1);
+        assertTrue(result.contains("1"));
+    }
+
+    @Test
+    public void noValidStringsAreLength1() {
+        Solution solution = new Solution();
+        boolean result = solution.validBinaryString(1);
+        assertFalse(result);
+    }
+
+    @Test
+    public void validStrings_ReturnsAllPossibleStrings() {
+        Solution solution = new Solution();
+        int[] result = solution.validBinaryStrings(3);
+        assertEquals(8, result.length);
+    }
+
+    @Test
+    public void validStringsWithLength_n_MustContainAtLeastOne1() {
+        Solution solution = new Solution();
+        String result = solution.validBinaryString(4);
+        assertTrue(result.contains("1"));
+    }
+}

@@ -1,0 +1,55 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.*;
+
+public class Solution {
+
+    @Test
+    public void test_example1() {
+        int n = 3;
+        int[] startPos = {0,1};
+        String s = "RRDDLU";
+        int[] expectedOutput = {1,5,4,3,1,0};
+        assertArrayEquals(expectedOutput, new Solution().numInstructions(n, startPos, s));
+    }
+
+    @Test
+    public void test_example2() {
+        int n = 2;
+        int[] startPos = {1,1};
+        String s = "LURD";
+        int[] expectedOutput = {4,1,0,0};
+        assertArrayEquals(expectedOutput, new Solution().numInstructions(n, startPos, s));
+    }
+
+    @Test
+    public void test_example3() {
+        int n = 1;
+        int[] startPos = {0,0};
+        String s = "LRUD";
+        int[] expectedOutput = {0,0,0,0};
+        assertArrayEquals(expectedOutput, new Solution().numInstructions(n, startPos, s));
+    }
+
+    @Test
+    public void test_example4() {
+        int n = 2;
+        int[] startPos = {1,0};
+        String s = "UDRU";
+        int[] expectedOutput = {3,0,0,1};
+        assertArrayEquals(expectedOutput, new Solution().numInstructions(n, startPos, s));
+    }
+
+    @Test
+    public void test_example5() {
+        int n = 5;
+        int[] startPos = {2,4};
+        String s = "LDDDURUUDDDU";
+        int[] expectedOutput = {1,0,3,0,0,6,4,1,7,2,8,9,1,2,0};
+        assertArrayEquals(expectedOutput, new Solution().numInstructions(n, startPos, s));
+    }
+}
+```

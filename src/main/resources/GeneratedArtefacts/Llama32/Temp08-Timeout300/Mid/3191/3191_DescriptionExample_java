@@ -1,0 +1,16 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3191;
+
+public class Solution {
+    public int minFlips(int[] nums) {
+        int n = nums.length;
+        if (n % 3 == 0 && allOnes(nums, n / 3)) return n / 3;
+        else return -1;
+    }
+
+    private boolean allOnes(int[] arr, int i) {
+        for (int j : new int[]{i, i + 1, i + 2}) {
+            if (arr[j] == 0) return false;
+        }
+        return true;
+    }
+}

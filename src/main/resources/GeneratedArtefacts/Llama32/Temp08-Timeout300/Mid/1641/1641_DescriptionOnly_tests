@@ -1,0 +1,56 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1641;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1641.Solution;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+public class 1641_DescriptionOnly_testsTest {
+
+    @Test
+    public void test_countVowelStrings_0() {
+        Solution solution = new Solution();
+        int n = 0;
+        int expected = 1;
+        int actual = solution.countVowelStrings(n);
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void test_countVowelStrings_50() {
+        Solution solution = new Solution();
+        int n = 50;
+        int expected = 26;
+        int actual = solution.countVowelStrings(n);
+        assertEquals(expected,actual);
+    }
+        
+    @Test
+    public void test_countVowelStrings_30() {
+        Solution solution = new Solution();
+        int n = 30;
+        int expected = 941;
+        int actual = solution.countVowelStrings(n);
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void test_countVowelStrings_Negative() {
+        Solution solution = new Solution();
+        int n = -1;
+        int expected = 0;
+        int actual = solution.countVowelStrings(n);
+        assertEquals(expected,actual);
+    }
+        
+    @Test 
+    public void test_countVowelStrings_InvalidInput() {
+        Solution solution = new Solution();
+        int n = 1;
+        int expected = 5;
+        int actual = solution.countVowelStrings(-n);
+        assertFalse(actual == expected);
+    }
+
+    }

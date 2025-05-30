@@ -1,0 +1,45 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class DescriptionOnly {
+
+    public int numTileLetters(int[] tiles) {
+        Set<Character> set = new HashSet<>();
+        for (int tile : tiles) {
+            set.add((char) tile);
+        }
+        return set.size();
+    }
+
+    @Test
+    public void testNumTileLetters_EmptyArray_ReturnsZero() {
+        int[] tiles = {};
+        assertEquals(0, numTileLetters(tiles));
+    }
+
+    @Test
+    public void testNumTileLetters_SingleElementArray_ReturnsOne() {
+        int[] tiles = { 'a' };
+        assertEquals(1, numTileLetters(tiles));
+    }
+
+    @Test
+    public void testNumTileLetters_MultipleElementsArray_ReturnsSizeOfSet() {
+        int[] tiles = { 'a', 'b', 'c' };
+        assertEquals(3, numTileLetters(tiles));
+    }
+
+    @Test
+    public void testNumTileLetters_DuplicateElementsArray_ReturnsSizeOfSet() {
+        int[] tiles = { 'a', 'a', 'b' };
+        assertEquals(2, numTileLetters(tiles));
+    }
+
+    @Test
+    public void testNumTileLetters_NullArray_ThrowsNullPointerException() {
+        int[] tiles = null;
+        assertThrows(NullPointerException.class, () -> numTileLetters(tiles));
+    }
+}

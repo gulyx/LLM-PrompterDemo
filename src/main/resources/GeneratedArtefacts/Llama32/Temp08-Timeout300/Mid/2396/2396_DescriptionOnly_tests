@@ -1,0 +1,38 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2396;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2396.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class 2396_DescriptionOnly_testsTest {
+
+    @Test
+    public void testIsStrictlyPalindromic_LowBound() {
+        Solution solution = new Solution();
+        assertTrue(solution.isStrictlyPalindromic(1));
+    }
+
+    @Test
+    public void testIsStrictlyPalindromic_MidBound() {
+        Solution solution = new Solution();
+        assertTrue(solution.isStrictlyPalindromic(10));
+    }
+
+    @Test
+    public void testIsStrictlyPalindromic_HighBound() {
+        Solution solution = new Solution();
+        assertFalse(solution.isStrictlyPalindromic(20));
+    }
+
+    @Test
+    public void testIsStrictlyPalindromic_PalindromeInBase2() {
+        Solution solution = new Solution();
+        assertTrue(solution.isStrictlyPalindromic(1));
+    }
+
+    @Test
+    public void testIsStrictlyPalindromic_NonPalindromeInAnyBase() {
+        Solution solution = new Solution();
+        assertFalse(solution.isStrictlyPalindromic(12));
+    }
+}

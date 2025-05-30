@@ -1,0 +1,66 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DescriptionExample {
+
+    @Test
+    public void testMinStepsPalindrome() {
+        String s = "zzazz";
+        int expectedOutput = 0;
+        assertEquals(expectedOutput, minStepsPalindrome(s));
+    }
+
+    @Test
+    public void testMinStepsPalindrome2() {
+        String s = "mbadm";
+        int expectedOutput = 2;
+        assertEquals(expectedOutput, minStepsPalindrome(s));
+    }
+
+    @Test
+    public void testMinStepsPalindrome3() {
+        String s = "leetcode";
+        int expectedOutput = 5;
+        assertEquals(expectedOutput, minStepsPalindrome(s));
+    }
+
+    @Test
+    public void testMinStepsPalindrome4() {
+        String s = "aabb";
+        int expectedOutput = 0;
+        assertEquals(expectedOutput, minStepsPalindrome(s));
+    }
+
+    @Test
+    public void testMinStepsPalindrome5() {
+        String s = "abcba";
+        int expectedOutput = 0;
+        assertEquals(expectedOutput, minStepsPalindrome(s));
+    }
+}
+
+public class Solution {
+
+    public int minStepsPalindrome(String s) {
+        int n = s.length();
+        char[] revs = new char[n];
+        for (int i = 0; i < n / 2; i++) {
+            revs[i] = s.charAt(n - 1 - i);
+        }
+        if (n % 2 == 0) {
+            return 0;
+        } else {
+            int diff = 0;
+            for (int i = 0; i < n / 2; i++) {
+                if (s.charAt(i) != revs[i]) {
+                    diff++;
+                }
+            }
+            return (diff + 1) / 2;
+        }
+    }
+}
+```

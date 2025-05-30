@@ -1,0 +1,50 @@
+```java
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2551;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2551.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SolutionTest {
+
+    @Test
+    public void testSolution() {
+        Solution solution = new Solution();
+        long[] weights = {2, 3, 5};
+        int k = 2;
+        assertEquals(12, solution.descriptionOnlyTests(weights, k));
+    }
+
+    @Test
+    public void testSolution_EmptyArray() {
+        Solution solution = new Solution();
+        long[] weights = {};
+        int k = 1;
+        assertEquals(0L, solution.descriptionOnlyTests(weights, k));
+    }
+
+    @Test
+    public void testSolution_SingleElementArray() {
+        Solution solution = new Solution();
+        long[] weights = {5};
+        int k = 1;
+        assertEquals(10L, solution.descriptionOnlyTests(weights, k));
+    }
+
+    @Test
+    public void testSolution_LargeArray() {
+        Solution solution = new Solution();
+        long[] weights = {2, 3, 4, 7, 6, 8};
+        int k = 2;
+        assertEquals(100L, solution.descriptionOnlyTests(weights, k));
+    }
+
+    @Test
+    public void testSolution_LargeArray_BigK() {
+        Solution solution = new Solution();
+        long[] weights = {5, 1, 3, 7, 4};
+        int k = 6;
+        assertEquals(160L, solution.descriptionOnlyTests(weights, k));
+    }
+}
+```

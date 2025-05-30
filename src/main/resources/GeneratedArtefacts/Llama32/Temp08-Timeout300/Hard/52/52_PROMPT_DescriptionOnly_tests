@@ -1,0 +1,6 @@
+As a professional Software Tester, generate a complete Junit test-class (name the test-class as: '52_DescriptionOnly_testsTest', and use as first line the declaration: 'package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.52;') with 5 different JUnit tests for a Java class-under-test (you can assume the class-under-test is named: Solution, and import it as: 'import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.52.Solution;'). The class-under-test implements the following description in natural language. Emit only the Java code, without any other tag or text. Here is the description for the class-under-test: 
+The n-queens puzzle is the problem of placing "n" queens on an "n x n" chessboard such that no two queens attack each other. Given an integer "n", return the number of distinct solutions to the n-queens puzzle.
+Constraints:
+- "1 <= n <= 9"
+
+

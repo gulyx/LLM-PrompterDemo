@@ -1,0 +1,49 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.950;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.950.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Arrays;
+
+public class 950_DescriptionOnly_testsTest {
+
+    @Test
+    public void test1() {
+        Solution solution = new Solution();
+        int[] deck = {2,7,3,9};
+        String result = solution.drawAndDiscard(deck);
+        assertEquals("97932",result);
+    }
+
+    @Test
+    public void test2() {
+        Solution solution = new Solution();
+        int[] deck = {1, 1000, 2, 50, 12, 11};
+        String result = solution.drawAndDiscard(deck);
+        assertEquals("11225010100",result);
+    }
+
+    @Test
+    public void test3() {
+        Solution solution = new Solution();
+        int[] deck = {1, 2, 3, 4, 5, 6, 7};
+        String result = solution.drawAndDiscard(deck);
+        assertEquals("123456789",result);
+    }
+
+    @Test
+    public void test4() {
+        Solution solution = new Solution();
+        int[] deck = {1, 2, 3, 4, 5};
+        String result = solution.drawAndDiscard(deck);
+        assertEquals("12345",result);
+    }
+
+    @Test
+    public void test5() {
+        Solution solution = new Solution();
+        int[] deck = {10, 11, 12, 13, 14};
+        String result = solution.drawAndDiscard(deck);
+        assertEquals("1314151210",result);
+    }
+}

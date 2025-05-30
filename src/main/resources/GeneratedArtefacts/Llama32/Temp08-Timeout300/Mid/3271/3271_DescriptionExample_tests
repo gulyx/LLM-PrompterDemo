@@ -1,0 +1,53 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3271;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.3271.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class DescriptionExampleTestsTest {
+
+    @Test
+    public void test_1() {
+        Solution solution = new Solution();
+        String s = "abcd";
+        int k = 2;
+        String result = solution.getHash(s, k);
+        assertEquals("bf", result);
+    }
+
+    @Test
+    public void test_2() {
+        Solution solution = new Solution();
+        String s = "mxz";
+        int k = 3;
+        String result = solution.getHash(s, k);
+        assertEquals("i", result);
+    }
+
+    @Test
+    public void test_3() {
+        Solution solution = new Solution();
+        String s = "abcdefghijklmnopqrstuvwxyz";
+        int k = 26;
+        String result = solution.getHash(s, k);
+        assertEquals("abcdefghijklmnopqrstuvwxyz", result);
+    }
+
+    @Test
+    public void test_4() {
+        Solution solution = new Solution();
+        String s = "aabbccdd";
+        int k = 2;
+        String result = solution.getHash(s, k);
+        assertEquals("i", result);
+    }
+
+    @Test
+    public void test_5() {
+        Solution solution = new Solution();
+        String s = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";
+        int k = 26;
+        String result = solution.getHash(s, k);
+        assertEquals("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz", result);
+    }
+}

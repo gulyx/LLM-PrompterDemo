@@ -1,0 +1,92 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.773;
+
+public class Solution {
+    int moves = 0;
+    int rows = 0;
+    int cols = 0;
+
+    public int slidingPuzzle(int[][] board) {
+        boolean solved = false;
+        rows = board.length;
+        cols = board[0].length;
+        for (int i = 0; i < rows * cols; i++) {
+            int curRow = i / cols;
+            int curCol = i % cols;
+            if (board[curRow][curCol] == 0) {
+                continue;
+            }
+            int[] goal = {board[curRow][curCol], board[curRow + 1][curCol], 
+                    board[curRow + 2][curCol], board[curRow][curCol + 1], 
+                    board[curRow][curCol - 1]};
+            if (goal[0] == 1 && goal[4] == 5) {
+                solved = true;
+                break;
+            } else if (!isGoodState(goal)) {
+                continue;
+            }
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(toNumber(board));
+
+        Set<Integer> seen = new HashSet<>();
+
+        while (queue.size() != 0) {
+            Integer curNum = queue.poll();
+            int[] arr = numberToArray(curNum);
+            if (isGoodState(arr)) {
+                return moves;
+            }
+            for (int i = 0; i < rows * cols - 1; i++) {
+                int curRow = i / cols;
+                int curCol = i % cols;
+                if (board[curRow][curCol] != arr[curRow * cols + curCol]) {
+                    if (Math.abs(arr[curRow * cols + curCol] - board[curRow][curCol]) == 1) {
+                        int[] nextArr = swap(arr, curRow * cols + curCol);
+                        if (!seen.contains(toNumber(nextArr))) {
+                            queue.add(toNumber(nextArr));
+                            seen.add(toNumber(nextArr));
+                        }
+                    }
+                }
+
+            }
+            moves++;
+        }
+        return -1;
+    }
+
+    public int toNumber(int[] arr) {
+        int num = 0;
+        for (int i = 0; i < arr.length; i++) {
+            num += arr[i] * (rows * cols - i);
+        }
+        return num;
+    }
+
+    public int[] numberToArray(Integer num) {
+        int[] resArr = new int[rows * cols];
+        for (int i = 0; i < rows * cols; i++) {
+            resArr[i] = ((num / (rows * cols - i)) % 6) + 1;
+        }
+        return resArr;
+    }
+
+    public int[] swap(int[] arr, int idx) {
+        if(idx > 0 && idx < arr.length){
+            int temp = arr[idx];
+            arr[idx] = arr[idx-1];
+            arr[idx - 1] = temp;
+        }else{
+            throw new RuntimeException("Invalid idx");
+        }
+        return arr;
+    }
+
+    public boolean isGoodState(int[] goal) {
+        if(goal[0] == 5 && goal[4] == 1) {
+            return true;
+        }
+        return false;
+    }
+}

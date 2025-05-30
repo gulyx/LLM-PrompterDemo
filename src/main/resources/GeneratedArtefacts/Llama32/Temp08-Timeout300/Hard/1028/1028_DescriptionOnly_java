@@ -1,0 +1,33 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.1028;
+
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
+
+public class Solution {
+
+    private TreeNode dfs(List<String> traversal, int index) {
+        if (index >= traversal.size()) return null;
+
+        int depth = traversal.get(index).length();
+        String[] parts = traversal.get(index + 1).split(" ");
+        boolean isLeftChild = parts[0].equals("-");
+
+        TreeNode node = new TreeNode(Integer.parseInt(parts[1]));
+        node.left = dfs(traversal, index + 2);
+        if (!isLeftChild) node.right = dfs(traversal, index + 2);
+
+        return node;
+    }
+
+    public TreeNode recoverFromTraversal(List<String> traversal) {
+        Collections.reverse(traversal);
+
+        return dfs(traversal, 0);
+    }
+}

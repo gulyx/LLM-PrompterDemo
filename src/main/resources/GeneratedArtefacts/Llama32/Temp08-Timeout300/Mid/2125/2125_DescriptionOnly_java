@@ -1,0 +1,36 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2125;
+
+public class Solution {
+    public int countBeams(String[] bank) {
+        int m = bank.length;
+        int n = bank[0].length();
+        boolean[][] present = new boolean[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (bank[i].charAt(j) == '1') {
+                    present[i][j] = true;
+                    if (i > 0 && present[i - 1][j]) {
+                        present[i][j] = false;
+                    }
+                }
+            }
+        }
+
+        int beams = 0;
+        for (int i = 0; i < m - 1; i++) {
+            boolean foundDevice = false;
+            for (int j = 0; j < n; j++) {
+                if (present[i][j] && present[i + 1][j]) {
+                    beams++;
+                    foundDevice = true;
+                    break;
+                }
+            }
+            if (!foundDevice) {
+                return beams;
+            }
+        }
+
+        return beams;
+    }
+}

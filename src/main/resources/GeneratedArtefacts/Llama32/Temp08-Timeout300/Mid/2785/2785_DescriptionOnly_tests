@@ -1,0 +1,49 @@
+package it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2785;
+
+import it.cnr.iasi.saks.llmPrompter.leetCodeDemo.gen.2785.Solution;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class 2785_DescriptionOnly_testsTest {
+
+    @Test
+    void test_1() {
+        Solution solution = new Solution();
+        String s = "aabbcc";
+        String result = solution.sortString(s);
+        assertEquals("aaabbc", result);
+    }
+
+    @Test
+    void test_2() {
+        Solution solution = new Solution();
+        String s = "aeiou";
+        String result = solution.sortString(s);
+        assertEquals("aeiou", result);
+    }
+
+    @Test
+    void test_3() {
+        Solution solution = new Solution();
+        String s = "abcd";
+        String result = solution.sortString(s);
+        assertEquals("abccad", result);
+    }
+
+    @Test
+    void test_4() {
+        Solution solution = new Solution();
+        String s = "hello world!";
+        String result = solution.sortString(s);
+        assertEquals("ehllo orld!", result);
+    }
+
+    @Test
+    void test_5() {
+        Solution solution = new Solution();
+        String s = "abcdeFG";
+        String result = solution.sortString(s);
+        assertEquals("abcdefg", result);
+    }
+}
